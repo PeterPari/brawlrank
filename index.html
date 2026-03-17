@@ -876,7 +876,7 @@ body {
     <h2 class="section-heading">Methodology</h2>
     <p class="section-sub">How we calculate the meta rankings.</p>
     <div class="methodology-box">
-      <strong>BrawlRank</strong> aggregates tier lists from <strong>10 different sources</strong> including pro players, content creators, and data-driven platforms. Each source rates brawlers from <strong>S</strong> (best) to <strong>F</strong> (worst). We assign numerical scores (<strong>S=6, A=5, B=4, C=3, D=2, F=1</strong>), apply source weights based on recency and authority, then calculate a weighted average. The final tier is determined by score thresholds.
+      <strong>BrawlRank</strong> aggregates tier lists from <strong>10 different sources</strong> including pro players, content creators, and data-driven platforms. Each source rates brawlers from <strong>S</strong> (best) to <strong>F</strong> (worst). We assign numerical scores (<strong>S=6, A=5, B=4, C=3, D=2, F=1</strong>), apply source weights based on recency and authority, then calculate a weighted average. The final tier is determined by these score thresholds: <strong>S >= 5.5, A >= 4.5, B >= 3.5, C >= 2.5, D >= 1.8, F < 1.8</strong>.
       <br><br>
       <strong>Source weights:</strong> KairosTime and SpenLC receive a <strong>1.2×</strong> multiplier for competitive authority. HMBLE (<strong>0.9×</strong>) and Noff Ranked (<strong>0.8×</strong>) are slightly adjusted. Driffle (<strong>0.7×</strong>) and BrawlTime Votes (<strong>0.6×</strong>) receive lower weights as editorial or community-aggregated sources. All other sources are weighted at <strong>1.0×</strong>.
     </div>
@@ -927,10 +927,43 @@ const TIER_COLORS = {
 };
 
 const TIER_ORDER = ['S', 'A', 'B', 'C', 'D', 'F'];
+const TIER_THRESHOLDS = {
+  S: 5.5,
+  A: 4.5,
+  B: 3.5,
+  C: 2.5,
+  D: 1.8
+};
+
+function getTierFromScore(score) {
+  if (score >= TIER_THRESHOLDS.S) return 'S';
+  if (score >= TIER_THRESHOLDS.A) return 'A';
+  if (score >= TIER_THRESHOLDS.B) return 'B';
+  if (score >= TIER_THRESHOLDS.C) return 'C';
+  if (score >= TIER_THRESHOLDS.D) return 'D';
+  return 'F';
+}
+
+function buildTiersFromScores() {
+  const tiers = { S: [], A: [], B: [], C: [], D: [], F: [] };
+
+  TIER_DATA.brawlers.forEach((b) => {
+    const recalculatedTier = getTierFromScore(b.score);
+    b.tier = recalculatedTier;
+    tiers[recalculatedTier].push(b.name);
+  });
+
+  TIER_ORDER.forEach((tier) => {
+    tiers[tier].sort((a, b) => brawlerMap[b].score - brawlerMap[a].score);
+  });
+
+  return tiers;
+}
 
 // Build brawler lookup
 const brawlerMap = {};
 TIER_DATA.brawlers.forEach(b => { brawlerMap[b.name] = b; });
+const DISPLAY_TIERS = buildTiersFromScores();
 
 // Set last updated
 document.getElementById('lastUpdated').textContent = 'Last updated: ' + TIER_DATA.last_updated;
@@ -941,7 +974,7 @@ function renderTierList() {
   container.innerHTML = '';
 
   TIER_ORDER.forEach(tier => {
-    const names = TIER_DATA.tiers[tier];
+    const names = DISPLAY_TIERS[tier];
     if (tier === 'F' && names.length === 0) {
       // Still render empty F tier
     }
