@@ -13,6 +13,59 @@ const SOURCE_WEIGHTS = {
   'Noff.gg': 1.0
 };
 
+const SOURCE_DETAILS = {
+  'Ash': {
+    whatItIs: 'A creator-driven tier list focused on practical ranked and ladder play.',
+    whyWeight: 'Weighted at 1.0x as a baseline source in the blended model.',
+    uses: ['Ash (single analyst)', 'Current patch experience', 'Creator match review and testing']
+  },
+  'KairosTime': {
+    whatItIs: 'A pro-led tier list with strong competitive framing and broad community trust.',
+    whyWeight: 'Receives a 1.2x multiplier for competitive authority.',
+    uses: ['KairosTime + competitive collaborators', 'Scrim and high-level ranked context', 'Patch-adjusted matchup analysis']
+  },
+  'BobbyBS': {
+    whatItIs: 'A creator list informed by direct input from multiple professional players.',
+    whyWeight: 'Weighted at 1.0x as a baseline source in the blended model.',
+    uses: ['BobbyBS + around 10 pro players', 'Pro feedback consensus', 'High-level mode and map discussions']
+  },
+  'Noff.gg': {
+    whatItIs: 'A data-oriented tier list for top-end player performance.',
+    whyWeight: 'Weighted at 1.0x as a baseline source in the blended model.',
+    uses: ['Top 200 performance snapshots', 'Pick and win trends', 'Ranked/ladder results by mode']
+  },
+  'SpenLC': {
+    whatItIs: 'A pro player tier list with direct competitive gameplay insight.',
+    whyWeight: 'Receives a 1.2x multiplier for competitive authority.',
+    uses: ['SpenLC (pro player)', 'Competitive experience and scrims', 'Draft and matchup priority judgment']
+  },
+  'MmonsteR': {
+    whatItIs: 'A data-based meta source centered on upper-skill players.',
+    whyWeight: 'Weighted at 1.0x as a baseline source in the blended model.',
+    uses: ['Top 200 style data model', 'Usage and success metrics', 'Patch-cycle trend tracking']
+  },
+  'Driffle': {
+    whatItIs: 'An editorial tier list designed for broad audience readability.',
+    whyWeight: 'Set to 0.7x as a lower weight for an editorial source.',
+    uses: ['Editorial analysis team', 'General gameplay patterns', 'Cross-source synthesis for mainstream players']
+  },
+  'BrawlTime Votes': {
+    whatItIs: 'A large community-vote ranking that reflects crowd sentiment.',
+    whyWeight: 'Set to 0.6x as a lower weight for a community-aggregated source.',
+    uses: ['312K+ community votes', 'Public sentiment trends', 'Large-sample opinion aggregation']
+  },
+  'HMBLE': {
+    whatItIs: 'A pro team perspective rooted in coordinated competitive play.',
+    whyWeight: 'Slightly adjusted to 0.9x.',
+    uses: ['HMBLE pro team members', 'Team scrim/testing environment', 'Coordinated composition insights']
+  },
+  'Noff Ranked': {
+    whatItIs: 'A ranked-mode-specific data source emphasizing live ladder performance.',
+    whyWeight: 'Slightly adjusted to 0.8x.',
+    uses: ['Ranked mode performance data', 'Role and mode-specific outcomes', 'Recent ranked trend slices']
+  }
+};
+
 const TIER_COLORS = {
   S: '#ff2d55',
   A: '#ff9500',
@@ -186,7 +239,7 @@ function openModal(b) {
       const rColor = TIER_COLORS[rating] || '#8e8e93';
       sourcesHTML += `
         <div class="modal-source-row">
-          <span class="modal-source-name">${src.name}</span>
+          <button class="modal-source-name modal-source-name-btn" type="button" data-source-name="${src.name}" aria-label="Open source details for ${src.name}">${src.name}</button>
           <span class="modal-source-tier" style="background:${rColor}">${rating}</span>
         </div>`;
     }
@@ -227,6 +280,14 @@ function openModal(b) {
     navigator.clipboard.writeText(shareUrl).then(() => showToast('Link copied to clipboard'));
   });
 
+  modalContent.querySelectorAll('.modal-source-name-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const sourceName = btn.dataset.sourceName;
+      closeModal();
+      openSourceDetail(sourceName);
+    });
+  });
+
   history.replaceState(null, '', '#' + encodeURIComponent(b.name));
   overlay.classList.add('active');
   document.body.style.overflow = 'hidden';
@@ -242,7 +303,9 @@ function openModal(b) {
 
 function closeModal() {
   overlay.classList.remove('active');
-  document.body.style.overflow = '';
+  if (!srcPopupOverlay.classList.contains('active') && !sourceDetailOverlay.classList.contains('active')) {
+    document.body.style.overflow = '';
+  }
   history.replaceState(null, '', location.pathname);
 }
 
@@ -257,6 +320,7 @@ document.addEventListener('keydown', (e) => {
 // Render sources grid (below tier list)
 function renderSources() {
   const grid = document.getElementById('sourcesGrid');
+  grid.innerHTML = '';
   TIER_DATA.sources.forEach(src => {
     const weight = SOURCE_WEIGHTS[src.name] || 1.0;
     const card = document.createElement('div');
@@ -266,10 +330,14 @@ function renderSources() {
       <div class="source-card-type">${src.type}</div>
       <div class="source-card-meta">
         <span>${src.date}</span>
-        <span class="source-card-weight">${weight.toFixed(1)}×</span>
+        <button class="source-weight-btn" type="button" aria-label="Weight details">
+          ${weight.toFixed(1)}× weight
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" /></svg>
+        </button>
       </div>
       <a href="${src.url}" target="_blank" rel="noopener noreferrer" class="source-card-link">View source →</a>
     `;
+    card.querySelector('.source-weight-btn').addEventListener('click', () => openSourceDetail(src.name));
     grid.appendChild(card);
   });
 }
@@ -283,6 +351,7 @@ const sourcesBtn = document.getElementById('sourcesBtn');
 function renderSourcesPopup() {
   srcPopupList.innerHTML = '';
   TIER_DATA.sources.forEach(src => {
+    const weight = SOURCE_WEIGHTS[src.name] || 1.0;
     const item = document.createElement('div');
     item.className = 'src-list-item';
     item.innerHTML = `
@@ -290,10 +359,76 @@ function renderSourcesPopup() {
         <div class="src-list-name"><a href="${src.url}" target="_blank" rel="noopener noreferrer">${src.name}</a></div>
         <div class="src-list-type">${src.type}</div>
       </div>
-      <div class="src-list-date">${src.date}</div>
+      <div class="src-list-right">
+        <div class="src-list-date">${src.date}</div>
+        <button class="source-weight-btn" type="button" aria-label="Weight details">
+          ${weight.toFixed(1)}× weight
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" /></svg>
+        </button>
+      </div>
     `;
+    item.querySelector('.source-weight-btn').addEventListener('click', () => openSourceDetail(src.name));
     srcPopupList.appendChild(item);
   });
+}
+
+const sourceDetailOverlay = document.getElementById('sourceDetailOverlay');
+const sourceDetailClose = document.getElementById('sourceDetailClose');
+const sourceDetailContent = document.getElementById('sourceDetailContent');
+
+function getFallbackSourceDetail(src, weight) {
+  return {
+    whatItIs: `${src.type} source included in the blended BrawlRank model.`,
+    whyWeight: `Weighted at ${weight.toFixed(1)}x to keep this source in balance with pro, creator, and data-driven inputs.`,
+    uses: ['Source publication data', 'Recent patch interpretation', 'Observed gameplay trends']
+  };
+}
+
+function openSourceDetail(sourceName) {
+  const src = TIER_DATA.sources.find((s) => s.name === sourceName);
+  if (!src) return;
+
+  const weight = SOURCE_WEIGHTS[src.name] || 1.0;
+  const detail = SOURCE_DETAILS[src.name] || getFallbackSourceDetail(src, weight);
+  const usesHtml = detail.uses.map((item) => `<li>${item}</li>`).join('');
+
+  sourceDetailContent.innerHTML = `
+    <div class="source-detail-head">
+      <div>
+        <div class="source-detail-name">${src.name}</div>
+        <div class="source-detail-type">${src.type}</div>
+      </div>
+      <div class="source-detail-weight">${weight.toFixed(1)}x</div>
+    </div>
+    <div class="source-detail-date">Latest source date: ${src.date}</div>
+
+    <div class="source-detail-block">
+      <h3>What this source is</h3>
+      <p>${detail.whatItIs}</p>
+    </div>
+
+    <div class="source-detail-block">
+      <h3>Why this weight</h3>
+      <p>${detail.whyWeight}</p>
+    </div>
+
+    <div class="source-detail-block">
+      <h3>What data or people it uses</h3>
+      <ul>${usesHtml}</ul>
+    </div>
+
+    <a href="${src.url}" target="_blank" rel="noopener noreferrer" class="source-detail-link">Open original source</a>
+  `;
+
+  sourceDetailOverlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeSourceDetail() {
+  sourceDetailOverlay.classList.remove('active');
+  if (!overlay.classList.contains('active') && !srcPopupOverlay.classList.contains('active')) {
+    document.body.style.overflow = '';
+  }
 }
 
 function openSourcesPopup() {
@@ -302,7 +437,9 @@ function openSourcesPopup() {
 }
 function closeSourcesPopup() {
   srcPopupOverlay.classList.remove('active');
-  if (!overlay.classList.contains('active')) document.body.style.overflow = '';
+  if (!overlay.classList.contains('active') && !sourceDetailOverlay.classList.contains('active')) {
+    document.body.style.overflow = '';
+  }
 }
 
 sourcesBtn.addEventListener('click', openSourcesPopup);
@@ -310,8 +447,13 @@ srcPopupClose.addEventListener('click', closeSourcesPopup);
 srcPopupOverlay.addEventListener('click', (e) => {
   if (e.target === srcPopupOverlay) closeSourcesPopup();
 });
+sourceDetailClose.addEventListener('click', closeSourceDetail);
+sourceDetailOverlay.addEventListener('click', (e) => {
+  if (e.target === sourceDetailOverlay) closeSourceDetail();
+});
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && srcPopupOverlay.classList.contains('active')) closeSourcesPopup();
+  if (e.key === 'Escape' && sourceDetailOverlay.classList.contains('active')) closeSourceDetail();
 });
 
 // Init

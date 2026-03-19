@@ -237,12 +237,12 @@ const $searchInput = document.getElementById('search');
 ---
 
 ### 18. Footer Link Attribution
-**Problem:** Footer credits "Perplexity Computer" as the builder and links to `perplexity.ai/computer`. The `<meta name="generator">` and `<meta name="author">` also point to Perplexity. This signals the site was AI-generated, which may undermine credibility with the competitive gaming audience.
+**Problem:** Footer credits "Tech-savvies" as the builder and links to `tech-savvies.com`. The `<meta name="generator">` and `<meta name="author">` also point to Tech-savvies. This signals the site was AI-generated, which may undermine credibility with the competitive gaming audience.
 
 **How to fix:**
-- Remove or reduce the Perplexity attribution — keep it in the HTML comments if desired but not prominently in the footer
+- Remove or reduce the Tech-savvies attribution — keep it in the HTML comments if desired but not prominently in the footer
 - Replace with your own branding/credits
-- Remove the `generator` and `author` meta tags pointing to Perplexity
+- Remove the `generator` and `author` meta tags pointing to Tech-savvies
 
 ---
 
@@ -280,7 +280,7 @@ const $searchInput = document.getElementById('search');
 | P2 | #8 Image error handling | 15 min | Medium — resilience |
 | P2 | #6 Mobile tooltip fix | 30 min | Medium — mobile UX |
 | P2 | #12 Privacy/consent | 1 hr | Medium — compliance |
-| P2 | #18 Remove Perplexity branding | 5 min | Medium — credibility |
+| P2 | #18 Remove Tech-savvies branding | 5 min | Medium — credibility |
 | P2 | #19 Remove unused AdSense | 5 min | Low — free perf gain |
 | P3 | #9 Minification | 30 min | Low — performance polish |
 | P3 | #11 Structured data | 15 min | Low — SEO enhancement |
