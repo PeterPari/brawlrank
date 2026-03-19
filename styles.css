@@ -127,7 +127,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: linear-gradient(to bottom, var(--bg-primary) 70%, transparent);
+  background: var(--bg-primary);
   padding-top: 12px;
 }
 
@@ -186,7 +186,7 @@ body {
   align-items: stretch;
   margin-bottom: 4px;
   border-radius: var(--radius);
-  overflow: hidden;
+  overflow: visible;
   background: var(--bg-secondary);
   border: 1px solid var(--border);
 }
@@ -261,6 +261,8 @@ body {
   border-radius: var(--radius-sm);
   background: var(--bg-elevated);
   display: block;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 .brawler-icon-wrap::before {
@@ -299,8 +301,13 @@ body {
   opacity: 0;
   transition: opacity 0.15s;
   font-size: 12px;
-  z-index: 100;
+  z-index: 999;
   box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+}
+
+.tier-s .brawler-tooltip {
+  top: calc(100% + 8px);
+  bottom: auto;
 }
 
 .brawler-icon-wrap:hover .brawler-tooltip {
@@ -401,6 +408,8 @@ body {
   border-radius: var(--radius);
   object-fit: cover;
   background: var(--bg-elevated);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 .modal-info h2 {

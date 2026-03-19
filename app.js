@@ -109,6 +109,19 @@ function buildTiersFromScores() {
   return tiers;
 }
 
+// Extract portrait ID from icon URL and add portrait path
+function addPortraitPaths() {
+  TIER_DATA.brawlers.forEach(b => {
+    // Extract ID from icon URL (e.g., "https://cdn.brawlify.com/brawlers/borderless/16000026.png" -> "16000026")
+    const match = b.icon.match(/(\d+)\.png$/);
+    if (match) {
+      const id = match[1];
+      b.portrait = `portraits/${id}.png`;
+    }
+  });
+}
+addPortraitPaths();
+
 // Build brawler lookup
 const brawlerMap = {};
 TIER_DATA.brawlers.forEach(b => { brawlerMap[b.name] = b; });
@@ -156,9 +169,11 @@ function renderTierList() {
 
       const img = document.createElement('img');
       img.className = 'brawler-icon';
-      img.src = b.icon;
+      img.src = b.portrait || b.icon;
       img.alt = name;
       img.loading = 'lazy';
+      img.decoding = 'async';
+      img.setAttribute('role', 'img');
 
       const tooltip = document.createElement('div');
       tooltip.className = 'brawler-tooltip';
@@ -250,7 +265,7 @@ function openModal(b) {
 
   modalContent.innerHTML = `
     <div class="modal-header">
-      <img class="modal-icon" src="${b.icon}" alt="${b.name}">
+      <img class="modal-icon" src="${b.portrait || b.icon}" alt="${b.name}" loading="eager" decoding="sync">
       <div class="modal-info">
         <h2>${b.name}</h2>
         <span class="modal-tier-badge" style="background:${tierColor}">${b.tier} Tier</span>
