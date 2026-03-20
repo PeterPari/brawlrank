@@ -1016,6 +1016,50 @@ body {
   opacity: 0.75;
 }
 
+/* Consensus / Disagreement indicator */
+.modal-consensus {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 0;
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+
+.consensus-label {
+  color: var(--text-muted);
+}
+
+.consensus-value {
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.consensus-strong {
+  color: #34c759;
+  background: rgba(52, 199, 89, 0.12);
+}
+
+.consensus-moderate {
+  color: #ffcc00;
+  background: rgba(255, 204, 0, 0.12);
+}
+
+.consensus-weak {
+  color: #ff3b30;
+  background: rgba(255, 59, 48, 0.12);
+}
+
+.consensus-detail {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-style: italic;
+}
+
 /* ===== METHODOLOGY ===== */
 .methodology-section {
   padding: 0 0 64px;
