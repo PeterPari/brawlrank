@@ -42,13 +42,6 @@
 <meta name="twitter:image" content="https://brawlrank.com/og-image.png">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1616218690402516"
      crossorigin="anonymous"></script>
-<script type="text/javascript">
-  (function(c,l,a,r,i,t,y){
-    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-  })(window, document, "clarity", "script", "vwyrtsgbq7");
-</script>
 <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <meta name="theme-color" content="#00e5ff">
@@ -150,6 +143,7 @@
       <a href="https://tech-savvies.com/" target="_blank" rel="noopener noreferrer">Created by Tech-savvies</a>
       <a href="https://brawlify.com" target="_blank" rel="noopener noreferrer">Data sourced from Brawlify</a>
     </div>
+    <button class="footer-version" id="siteVersion" type="button" aria-haspopup="dialog">Version --</button>
     <p class="footer-tm">Brawl Stars is a trademark of Supercell</p>
   </div>
 </footer>
@@ -157,9 +151,14 @@
 <!-- MODAL -->
 <div class="modal-overlay" id="modalOverlay">
   <div class="modal" id="modal">
-    <button class="modal-close" id="modalClose">✕</button>
+    <button class="modal-close" id="modalClose" type="button" aria-label="Close dialog">✕</button>
     <div id="modalContent"></div>
   </div>
+</div>
+
+<div id="consent" class="consent-bar" hidden>
+  <span>We use analytics to improve BrawlRank.</span>
+  <button id="acceptBtn" type="button">Accept</button>
 </div>
 
 <script src="app.js"></script>

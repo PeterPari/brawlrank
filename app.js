@@ -1,26 +1,17 @@
-const TIER_DATA = {"last_updated": "March 16, 2026", "total_sources": 10, "total_brawlers": 100, "sources": [{"name": "Ash", "type": "Creator", "date": "March 2, 2026", "url": "https://www.youtube.com/watch?v=Pjynn47AoNg"}, {"name": "KairosTime", "type": "Pro Tier List", "date": "March 13, 2026", "url": "https://www.youtube.com/watch?v=-fokXGGmD5s"}, {"name": "BobbyBS", "type": "Creator + 10 Pros", "date": "March 3, 2026", "url": "https://www.youtube.com/watch?v=qpRBEf4Vs6Q"}, {"name": "Noff.gg", "type": "Data (Top 200)", "date": "March 16, 2026", "url": "https://www.noff.gg/brawl-stars/tier-list"}, {"name": "SpenLC", "type": "Pro Player", "date": "March 6, 2026", "url": "https://www.youtube.com/watch?v=_DhyVzHiKPU"}, {"name": "MmonsteR", "type": "Data (Top 200)", "date": "March 6, 2026", "url": "https://mmonster.co/blog/brawl-stars-meta"}, {"name": "Driffle", "type": "Editorial", "date": "March 2026", "url": "https://driffle.com/blog/brawl-stars-tier-list/"}, {"name": "BrawlTime Votes", "type": "Community (312K Votes)", "date": "March 16, 2026", "url": "https://brawltime.ninja/tier-list/brawler"}, {"name": "HMBLE", "type": "Pro Team", "date": "March 12, 2026", "url": "https://www.youtube.com/watch?v=dmqCRfwz3Zk"}, {"name": "Noff Ranked", "type": "Data (Ranked Mode)", "date": "March 16, 2026", "url": "https://www.noff.gg/brawl-stars/tier-list"}], "tiers": {"S": ["Bibi", "Crow", "Spike", "Bull", "Sirius", "Emz"], "A": ["Rico", "Leon", "Mortis", "Colt", "Pierce", "Bo", "Glowbert", "Frank", "Shelly", "Mina"], "B": ["Byron", "Nita", "Cordelius", "Shade", "Otis", "Angelo", "Kaze", "Mandy", "Gus", "Finx", "Amber", "Chester", "Nani", "Bea", "Piper", "Max", "Meeple", "Lily", "Gene", "Colonel Ruffs", "Belle", "Charlie", "Brock", "Alli", "Kenji", "Janet", "Buster", "8-Bit", "Squeak", "Stu"], "C": ["Melodie", "Lou", "Gray", "Trunk", "Jae-yong", "Meg", "Carl", "R-T", "Larry & Lawrie", "Kit", "Griff", "Doug", "Poco", "Mico", "Tara", "Sandy", "Moe", "Ziggy", "Fang", "Berry", "Dynamike", "Juju", "Lola", "Hank", "Darryl", "Draco", "Penny", "Gale", "Ollie", "Maisie", "Willow", "Barley", "Surge", "Ash", "Lumi", "Colette", "Rosa"], "D": ["Buzz", "Bonnie", "Pearl", "Tick", "Sprout", "Grom", "Eve", "El Primo", "Pam", "Sam", "Mr. P", "Clancy", "Edgar", "Gigi", "Jessie", "Jacky", "Chuck"], "F": []}, "brawlers": [{"name": "Bibi", "score": 6.0, "tier": "S", "sources": {"Ash": "S", "KairosTime": "S", "BobbyBS": "S", "Noff.gg": "S", "SpenLC": "S", "MmonsteR": "S", "Driffle": "S", "BrawlTime Votes": "S", "HMBLE": "S", "Noff Ranked": "S"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000026.png"}, {"name": "Crow", "score": 5.77, "tier": "S", "sources": {"Ash": "S", "KairosTime": "S", "BobbyBS": "S", "Noff.gg": "S", "SpenLC": "S", "MmonsteR": "A", "Driffle": "S", "BrawlTime Votes": "B", "HMBLE": "S", "Noff Ranked": "S"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000012.png"}, {"name": "Spike", "score": 5.67, "tier": "S", "sources": {"Ash": "S", "KairosTime": "S", "BobbyBS": "S", "Noff.gg": "A", "SpenLC": "S", "MmonsteR": "S", "Driffle": "A", "BrawlTime Votes": "A", "HMBLE": "S", "Noff Ranked": "A"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000005.png"}, {"name": "Bull", "score": 5.58, "tier": "S", "sources": {"Ash": "S", "KairosTime": "S", "BobbyBS": "S", "Noff.gg": "S", "SpenLC": "S", "MmonsteR": "B", "Driffle": "S", "BrawlTime Votes": "B", "HMBLE": "A", "Noff Ranked": "S"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000002.png"}, {"name": "Sirius", "score": 5.55, "tier": "S", "sources": {"Ash": "S", "KairosTime": "S", "BobbyBS": "S", "Noff.gg": "S", "SpenLC": "B", "MmonsteR": "B", "Driffle": "S", "BrawlTime Votes": "S", "HMBLE": "S", "Noff Ranked": "S"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000102.png"}, {"name": "Emz", "score": 5.52, "tier": "S", "sources": {"Ash": "S", "KairosTime": "A", "BobbyBS": "S", "Noff.gg": "A", "SpenLC": "S", "MmonsteR": "S", "Driffle": "S", "BrawlTime Votes": "A", "HMBLE": "A", "Noff Ranked": "A"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000030.png"}, {"name": "Rico", "score": 5.49, "tier": "A", "sources": {"Ash": "A", "KairosTime": "S", "BobbyBS": "A", "Noff.gg": "S", "SpenLC": "A", "MmonsteR": "S", "Driffle": "S", "BrawlTime Votes": "A", "HMBLE": "A", "Noff Ranked": "S"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000004.png"}, {"name": "Leon", "score": 5.4, "tier": "A", "sources": {"Ash": "S", "KairosTime": "S", "BobbyBS": "S", "Noff.gg": "A", "SpenLC": "S", "MmonsteR": "B", "Driffle": "B", "BrawlTime Votes": "A", "HMBLE": "S", "Noff Ranked": "A"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000023.png"}, {"name": "Mortis", "score": 5.29, "tier": "A", "sources": {"Ash": "A", "KairosTime": "A", "BobbyBS": "B", "Noff.gg": "S", "SpenLC": "A", "MmonsteR": "S", "Driffle": "S", "BrawlTime Votes": "B", "HMBLE": "S", "Noff Ranked": "S"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000011.png"}, {"name": "Colt", "score": 5.06, "tier": "A", "sources": {"Ash": "A", "KairosTime": "A", "BobbyBS": "B", "Noff.gg": "S", "SpenLC": "B", "MmonsteR": "S", "Driffle": "S", "BrawlTime Votes": "B", "HMBLE": "A", "Noff Ranked": "S"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000001.png"}, {"name": "Pierce", "score": 4.98, "tier": "A", "sources": {"Ash": "S", "KairosTime": "S", "BobbyBS": "S", "Noff.gg": "B", "SpenLC": "S", "MmonsteR": "B", "Driffle": "B", "BrawlTime Votes": "C", "HMBLE": "A", "Noff Ranked": "B"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000099.png"}, {"name": "Bo", "score": 4.7, "tier": "A", "sources": {"Ash": "A", "BobbyBS": "S", "Noff.gg": "B", "SpenLC": "S", "MmonsteR": "B", "Driffle": "B", "BrawlTime Votes": "C", "HMBLE": "A", "Noff Ranked": "B"}, "num_sources": 9, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000014.png"}, {"name": "Glowbert", "score": 4.67, "tier": "A", "sources": {"Ash": "A", "KairosTime": "S", "BobbyBS": "A", "Noff.gg": "C", "SpenLC": "S", "MmonsteR": "B", "Driffle": "B", "BrawlTime Votes": "C", "HMBLE": "S", "Noff Ranked": "C"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000101.png"}, {"name": "Frank", "score": 4.66, "tier": "A", "sources": {"Ash": "S", "KairosTime": "A", "BobbyBS": "S", "Noff.gg": "C", "SpenLC": "B", "MmonsteR": "A", "Driffle": "B", "BrawlTime Votes": "B", "HMBLE": "S", "Noff Ranked": "C"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000020.png"}, {"name": "Shelly", "score": 4.57, "tier": "A", "sources": {"Ash": "A", "KairosTime": "A", "BobbyBS": "B", "Noff.gg": "B", "SpenLC": "A", "MmonsteR": "B", "Driffle": "A", "BrawlTime Votes": "C", "HMBLE": "S", "Noff Ranked": "B"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000000.png"}, {"name": "Mina", "score": 4.52, "tier": "A", "sources": {"Ash": "A", "KairosTime": "S", "BobbyBS": "A", "Noff.gg": "B", "MmonsteR": "B", "Driffle": "D", "BrawlTime Votes": "C", "HMBLE": "S", "Noff Ranked": "B"}, "num_sources": 9, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000097.png"}, {"name": "Byron", "score": 4.47, "tier": "B", "sources": {"KairosTime": "A", "BobbyBS": "A", "Noff.gg": "B", "SpenLC": "A", "MmonsteR": "B", "Driffle": "A", "BrawlTime Votes": "C", "Noff Ranked": "B"}, "num_sources": 8, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000042.png"}, {"name": "Nita", "score": 4.44, "tier": "B", "sources": {"Ash": "A", "KairosTime": "B", "BobbyBS": "A", "Noff.gg": "A", "SpenLC": "S", "MmonsteR": "D", "Driffle": "B", "BrawlTime Votes": "D", "HMBLE": "A", "Noff Ranked": "A"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000008.png"}, {"name": "Cordelius", "score": 4.37, "tier": "B", "sources": {"Ash": "A", "KairosTime": "A", "BobbyBS": "C", "Noff.gg": "B", "SpenLC": "B", "MmonsteR": "B", "Driffle": "A", "BrawlTime Votes": "A", "HMBLE": "A", "Noff Ranked": "B"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000070.png"}, {"name": "Shade", "score": 4.3, "tier": "B", "sources": {"Ash": "A", "KairosTime": "A", "BobbyBS": "B", "Noff.gg": "B", "SpenLC": "A", "MmonsteR": "C", "Driffle": "B", "BrawlTime Votes": "C", "HMBLE": "A", "Noff Ranked": "B"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000086.png"}, {"name": "Otis", "score": 4.28, "tier": "B", "sources": {"Ash": "A", "KairosTime": "A", "BobbyBS": "A", "Noff.gg": "B", "SpenLC": "A", "MmonsteR": "B", "Driffle": "F", "BrawlTime Votes": "C", "HMBLE": "A", "Noff Ranked": "B"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000059.png"}, {"name": "Angelo", "score": 4.25, "tier": "B", "sources": {"Ash": "A", "KairosTime": "A", "BobbyBS": "A", "Noff.gg": "C", "SpenLC": "A", "MmonsteR": "B", "Driffle": "B", "BrawlTime Votes": "D", "HMBLE": "A", "Noff Ranked": "C"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000079.png"}, {"name": "Kaze", "score": 4.22, "tier": "B", "sources": {"Ash": "A", "KairosTime": "A", "BobbyBS": "A", "Noff.gg": "C", "SpenLC": "A", "MmonsteR": "C", "Driffle": "B", "BrawlTime Votes": "C", "HMBLE": "A", "Noff Ranked": "C"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000094.png"}, {"name": "Mandy", "score": 4.11, "tier": "B", "sources": {"Ash": "C", "KairosTime": "B", "BobbyBS": "B", "Noff.gg": "A", "MmonsteR": "A", "Driffle": "A", "BrawlTime Votes": "C", "HMBLE": "C", "Noff Ranked": "A"}, "num_sources": 9, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000065.png"}, {"name": "Gus", "score": 4.06, "tier": "B", "sources": {"Ash": "A", "KairosTime": "B", "BobbyBS": "B", "Noff.gg": "B", "MmonsteR": "B", "Driffle": "B", "BrawlTime Votes": "C", "Noff Ranked": "B"}, "num_sources": 8, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000061.png"}, {"name": "Finx", "score": 4.01, "tier": "B", "sources": {"KairosTime": "A", "BobbyBS": "A", "Noff.gg": "C", "SpenLC": "A", "MmonsteR": "C", "Driffle": "B", "BrawlTime Votes": "C", "Noff Ranked": "C"}, "num_sources": 8, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000092.png"}, {"name": "Amber", "score": 3.99, "tier": "B", "sources": {"Ash": "A", "KairosTime": "A", "BobbyBS": "A", "Noff.gg": "C", "MmonsteR": "C", "Driffle": "B", "BrawlTime Votes": "C", "Noff Ranked": "C"}, "num_sources": 8, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000040.png"}, {"name": "Chester", "score": 3.95, "tier": "B", "sources": {"Ash": "C", "KairosTime": "B", "BobbyBS": "B", "Noff.gg": "B", "SpenLC": "A", "MmonsteR": "C", "Driffle": "C", "BrawlTime Votes": "B", "HMBLE": "A", "Noff Ranked": "B"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000063.png"}, {"name": "Nani", "score": 3.95, "tier": "B", "sources": {"Ash": "A", "KairosTime": "B", "BobbyBS": "B", "Noff.gg": "B", "SpenLC": "B", "MmonsteR": "B", "Driffle": "B", "BrawlTime Votes": "C", "HMBLE": "C", "Noff Ranked": "B"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000036.png"}, {"name": "Bea", "score": 3.93, "tier": "B", "sources": {"Ash": "A", "KairosTime": "B", "BobbyBS": "C", "Noff.gg": "B", "MmonsteR": "A", "Driffle": "B", "BrawlTime Votes": "C", "HMBLE": "C", "Noff Ranked": "B"}, "num_sources": 9, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000029.png"}, {"name": "Piper", "score": 3.86, "tier": "B", "sources": {"Ash": "B", "KairosTime": "B", "BobbyBS": "D", "Noff.gg": "A", "SpenLC": "C", "MmonsteR": "B", "Driffle": "A", "BrawlTime Votes": "C", "HMBLE": "B", "Noff Ranked": "A"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000015.png"}, {"name": "Max", "score": 3.84, "tier": "B", "sources": {"Ash": "B", "KairosTime": "B", "BobbyBS": "B", "Noff.gg": "B", "SpenLC": "B", "MmonsteR": "C", "Driffle": "B", "BrawlTime Votes": "C", "HMBLE": "B", "Noff Ranked": "B"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000032.png"}, {"name": "Meeple", "score": 3.84, "tier": "B", "sources": {"Ash": "B", "KairosTime": "A", "Noff.gg": "B", "MmonsteR": "C", "Driffle": "C", "BrawlTime Votes": "C", "Noff Ranked": "B"}, "num_sources": 7, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000089.png"}, {"name": "Lily", "score": 3.83, "tier": "B", "sources": {"Ash": "A", "KairosTime": "A", "BobbyBS": "B", "Noff.gg": "C", "MmonsteR": "C", "Driffle": "C", "BrawlTime Votes": "B", "Noff Ranked": "C"}, "num_sources": 8, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000081.png"}, {"name": "Gene", "score": 3.77, "tier": "B", "sources": {"Ash": "A", "KairosTime": "A", "BobbyBS": "B", "Noff.gg": "D", "SpenLC": "A", "MmonsteR": "C", "Driffle": "C", "BrawlTime Votes": "D", "HMBLE": "A", "Noff Ranked": "D"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000021.png"}, {"name": "Colonel Ruffs", "score": 3.72, "tier": "B", "sources": {"Ash": "A", "KairosTime": "B", "BobbyBS": "B", "Noff.gg": "B", "MmonsteR": "C", "Driffle": "F", "BrawlTime Votes": "D", "HMBLE": "A", "Noff Ranked": "B"}, "num_sources": 9, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000044.png"}, {"name": "Belle", "score": 3.71, "tier": "B", "sources": {"Ash": "B", "KairosTime": "B", "BobbyBS": "B", "Noff.gg": "C", "SpenLC": "A", "MmonsteR": "B", "Driffle": "B", "BrawlTime Votes": "D", "HMBLE": "C", "Noff Ranked": "C"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000046.png"}, {"name": "Charlie", "score": 3.71, "tier": "B", "sources": {"Ash": "A", "KairosTime": "B", "BobbyBS": "B", "Noff.gg": "C", "SpenLC": "A", "MmonsteR": "C", "Driffle": "C", "BrawlTime Votes": "D", "Noff Ranked": "C"}, "num_sources": 9, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000074.png"}, {"name": "Brock", "score": 3.69, "tier": "B", "sources": {"Ash": "B", "KairosTime": "B", "BobbyBS": "C", "Noff.gg": "B", "MmonsteR": "B", "Driffle": "B", "BrawlTime Votes": "C", "HMBLE": "C", "Noff Ranked": "B"}, "num_sources": 9, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000003.png"}, {"name": "Alli", "score": 3.63, "tier": "B", "sources": {"Ash": "B", "KairosTime": "B", "BobbyBS": "A", "Noff.gg": "C", "MmonsteR": "C", "Driffle": "C", "BrawlTime Votes": "C", "HMBLE": "B", "Noff Ranked": "C"}, "num_sources": 9, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000095.png"}, {"name": "Kenji", "score": 3.63, "tier": "B", "sources": {"Ash": "A", "KairosTime": "A", "BobbyBS": "A", "Noff.gg": "F", "SpenLC": "B", "MmonsteR": "C", "Driffle": "B", "BrawlTime Votes": "B", "Noff Ranked": "F"}, "num_sources": 9, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000085.png"}, {"name": "Janet", "score": 3.61, "tier": "B", "sources": {"Ash": "B", "KairosTime": "B", "BobbyBS": "B", "Noff.gg": "B", "MmonsteR": "C", "Driffle": "C", "BrawlTime Votes": "D", "Noff Ranked": "B"}, "num_sources": 8, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000057.png"}, {"name": "Buster", "score": 3.58, "tier": "B", "sources": {"Ash": "B", "KairosTime": "B", "BobbyBS": "C", "Noff.gg": "C", "MmonsteR": "B", "Driffle": "B", "BrawlTime Votes": "C", "HMBLE": "B", "Noff Ranked": "C"}, "num_sources": 9, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000062.png"}, {"name": "8-Bit", "score": 3.54, "tier": "B", "sources": {"BobbyBS": "B", "Noff.gg": "C", "MmonsteR": "B", "Driffle": "A", "BrawlTime Votes": "D", "Noff Ranked": "C"}, "num_sources": 6, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000027.png"}, {"name": "Squeak", "score": 3.54, "tier": "B", "sources": {"Ash": "C", "KairosTime": "B", "BobbyBS": "B", "Noff.gg": "C", "SpenLC": "B", "MmonsteR": "C", "Driffle": "B", "BrawlTime Votes": "C", "HMBLE": "B", "Noff Ranked": "C"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000047.png"}, {"name": "Stu", "score": 3.52, "tier": "B", "sources": {"Ash": "B", "KairosTime": "B", "BobbyBS": "C", "Noff.gg": "C", "SpenLC": "C", "MmonsteR": "B", "Driffle": "B", "BrawlTime Votes": "B", "Noff Ranked": "C"}, "num_sources": 9, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000045.png"}, {"name": "Melodie", "score": 3.49, "tier": "C", "sources": {"Ash": "B", "KairosTime": "B", "BobbyBS": "B", "Noff.gg": "C", "SpenLC": "B", "MmonsteR": "C", "Driffle": "D", "BrawlTime Votes": "C", "HMBLE": "B", "Noff Ranked": "C"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000078.png"}, {"name": "Lou", "score": 3.45, "tier": "C", "sources": {"Ash": "B", "KairosTime": "B", "BobbyBS": "B", "Noff.gg": "D", "SpenLC": "B", "MmonsteR": "C", "Driffle": "B", "BrawlTime Votes": "C", "HMBLE": "B", "Noff Ranked": "D"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000041.png"}, {"name": "Gray", "score": 3.43, "tier": "C", "sources": {"Ash": "A", "KairosTime": "B", "BobbyBS": "B", "Noff.gg": "D", "SpenLC": "B", "MmonsteR": "B", "Driffle": "F", "BrawlTime Votes": "C", "HMBLE": "B", "Noff Ranked": "D"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000064.png"}, {"name": "Trunk", "score": 3.43, "tier": "C", "sources": {"Ash": "A", "KairosTime": "B", "BobbyBS": "B", "Noff.gg": "B", "SpenLC": "C", "MmonsteR": "C", "Driffle": "F", "BrawlTime Votes": "D", "HMBLE": "C", "Noff Ranked": "B"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000096.png"}, {"name": "Jae-yong", "score": 3.34, "tier": "C", "sources": {"Ash": "C", "KairosTime": "C", "BobbyBS": "B", "Noff.gg": "C", "SpenLC": "B", "MmonsteR": "C", "Driffle": "B", "BrawlTime Votes": "D", "HMBLE": "B", "Noff Ranked": "C"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000093.png"}, {"name": "Meg", "score": 3.33, "tier": "C", "sources": {"Ash": "C", "KairosTime": "C", "BobbyBS": "A", "Noff.gg": "C", "MmonsteR": "C", "Driffle": "B", "BrawlTime Votes": "C", "HMBLE": "C", "Noff Ranked": "C"}, "num_sources": 9, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000052.png"}, {"name": "Carl", "score": 3.32, "tier": "C", "sources": {"Ash": "A", "KairosTime": "B", "BobbyBS": "D", "Noff.gg": "C", "MmonsteR": "B", "Driffle": "F", "BrawlTime Votes": "C", "HMBLE": "B", "Noff Ranked": "C"}, "num_sources": 9, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000025.png"}, {"name": "R-T", "score": 3.29, "tier": "C", "sources": {"Ash": "B", "KairosTime": "B", "BobbyBS": "B", "Noff.gg": "D", "MmonsteR": "C", "Driffle": "B", "BrawlTime Votes": "C", "Noff Ranked": "D"}, "num_sources": 8, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000066.png"}, {"name": "Larry & Lawrie", "score": 3.28, "tier": "C", "sources": {"Ash": "C", "KairosTime": "B", "BobbyBS": "B", "Noff.gg": "C", "MmonsteR": "D", "Driffle": "B", "BrawlTime Votes": "D", "HMBLE": "B", "Noff Ranked": "C"}, "num_sources": 9, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000077.png"}, {"name": "Kit", "score": 3.27, "tier": "C", "sources": {"Ash": "C", "KairosTime": "C", "BobbyBS": "C", "Noff.gg": "C", "MmonsteR": "C", "Driffle": "B", "BrawlTime Votes": "B", "HMBLE": "B", "Noff Ranked": "C"}, "num_sources": 9, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000076.png"}, {"name": "Griff", "score": 3.26, "tier": "C", "sources": {"Ash": "C", "KairosTime": "B", "BobbyBS": "D", "Noff.gg": "B", "MmonsteR": "C", "Driffle": "F", "BrawlTime Votes": "B", "HMBLE": "B", "Noff Ranked": "B"}, "num_sources": 9, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000050.png"}, {"name": "Doug", "score": 3.19, "tier": "C", "sources": {"Ash": "C", "KairosTime": "C", "BobbyBS": "D", "Noff.gg": "C", "MmonsteR": "B", "Driffle": "B", "BrawlTime Votes": "C", "HMBLE": "B", "Noff Ranked": "C"}, "num_sources": 9, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000071.png"}, {"name": "Poco", "score": 3.17, "tier": "C", "sources": {"Ash": "A", "KairosTime": "B", "BobbyBS": "A", "Noff.gg": "F", "MmonsteR": "D", "Driffle": "F", "BrawlTime Votes": "D", "HMBLE": "S", "Noff Ranked": "F"}, "num_sources": 9, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000013.png"}, {"name": "Mico", "score": 3.02, "tier": "C", "sources": {"KairosTime": "D", "BobbyBS": "B", "Noff.gg": "B", "SpenLC": "D", "MmonsteR": "C", "Driffle": "B", "BrawlTime Votes": "C", "HMBLE": "D", "Noff Ranked": "B"}, "num_sources": 9, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000075.png"}, {"name": "Tara", "score": 3.02, "tier": "C", "sources": {"BobbyBS": "B", "Noff.gg": "D", "MmonsteR": "C", "Driffle": "C", "BrawlTime Votes": "C", "HMBLE": "B", "Noff Ranked": "D"}, "num_sources": 7, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000017.png"}, {"name": "Sandy", "score": 3.01, "tier": "C", "sources": {"Ash": "C", "KairosTime": "B", "Noff.gg": "D", "MmonsteR": "C", "Driffle": "B", "BrawlTime Votes": "C", "HMBLE": "C", "Noff Ranked": "D"}, "num_sources": 8, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000028.png"}, {"name": "Moe", "score": 2.95, "tier": "C", "sources": {"Ash": "C", "KairosTime": "D", "BobbyBS": "D", "Noff.gg": "B", "SpenLC": "B", "MmonsteR": "C", "Driffle": "D", "BrawlTime Votes": "D", "HMBLE": "C", "Noff Ranked": "B"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000084.png"}, {"name": "Ziggy", "score": 2.92, "tier": "C", "sources": {"Ash": "C", "KairosTime": "B", "BobbyBS": "C", "Noff.gg": "D", "SpenLC": "B", "MmonsteR": "D", "Driffle": "D", "BrawlTime Votes": "D", "HMBLE": "B", "Noff Ranked": "D"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000098.png"}, {"name": "Fang", "score": 2.88, "tier": "C", "sources": {"Ash": "D", "KairosTime": "C", "BobbyBS": "D", "Noff.gg": "B", "MmonsteR": "B", "Driffle": "F", "BrawlTime Votes": "B", "HMBLE": "D", "Noff Ranked": "B"}, "num_sources": 9, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000054.png"}, {"name": "Berry", "score": 2.87, "tier": "C", "sources": {"Ash": "B", "KairosTime": "B", "Noff.gg": "F", "SpenLC": "C", "MmonsteR": "C", "Driffle": "C", "BrawlTime Votes": "D", "HMBLE": "B", "Noff Ranked": "F"}, "num_sources": 9, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000082.png"}, {"name": "Dynamike", "score": 2.87, "tier": "C", "sources": {"Ash": "D", "KairosTime": "B", "BobbyBS": "C", "Noff.gg": "C", "SpenLC": "D", "MmonsteR": "D", "Driffle": "B", "BrawlTime Votes": "C", "HMBLE": "C", "Noff Ranked": "C"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000009.png"}, {"name": "Juju", "score": 2.87, "tier": "C", "sources": {"Ash": "B", "KairosTime": "A", "Noff.gg": "F", "MmonsteR": "C", "Driffle": "C", "BrawlTime Votes": "D", "Noff Ranked": "F"}, "num_sources": 7, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000087.png"}, {"name": "Lola", "score": 2.86, "tier": "C", "sources": {"Ash": "C", "KairosTime": "C", "BobbyBS": "C", "Noff.gg": "C", "SpenLC": "C", "MmonsteR": "C", "Driffle": "D", "BrawlTime Votes": "D", "HMBLE": "C", "Noff Ranked": "C"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000053.png"}, {"name": "Hank", "score": 2.85, "tier": "C", "sources": {"Ash": "B", "KairosTime": "C", "BobbyBS": "C", "Noff.gg": "D", "SpenLC": "C", "MmonsteR": "D", "Driffle": "C", "BrawlTime Votes": "D", "HMBLE": "B", "Noff Ranked": "D"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000069.png"}, {"name": "Darryl", "score": 2.84, "tier": "C", "sources": {"Ash": "B", "KairosTime": "C", "BobbyBS": "F", "Noff.gg": "C", "SpenLC": "D", "MmonsteR": "C", "Driffle": "B", "BrawlTime Votes": "C", "HMBLE": "C", "Noff Ranked": "C"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000018.png"}, {"name": "Draco", "score": 2.84, "tier": "C", "sources": {"Ash": "C", "KairosTime": "C", "BobbyBS": "C", "Noff.gg": "D", "SpenLC": "C", "MmonsteR": "C", "Driffle": "C", "BrawlTime Votes": "D", "HMBLE": "B", "Noff Ranked": "D"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000080.png"}, {"name": "Penny", "score": 2.8, "tier": "C", "sources": {"Ash": "B", "KairosTime": "C", "BobbyBS": "C", "Noff.gg": "D", "SpenLC": "C", "MmonsteR": "C", "Driffle": "F", "BrawlTime Votes": "D", "HMBLE": "B", "Noff Ranked": "D"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000019.png"}, {"name": "Gale", "score": 2.78, "tier": "C", "sources": {"Ash": "C", "KairosTime": "B", "BobbyBS": "C", "Noff.gg": "C", "SpenLC": "C", "MmonsteR": "C", "Driffle": "F", "BrawlTime Votes": "C", "HMBLE": "F", "Noff Ranked": "C"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000035.png"}, {"name": "Ollie", "score": 2.76, "tier": "C", "sources": {"KairosTime": "B", "BobbyBS": "B", "Noff.gg": "F", "SpenLC": "C", "MmonsteR": "D", "Driffle": "C", "BrawlTime Votes": "D", "HMBLE": "B", "Noff Ranked": "F"}, "num_sources": 9, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000090.png"}, {"name": "Maisie", "score": 2.75, "tier": "C", "sources": {"Ash": "C", "KairosTime": "C", "BobbyBS": "C", "Noff.gg": "C", "SpenLC": "D", "MmonsteR": "C", "Driffle": "B", "BrawlTime Votes": "C", "HMBLE": "F", "Noff Ranked": "C"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000068.png"}, {"name": "Willow", "score": 2.75, "tier": "C", "sources": {"Ash": "C", "KairosTime": "B", "BobbyBS": "C", "Noff.gg": "F", "SpenLC": "C", "MmonsteR": "D", "Driffle": "B", "BrawlTime Votes": "D", "HMBLE": "B", "Noff Ranked": "F"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000067.png"}, {"name": "Barley", "score": 2.68, "tier": "C", "sources": {"Ash": "C", "KairosTime": "B", "BobbyBS": "C", "Noff.gg": "F", "SpenLC": "C", "MmonsteR": "D", "Driffle": "C", "BrawlTime Votes": "D", "HMBLE": "B", "Noff Ranked": "F"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000006.png"}, {"name": "Surge", "score": 2.67, "tier": "C", "sources": {"Ash": "D", "KairosTime": "C", "BobbyBS": "D", "Noff.gg": "B", "SpenLC": "D", "MmonsteR": "C", "Driffle": "F", "BrawlTime Votes": "B", "HMBLE": "D", "Noff Ranked": "B"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000038.png"}, {"name": "Ash", "score": 2.66, "tier": "C", "sources": {"Ash": "C", "KairosTime": "B", "BobbyBS": "D", "Noff.gg": "C", "SpenLC": "D", "MmonsteR": "C", "Driffle": "D", "BrawlTime Votes": "D", "HMBLE": "D", "Noff Ranked": "C"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000051.png"}, {"name": "Lumi", "score": 2.57, "tier": "C", "sources": {"Ash": "D", "KairosTime": "C", "BobbyBS": "C", "Noff.gg": "D", "SpenLC": "B", "MmonsteR": "C", "Driffle": "C", "BrawlTime Votes": "D", "HMBLE": "F", "Noff Ranked": "D"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000091.png"}, {"name": "Colette", "score": 2.56, "tier": "C", "sources": {"Ash": "C", "KairosTime": "D", "BobbyBS": "D", "Noff.gg": "C", "MmonsteR": "D", "Driffle": "F", "BrawlTime Votes": "C", "HMBLE": "B", "Noff Ranked": "C"}, "num_sources": 9, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000039.png"}, {"name": "Rosa", "score": 2.54, "tier": "C", "sources": {"Ash": "D", "KairosTime": "D", "BobbyBS": "F", "Noff.gg": "B", "MmonsteR": "C", "Driffle": "D", "BrawlTime Votes": "D", "HMBLE": "C", "Noff Ranked": "B"}, "num_sources": 9, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000024.png"}, {"name": "Buzz", "score": 2.49, "tier": "D", "sources": {"Ash": "D", "KairosTime": "C", "BobbyBS": "C", "Noff.gg": "D", "SpenLC": "C", "MmonsteR": "C", "Driffle": "D", "BrawlTime Votes": "B", "HMBLE": "F", "Noff Ranked": "D"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000049.png"}, {"name": "Bonnie", "score": 2.47, "tier": "D", "sources": {"Ash": "B", "KairosTime": "C", "BobbyBS": "F", "Noff.gg": "C", "SpenLC": "F", "MmonsteR": "C", "Driffle": "C", "BrawlTime Votes": "D", "HMBLE": "D", "Noff Ranked": "C"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000058.png"}, {"name": "Pearl", "score": 2.4, "tier": "D", "sources": {"Ash": "D", "KairosTime": "C", "BobbyBS": "D", "Noff.gg": "C", "MmonsteR": "D", "Driffle": "F", "BrawlTime Votes": "D", "HMBLE": "C", "Noff Ranked": "C"}, "num_sources": 9, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000072.png"}, {"name": "Tick", "score": 2.35, "tier": "D", "sources": {"Ash": "D", "KairosTime": "B", "BobbyBS": "C", "Noff.gg": "F", "SpenLC": "C", "MmonsteR": "D", "Driffle": "B", "BrawlTime Votes": "D", "HMBLE": "F", "Noff Ranked": "F"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000022.png"}, {"name": "Sprout", "score": 2.32, "tier": "D", "sources": {"Ash": "D", "KairosTime": "B", "BobbyBS": "C", "Noff.gg": "D", "SpenLC": "C", "MmonsteR": "D", "Driffle": "F", "BrawlTime Votes": "D", "HMBLE": "F", "Noff Ranked": "D"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000037.png"}, {"name": "Grom", "score": 2.28, "tier": "D", "sources": {"Ash": "F", "KairosTime": "D", "BobbyBS": "D", "Noff.gg": "D", "SpenLC": "F", "MmonsteR": "B", "Driffle": "A", "BrawlTime Votes": "D", "HMBLE": "C", "Noff Ranked": "D"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000048.png"}, {"name": "Eve", "score": 2.27, "tier": "D", "sources": {"Ash": "C", "KairosTime": "D", "BobbyBS": "C", "Noff.gg": "F", "SpenLC": "D", "MmonsteR": "C", "Driffle": "B", "BrawlTime Votes": "D", "HMBLE": "D", "Noff Ranked": "F"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000056.png"}, {"name": "El Primo", "score": 2.2, "tier": "D", "sources": {"Ash": "F", "KairosTime": "D", "BobbyBS": "F", "Noff.gg": "B", "SpenLC": "F", "MmonsteR": "C", "Driffle": "D", "BrawlTime Votes": "C", "HMBLE": "D", "Noff Ranked": "B"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000010.png"}, {"name": "Pam", "score": 2.14, "tier": "D", "sources": {"Ash": "B", "KairosTime": "B", "Noff.gg": "F", "MmonsteR": "D", "Driffle": "F", "BrawlTime Votes": "D", "HMBLE": "F", "Noff Ranked": "F"}, "num_sources": 8, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000016.png"}, {"name": "Sam", "score": 2.12, "tier": "D", "sources": {"Ash": "F", "KairosTime": "D", "BobbyBS": "F", "Noff.gg": "B", "SpenLC": "F", "MmonsteR": "D", "Driffle": "C", "BrawlTime Votes": "D", "HMBLE": "D", "Noff Ranked": "B"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000060.png"}, {"name": "Mr. P", "score": 2.1, "tier": "D", "sources": {"Ash": "D", "KairosTime": "F", "BobbyBS": "F", "Noff.gg": "B", "SpenLC": "F", "MmonsteR": "D", "Driffle": "C", "BrawlTime Votes": "D", "HMBLE": "D", "Noff Ranked": "B"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000031.png"}, {"name": "Clancy", "score": 1.98, "tier": "D", "sources": {"Ash": "D", "KairosTime": "D", "Noff.gg": "F", "SpenLC": "D", "MmonsteR": "F", "Driffle": "C", "BrawlTime Votes": "D", "HMBLE": "B", "Noff Ranked": "F"}, "num_sources": 9, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000083.png"}, {"name": "Edgar", "score": 1.94, "tier": "D", "sources": {"Ash": "F", "KairosTime": "F", "BobbyBS": "D", "Noff.gg": "D", "SpenLC": "F", "MmonsteR": "C", "Driffle": "C", "BrawlTime Votes": "B", "HMBLE": "D", "Noff Ranked": "D"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000043.png"}, {"name": "Gigi", "score": 1.84, "tier": "D", "sources": {"Ash": "C", "KairosTime": "D", "BobbyBS": "D", "Noff.gg": "F", "SpenLC": "D", "MmonsteR": "D", "Driffle": "F", "BrawlTime Votes": "D", "HMBLE": "D", "Noff Ranked": "F"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000100.png"}, {"name": "Jessie", "score": 1.69, "tier": "D", "sources": {"Ash": "F", "KairosTime": "F", "BobbyBS": "D", "Noff.gg": "D", "SpenLC": "D", "MmonsteR": "D", "Driffle": "F", "BrawlTime Votes": "D", "HMBLE": "D", "Noff Ranked": "D"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000007.png"}, {"name": "Jacky", "score": 1.66, "tier": "D", "sources": {"Ash": "D", "KairosTime": "F", "BobbyBS": "F", "Noff.gg": "D", "SpenLC": "F", "MmonsteR": "C", "Driffle": "F", "BrawlTime Votes": "D", "HMBLE": "D", "Noff Ranked": "D"}, "num_sources": 10, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000034.png"}, {"name": "Chuck", "score": 1.53, "tier": "D", "sources": {"Ash": "D", "KairosTime": "F", "Noff.gg": "F", "SpenLC": "D", "MmonsteR": "F", "Driffle": "D", "BrawlTime Votes": "D", "HMBLE": "D", "Noff Ranked": "F"}, "num_sources": 9, "icon": "https://cdn.brawlify.com/brawlers/borderless/16000073.png"}]};
+let TIER_DATA;
+let DISPLAY_TIERS = createEmptyTiers();
 
-function normalizeTierDataMetadata() {
-  TIER_DATA.total_sources = 9;
-  TIER_DATA.sources = TIER_DATA.sources
-    .filter((source) => source.name !== 'Noff Ranked')
-    .map((source) => {
-      if (source.name === 'Noff.gg') {
-        return { ...source, type: 'Data (Top 200 + Ranked)' };
-      }
-      return source;
-    });
-}
+const brawlerMap = {};
 
 const SOURCE_WEIGHTS = {
   'Noff.gg': 1.5,
-  'MmonsteR': 1.3,
-  'SpenLC': 1.0,
-  'KairosTime': 1.0,
-  'BobbyBS': 0.8,
-  'HMBLE': 0.8,
-  'Ash': 0.7,
-  'Driffle': 0.4,
+  MmonsteR: 1.3,
+  SpenLC: 1.0,
+  KairosTime: 1.0,
+  BobbyBS: 0.8,
+  HMBLE: 0.8,
+  Ash: 0.7,
+  Driffle: 0.4,
   'BrawlTime Votes': 0.3
 };
 
@@ -30,37 +21,37 @@ const SOURCE_DETAILS = {
     whyWeight: 'Weighted at 1.5x — the highest in BrawlRank — because empirical performance data from the best players is the most objective measure of brawler strength available.',
     uses: ['Top 200 global leaderboard win/pick rates', 'Ranked Mode performance data across skill tiers', 'Automated, regularly refreshed statistical snapshots']
   },
-  'MmonsteR': {
+  MmonsteR: {
     whatItIs: 'An independent data-driven meta analysis focused on upper-skill performance, providing a second empirical perspective alongside Noff.gg.',
     whyWeight: 'Weighted at 1.3x as an independent data source. Two independent data pipelines agreeing on a brawler\'s strength increases confidence.',
     uses: ['Top 200 player performance modeling', 'Usage rates and success metrics across patches', 'Patch-cycle trend tracking']
   },
-  'SpenLC': {
+  SpenLC: {
     whatItIs: 'An active professional Brawl Stars player competing at the championship level, offering first-hand competitive insight.',
     whyWeight: 'Weighted at 1.0x — expert opinion is valuable but inherently subjective. Pro players can have blind spots or biases toward their own playstyle.',
     uses: ['SpenLC (active pro player)', 'First-hand scrim and tournament experience', 'Draft and matchup priority from direct gameplay']
   },
-  'KairosTime': {
+  KairosTime: {
     whatItIs: 'A long-running Brawl Stars content creator whose tier lists are built in collaboration with top competitive players.',
     whyWeight: 'Weighted at 1.0x — benefits from pro consultation and transparent methodology, but is still an opinion-based assessment filtered through a content creator.',
     uses: ['KairosTime + competitive collaborators', 'Scrim and high-level ranked context', 'Patch-adjusted matchup analysis']
   },
-  'BobbyBS': {
+  BobbyBS: {
     whatItIs: 'A creator tier list informed by direct input from roughly 10 professional players, providing a crowd-sourced competitive perspective.',
     whyWeight: 'Weighted at 0.8x — pro input adds credibility, but editorial synthesis of that input adds a subjective layer between raw pro opinion and the final list.',
     uses: ['BobbyBS + around 10 pro players', 'Pro feedback consensus', 'High-level mode and map discussions']
   },
-  'HMBLE': {
+  HMBLE: {
     whatItIs: 'A professional Brawl Stars esports team whose tier list reflects coordinated 3v3 team play from scrims and competition.',
     whyWeight: 'Weighted at 0.8x — genuine competitive authority, but evaluates through the lens of coordinated team play which differs from solo queue.',
     uses: ['HMBLE pro team members', 'Team scrim and composition testing', 'Coordinated play viability assessment']
   },
-  'Ash': {
+  Ash: {
     whatItIs: 'A well-known Brawl Stars content creator producing tier lists focused on practical ranked and ladder play.',
     whyWeight: 'Weighted at 0.7x — reliable single-analyst perspective but lacks competitive tournament pedigree and data-driven objectivity.',
     uses: ['Ash (single analyst)', 'Current patch experience and testing', 'Ranked ladder viability focus']
   },
-  'Driffle': {
+  Driffle: {
     whatItIs: 'An editorial tier list aimed at a broad audience, synthesizing publicly available meta information into an accessible guide format.',
     whyWeight: 'Weighted at 0.4x — editorial lists lag behind the competitive meta and rely on secondary sources rather than original data or gameplay.',
     uses: ['Editorial analysis team', 'Cross-source synthesis', 'General/mainstream player focus']
@@ -89,6 +80,133 @@ const TIER_THRESHOLDS = {
   C: 2.5,
   D: 1.5
 };
+const TIER_VALUES = { S: 6, A: 5, B: 4, C: 3, D: 2, F: 1 };
+
+const tierContainer = document.getElementById('tierContainer');
+const lastUpdated = document.getElementById('lastUpdated');
+const sourceCountBadge = document.querySelector('.src-count');
+const sourcesGrid = document.getElementById('sourcesGrid');
+const searchInput = document.getElementById('searchInput');
+const searchCount = document.getElementById('searchCount');
+const overlay = document.getElementById('modalOverlay');
+const modalClose = document.getElementById('modalClose');
+const modalContent = document.getElementById('modalContent');
+const srcPopupOverlay = document.getElementById('sourcesPopupOverlay');
+const srcPopupClose = document.getElementById('sourcesPopupClose');
+const srcPopupList = document.getElementById('sourcesPopupList');
+const sourcesBtn = document.getElementById('sourcesBtn');
+const sourceDetailOverlay = document.getElementById('sourceDetailOverlay');
+const sourceDetailClose = document.getElementById('sourceDetailClose');
+const sourceDetailContent = document.getElementById('sourceDetailContent');
+const siteVersion = document.getElementById('siteVersion');
+const consentBanner = document.getElementById('consent');
+const acceptBtn = document.getElementById('acceptBtn');
+const SITE_REPO_URL = 'https://github.com/PeterPari/brawlrank';
+const SITE_ISSUES_URL = 'https://github.com/PeterPari/brawlrank/issues';
+const CONSENT_STORAGE_KEY = 'consent';
+const CLARITY_PROJECT_ID = 'vwyrtsgbq7';
+
+let siteVersionValue = '';
+let siteVersionDateValue = '';
+let activeModalMode = null;
+let clarityLoaded = false;
+
+function hasAnalyticsConsent() {
+  try {
+    return window.localStorage.getItem(CONSENT_STORAGE_KEY) === '1';
+  } catch (error) {
+    console.warn('Unable to read analytics consent state.', error);
+    return false;
+  }
+}
+
+function setAnalyticsConsent() {
+  try {
+    window.localStorage.setItem(CONSENT_STORAGE_KEY, '1');
+  } catch (error) {
+    console.warn('Unable to persist analytics consent state.', error);
+  }
+}
+
+function hideConsentBanner() {
+  if (!consentBanner) return;
+
+  consentBanner.hidden = true;
+  document.body.classList.remove('consent-visible');
+}
+
+function showConsentBanner() {
+  if (!consentBanner) return;
+
+  consentBanner.hidden = false;
+  document.body.classList.add('consent-visible');
+}
+
+function loadClarity() {
+  if (clarityLoaded || document.querySelector('script[data-clarity="true"]')) {
+    clarityLoaded = true;
+    return;
+  }
+
+  window.clarity = window.clarity || function () {
+    (window.clarity.q = window.clarity.q || []).push(arguments);
+  };
+
+  const script = document.createElement('script');
+  script.async = true;
+  script.src = `https://www.clarity.ms/tag/${CLARITY_PROJECT_ID}`;
+  script.dataset.clarity = 'true';
+  document.head.appendChild(script);
+  clarityLoaded = true;
+}
+
+function initAnalyticsConsent() {
+  if (!consentBanner || !acceptBtn) return;
+
+  if (hasAnalyticsConsent()) {
+    hideConsentBanner();
+    loadClarity();
+    return;
+  }
+
+  showConsentBanner();
+  acceptBtn.addEventListener('click', () => {
+    setAnalyticsConsent();
+    hideConsentBanner();
+    loadClarity();
+  }, { once: true });
+}
+
+async function loadTierData() {
+  const response = await fetch('data.json', { cache: 'no-cache' });
+  if (!response.ok) {
+    throw new Error(`Unable to load tier data (${response.status})`);
+  }
+
+  return response.json();
+}
+
+async function loadSiteVersion() {
+  const response = await fetch('version', { cache: 'no-cache' });
+  if (!response.ok) {
+    throw new Error(`Unable to load site version (${response.status})`);
+  }
+
+  return response.text();
+}
+
+async function loadSiteVersionDate() {
+  const response = await fetch('version-date', { cache: 'no-cache' });
+  if (!response.ok) {
+    throw new Error(`Unable to load site version date (${response.status})`);
+  }
+
+  return response.text();
+}
+
+function createEmptyTiers() {
+  return { S: [], A: [], B: [], C: [], D: [], F: [] };
+}
 
 function getTierFromScore(score) {
   if (score >= TIER_THRESHOLDS.S) return 'S';
@@ -98,8 +216,6 @@ function getTierFromScore(score) {
   if (score >= TIER_THRESHOLDS.D) return 'D';
   return 'F';
 }
-
-const TIER_VALUES = { S: 6, A: 5, B: 4, C: 3, D: 2, F: 1 };
 
 function valueToTier(value) {
   const rounded = Math.round(value);
@@ -113,7 +229,6 @@ function calculateAllScores() {
     let totalWeight = 0;
     const ratings = [];
 
-    // Merge Noff.gg (Top 200) and Noff Ranked into one source.
     const noffTop = b.sources['Noff.gg'];
     const noffRanked = b.sources['Noff Ranked'];
     let mergedNoffValue = null;
@@ -135,6 +250,7 @@ function calculateAllScores() {
 
     for (const [sourceName, weight] of Object.entries(SOURCE_WEIGHTS)) {
       if (sourceName === 'Noff.gg') continue;
+
       const tier = b.sources[sourceName];
       if (!tier) continue;
 
@@ -160,7 +276,7 @@ function calculateAllScores() {
 }
 
 function buildTiersFromScores() {
-  const tiers = { S: [], A: [], B: [], C: [], D: [], F: [] };
+  const tiers = createEmptyTiers();
 
   TIER_DATA.brawlers.forEach((b) => {
     const recalculatedTier = getTierFromScore(b.score);
@@ -175,10 +291,8 @@ function buildTiersFromScores() {
   return tiers;
 }
 
-// Extract portrait ID from icon URL and add portrait path
 function addPortraitPaths() {
-  TIER_DATA.brawlers.forEach(b => {
-    // Extract ID from icon URL (e.g., "https://cdn.brawlify.com/brawlers/borderless/16000026.png" -> "16000026")
+  TIER_DATA.brawlers.forEach((b) => {
     const match = b.icon.match(/(\d+)\.png$/);
     if (match) {
       const id = match[1];
@@ -186,27 +300,110 @@ function addPortraitPaths() {
     }
   });
 }
-addPortraitPaths();
 
-// Build brawler lookup
-normalizeTierDataMetadata();
-calculateAllScores();
-const brawlerMap = {};
-TIER_DATA.brawlers.forEach(b => { brawlerMap[b.name] = b; });
-const DISPLAY_TIERS = buildTiersFromScores();
+function rebuildDerivedState() {
+  addPortraitPaths();
+  calculateAllScores();
 
-// Set last updated
-document.getElementById('lastUpdated').textContent = 'Last updated: ' + TIER_DATA.last_updated;
+  Object.keys(brawlerMap).forEach((name) => delete brawlerMap[name]);
+  TIER_DATA.brawlers.forEach((b) => {
+    brawlerMap[b.name] = b;
+  });
 
-// Render tier list
+  DISPLAY_TIERS = buildTiersFromScores();
+}
+
+function syncDataMetadata() {
+  const headerDate = siteVersionDateValue || TIER_DATA.last_updated;
+  lastUpdated.textContent = 'Last updated: ' + headerDate;
+  if (sourceCountBadge) {
+    sourceCountBadge.textContent = String(TIER_DATA.total_sources);
+  }
+}
+
+function renderDataLoadError() {
+  const message = 'Unable to load tier data. Serve the site over HTTP to fetch data.json.';
+  tierContainer.innerHTML = `<div style="padding:24px;border:1px solid rgba(255,255,255,0.08);border-radius:20px;background:rgba(255,255,255,0.03);color:var(--text-muted);text-align:center;">${message}</div>`;
+  sourcesGrid.innerHTML = `<div style="padding:20px;border:1px solid rgba(255,255,255,0.08);border-radius:18px;color:var(--text-muted);text-align:center;">Source data unavailable.</div>`;
+  srcPopupList.innerHTML = `<div style="padding:16px;color:var(--text-muted);text-align:center;">Source data unavailable.</div>`;
+  lastUpdated.textContent = 'Last updated: unavailable';
+  if (sourceCountBadge) {
+    sourceCountBadge.textContent = '0';
+  }
+  searchInput.disabled = true;
+}
+
+function syncSiteVersion(versionText) {
+  if (!siteVersion) return;
+
+  const cleanedVersion = versionText.trim();
+  siteVersionValue = cleanedVersion;
+  siteVersion.textContent = cleanedVersion ? `Version ${cleanedVersion}` : 'Version unavailable';
+  siteVersion.disabled = !cleanedVersion;
+}
+
+function syncSiteVersionDate(versionDateText) {
+  siteVersionDateValue = versionDateText.trim();
+}
+
+function openVersionModal() {
+  if (!siteVersionValue) return;
+
+  const versionDateMarkup = siteVersionDateValue
+    ? `<div class="version-modal-meta">
+         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+         Released ${siteVersionDateValue}
+       </div>`
+    : '<div class="version-modal-meta">Release date unavailable</div>';
+
+  modalContent.innerHTML = `
+    <div class="version-modal-header">
+      <div class="version-modal-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+      </div>
+      <div>
+        <h2 class="version-modal-title">BrawlRank Open Source</h2>
+        <div class="version-modal-badge">v${siteVersionValue}</div>
+      </div>
+    </div>
+    ${versionDateMarkup}
+    <div class="version-modal-body">
+      <p class="version-modal-text">BrawlRank is maintained as an open-source project by Tech-Savvies. Explore the codebase, suggest features, or report bugs directly on GitHub.</p>
+      <div class="version-modal-links">
+        <a class="version-modal-link" href="${SITE_REPO_URL}" target="_blank" rel="noopener noreferrer">
+          <span class="v-link-left">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            GitHub Repository
+          </span>
+        </a>
+        <a class="version-modal-link" href="${SITE_ISSUES_URL}" target="_blank" rel="noopener noreferrer">
+          <span class="v-link-left">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            Report an Issue
+          </span>
+        </a>
+        <a class="version-modal-link" href="https://tech-savvies.com/" target="_blank" rel="noopener noreferrer">
+          <span class="v-link-left">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            Tech-Savvies Website
+          </span>
+        </a>
+      </div>
+    </div>
+  `;
+
+  activeModalMode = 'version';
+  overlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
 function renderTierList() {
-  const container = document.getElementById('tierContainer');
-  container.innerHTML = '';
+  tierContainer.innerHTML = '';
 
-  TIER_ORDER.forEach(tier => {
+  TIER_ORDER.forEach((tier) => {
     const names = DISPLAY_TIERS[tier];
     if (tier === 'F' && names.length === 0) {
-      // Still render empty F tier
+      // Still render empty F tier.
     }
 
     const row = document.createElement('div');
@@ -226,7 +423,7 @@ function renderTierList() {
       brawlers.appendChild(empty);
     }
 
-    names.forEach(name => {
+    names.forEach((name) => {
       const b = brawlerMap[name];
       if (!b) return;
 
@@ -259,20 +456,16 @@ function renderTierList() {
 
     row.appendChild(label);
     row.appendChild(brawlers);
-    container.appendChild(row);
+    tierContainer.appendChild(row);
   });
 }
 
-// Search
-const searchInput = document.getElementById('searchInput');
-const searchCount = document.getElementById('searchCount');
-
-searchInput.addEventListener('input', function() {
+searchInput.addEventListener('input', function () {
   const q = this.value.trim().toLowerCase();
   const icons = document.querySelectorAll('.brawler-icon-wrap');
 
   if (!q) {
-    icons.forEach(el => {
+    icons.forEach((el) => {
       el.classList.remove('dimmed', 'highlighted');
     });
     searchCount.textContent = '';
@@ -280,7 +473,7 @@ searchInput.addEventListener('input', function() {
   }
 
   let count = 0;
-  icons.forEach(el => {
+  icons.forEach((el) => {
     const match = el.dataset.name.includes(q);
     el.classList.toggle('dimmed', !match);
     el.classList.toggle('highlighted', match);
@@ -290,13 +483,6 @@ searchInput.addEventListener('input', function() {
   searchCount.textContent = count === 0 ? 'No brawlers found' : `${count} brawler${count !== 1 ? 's' : ''} found`;
 });
 
-// Modal
-const overlay = document.getElementById('modalOverlay');
-const modal = document.getElementById('modal');
-const modalClose = document.getElementById('modalClose');
-const modalContent = document.getElementById('modalContent');
-
-// Toast notification
 function showToast(msg) {
   let toast = document.getElementById('toast');
   if (!toast) {
@@ -311,12 +497,12 @@ function showToast(msg) {
 }
 
 function openModal(b) {
+  activeModalMode = 'brawler';
   const tierColor = TIER_COLORS[b.tier];
   const pct = ((b.score / 6) * 100).toFixed(1);
 
   let sourcesHTML = '';
-  const allSources = TIER_DATA.sources;
-  allSources.forEach(src => {
+  TIER_DATA.sources.forEach((src) => {
     let rating;
     if (src.name === 'Noff.gg') {
       rating = b.noffMergedTier;
@@ -385,7 +571,6 @@ function openModal(b) {
   overlay.classList.add('active');
   document.body.style.overflow = 'hidden';
 
-  // Animate bar
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       const bar = modalContent.querySelector('.modal-score-bar');
@@ -399,7 +584,12 @@ function closeModal() {
   if (!srcPopupOverlay.classList.contains('active') && !sourceDetailOverlay.classList.contains('active')) {
     document.body.style.overflow = '';
   }
-  history.replaceState(null, '', location.pathname);
+
+  if (activeModalMode === 'brawler') {
+    history.replaceState(null, '', location.pathname);
+  }
+
+  activeModalMode = null;
 }
 
 modalClose.addEventListener('click', closeModal);
@@ -410,11 +600,9 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeModal();
 });
 
-// Render sources grid (below tier list)
 function renderSources() {
-  const grid = document.getElementById('sourcesGrid');
-  grid.innerHTML = '';
-  TIER_DATA.sources.forEach(src => {
+  sourcesGrid.innerHTML = '';
+  TIER_DATA.sources.forEach((src) => {
     const weight = SOURCE_WEIGHTS[src.name] || 1.0;
     const card = document.createElement('div');
     card.className = 'source-card';
@@ -431,19 +619,13 @@ function renderSources() {
       <a href="${src.url}" target="_blank" rel="noopener noreferrer" class="source-card-link">View source →</a>
     `;
     card.querySelector('.source-weight-btn').addEventListener('click', () => openSourceDetail(src.name));
-    grid.appendChild(card);
+    sourcesGrid.appendChild(card);
   });
 }
 
-// Sources popup
-const srcPopupOverlay = document.getElementById('sourcesPopupOverlay');
-const srcPopupClose = document.getElementById('sourcesPopupClose');
-const srcPopupList = document.getElementById('sourcesPopupList');
-const sourcesBtn = document.getElementById('sourcesBtn');
-
 function renderSourcesPopup() {
   srcPopupList.innerHTML = '';
-  TIER_DATA.sources.forEach(src => {
+  TIER_DATA.sources.forEach((src) => {
     const weight = SOURCE_WEIGHTS[src.name] || 1.0;
     const item = document.createElement('div');
     item.className = 'src-list-item';
@@ -465,10 +647,6 @@ function renderSourcesPopup() {
   });
 }
 
-const sourceDetailOverlay = document.getElementById('sourceDetailOverlay');
-const sourceDetailClose = document.getElementById('sourceDetailClose');
-const sourceDetailContent = document.getElementById('sourceDetailContent');
-
 function getFallbackSourceDetail(src, weight) {
   return {
     whatItIs: `${src.type} source included in the blended BrawlRank model.`,
@@ -478,7 +656,7 @@ function getFallbackSourceDetail(src, weight) {
 }
 
 function openSourceDetail(sourceName) {
-  const src = TIER_DATA.sources.find((s) => s.name === sourceName);
+  const src = TIER_DATA.sources.find((source) => source.name === sourceName);
   if (!src) return;
 
   const weight = SOURCE_WEIGHTS[src.name] || 1.0;
@@ -528,6 +706,7 @@ function openSourcesPopup() {
   srcPopupOverlay.classList.add('active');
   document.body.style.overflow = 'hidden';
 }
+
 function closeSourcesPopup() {
   srcPopupOverlay.classList.remove('active');
   if (!overlay.classList.contains('active') && !sourceDetailOverlay.classList.contains('active')) {
@@ -536,6 +715,9 @@ function closeSourcesPopup() {
 }
 
 sourcesBtn.addEventListener('click', openSourcesPopup);
+if (siteVersion) {
+  siteVersion.addEventListener('click', openVersionModal);
+}
 srcPopupClose.addEventListener('click', closeSourcesPopup);
 srcPopupOverlay.addEventListener('click', (e) => {
   if (e.target === srcPopupOverlay) closeSourcesPopup();
@@ -549,14 +731,43 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && sourceDetailOverlay.classList.contains('active')) closeSourceDetail();
 });
 
-// Init
-renderTierList();
-renderSources();
-renderSourcesPopup();
+function openBrawlerFromHash() {
+  if (!location.hash) return;
 
-// Open brawler modal from URL hash on load (e.g. brawlrank.com/#Shelly)
-if (location.hash) {
   const name = decodeURIComponent(location.hash.slice(1));
-  const brawler = brawlerMap[name] || brawlerMap[Object.keys(brawlerMap).find(k => k.toLowerCase() === name.toLowerCase())];
-  if (brawler) openModal(brawler);
+  const exactMatch = brawlerMap[name];
+  const matchingName = Object.keys(brawlerMap).find((key) => key.toLowerCase() === name.toLowerCase());
+  const brawler = exactMatch || (matchingName ? brawlerMap[matchingName] : null);
+
+  if (brawler) {
+    openModal(brawler);
+  }
 }
+
+async function initApp() {
+  try {
+    const [tierData, versionText, versionDateText] = await Promise.all([
+      loadTierData(),
+      loadSiteVersion().catch(() => ''),
+      loadSiteVersionDate().catch(() => '')
+    ]);
+
+    TIER_DATA = tierData;
+    syncSiteVersion(versionText);
+    syncSiteVersionDate(versionDateText);
+    syncDataMetadata();
+    rebuildDerivedState();
+    renderTierList();
+    renderSources();
+    renderSourcesPopup();
+    openBrawlerFromHash();
+  } catch (error) {
+    console.error(error);
+    syncSiteVersion('');
+    syncSiteVersionDate('');
+    renderDataLoadError();
+  }
+}
+
+initAnalyticsConsent();
+initApp();
