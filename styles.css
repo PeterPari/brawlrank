@@ -720,7 +720,7 @@ body.consent-visible {
   border: 1px solid var(--border);
   border-radius: 16px;
   width: 90%;
-  max-width: 420px;
+  max-width: 440px;
   max-height: 80vh;
   overflow-y: auto;
   padding: 24px;
@@ -732,6 +732,7 @@ body.consent-visible {
 .sources-popup-overlay.active .sources-popup {
   transform: translateY(0) scale(1);
 }
+
 .sources-popup-close {
   position: absolute;
   top: 14px;
@@ -771,8 +772,19 @@ body.consent-visible {
   padding: 10px 0;
   border-bottom: 1px solid rgba(255,255,255,0.04);
   gap: 10px;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.2s;
 }
 .src-list-item:last-child { border-bottom: none; }
+.src-list-item:hover {
+  transform: translateX(2px);
+}
+.src-list-item:focus-visible {
+  outline: none;
+  border-color: rgba(0, 229, 255, 0.22);
+  box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.14);
+  border-radius: 10px;
+}
 .src-list-left {
   display: flex;
   flex-direction: column;
@@ -785,14 +797,6 @@ body.consent-visible {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-.src-list-name a {
-  color: var(--text-primary);
-  text-decoration: none;
-  transition: color 0.15s;
-}
-.src-list-name a:hover {
-  color: var(--accent);
 }
 .src-list-type {
   font-size: 11px;
@@ -845,11 +849,19 @@ body.consent-visible {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 20px;
+  cursor: pointer;
   transition: border-color 0.2s, transform 0.2s;
 }
 
 .source-card:hover {
   border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.source-card:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.16);
   transform: translateY(-2px);
 }
 
@@ -947,8 +959,8 @@ body.consent-visible {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 16px;
-  width: 92%;
-  max-width: 560px;
+  width: 90%;
+  max-width: 440px;
   max-height: 84vh;
   overflow-y: auto;
   padding: 24px;
@@ -960,6 +972,14 @@ body.consent-visible {
 
 .source-detail-overlay.active .source-detail-popup {
   transform: translateY(0) scale(1);
+}
+
+@media (min-width: 1024px) {
+  .sources-popup,
+  .source-detail-popup {
+    width: calc(100vw - 600px);
+    max-width: none;
+  }
 }
 
 .source-detail-close {
@@ -987,10 +1007,17 @@ body.consent-visible {
 
 .source-detail-head {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 8px;
+  margin-bottom: 14px;
+}
+
+.source-detail-head-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
 }
 
 .source-detail-name {
@@ -1000,11 +1027,59 @@ body.consent-visible {
   line-height: 1.2;
 }
 
-.source-detail-type {
-  font-size: 13px;
+.source-detail-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.source-cat-pill {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.cat-data {
   color: var(--accent);
-  font-weight: 600;
-  margin-top: 4px;
+  background: rgba(0, 229, 255, 0.1);
+  border-color: rgba(0, 229, 255, 0.3);
+}
+
+.cat-pro {
+  color: #ff9500;
+  background: rgba(255, 149, 0, 0.1);
+  border-color: rgba(255, 149, 0, 0.3);
+}
+
+.cat-editorial {
+  color: #bf5af2;
+  background: rgba(191, 90, 242, 0.1);
+  border-color: rgba(191, 90, 242, 0.3);
+}
+
+.cat-community {
+  color: #8e8e93;
+  background: rgba(142, 142, 147, 0.1);
+  border-color: rgba(142, 142, 147, 0.3);
+}
+
+.source-detail-date-inline {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.source-detail-weight-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
 }
 
 .source-detail-weight {
@@ -1013,37 +1088,60 @@ body.consent-visible {
   border: 1px solid rgba(0, 229, 255, 0.28);
   border-radius: 999px;
   padding: 5px 12px;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 700;
   white-space: nowrap;
 }
 
-.source-detail-date {
-  font-size: 12px;
+.source-detail-weight-rank {
+  font-size: 11px;
   color: var(--text-muted);
-  margin-bottom: 14px;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .source-detail-block {
-  margin-bottom: 14px;
-  padding: 12px;
+  margin-bottom: 10px;
+  padding: 12px 14px;
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   border-radius: 10px;
+  border-left-width: 3px;
+}
+
+.source-block-about {
+  border-left-color: rgba(0, 229, 255, 0.5);
+}
+
+.source-block-weight {
+  border-left-color: rgba(255, 204, 0, 0.5);
+}
+
+.source-block-method {
+  border-left-color: rgba(52, 199, 89, 0.5);
 }
 
 .source-detail-block h3 {
-  font-size: 13px;
-  color: var(--text-primary);
-  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.6px;
+  font-weight: 600;
+}
+
+.source-detail-block h3 svg {
+  flex-shrink: 0;
+  opacity: 0.7;
 }
 
 .source-detail-block p {
   font-size: 14px;
   color: var(--text-secondary);
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 .source-detail-block ul {
@@ -1053,21 +1151,31 @@ body.consent-visible {
 }
 
 .source-detail-block li {
-  margin-bottom: 4px;
-  font-size: 14px;
+  margin-bottom: 5px;
+  font-size: 13.5px;
+  line-height: 1.4;
 }
 
 .source-detail-link {
-  display: inline-block;
-  margin-top: 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  padding: 8px 14px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 8px;
   color: var(--accent);
   text-decoration: none;
   font-size: 13px;
   font-weight: 600;
+  transition: background 0.15s, border-color 0.15s;
 }
 
 .source-detail-link:hover {
-  opacity: 0.75;
+  background: rgba(0, 229, 255, 0.08);
+  border-color: rgba(0, 229, 255, 0.3);
+  opacity: 1;
 }
 
 /* Consensus / Disagreement indicator */
@@ -1339,6 +1447,7 @@ body.consent-visible {
   .modal-info h2 { font-size: 20px; }
   .container { padding: 0 16px; }
   .src-list-right { align-items: flex-start; }
+  .sources-popup { width: 95%; padding: 20px; }
   .source-detail-popup { width: 95%; padding: 20px; }
   .source-detail-name { font-size: 20px; }
   .version-modal-icon { width: 44px; height: 44px; }

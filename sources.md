@@ -2,11 +2,22 @@
 
 BrawlRank aggregates 9 independent sources to produce a single blended tier list for every brawler in Brawl Stars. This document explains each source, how it's weighted, and why.
 
+---
+
 ## How the Blending Works
 
-Each source assigns brawlers a tier (S through F). These tiers are converted to numerical scores (S=6, A=5, B=4, C=3, D=2, F=1), then multiplied by that source's weight. The weighted scores are averaged across all sources to produce a final score, which maps back to a tier:
+Each source assigns brawlers a tier (S through F). These tiers are converted to numerical scores, multiplied by that source's weight, and averaged to produce a final score per brawler. That final score maps back to a tier:
 
-| Final Score | Tier |
+| Tier Score | Tier |
+| --- | --- |
+| S = 6 | S |
+| A = 5 | A |
+| B = 4 | B |
+| C = 3 | C |
+| D = 2 | D |
+| F = 1 | F |
+
+| Final Score Range | Assigned Tier |
 | --- | --- |
 | ≥ 5.5 | S |
 | ≥ 4.5 | A |
@@ -15,15 +26,38 @@ Each source assigns brawlers a tier (S through F). These tiers are converted to 
 | ≥ 1.5 | D |
 | < 1.5 | F |
 
-Additionally, BrawlRank calculates a **disagreement metric** (standard deviation σ) for each brawler to indicate how much sources agree:
+### Worked Example
 
-| σ Range | Label | Meaning |
+Suppose a brawler receives the following ratings from 4 sources:
+
+| Source | Tier | Score | Weight | Weighted Score |
+| --- | --- | --- | --- | --- |
+| Noff.gg | S | 6 | 1.5x | 9.0 |
+| MmonsteR | A | 5 | 1.3x | 6.5 |
+| SpenLC | S | 6 | 1.0x | 6.0 |
+| Ash | A | 5 | 0.7x | 3.5 |
+
+**Weighted average** = (9.0 + 6.5 + 6.0 + 3.5) / (1.5 + 1.3 + 1.0 + 0.7) = 25.0 / 4.5 = **5.56 → S tier**
+
+Only sources that actually rate a given brawler contribute to that brawler's score. If a source doesn't cover a brawler, it's excluded from both the numerator and denominator — it doesn't count as a zero.
+
+### Source Agreement (Disagreement Metric)
+
+BrawlRank calculates the **standard deviation (σ)** of raw source scores for each brawler. This measures how much sources agree, independent of weights:
+
+| σ Range | Label | What it means |
 | --- | --- | --- |
-| < 0.80 | Strong consensus | Sources broadly agree on this brawler's placement |
-| 0.80–1.49 | Moderate consensus | Some disagreement between source types |
-| ≥ 1.50 | Weak consensus | Sources disagree significantly — tier should be interpreted with caution |
+| < 0.80 | Strong consensus | Sources broadly agree — the tier is reliable |
+| 0.80–1.49 | Moderate consensus | Some disagreement between source types — tier is directionally correct but debatable |
+| ≥ 1.50 | Weak consensus | Sources disagree significantly — the tier should be interpreted with caution |
 
-### Weight Philosophy
+The disagreement metric uses **unweighted** scores (each source counts equally) so that it reflects genuine disagreement rather than being dampened by low-weight sources. For example, if data sources rate a brawler S but community sources rate it C, that real disagreement will show up even though the community weight is low.
+
+**Example:** A brawler rated S (6) by two sources and C (3) by two others has a mean of 4.5 and σ ≈ 1.50 — that's "Weak consensus," signaling that the final tier (likely A or B) masks a genuine split in opinion.
+
+---
+
+## Weight Philosophy
 
 BrawlRank's weighting system is designed for **maximum objectivity**. Weights range from 0.3x to 1.5x (a 5:1 ratio) based on one core principle: **empirical data is more objective than human opinion**.
 
@@ -33,11 +67,19 @@ BrawlRank's weighting system is designed for **maximum objectivity**. Weights ra
 
 This data-first approach means the final tier list is anchored in measurable performance, with human judgment as a corrective lens rather than the primary signal.
 
+### Previous Weight System (Pre-Overhaul)
+
+Before the objectivity overhaul, BrawlRank used a narrower 2:1 weight range (0.6x–1.2x) where most sources clustered near 1.0x. Pro players like SpenLC and KairosTime received the highest weights (1.2x) based on "competitive authority," while data sources sat at the same 1.0x baseline as most creators. This meant subjective expert opinion had more influence than empirical performance data.
+
+The overhaul inverted this: data now leads, opinion corrects. The wider 5:1 ratio ensures that the weight difference between source types is meaningful rather than cosmetic.
+
 ### Noff.gg Source Merge
 
-Noff.gg provides two data slices: Top 200 leaderboard performance and Ranked Mode statistics. In earlier versions of BrawlRank, these were treated as two separate sources with independent weights (1.0x and 0.8x). This gave Noff a combined weight of 1.8x — more influence than any other entity — while also introducing correlated data from the same pipeline.
+Noff.gg provides two data slices: Top 200 leaderboard performance and Ranked Mode statistics. In earlier versions of BrawlRank, these were treated as two separate sources with independent weights (1.0x and 0.8x). This gave Noff a combined weight of 1.8x — more influence than any other single entity — while also introducing correlated data from the same pipeline.
 
-BrawlRank now merges these into a single source. When both data slices are available for a brawler, their tier ratings are averaged into one value. This prevents double-counting while preserving the breadth of Noff's data coverage.
+BrawlRank now merges these into a single source. When both data slices are available for a brawler, their tier scores are averaged into one value before weighting. For example, if Noff Top 200 rates a brawler S (6) and Noff Ranked rates it A (5), the merged score is 5.5, which maps to tier S. This prevents double-counting while preserving the breadth of Noff's data coverage.
+
+When only one Noff slice covers a brawler (e.g., a brawler is too niche for the Top 200 but appears in Ranked), that single slice is used as-is.
 
 ---
 
@@ -185,10 +227,32 @@ BrawlRank's source selection covers three distinct perspectives on the meta, wei
 
 | Perspective | Sources | Weight Range | Total Weight | Share | What it captures |
 | --- | --- | --- | --- | --- | --- |
-| **Statistical data** | Noff.gg, MmonsteR | 1.3x–1.5x | 2.8 | **37%** | How the meta *actually plays out* in verifiable win/pick rate data |
-| **Competitive opinion** | SpenLC, KairosTime, BobbyBS, HMBLE, Ash | 0.7x–1.0x | 4.3 | **56%** | How the best players and analysts *think* the meta looks |
+| **Statistical data** | Noff.gg, MmonsteR | 1.3x–1.5x | 2.8 | **36%** | How the meta *actually plays out* in verifiable win/pick rate data |
+| **Competitive opinion** | SpenLC, KairosTime, BobbyBS, HMBLE, Ash | 0.7x–1.0x | 4.3 | **55%** | How the best players and analysts *evaluate* the meta |
 | **Community sentiment** | Driffle, BrawlTime Votes | 0.3x–0.4x | 0.7 | **9%** | How the *broader playerbase* perceives brawler strength |
+| **Total** | **9 sources** | **0.3x–1.5x** | **7.8** | **100%** | |
 
-Data sources earn the highest per-source weight because empirical performance data is the most objective measure available. Competitive opinion contributes the most total weight because five independent expert perspectives provide valuable coverage of nuances data cannot capture. Community sources serve as a minimal "pulse check" to flag brawlers where perception diverges dramatically from expert and data assessment.
+Data sources earn the highest per-source weight (1.4x average) because empirical performance data is the most objective measure available. Competitive opinion contributes the most total weight because five independent expert perspectives provide valuable coverage of nuances data cannot capture — but each individual opinion source is weighted below data. Community sources serve as a minimal "pulse check" to flag brawlers where perception diverges dramatically from expert and data assessment.
 
-No single perspective is complete on its own. Data can be misleading without context (sample size issues for niche brawlers, meta shifts not yet reflected in statistics). Pro opinions capture emerging trends but carry subjective bias. Community votes reflect perception, not reality. By blending all three with objectivity-driven weights, BrawlRank produces a tier list anchored in empirical evidence and corrected by expert judgment.
+No single perspective is complete on its own:
+- **Data** can be misleading without context — sample size issues for niche brawlers, meta shifts not yet reflected in statistics, and the inability to account for draft context or team composition.
+- **Pro opinions** capture emerging trends and competitive nuance but carry subjective bias, individual playstyle preferences, and potential content incentives.
+- **Community votes** reflect perception, not reality — fun or frustrating brawlers get overrated, high-skill-ceiling brawlers get underrated.
+
+By blending all three with objectivity-driven weights, BrawlRank produces a tier list anchored in empirical evidence and corrected by expert judgment.
+
+---
+
+## Known Limitations
+
+These are known limitations of the current system, intentionally scoped out for now:
+
+1. **No recency weighting** — All sources are treated equally regardless of publication date. Sources currently span March 2–16 (14 days). A recency decay could improve accuracy when sources span longer windows (3+ weeks), but adds complexity for a small date range.
+
+2. **Linear tier scoring** — The S=6 through F=1 scale assumes equal gaps between tiers. In competitive reality, the gap between S and A tier is often larger than the gap between C and D. A nonlinear scale (e.g., S=10, A=7, B=5, C=3, D=2, F=1) would better reflect this but requires retuning all thresholds.
+
+3. **No confidence penalty for missing sources** — Brawlers covered by fewer sources have implicitly wider uncertainty, but are displayed identically to brawlers covered by all 9. The disagreement metric partially addresses this, but a dedicated "low coverage" flag would be more explicit.
+
+4. **No per-mode tier lists** — The current system blends all game modes into a single ranking. Mode-specific tiers (e.g., Gem Grab vs. Brawl Ball) would be more useful, but most sources don't provide mode-specific data.
+
+5. **Single-meta snapshot** — BrawlRank reflects a point-in-time snapshot. It does not track how brawler tiers change over time or across patches. Historical trend data would add valuable context for understanding whether a brawler is rising, falling, or stable.

@@ -17,49 +17,49 @@ const SOURCE_WEIGHTS = {
 
 const SOURCE_DETAILS = {
   'Noff.gg': {
-    whatItIs: 'A data-driven tier list combining Top 200 leaderboard performance and Ranked Mode statistics into a single empirical view of the meta.',
-    whyWeight: 'Weighted at 1.5x — the highest in BrawlRank — because empirical performance data from the best players is the most objective measure of brawler strength available.',
-    uses: ['Top 200 global leaderboard win/pick rates', 'Ranked Mode performance data across skill tiers', 'Automated, regularly refreshed statistical snapshots']
+    whatItIs: 'A fully automated data pipeline that tracks performance statistics for the top 200 players globally and across Ranked Mode. No human analyst is involved — tiers are derived directly from win rates, pick rates, and usage trends at the highest levels of play. BrawlRank merges both Noff data slices (Top 200 + Ranked) into a single averaged rating per brawler.',
+    whyWeight: 'Weighted at 1.5x — the highest in BrawlRank — because automated performance data is free from personal bias or content incentives. It measures what the best players are actually winning with, not what anyone thinks is strong. Previously Noff was split into two separate sources (1.0x + 0.8x = 1.8x combined); merging them prevents double-counting while preserving their full data coverage.',
+    uses: ['Win rate and pick rate data from the global Top 200 leaderboard', 'Ranked Mode performance data across multiple skill tiers', 'Brawler usage trends tracked across game modes', 'Automated statistical snapshots refreshed regularly', 'Two independent data slices averaged into one merged rating']
   },
   MmonsteR: {
-    whatItIs: 'An independent data-driven meta analysis focused on upper-skill performance, providing a second empirical perspective alongside Noff.gg.',
-    whyWeight: 'Weighted at 1.3x as an independent data source. Two independent data pipelines agreeing on a brawler\'s strength increases confidence.',
-    uses: ['Top 200 player performance modeling', 'Usage rates and success metrics across patches', 'Patch-cycle trend tracking']
+    whatItIs: 'An independent data-driven meta analysis focused on upper-skill player performance, built on a separate data pipeline from Noff.gg. It produces tier assessments based on how brawlers perform among high-level players, functioning as a second empirical check on the competitive meta.',
+    whyWeight: 'Weighted at 1.3x as an independent data source — slightly below Noff\'s 1.5x because it covers only Top 200 (no Ranked Mode slice). When two independent data pipelines agree on a brawler\'s strength, that corroboration significantly increases confidence in the placement. Disagreement between Noff and MmonsteR is a reliable signal that a brawler\'s tier is genuinely uncertain.',
+    uses: ['Independent Top 200 performance modeling', 'Brawler usage rates and win metrics across patches', 'Patch-cycle trend tracking to detect rising or falling brawlers', 'Separate data pipeline from Noff.gg — no shared methodology']
   },
   SpenLC: {
-    whatItIs: 'An active professional Brawl Stars player competing at the championship level, offering first-hand competitive insight.',
-    whyWeight: 'Weighted at 1.0x — expert opinion is valuable but inherently subjective. Pro players can have blind spots or biases toward their own playstyle.',
-    uses: ['SpenLC (active pro player)', 'First-hand scrim and tournament experience', 'Draft and matchup priority from direct gameplay']
+    whatItIs: 'An active professional Brawl Stars player competing at the championship level. His tier list is built from first-hand competitive experience — scrims, tournament drafts, and top-ladder play — capturing nuances that pure statistics can miss, such as which brawlers are being practiced in pro scrims or which collapse under coordinated pressure.',
+    whyWeight: 'Weighted at 1.0x — pro expertise is highly valuable, but opinion is inherently subjective. Players naturally rate brawlers they are personally comfortable with more favorably, and competitive intuition can lag behind a shifting meta. No source gets a weight bonus for being a high-profile personality.',
+    uses: ['First-hand scrim and tournament gameplay at championship level', 'Draft priority and ban-rate intuition from actual competitive matches', 'Matchup knowledge built from direct high-level play', 'Awareness of which brawlers are being practiced vs. avoided in pro circles']
   },
   KairosTime: {
-    whatItIs: 'A long-running Brawl Stars content creator whose tier lists are built in collaboration with top competitive players.',
-    whyWeight: 'Weighted at 1.0x — benefits from pro consultation and transparent methodology, but is still an opinion-based assessment filtered through a content creator.',
-    uses: ['KairosTime + competitive collaborators', 'Scrim and high-level ranked context', 'Patch-adjusted matchup analysis']
+    whatItIs: 'One of the longest-running Brawl Stars content creators, producing tier lists in direct collaboration with competitive players and coaches. His methodology is notably transparent — he publicly explains individual tier placements with matchup reasoning and mode context, making his assessments easier to evaluate and cross-check.',
+    whyWeight: 'Weighted at 1.0x — benefits from pro consultation and years of meta tracking, but remains an opinion-based assessment filtered through a content creator. There is an editorial layer between the raw competitive input and the final list, which introduces subjectivity even when the source material is strong.',
+    uses: ['Direct collaboration with competitive players and coaches', 'Scrim results and high-level ranked performance context', 'Patch-adjusted matchup and team composition analysis', 'Per-brawler reasoning with mode-specific justifications']
   },
   BobbyBS: {
-    whatItIs: 'A creator tier list informed by direct input from roughly 10 professional players, providing a crowd-sourced competitive perspective.',
-    whyWeight: 'Weighted at 0.8x — pro input adds credibility, but editorial synthesis of that input adds a subjective layer between raw pro opinion and the final list.',
-    uses: ['BobbyBS + around 10 pro players', 'Pro feedback consensus', 'High-level mode and map discussions']
+    whatItIs: 'A creator-curated tier list built with direct input from roughly 10 professional players. Rather than one person\'s opinion, BobbyBS gathers feedback from a range of pros and synthesizes it into placements — giving the list a crowd-sourced competitive edge compared to single-analyst creator lists.',
+    whyWeight: 'Weighted at 0.8x — below direct pro sources at 1.0x. The pro input adds credibility, but BobbyBS acts as the curator: he synthesizes and interprets that input rather than presenting it raw. That editorial layer introduces a subjective filter between the pro opinions and the final tier placement.',
+    uses: ['Aggregated input from ~10 professional players', 'Consensus-driven placement rather than single-analyst opinion', 'High-level mode and map strategy discussions', 'Cross-pro perspective on draft priority and matchups']
   },
   HMBLE: {
-    whatItIs: 'A professional Brawl Stars esports team whose tier list reflects coordinated 3v3 team play from scrims and competition.',
-    whyWeight: 'Weighted at 0.8x — genuine competitive authority, but evaluates through the lens of coordinated team play which differs from solo queue.',
-    uses: ['HMBLE pro team members', 'Team scrim and composition testing', 'Coordinated play viability assessment']
+    whatItIs: 'A professional Brawl Stars esports team whose tier list reflects their internal competitive perspective, shaped by coordinated scrims and team composition testing. As a practicing pro team, their ratings reflect what works in organized 3v3 play rather than general ladder performance.',
+    whyWeight: 'Weighted at 0.8x — genuine competitive authority, but with a significant caveat: pro teams evaluate brawlers through the lens of coordinated play. A brawler that dominates in a practiced team composition may be mediocre in solo queue (and vice versa). This team-play bias makes the list less universally applicable than individual pro assessments.',
+    uses: ['Internal team scrim results and composition testing', 'Input from multiple HMBLE pro team members', 'Coordinated 3v3 team play viability as the primary lens', 'Emphasis on team synergy and draft-level decision making']
   },
   Ash: {
-    whatItIs: 'A well-known Brawl Stars content creator producing tier lists focused on practical ranked and ladder play.',
-    whyWeight: 'Weighted at 0.7x — reliable single-analyst perspective but lacks competitive tournament pedigree and data-driven objectivity.',
-    uses: ['Ash (single analyst)', 'Current patch experience and testing', 'Ranked ladder viability focus']
+    whatItIs: 'A well-known Brawl Stars content creator who produces regular tier lists grounded in extensive personal gameplay experience. His lists focus on practical ranked and ladder viability — what actually works for skilled players grinding trophies — rather than theoretical pro-tournament meta.',
+    whyWeight: 'Weighted at 0.7x — reliable and well-informed, but as a single analyst without competitive tournament involvement, pro consultation, or access to statistical data, his assessments carry less evidentiary weight than data-driven or pro-sourced inputs. A single person\'s experience, however deep, has a narrower sample than aggregate data or professional competition.',
+    uses: ['Single-analyst perspective with deep game knowledge', 'Current patch testing and personal match review', 'Ranked ladder viability focus across a range of trophy levels', 'Practical "does this actually work?" framing over theoretical strength']
   },
   Driffle: {
-    whatItIs: 'An editorial tier list aimed at a broad audience, synthesizing publicly available meta information into an accessible guide format.',
-    whyWeight: 'Weighted at 0.4x — editorial lists lag behind the competitive meta and rely on secondary sources rather than original data or gameplay.',
-    uses: ['Editorial analysis team', 'Cross-source synthesis', 'General/mainstream player focus']
+    whatItIs: 'An editorial tier list published for a broad general audience, synthesizing publicly available meta information — other tier lists, community discussion, patch notes — into an accessible guide format. It does not use original data or competitive play as inputs.',
+    whyWeight: 'Weighted at 0.4x — editorial lists are valuable as a mainstream-meta snapshot, but have two key limitations: they tend to lag the competitive meta by days or weeks (they rely on secondary sources), and they prioritize accessibility and readability over precision. Including it at a low weight adds a useful "what most players think" signal without letting it distort data-driven placements.',
+    uses: ['Synthesis of publicly available tier lists and meta discussion', 'General/mainstream player framing rather than competitive specialist focus', 'Secondary source aggregation — no original data or gameplay input', 'Broad audience accessibility as the primary goal']
   },
   'BrawlTime Votes': {
-    whatItIs: 'A community voting system with 312,000+ votes where any player can rate brawlers, representing the largest sample size of any source.',
-    whyWeight: 'Weighted at 0.3x — the lowest in BrawlRank. Community perception and competitive reality often diverge: casual players overrate fun/frustrating brawlers and underrate high-skill ones.',
-    uses: ['312K+ individual community votes', 'Open participation regardless of skill level', 'Broad player sentiment tracking']
+    whatItIs: 'A community voting system hosted by BrawlTime Ninja where any player — regardless of skill level — can rate brawlers. With 312,000+ votes, it is the largest sample size of any source in BrawlRank by a wide margin. It measures community perception rather than competitive performance.',
+    whyWeight: 'Weighted at 0.3x — the lowest in BrawlRank. Large sample size makes it statistically reliable for measuring what players *feel* about brawlers, but community perception and competitive reality frequently diverge. Fun-to-play or frustrating-to-face brawlers get overrated; brawlers with high skill ceilings get underrated until the playerbase learns to use them. This keeps the "popularity check" in the blend at minimal influence.',
+    uses: ['312,000+ individual community votes — largest sample of any source', 'Open participation from all skill levels, not just top players', 'Reflects broad player sentiment and perceived meta strength', 'Continuously updated as new votes come in']
   }
 };
 
@@ -606,6 +606,9 @@ function renderSources() {
     const weight = SOURCE_WEIGHTS[src.name] || 1.0;
     const card = document.createElement('div');
     card.className = 'source-card';
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('aria-label', `Open source details for ${src.name}`);
     card.innerHTML = `
       <div class="source-card-name">${src.name}</div>
       <div class="source-card-type">${src.type}</div>
@@ -618,7 +621,20 @@ function renderSources() {
       </div>
       <a href="${src.url}" target="_blank" rel="noopener noreferrer" class="source-card-link">View source →</a>
     `;
-    card.querySelector('.source-weight-btn').addEventListener('click', () => openSourceDetail(src.name));
+    card.addEventListener('click', (event) => {
+      if (event.target.closest('.source-card-link, .source-weight-btn')) return;
+      openSourceDetail(src.name);
+    });
+    card.addEventListener('keydown', (event) => {
+      if (event.target.closest('.source-card-link, .source-weight-btn')) return;
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      openSourceDetail(src.name);
+    });
+    card.querySelector('.source-weight-btn').addEventListener('click', (event) => {
+      event.stopPropagation();
+      openSourceDetail(src.name);
+    });
     sourcesGrid.appendChild(card);
   });
 }
@@ -629,9 +645,12 @@ function renderSourcesPopup() {
     const weight = SOURCE_WEIGHTS[src.name] || 1.0;
     const item = document.createElement('div');
     item.className = 'src-list-item';
+    item.setAttribute('role', 'button');
+    item.setAttribute('tabindex', '0');
+    item.setAttribute('aria-label', `Open source details for ${src.name}`);
     item.innerHTML = `
       <div class="src-list-left">
-        <div class="src-list-name"><a href="${src.url}" target="_blank" rel="noopener noreferrer">${src.name}</a></div>
+        <div class="src-list-name">${src.name}</div>
         <div class="src-list-type">${src.type}</div>
       </div>
       <div class="src-list-right">
@@ -642,7 +661,20 @@ function renderSourcesPopup() {
         </button>
       </div>
     `;
-    item.querySelector('.source-weight-btn').addEventListener('click', () => openSourceDetail(src.name));
+    item.addEventListener('click', (event) => {
+      if (event.target.closest('.source-weight-btn')) return;
+      openSourceDetail(src.name);
+    });
+    item.addEventListener('keydown', (event) => {
+      if (event.target.closest('.source-weight-btn')) return;
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      openSourceDetail(src.name);
+    });
+    item.querySelector('.source-weight-btn').addEventListener('click', (event) => {
+      event.stopPropagation();
+      openSourceDetail(src.name);
+    });
     srcPopupList.appendChild(item);
   });
 }
@@ -662,33 +694,65 @@ function openSourceDetail(sourceName) {
   const weight = SOURCE_WEIGHTS[src.name] || 1.0;
   const detail = SOURCE_DETAILS[src.name] || getFallbackSourceDetail(src, weight);
   const usesHtml = detail.uses.map((item) => `<li>${item}</li>`).join('');
+  const typeLC = src.type.toLowerCase();
+
+  const categoryLabel = typeLC.includes('data') ? 'Data Source'
+    : typeLC.includes('community') ? 'Community'
+    : typeLC.includes('editorial') ? 'Editorial'
+    : typeLC.includes('pro player') ? 'Pro Player'
+    : typeLC.includes('pro tier') ? 'Pro Creator'
+    : 'Creator';
+  const categoryClass = typeLC.includes('data') ? 'cat-data'
+    : typeLC.includes('community') ? 'cat-community'
+    : typeLC.includes('editorial') ? 'cat-editorial'
+    : 'cat-pro';
+  const weightRank = weight >= 1.4 ? 'Highest weight'
+    : weight >= 1.2 ? 'High weight'
+    : weight >= 0.9 ? 'Standard weight'
+    : weight >= 0.65 ? 'Reduced weight'
+    : 'Lowest weight';
+  const usesHeading = typeLC.includes('data') ? 'Data inputs'
+    : typeLC.includes('community') ? 'How it works'
+    : 'Behind the list';
+
+  const iconInfo = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>`;
+  const iconWeight = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/><circle cx="10" cy="6" r="2" fill="currentColor" stroke="none"/><circle cx="16" cy="12" r="2" fill="currentColor" stroke="none"/><circle cx="8" cy="18" r="2" fill="currentColor" stroke="none"/></svg>`;
+  const iconList = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="9" y1="6" x2="20" y2="6"/><line x1="9" y1="12" x2="20" y2="12"/><line x1="9" y1="18" x2="20" y2="18"/><circle cx="5" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="5" cy="12" r="1.5" fill="currentColor" stroke="none"/><circle cx="5" cy="18" r="1.5" fill="currentColor" stroke="none"/></svg>`;
+  const iconArrow = `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
 
   sourceDetailContent.innerHTML = `
     <div class="source-detail-head">
-      <div>
+      <div class="source-detail-head-left">
         <div class="source-detail-name">${src.name}</div>
-        <div class="source-detail-type">${src.type}</div>
+        <div class="source-detail-meta">
+          <span class="source-cat-pill ${categoryClass}">${categoryLabel}</span>
+          <span class="source-detail-date-inline">Updated ${src.date}</span>
+        </div>
       </div>
-      <div class="source-detail-weight">${weight.toFixed(1)}x</div>
+      <div class="source-detail-weight-wrap">
+        <div class="source-detail-weight">${weight.toFixed(1)}×</div>
+        <div class="source-detail-weight-rank">${weightRank}</div>
+      </div>
     </div>
-    <div class="source-detail-date">Latest source date: ${src.date}</div>
 
-    <div class="source-detail-block">
-      <h3>What this source is</h3>
+    <div class="source-detail-block source-block-about">
+      <h3>${iconInfo} About</h3>
       <p>${detail.whatItIs}</p>
     </div>
 
-    <div class="source-detail-block">
-      <h3>Why this weight</h3>
+    <div class="source-detail-block source-block-weight">
+      <h3>${iconWeight} Why ${weight.toFixed(1)}×</h3>
       <p>${detail.whyWeight}</p>
     </div>
 
-    <div class="source-detail-block">
-      <h3>What data or people it uses</h3>
+    <div class="source-detail-block source-block-method">
+      <h3>${iconList} ${usesHeading}</h3>
       <ul>${usesHtml}</ul>
     </div>
 
-    <a href="${src.url}" target="_blank" rel="noopener noreferrer" class="source-detail-link">Open original source</a>
+    <a href="${src.url}" target="_blank" rel="noopener noreferrer" class="source-detail-link">
+      View source ${iconArrow}
+    </a>
   `;
 
   sourceDetailOverlay.classList.add('active');
