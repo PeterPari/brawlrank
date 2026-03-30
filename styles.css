@@ -2112,3 +2112,37 @@ a:focus-visible {
 ::-webkit-scrollbar-track { background: var(--bg-primary); }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* ===== AD UNITS ===== */
+.ad-unit {
+  margin: 24px auto;
+  text-align: center;
+  max-width: 960px;
+  padding: 0 16px;
+}
+
+/* ===== META ANALYSIS SECTION ===== */
+.meta-analysis-section {
+  padding: 48px 0;
+  border-top: 1px solid var(--border);
+}
+
+.meta-analysis-section .section-heading {
+  margin-bottom: 8px;
+}
+
+.meta-analysis-box {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.meta-analysis-box p {
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+.meta-analysis-box p:last-child {
+  margin-bottom: 0;
+}

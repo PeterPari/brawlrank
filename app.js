@@ -166,6 +166,12 @@ function initAnalyticsConsent() {
   if (hasAnalyticsConsent()) {
     hideConsentBanner();
     loadClarity();
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted',
+        'analytics_storage': 'granted'
+      });
+    }
     return;
   }
 
@@ -174,6 +180,12 @@ function initAnalyticsConsent() {
     setAnalyticsConsent();
     hideConsentBanner();
     loadClarity();
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted',
+        'analytics_storage': 'granted'
+      });
+    }
   }, { once: true });
 }
 
