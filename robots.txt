@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Allow: /brawlers/
 
 Sitemap: https://brawlrank.com/sitemap.xml

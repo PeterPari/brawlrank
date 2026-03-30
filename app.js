@@ -397,7 +397,15 @@ function openVersionModal() {
   document.body.style.overflow = 'hidden';
 }
 
+function hidePreRendered() {
+  const pre = document.getElementById('prerenderedTiers');
+  if (pre) pre.remove();
+  const preSrc = document.getElementById('prerenderedSources');
+  if (preSrc) preSrc.remove();
+}
+
 function renderTierList() {
+  hidePreRendered();
   tierContainer.innerHTML = '';
 
   TIER_ORDER.forEach((tier) => {
