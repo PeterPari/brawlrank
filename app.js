@@ -610,16 +610,36 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeModal();
 });
 
+function getSourceCategory(type) {
+  const typeLC = type.toLowerCase();
+  if (typeLC.includes('data')) return 'data';
+  if (typeLC.includes('community') || typeLC.includes('editorial')) return 'community';
+  return 'pro';
+}
+
 function renderSources() {
   sourcesGrid.innerHTML = '';
   TIER_DATA.sources.forEach((src) => {
     const weight = SOURCE_WEIGHTS[src.name] || 1.0;
+    const category = getSourceCategory(src.type);
     const card = document.createElement('div');
-    card.className = 'source-card';
+    card.className = 'source-card source-card-' + category;
     card.setAttribute('role', 'button');
     card.setAttribute('tabindex', '0');
     card.setAttribute('aria-label', `Open source details for ${src.name}`);
+
+    const categoryLabel = category === 'data' ? 'Data Source' : category === 'community' ? 'Community' : 'Pro / Creator';
+    const categoryIcon = category === 'data'
+      ? '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/></svg>'
+      : category === 'community'
+      ? '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>'
+      : '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>';
+
     card.innerHTML = `
+      <div class="source-card-category">
+        ${categoryIcon}
+        <span>${categoryLabel}</span>
+      </div>
       <div class="source-card-name">${src.name}</div>
       <div class="source-card-type">${src.type}</div>
       <div class="source-card-meta">
