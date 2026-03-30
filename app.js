@@ -208,6 +208,18 @@ function createEmptyTiers() {
   return { S: [], A: [], B: [], C: [], D: [], F: [] };
 }
 
+function slugifyBrawlerName(name) {
+  return name
+    .toLowerCase()
+    .normalize('NFKD')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function getBrawlerPagePath(name) {
+  return `/brawlers/${slugifyBrawlerName(name)}/`;
+}
+
 function getTierFromScore(score) {
   if (score >= TIER_THRESHOLDS.S) return 'S';
   if (score >= TIER_THRESHOLDS.A) return 'A';
@@ -427,17 +439,34 @@ function renderTierList() {
       const b = brawlerMap[name];
       if (!b) return;
 
-      const wrap = document.createElement('div');
+      const wrap = document.createElement('a');
       wrap.className = 'brawler-icon-wrap';
       wrap.dataset.name = name.toLowerCase();
-      wrap.onclick = () => openModal(b);
+      wrap.href = getBrawlerPagePath(name);
+      wrap.addEventListener('click', (event) => {
+        if (
+          event.defaultPrevented
+          || event.button !== 0
+          || event.metaKey
+          || event.ctrlKey
+          || event.shiftKey
+          || event.altKey
+        ) {
+          return;
+        }
+
+        event.preventDefault();
+        openModal(b);
+      });
 
       const img = document.createElement('img');
       img.className = 'brawler-icon';
       img.src = b.portrait || b.icon;
-      img.alt = name;
+      img.alt = `${name} - ${b.tier} Tier Brawl Stars brawler`;
       img.loading = 'lazy';
       img.decoding = 'async';
+      img.width = 58;
+      img.height = 58;
       img.setAttribute('role', 'img');
 
       const tooltip = document.createElement('div');
@@ -519,12 +548,12 @@ function openModal(b) {
     }
   });
 
-  const shareUrl = location.origin + location.pathname + '#' + encodeURIComponent(b.name);
+  const shareUrl = `${location.origin}${getBrawlerPagePath(b.name)}`;
   const tweetText = encodeURIComponent(`${b.name} is ${b.tier} Tier on BrawlRank (${b.score.toFixed(2)}/6.00) — check the full Brawl Stars meta ranking:`);
 
   modalContent.innerHTML = `
     <div class="modal-header">
-      <img class="modal-icon" src="${b.portrait || b.icon}" alt="${b.name}" loading="eager" decoding="sync">
+      <img class="modal-icon" src="${b.portrait || b.icon}" alt="${b.name} portrait - rated ${b.tier} Tier in the Brawl Stars meta" loading="eager" decoding="sync" width="80" height="80">
       <div class="modal-info">
         <h2>${b.name}</h2>
         <span class="modal-tier-badge" style="background:${tierColor}">${b.tier} Tier</span>
