@@ -70,6 +70,62 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the best brawler in Brawl Stars right now?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The best brawlers in Brawl Stars are the ones in S Tier on BrawlRank. These brawlers scored 5.50 or higher out of 6.00 across 9 independent sources including pro players, data platforms, and community votes. Check the tier list above for the current S Tier brawlers — the rankings update weekly after each balance patch."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does BrawlRank calculate tier rankings?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BrawlRank collects tier lists from 9 independent sources. Each source rates brawlers from S (best) to F (worst). We convert these to numerical scores (S=6, A=5, B=4, C=3, D=2, F=1) and calculate a weighted average. Data-driven sources like Noff.gg (1.5x weight) are prioritized over subjective opinion sources like community votes (0.3x weight). The final tier is determined by score thresholds: S >= 5.5, A >= 4.5, B >= 3.5, C >= 2.5, D >= 1.5, F < 1.5."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often is BrawlRank updated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BrawlRank is updated weekly, usually within 2-3 days of a new balance patch or meta shift. Each update re-aggregates all 9 sources to reflect the latest tier rankings across data platforms, pro player opinions, and community votes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What sources does BrawlRank use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BrawlRank aggregates 9 sources across three categories: Data platforms (Noff.gg at 1.5x, MmonsteR at 1.3x) for win/pick rate statistics, Pro players and creators (SpenLC at 1.0x, KairosTime at 1.0x, BobbyBS at 0.8x, HMBLE at 0.8x, Ash at 0.7x) for competitive insight, and Community sources (Driffle at 0.4x, BrawlTime Votes at 0.3x) for player sentiment. Each source is independently weighted based on objectivity and methodology."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do the tiers (S, A, B, C, D, F) mean in Brawl Stars?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "S Tier (score 5.50+) means the brawler is among the strongest in the meta — dominant in most game modes. A Tier (4.50-5.49) represents strong, reliable picks. B Tier (3.50-4.49) means viable but not dominant. C Tier (2.50-3.49) indicates below-average performance. D Tier (1.50-2.49) means the brawler is struggling. F Tier (below 1.50) represents the weakest brawlers in the current meta."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do some brawlers have 'weak consensus' on BrawlRank?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Weak consensus means the 9 sources significantly disagree about where a brawler should be ranked. This is measured by the standard deviation (σ) of the source ratings. A high σ (above 1.5) indicates that some sources rate the brawler much higher or lower than others. This often happens with brawlers who are strong in specific game modes but weak in others, or brawlers whose strength depends heavily on player skill level."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
   "@type": "ItemList",
   "name": "Brawl Stars Meta Tier List — March 2026",
   "description": "100 brawlers ranked by aggregating 9 pro, data, and community sources",
@@ -689,6 +745,7 @@
 <link rel="preconnect" href="https://cdn.brawlify.com" crossorigin>
 <link rel="dns-prefetch" href="https://fonts.cdnfonts.com">
 <link rel="dns-prefetch" href="https://cdn.brawlify.com">
+<link rel="preload" href="data.json" as="fetch" crossorigin>
 
 <link href="https://fonts.cdnfonts.com/css/clash-display" rel="stylesheet">
 <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
@@ -1286,23 +1343,200 @@
 </section>
 
 <!-- SOURCES -->
-<section class="sources-section">
+<section class="sources-section" id="sources">
   <div class="container">
-    <h2 class="section-heading">Sources</h2>
-    <p class="section-sub">The tier lists and data powering BrawlRank's aggregated rankings. Open each source to see what it is, why it is weighted that way, and who or what it relies on.</p>
+    <div class="section-header-row">
+      <div>
+        <h2 class="section-heading">Sources</h2>
+        <p class="section-sub">The tier lists and data powering BrawlRank's aggregated rankings. Open each source to learn how it works and why it's weighted that way.</p>
+      </div>
+      <div class="source-category-legend">
+        <span class="legend-item legend-data"><span class="legend-dot"></span> Data</span>
+        <span class="legend-item legend-pro"><span class="legend-dot"></span> Pro / Creator</span>
+        <span class="legend-item legend-community"><span class="legend-dot"></span> Community</span>
+      </div>
+    </div>
     <div class="sources-grid" id="sourcesGrid"></div>
   </div>
 </section>
 
 <!-- METHODOLOGY -->
-<section class="methodology-section">
+<section class="methodology-section" id="methodology">
   <div class="container">
     <h2 class="section-heading">Methodology</h2>
-    <p class="section-sub">How we calculate the meta rankings.</p>
-    <div class="methodology-box">
-      <strong>BrawlRank</strong> aggregates tier lists from <strong>9 independent sources</strong> including data platforms, pro players, content creators, and community votes. Each source rates brawlers from <strong>S</strong> (best) to <strong>F</strong> (worst). We assign numerical scores (<strong>S=6, A=5, B=4, C=3, D=2, F=1</strong>), apply source weights that prioritize empirical data over subjective opinion, then calculate a weighted average. The final tier is determined by these score thresholds: <strong>S >= 5.5, A >= 4.5, B >= 3.5, C >= 2.5, D >= 1.5, F < 1.5</strong>.
-      <br><br>
-      <strong>Source weights prioritize objectivity:</strong> Data sources receive the highest weights — Noff.gg (<strong>1.5×</strong>) and MmonsteR (<strong>1.3×</strong>). Pro players SpenLC and KairosTime receive <strong>1.0×</strong>. BobbyBS and HMBLE receive <strong>0.8×</strong>. Creator Ash receives <strong>0.7×</strong>. Editorial source Driffle (<strong>0.4×</strong>) and community votes BrawlTime (<strong>0.3×</strong>) receive the lowest weights, as perception and competitive reality often diverge.
+    <p class="section-sub">How we turn 9 independent tier lists into one objective ranking.</p>
+
+    <div class="methodology-steps">
+      <div class="method-step">
+        <div class="method-step-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+        </div>
+        <div class="method-step-content">
+          <h3>1. Collect</h3>
+          <p>We gather tier lists from <strong>9 independent sources</strong> — data platforms tracking win rates, pro players sharing competitive insights, content creators analyzing the meta, and community voting platforms.</p>
+        </div>
+      </div>
+
+      <div class="method-step">
+        <div class="method-step-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 21l5-5 5 5M7 3l5 5 5-5"/></svg>
+        </div>
+        <div class="method-step-content">
+          <h3>2. Score</h3>
+          <p>Each source rates brawlers from <strong>S</strong> to <strong>F</strong>. We convert these to numbers: <strong>S=6, A=5, B=4, C=3, D=2, F=1</strong>.</p>
+        </div>
+      </div>
+
+      <div class="method-step">
+        <div class="method-step-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m8.66-13.66l-.71.71M4.05 19.07l-.71.71M21 12h-1M4 12H3m16.95 7.07l-.71-.71M4.05 4.93l-.71-.71"/><circle cx="12" cy="12" r="4"/></svg>
+        </div>
+        <div class="method-step-content">
+          <h3>3. Weight</h3>
+          <p>Sources are weighted by objectivity. <strong>Data-driven sources</strong> get the highest weights (Noff.gg 1.5×, MmonsteR 1.3×). <strong>Pro players</strong> get standard weights (1.0×). <strong>Community votes</strong> get the lowest (0.3×) — because popular opinion and competitive reality often diverge.</p>
+        </div>
+      </div>
+
+      <div class="method-step">
+        <div class="method-step-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+        </div>
+        <div class="method-step-content">
+          <h3>4. Average</h3>
+          <p>We calculate a <strong>weighted average</strong> for each brawler across all sources. The final score determines the tier: <strong>S ≥ 5.5</strong>, <strong>A ≥ 4.5</strong>, <strong>B ≥ 3.5</strong>, <strong>C ≥ 2.5</strong>, <strong>D ≥ 1.5</strong>, <strong>F &lt; 1.5</strong>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="methodology-weights">
+      <h3 class="weights-heading">Source Weight Breakdown</h3>
+      <div class="weight-bars">
+        <div class="weight-bar-row">
+          <span class="weight-bar-label">Noff.gg</span>
+          <div class="weight-bar-track"><div class="weight-bar-fill weight-fill-data" style="width:100%"></div></div>
+          <span class="weight-bar-value">1.5×</span>
+        </div>
+        <div class="weight-bar-row">
+          <span class="weight-bar-label">MmonsteR</span>
+          <div class="weight-bar-track"><div class="weight-bar-fill weight-fill-data" style="width:86.7%"></div></div>
+          <span class="weight-bar-value">1.3×</span>
+        </div>
+        <div class="weight-bar-row">
+          <span class="weight-bar-label">SpenLC</span>
+          <div class="weight-bar-track"><div class="weight-bar-fill weight-fill-pro" style="width:66.7%"></div></div>
+          <span class="weight-bar-value">1.0×</span>
+        </div>
+        <div class="weight-bar-row">
+          <span class="weight-bar-label">KairosTime</span>
+          <div class="weight-bar-track"><div class="weight-bar-fill weight-fill-pro" style="width:66.7%"></div></div>
+          <span class="weight-bar-value">1.0×</span>
+        </div>
+        <div class="weight-bar-row">
+          <span class="weight-bar-label">BobbyBS</span>
+          <div class="weight-bar-track"><div class="weight-bar-fill weight-fill-pro" style="width:53.3%"></div></div>
+          <span class="weight-bar-value">0.8×</span>
+        </div>
+        <div class="weight-bar-row">
+          <span class="weight-bar-label">HMBLE</span>
+          <div class="weight-bar-track"><div class="weight-bar-fill weight-fill-pro" style="width:53.3%"></div></div>
+          <span class="weight-bar-value">0.8×</span>
+        </div>
+        <div class="weight-bar-row">
+          <span class="weight-bar-label">Ash</span>
+          <div class="weight-bar-track"><div class="weight-bar-fill weight-fill-pro" style="width:46.7%"></div></div>
+          <span class="weight-bar-value">0.7×</span>
+        </div>
+        <div class="weight-bar-row">
+          <span class="weight-bar-label">Driffle</span>
+          <div class="weight-bar-track"><div class="weight-bar-fill weight-fill-community" style="width:26.7%"></div></div>
+          <span class="weight-bar-value">0.4×</span>
+        </div>
+        <div class="weight-bar-row">
+          <span class="weight-bar-label">BrawlTime</span>
+          <div class="weight-bar-track"><div class="weight-bar-fill weight-fill-community" style="width:20%"></div></div>
+          <span class="weight-bar-value">0.3×</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <h2 class="section-heading">Frequently Asked Questions</h2>
+    <p class="section-sub">Common questions about BrawlRank and Brawl Stars tier lists.</p>
+
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>What is the best brawler in Brawl Stars right now?</span>
+          <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>The best brawlers in Brawl Stars are the ones in S Tier on BrawlRank. These brawlers scored 5.50 or higher out of 6.00 across 9 independent sources including pro players like SpenLC and KairosTime, data platforms like Noff.gg, and community votes. Check the tier list above for the current S Tier brawlers — the rankings update weekly after each balance patch.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>How does BrawlRank calculate tier rankings?</span>
+          <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>BrawlRank collects tier lists from 9 independent sources across three categories: data platforms (Noff.gg, MmonsteR), pro players and creators (SpenLC, KairosTime, BobbyBS, HMBLE, Ash), and community sources (Driffle, BrawlTime Votes). Each source rates brawlers from S (best) to F (worst). We convert these to numerical scores (S=6, A=5, B=4, C=3, D=2, F=1) and calculate a weighted average. Data-driven sources receive the highest weights because they measure objective performance metrics like win rates and pick rates at the highest levels of play.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>How often is BrawlRank updated?</span>
+          <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>BrawlRank is updated weekly, usually within 2–3 days of a new balance patch or significant meta shift. Each update re-aggregates all 9 sources to reflect the latest tier rankings. Because BrawlRank relies on multiple independent sources, it naturally captures meta changes as different analysts publish their updated tier lists throughout the week.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>What sources does BrawlRank use?</span>
+          <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>BrawlRank aggregates 9 sources across three categories. <strong>Data platforms</strong> (highest weight): Noff.gg (1.5×) tracks Top 200 and Ranked performance data, MmonsteR (1.3×) provides independent Top 200 analysis. <strong>Pro players &amp; creators</strong> (standard weight): SpenLC (1.0×) and KairosTime (1.0×) offer competitive expertise, BobbyBS (0.8×) aggregates input from 10 pros, HMBLE (0.8×) provides pro team perspective, and Ash (0.7×) focuses on ranked viability. <strong>Community sources</strong> (lowest weight): Driffle (0.4×) synthesizes public meta discussion, BrawlTime Votes (0.3×) captures 312,000+ community votes.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>What do the tiers (S, A, B, C, D, F) mean?</span>
+          <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p><strong>S Tier</strong> (score 5.50+) — the strongest brawlers in the meta, dominant across game modes. <strong>A Tier</strong> (4.50–5.49) — strong, reliable picks for competitive play. <strong>B Tier</strong> (3.50–4.49) — viable but face stiff competition from higher tiers. <strong>C Tier</strong> (2.50–3.49) — below average, useful in niche situations. <strong>D Tier</strong> (1.50–2.49) — struggling in the current meta. <strong>F Tier</strong> (below 1.50) — the weakest brawlers, generally not recommended for competitive play.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Why do some brawlers have "weak consensus"?</span>
+          <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>Weak consensus means the 9 sources significantly disagree about a brawler's strength. This is measured by the standard deviation (σ) of the source ratings. A high σ (above 1.5) indicates that some sources rate the brawler much higher or lower than others. This often happens with brawlers who excel in specific game modes but struggle in others, brawlers whose effectiveness depends heavily on player skill level, or brawlers affected by a recent balance change that not all sources have adjusted to yet.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Is BrawlRank the same as a pro player's tier list?</span>
+          <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>No — BrawlRank is fundamentally different from any single tier list. Instead of reflecting one person's opinion, BrawlRank aggregates 9 independent sources and applies objectivity-based weights. This means a brawler's final ranking reflects the combined assessment of data platforms, multiple pro players, content creators, and community votes. The result is more balanced and less prone to individual bias than any single source. You can click on any brawler to see exactly how each source rated them.</p>
+        </div>
+      </details>
     </div>
   </div>
 </section>

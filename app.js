@@ -397,6 +397,10 @@ function openVersionModal() {
   document.body.style.overflow = 'hidden';
 }
 
+function slugify(name) {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+}
+
 function renderTierList() {
   tierContainer.innerHTML = '';
 
@@ -427,15 +431,21 @@ function renderTierList() {
       const b = brawlerMap[name];
       if (!b) return;
 
-      const wrap = document.createElement('div');
+      const wrap = document.createElement('a');
       wrap.className = 'brawler-icon-wrap';
+      wrap.href = '/brawlers/' + slugify(name) + '/';
       wrap.dataset.name = name.toLowerCase();
-      wrap.onclick = () => openModal(b);
+      wrap.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal(b);
+      });
 
       const img = document.createElement('img');
       img.className = 'brawler-icon';
       img.src = b.portrait || b.icon;
-      img.alt = name;
+      img.alt = name + ' \u2014 ' + tier + ' Tier Brawl Stars brawler';
+      img.width = 58;
+      img.height = 58;
       img.loading = 'lazy';
       img.decoding = 'async';
       img.setAttribute('role', 'img');
