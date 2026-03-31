@@ -1336,6 +1336,66 @@ body.consent-visible {
   font-style: italic;
 }
 
+/* ===== AD CONTAINER ===== */
+.ad-container {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  padding: 0 24px;
+}
+
+/* ===== ABOUT ===== */
+.about-section {
+  padding: 0 0 64px;
+}
+
+.about-content {
+  display: grid;
+  gap: 16px;
+}
+
+.about-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+}
+
+.about-block h3 {
+  font-family: 'Clash Display', 'Satoshi', system-ui, sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.about-block p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+}
+
+.about-block p:last-child { margin-bottom: 0; }
+
+/* ===== PRIVACY ===== */
+.privacy-section {
+  padding: 0 0 64px;
+}
+
+.privacy-section p {
+  margin-bottom: 10px;
+}
+
+.privacy-section p:last-child { margin-bottom: 0; }
+
+.footer-links-secondary {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 12px;
+}
+
 /* ===== FAQ ===== */
 .faq-section {
   padding: 0 0 64px;
