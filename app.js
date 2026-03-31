@@ -885,5 +885,170 @@ async function initApp() {
   }
 }
 
+// ===== EXPORT FUNCTIONALITY =====
+const exportBtn = document.getElementById('exportBtn');
+const exportDropdown = document.getElementById('exportDropdown');
+
+if (exportBtn && exportDropdown) {
+  exportBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    exportDropdown.classList.toggle('open');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!exportDropdown.contains(e.target) && e.target !== exportBtn) {
+      exportDropdown.classList.remove('open');
+    }
+  });
+
+  exportDropdown.querySelectorAll('.export-option').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const format = btn.dataset.format;
+      exportDropdown.classList.remove('open');
+      exportTierList(format);
+    });
+  });
+}
+
+function getExportRows() {
+  if (!TIER_DATA || !TIER_DATA.brawlers) return [];
+  const sorted = [...TIER_DATA.brawlers].sort((a, b) => b.score - a.score);
+  return sorted.map((b) => ({
+    Brawler: b.name,
+    Tier: b.tier,
+    Score: b.score.toFixed(2),
+    Sources: b.num_sources
+  }));
+}
+
+function downloadBlob(blob, filename) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function exportCSV() {
+  const rows = getExportRows();
+  if (!rows.length) return;
+  const header = 'Brawler,Tier,Score,Sources';
+  const lines = rows.map((r) => `${r.Brawler},${r.Tier},${r.Score},${r.Sources}`);
+  const csv = [header, ...lines].join('\n');
+  downloadBlob(new Blob([csv], { type: 'text/csv' }), 'BrawlRank_TierList.csv');
+  showToast('CSV exported');
+}
+
+function exportXLSX() {
+  if (typeof XLSX === 'undefined') { showToast('Excel library not loaded'); return; }
+  const rows = getExportRows();
+  if (!rows.length) return;
+  const ws = XLSX.utils.json_to_sheet(rows);
+  ws['!cols'] = [{ wch: 20 }, { wch: 6 }, { wch: 8 }, { wch: 8 }];
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, 'Tier List');
+  XLSX.writeFile(wb, 'BrawlRank_TierList.xlsx');
+  showToast('Excel file exported');
+}
+
+function exportPDF() {
+  if (typeof jspdf === 'undefined' && typeof window.jspdf === 'undefined') { showToast('PDF library not loaded'); return; }
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  const rows = getExportRows();
+  if (!rows.length) return;
+
+  // Title
+  doc.setFontSize(20);
+  doc.setTextColor(0, 229, 255);
+  doc.text('BrawlRank Tier List', 14, 20);
+  doc.setFontSize(10);
+  doc.setTextColor(150, 150, 170);
+  doc.text('Aggregated from 9 sources — ' + (TIER_DATA.last_updated || ''), 14, 28);
+
+  // Table header
+  let y = 38;
+  doc.setFillColor(24, 24, 34);
+  doc.rect(14, y - 5, 182, 8, 'F');
+  doc.setFontSize(10);
+  doc.setTextColor(234, 234, 240);
+  doc.setFont(undefined, 'bold');
+  doc.text('Brawler', 16, y);
+  doc.text('Tier', 80, y);
+  doc.text('Score', 110, y);
+  doc.text('Sources', 145, y);
+  y += 8;
+
+  const tierColors = { S: [255,45,85], A: [255,149,0], B: [255,204,0], C: [52,199,89], D: [90,200,250], F: [142,142,147] };
+  doc.setFont(undefined, 'normal');
+  doc.setFontSize(9);
+
+  rows.forEach((r, i) => {
+    if (y > 280) { doc.addPage(); y = 20; }
+    if (i % 2 === 0) {
+      doc.setFillColor(18, 18, 26);
+      doc.rect(14, y - 4, 182, 6, 'F');
+    }
+    doc.setTextColor(234, 234, 240);
+    doc.text(r.Brawler, 16, y);
+    const tc = tierColors[r.Tier] || [142,142,147];
+    doc.setTextColor(tc[0], tc[1], tc[2]);
+    doc.text(r.Tier, 80, y);
+    doc.setTextColor(200, 200, 210);
+    doc.text(r.Score, 110, y);
+    doc.text(String(r.Sources), 145, y);
+    y += 6;
+  });
+
+  // Footer
+  doc.setFontSize(8);
+  doc.setTextColor(100, 100, 120);
+  const pageCount = doc.internal.getNumberOfPages();
+  for (let p = 1; p <= pageCount; p++) {
+    doc.setPage(p);
+    doc.text('brawlrank.com', 14, 290);
+    doc.text('Page ' + p + '/' + pageCount, 180, 290);
+  }
+
+  doc.save('BrawlRank_TierList.pdf');
+  showToast('PDF exported');
+}
+
+function exportImage(format) {
+  if (typeof html2canvas === 'undefined') { showToast('Image library not loaded'); return; }
+  const el = document.getElementById('tierContainer');
+  if (!el) return;
+  showToast('Generating image...');
+  html2canvas(el, {
+    backgroundColor: '#0a0a0f',
+    scale: 2,
+    useCORS: true,
+    logging: false
+  }).then((canvas) => {
+    const mimeType = format === 'jpg' ? 'image/jpeg' : 'image/png';
+    const ext = format === 'jpg' ? 'jpg' : 'png';
+    canvas.toBlob((blob) => {
+      if (blob) {
+        downloadBlob(blob, 'BrawlRank_TierList.' + ext);
+        showToast(ext.toUpperCase() + ' exported');
+      }
+    }, mimeType, 0.95);
+  }).catch(() => showToast('Image export failed'));
+}
+
+function exportTierList(format) {
+  switch (format) {
+    case 'csv': exportCSV(); break;
+    case 'xlsx': exportXLSX(); break;
+    case 'pdf': exportPDF(); break;
+    case 'png': exportImage('png'); break;
+    case 'jpg': exportImage('jpg'); break;
+    default: showToast('Unknown format');
+  }
+}
+
 initAnalyticsConsent();
 initApp();
