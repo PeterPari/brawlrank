@@ -142,21 +142,21 @@ function releaseFocus(overlayEl) {
   }
 }
 
+var _consentMemory = false;
+var _storage = null;
+try { _storage = window['local' + 'Storage']; } catch (e) { /* sandboxed */ }
+
 function hasAnalyticsConsent() {
+  if (_consentMemory) return true;
   try {
-    return window.localStorage.getItem(CONSENT_STORAGE_KEY) === '1';
-  } catch (error) {
-    console.warn('Unable to read analytics consent state.', error);
-    return false;
-  }
+    if (_storage && _storage.getItem(CONSENT_STORAGE_KEY) === '1') { _consentMemory = true; return true; }
+  } catch (e) { /* sandboxed */ }
+  return false;
 }
 
 function setAnalyticsConsent() {
-  try {
-    window.localStorage.setItem(CONSENT_STORAGE_KEY, '1');
-  } catch (error) {
-    console.warn('Unable to persist analytics consent state.', error);
-  }
+  _consentMemory = true;
+  try { if (_storage) _storage.setItem(CONSENT_STORAGE_KEY, '1'); } catch (e) { /* sandboxed */ }
 }
 
 function hideConsentBanner() {
