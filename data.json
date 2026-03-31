@@ -1,7 +1,7 @@
 {
-  "last_updated": "March 16, 2026",
+  "last_updated": "March 31, 2026",
   "total_sources": 9,
-  "total_brawlers": 100,
+  "total_brawlers": 101,
   "sources": [
     {
       "name": "Ash",
@@ -24,7 +24,7 @@
     {
       "name": "Noff.gg",
       "type": "Data (Top 200 + Ranked)",
-      "date": "March 16, 2026",
+      "date": "March 31, 2026",
       "url": "https://www.noff.gg/brawl-stars/tier-list"
     },
     {
@@ -47,8 +47,8 @@
     },
     {
       "name": "BrawlTime Votes",
-      "type": "Community (312K Votes)",
-      "date": "March 16, 2026",
+      "type": "Community (231K Votes)",
+      "date": "March 31, 2026",
       "url": "https://brawltime.ninja/tier-list/brawler"
     },
     {
@@ -203,7 +203,7 @@
         "SpenLC": "S",
         "MmonsteR": "A",
         "Driffle": "S",
-        "BrawlTime Votes": "B",
+        "BrawlTime Votes": "A",
         "HMBLE": "S",
         "Noff Ranked": "S"
       },
@@ -256,7 +256,7 @@
         "Ash": "S",
         "KairosTime": "S",
         "BobbyBS": "S",
-        "Noff.gg": "S",
+        "Noff.gg": "C",
         "SpenLC": "B",
         "MmonsteR": "B",
         "Driffle": "S",
@@ -313,7 +313,7 @@
         "Ash": "S",
         "KairosTime": "S",
         "BobbyBS": "S",
-        "Noff.gg": "A",
+        "Noff.gg": "S",
         "SpenLC": "S",
         "MmonsteR": "B",
         "Driffle": "B",
@@ -351,7 +351,7 @@
         "Ash": "A",
         "KairosTime": "A",
         "BobbyBS": "B",
-        "Noff.gg": "S",
+        "Noff.gg": "A",
         "SpenLC": "B",
         "MmonsteR": "S",
         "Driffle": "S",
@@ -374,7 +374,7 @@
         "SpenLC": "S",
         "MmonsteR": "B",
         "Driffle": "B",
-        "BrawlTime Votes": "C",
+        "BrawlTime Votes": "B",
         "HMBLE": "A",
         "Noff Ranked": "B"
       },
@@ -407,7 +407,7 @@
         "Ash": "A",
         "KairosTime": "S",
         "BobbyBS": "A",
-        "Noff.gg": "C",
+        "Noff.gg": "D",
         "SpenLC": "S",
         "MmonsteR": "B",
         "Driffle": "B",
@@ -445,7 +445,7 @@
         "Ash": "A",
         "KairosTime": "A",
         "BobbyBS": "B",
-        "Noff.gg": "B",
+        "Noff.gg": "A",
         "SpenLC": "A",
         "MmonsteR": "B",
         "Driffle": "A",
@@ -481,7 +481,7 @@
       "sources": {
         "KairosTime": "A",
         "BobbyBS": "A",
-        "Noff.gg": "B",
+        "Noff.gg": "C",
         "SpenLC": "A",
         "MmonsteR": "B",
         "Driffle": "A",
@@ -499,13 +499,13 @@
         "Ash": "A",
         "KairosTime": "B",
         "BobbyBS": "A",
-        "Noff.gg": "A",
+        "Noff.gg": "B",
         "SpenLC": "S",
         "MmonsteR": "D",
         "Driffle": "B",
         "BrawlTime Votes": "D",
         "HMBLE": "A",
-        "Noff Ranked": "A"
+        "Noff Ranked": "B"
       },
       "num_sources": 10,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000008.png"
@@ -518,11 +518,11 @@
         "Ash": "A",
         "KairosTime": "A",
         "BobbyBS": "C",
-        "Noff.gg": "B",
+        "Noff.gg": "C",
         "SpenLC": "B",
         "MmonsteR": "B",
         "Driffle": "A",
-        "BrawlTime Votes": "A",
+        "BrawlTime Votes": "B",
         "HMBLE": "A",
         "Noff Ranked": "B"
       },
@@ -537,13 +537,13 @@
         "Ash": "A",
         "KairosTime": "A",
         "BobbyBS": "B",
-        "Noff.gg": "B",
+        "Noff.gg": "C",
         "SpenLC": "A",
         "MmonsteR": "C",
         "Driffle": "B",
         "BrawlTime Votes": "C",
         "HMBLE": "A",
-        "Noff Ranked": "B"
+        "Noff Ranked": "C"
       },
       "num_sources": 10,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000086.png"
@@ -575,13 +575,13 @@
         "Ash": "A",
         "KairosTime": "A",
         "BobbyBS": "A",
-        "Noff.gg": "C",
+        "Noff.gg": "F",
         "SpenLC": "A",
         "MmonsteR": "B",
         "Driffle": "B",
         "BrawlTime Votes": "D",
         "HMBLE": "A",
-        "Noff Ranked": "C"
+        "Noff Ranked": "B"
       },
       "num_sources": 10,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000079.png"
@@ -613,7 +613,7 @@
         "Ash": "C",
         "KairosTime": "B",
         "BobbyBS": "B",
-        "Noff.gg": "A",
+        "Noff.gg": "B",
         "MmonsteR": "A",
         "Driffle": "A",
         "BrawlTime Votes": "C",
@@ -647,7 +647,7 @@
       "sources": {
         "KairosTime": "A",
         "BobbyBS": "A",
-        "Noff.gg": "C",
+        "Noff.gg": "B",
         "SpenLC": "A",
         "MmonsteR": "C",
         "Driffle": "B",
@@ -669,7 +669,7 @@
         "MmonsteR": "C",
         "Driffle": "B",
         "BrawlTime Votes": "C",
-        "Noff Ranked": "C"
+        "Noff Ranked": "B"
       },
       "num_sources": 8,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000040.png"
@@ -701,7 +701,7 @@
         "Ash": "A",
         "KairosTime": "B",
         "BobbyBS": "B",
-        "Noff.gg": "B",
+        "Noff.gg": "F",
         "SpenLC": "B",
         "MmonsteR": "B",
         "Driffle": "B",
@@ -725,7 +725,7 @@
         "Driffle": "B",
         "BrawlTime Votes": "C",
         "HMBLE": "C",
-        "Noff Ranked": "B"
+        "Noff Ranked": "A"
       },
       "num_sources": 9,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000029.png"
@@ -738,13 +738,13 @@
         "Ash": "B",
         "KairosTime": "B",
         "BobbyBS": "D",
-        "Noff.gg": "A",
+        "Noff.gg": "B",
         "SpenLC": "C",
         "MmonsteR": "B",
         "Driffle": "A",
         "BrawlTime Votes": "C",
         "HMBLE": "B",
-        "Noff Ranked": "A"
+        "Noff Ranked": "B"
       },
       "num_sources": 10,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000015.png"
@@ -757,7 +757,7 @@
         "Ash": "B",
         "KairosTime": "B",
         "BobbyBS": "B",
-        "Noff.gg": "B",
+        "Noff.gg": "A",
         "SpenLC": "B",
         "MmonsteR": "C",
         "Driffle": "B",
@@ -779,7 +779,7 @@
         "MmonsteR": "C",
         "Driffle": "C",
         "BrawlTime Votes": "C",
-        "Noff Ranked": "B"
+        "Noff Ranked": "C"
       },
       "num_sources": 7,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000089.png"
@@ -792,7 +792,7 @@
         "Ash": "A",
         "KairosTime": "A",
         "BobbyBS": "B",
-        "Noff.gg": "C",
+        "Noff.gg": "D",
         "MmonsteR": "C",
         "Driffle": "C",
         "BrawlTime Votes": "B",
@@ -809,13 +809,13 @@
         "Ash": "A",
         "KairosTime": "A",
         "BobbyBS": "B",
-        "Noff.gg": "D",
+        "Noff.gg": "C",
         "SpenLC": "A",
         "MmonsteR": "C",
         "Driffle": "C",
         "BrawlTime Votes": "D",
         "HMBLE": "A",
-        "Noff Ranked": "D"
+        "Noff Ranked": "C"
       },
       "num_sources": 10,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000021.png"
@@ -846,13 +846,13 @@
         "Ash": "B",
         "KairosTime": "B",
         "BobbyBS": "B",
-        "Noff.gg": "C",
+        "Noff.gg": "B",
         "SpenLC": "A",
         "MmonsteR": "B",
         "Driffle": "B",
         "BrawlTime Votes": "D",
         "HMBLE": "C",
-        "Noff Ranked": "C"
+        "Noff Ranked": "B"
       },
       "num_sources": 10,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000046.png"
@@ -865,7 +865,7 @@
         "Ash": "A",
         "KairosTime": "B",
         "BobbyBS": "B",
-        "Noff.gg": "C",
+        "Noff.gg": "B",
         "SpenLC": "A",
         "MmonsteR": "C",
         "Driffle": "C",
@@ -883,7 +883,7 @@
         "Ash": "B",
         "KairosTime": "B",
         "BobbyBS": "C",
-        "Noff.gg": "B",
+        "Noff.gg": "C",
         "MmonsteR": "B",
         "Driffle": "B",
         "BrawlTime Votes": "C",
@@ -901,7 +901,7 @@
         "Ash": "B",
         "KairosTime": "B",
         "BobbyBS": "A",
-        "Noff.gg": "C",
+        "Noff.gg": "D",
         "MmonsteR": "C",
         "Driffle": "C",
         "BrawlTime Votes": "C",
@@ -919,12 +919,12 @@
         "Ash": "A",
         "KairosTime": "A",
         "BobbyBS": "A",
-        "Noff.gg": "F",
+        "Noff.gg": "B",
         "SpenLC": "B",
         "MmonsteR": "C",
         "Driffle": "B",
         "BrawlTime Votes": "B",
-        "Noff Ranked": "F"
+        "Noff Ranked": "C"
       },
       "num_sources": 9,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000085.png"
@@ -937,11 +937,11 @@
         "Ash": "B",
         "KairosTime": "B",
         "BobbyBS": "B",
-        "Noff.gg": "B",
+        "Noff.gg": "C",
         "MmonsteR": "C",
         "Driffle": "C",
         "BrawlTime Votes": "D",
-        "Noff Ranked": "B"
+        "Noff Ranked": "C"
       },
       "num_sources": 8,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000057.png"
@@ -954,12 +954,12 @@
         "Ash": "B",
         "KairosTime": "B",
         "BobbyBS": "C",
-        "Noff.gg": "C",
+        "Noff.gg": "D",
         "MmonsteR": "B",
         "Driffle": "B",
         "BrawlTime Votes": "C",
         "HMBLE": "B",
-        "Noff Ranked": "C"
+        "Noff Ranked": "B"
       },
       "num_sources": 9,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000062.png"
@@ -970,7 +970,7 @@
       "tier": "B",
       "sources": {
         "BobbyBS": "B",
-        "Noff.gg": "C",
+        "Noff.gg": "D",
         "MmonsteR": "B",
         "Driffle": "A",
         "BrawlTime Votes": "D",
@@ -987,7 +987,7 @@
         "Ash": "C",
         "KairosTime": "B",
         "BobbyBS": "B",
-        "Noff.gg": "C",
+        "Noff.gg": "B",
         "SpenLC": "B",
         "MmonsteR": "C",
         "Driffle": "B",
@@ -1006,7 +1006,7 @@
         "Ash": "B",
         "KairosTime": "B",
         "BobbyBS": "C",
-        "Noff.gg": "C",
+        "Noff.gg": "D",
         "SpenLC": "C",
         "MmonsteR": "B",
         "Driffle": "B",
@@ -1024,7 +1024,7 @@
         "Ash": "B",
         "KairosTime": "B",
         "BobbyBS": "B",
-        "Noff.gg": "C",
+        "Noff.gg": "B",
         "SpenLC": "B",
         "MmonsteR": "C",
         "Driffle": "D",
@@ -1043,13 +1043,13 @@
         "Ash": "B",
         "KairosTime": "B",
         "BobbyBS": "B",
-        "Noff.gg": "D",
+        "Noff.gg": "C",
         "SpenLC": "B",
         "MmonsteR": "C",
         "Driffle": "B",
         "BrawlTime Votes": "C",
         "HMBLE": "B",
-        "Noff Ranked": "D"
+        "Noff Ranked": "C"
       },
       "num_sources": 10,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000041.png"
@@ -1062,13 +1062,13 @@
         "Ash": "A",
         "KairosTime": "B",
         "BobbyBS": "B",
-        "Noff.gg": "D",
+        "Noff.gg": "B",
         "SpenLC": "B",
         "MmonsteR": "B",
         "Driffle": "F",
         "BrawlTime Votes": "C",
         "HMBLE": "B",
-        "Noff Ranked": "D"
+        "Noff Ranked": "B"
       },
       "num_sources": 10,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000064.png"
@@ -1081,13 +1081,13 @@
         "Ash": "A",
         "KairosTime": "B",
         "BobbyBS": "B",
-        "Noff.gg": "B",
+        "Noff.gg": "D",
         "SpenLC": "C",
         "MmonsteR": "C",
         "Driffle": "F",
-        "BrawlTime Votes": "D",
+        "BrawlTime Votes": "C",
         "HMBLE": "C",
-        "Noff Ranked": "B"
+        "Noff Ranked": "C"
       },
       "num_sources": 10,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000096.png"
@@ -1100,13 +1100,13 @@
         "Ash": "C",
         "KairosTime": "C",
         "BobbyBS": "B",
-        "Noff.gg": "C",
+        "Noff.gg": "F",
         "SpenLC": "B",
         "MmonsteR": "C",
         "Driffle": "B",
         "BrawlTime Votes": "D",
         "HMBLE": "B",
-        "Noff Ranked": "C"
+        "Noff Ranked": "D"
       },
       "num_sources": 10,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000093.png"
@@ -1137,12 +1137,12 @@
         "Ash": "A",
         "KairosTime": "B",
         "BobbyBS": "D",
-        "Noff.gg": "C",
+        "Noff.gg": "B",
         "MmonsteR": "B",
         "Driffle": "F",
         "BrawlTime Votes": "C",
         "HMBLE": "B",
-        "Noff Ranked": "C"
+        "Noff Ranked": "B"
       },
       "num_sources": 9,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000025.png"
@@ -1155,11 +1155,11 @@
         "Ash": "B",
         "KairosTime": "B",
         "BobbyBS": "B",
-        "Noff.gg": "D",
+        "Noff.gg": "C",
         "MmonsteR": "C",
         "Driffle": "B",
         "BrawlTime Votes": "C",
-        "Noff Ranked": "D"
+        "Noff Ranked": "C"
       },
       "num_sources": 8,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000066.png"
@@ -1177,7 +1177,7 @@
         "Driffle": "B",
         "BrawlTime Votes": "D",
         "HMBLE": "B",
-        "Noff Ranked": "C"
+        "Noff Ranked": "D"
       },
       "num_sources": 9,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000077.png"
@@ -1190,12 +1190,12 @@
         "Ash": "C",
         "KairosTime": "C",
         "BobbyBS": "C",
-        "Noff.gg": "C",
+        "Noff.gg": "D",
         "MmonsteR": "C",
         "Driffle": "B",
         "BrawlTime Votes": "B",
         "HMBLE": "B",
-        "Noff Ranked": "C"
+        "Noff Ranked": "B"
       },
       "num_sources": 9,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000076.png"
@@ -1208,12 +1208,12 @@
         "Ash": "C",
         "KairosTime": "B",
         "BobbyBS": "D",
-        "Noff.gg": "B",
+        "Noff.gg": "C",
         "MmonsteR": "C",
         "Driffle": "F",
         "BrawlTime Votes": "B",
         "HMBLE": "B",
-        "Noff Ranked": "B"
+        "Noff Ranked": "C"
       },
       "num_sources": 9,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000050.png"
@@ -1249,7 +1249,7 @@
         "Driffle": "F",
         "BrawlTime Votes": "D",
         "HMBLE": "S",
-        "Noff Ranked": "F"
+        "Noff Ranked": "D"
       },
       "num_sources": 9,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000013.png"
@@ -1261,13 +1261,13 @@
       "sources": {
         "KairosTime": "D",
         "BobbyBS": "B",
-        "Noff.gg": "B",
+        "Noff.gg": "D",
         "SpenLC": "D",
         "MmonsteR": "C",
         "Driffle": "B",
         "BrawlTime Votes": "C",
         "HMBLE": "D",
-        "Noff Ranked": "B"
+        "Noff Ranked": "D"
       },
       "num_sources": 9,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000075.png"
@@ -1278,12 +1278,12 @@
       "tier": "C",
       "sources": {
         "BobbyBS": "B",
-        "Noff.gg": "D",
+        "Noff.gg": "B",
         "MmonsteR": "C",
         "Driffle": "C",
         "BrawlTime Votes": "C",
         "HMBLE": "B",
-        "Noff Ranked": "D"
+        "Noff Ranked": "B"
       },
       "num_sources": 7,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000017.png"
@@ -1295,12 +1295,12 @@
       "sources": {
         "Ash": "C",
         "KairosTime": "B",
-        "Noff.gg": "D",
+        "Noff.gg": "B",
         "MmonsteR": "C",
         "Driffle": "B",
         "BrawlTime Votes": "C",
         "HMBLE": "C",
-        "Noff Ranked": "D"
+        "Noff Ranked": "C"
       },
       "num_sources": 8,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000028.png"
@@ -1313,7 +1313,7 @@
         "Ash": "C",
         "KairosTime": "D",
         "BobbyBS": "D",
-        "Noff.gg": "B",
+        "Noff.gg": "C",
         "SpenLC": "B",
         "MmonsteR": "C",
         "Driffle": "D",
@@ -1338,7 +1338,7 @@
         "Driffle": "D",
         "BrawlTime Votes": "D",
         "HMBLE": "B",
-        "Noff Ranked": "D"
+        "Noff Ranked": "C"
       },
       "num_sources": 10,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000098.png"
@@ -1351,7 +1351,7 @@
         "Ash": "D",
         "KairosTime": "C",
         "BobbyBS": "D",
-        "Noff.gg": "B",
+        "Noff.gg": "A",
         "MmonsteR": "B",
         "Driffle": "F",
         "BrawlTime Votes": "B",
@@ -1374,7 +1374,7 @@
         "Driffle": "C",
         "BrawlTime Votes": "D",
         "HMBLE": "B",
-        "Noff Ranked": "F"
+        "Noff Ranked": "C"
       },
       "num_sources": 9,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000082.png"
@@ -1387,7 +1387,7 @@
         "Ash": "D",
         "KairosTime": "B",
         "BobbyBS": "C",
-        "Noff.gg": "C",
+        "Noff.gg": "F",
         "SpenLC": "D",
         "MmonsteR": "D",
         "Driffle": "B",
@@ -1405,11 +1405,11 @@
       "sources": {
         "Ash": "B",
         "KairosTime": "A",
-        "Noff.gg": "F",
+        "Noff.gg": "C",
         "MmonsteR": "C",
         "Driffle": "C",
         "BrawlTime Votes": "D",
-        "Noff Ranked": "F"
+        "Noff Ranked": "C"
       },
       "num_sources": 7,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000087.png"
@@ -1422,7 +1422,7 @@
         "Ash": "C",
         "KairosTime": "C",
         "BobbyBS": "C",
-        "Noff.gg": "C",
+        "Noff.gg": "B",
         "SpenLC": "C",
         "MmonsteR": "C",
         "Driffle": "D",
@@ -1441,7 +1441,7 @@
         "Ash": "B",
         "KairosTime": "C",
         "BobbyBS": "C",
-        "Noff.gg": "D",
+        "Noff.gg": "F",
         "SpenLC": "C",
         "MmonsteR": "D",
         "Driffle": "C",
@@ -1485,7 +1485,7 @@
         "Driffle": "C",
         "BrawlTime Votes": "D",
         "HMBLE": "B",
-        "Noff Ranked": "D"
+        "Noff Ranked": "C"
       },
       "num_sources": 10,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000080.png"
@@ -1498,13 +1498,13 @@
         "Ash": "B",
         "KairosTime": "C",
         "BobbyBS": "C",
-        "Noff.gg": "D",
+        "Noff.gg": "C",
         "SpenLC": "C",
         "MmonsteR": "C",
         "Driffle": "F",
         "BrawlTime Votes": "D",
         "HMBLE": "B",
-        "Noff Ranked": "D"
+        "Noff Ranked": "C"
       },
       "num_sources": 10,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000019.png"
@@ -1535,13 +1535,13 @@
       "sources": {
         "KairosTime": "B",
         "BobbyBS": "B",
-        "Noff.gg": "F",
+        "Noff.gg": "C",
         "SpenLC": "C",
         "MmonsteR": "D",
         "Driffle": "C",
         "BrawlTime Votes": "D",
         "HMBLE": "B",
-        "Noff Ranked": "F"
+        "Noff Ranked": "C"
       },
       "num_sources": 9,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000090.png"
@@ -1554,7 +1554,7 @@
         "Ash": "C",
         "KairosTime": "C",
         "BobbyBS": "C",
-        "Noff.gg": "C",
+        "Noff.gg": "D",
         "SpenLC": "D",
         "MmonsteR": "C",
         "Driffle": "B",
@@ -1573,13 +1573,13 @@
         "Ash": "C",
         "KairosTime": "B",
         "BobbyBS": "C",
-        "Noff.gg": "F",
+        "Noff.gg": "B",
         "SpenLC": "C",
         "MmonsteR": "D",
         "Driffle": "B",
         "BrawlTime Votes": "D",
         "HMBLE": "B",
-        "Noff Ranked": "F"
+        "Noff Ranked": "C"
       },
       "num_sources": 10,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000067.png"
@@ -1598,7 +1598,7 @@
         "Driffle": "C",
         "BrawlTime Votes": "D",
         "HMBLE": "B",
-        "Noff Ranked": "F"
+        "Noff Ranked": "D"
       },
       "num_sources": 10,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000006.png"
@@ -1611,13 +1611,13 @@
         "Ash": "D",
         "KairosTime": "C",
         "BobbyBS": "D",
-        "Noff.gg": "B",
+        "Noff.gg": "D",
         "SpenLC": "D",
         "MmonsteR": "C",
         "Driffle": "F",
         "BrawlTime Votes": "B",
         "HMBLE": "D",
-        "Noff Ranked": "B"
+        "Noff Ranked": "C"
       },
       "num_sources": 10,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000038.png"
@@ -1630,7 +1630,7 @@
         "Ash": "C",
         "KairosTime": "B",
         "BobbyBS": "D",
-        "Noff.gg": "C",
+        "Noff.gg": "B",
         "SpenLC": "D",
         "MmonsteR": "C",
         "Driffle": "D",
@@ -1649,13 +1649,13 @@
         "Ash": "D",
         "KairosTime": "C",
         "BobbyBS": "C",
-        "Noff.gg": "D",
+        "Noff.gg": "B",
         "SpenLC": "B",
         "MmonsteR": "C",
         "Driffle": "C",
         "BrawlTime Votes": "D",
         "HMBLE": "F",
-        "Noff Ranked": "D"
+        "Noff Ranked": "C"
       },
       "num_sources": 10,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000091.png"
@@ -1668,12 +1668,12 @@
         "Ash": "C",
         "KairosTime": "D",
         "BobbyBS": "D",
-        "Noff.gg": "C",
+        "Noff.gg": "D",
         "MmonsteR": "D",
         "Driffle": "F",
         "BrawlTime Votes": "C",
         "HMBLE": "B",
-        "Noff Ranked": "C"
+        "Noff Ranked": "D"
       },
       "num_sources": 9,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000039.png"
@@ -1691,7 +1691,7 @@
         "Driffle": "D",
         "BrawlTime Votes": "D",
         "HMBLE": "C",
-        "Noff Ranked": "B"
+        "Noff Ranked": "C"
       },
       "num_sources": 9,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000024.png"
@@ -1710,7 +1710,7 @@
         "Driffle": "D",
         "BrawlTime Votes": "B",
         "HMBLE": "F",
-        "Noff Ranked": "D"
+        "Noff Ranked": "C"
       },
       "num_sources": 10,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000049.png"
@@ -1723,7 +1723,7 @@
         "Ash": "B",
         "KairosTime": "C",
         "BobbyBS": "F",
-        "Noff.gg": "C",
+        "Noff.gg": "B",
         "SpenLC": "F",
         "MmonsteR": "C",
         "Driffle": "C",
@@ -1742,7 +1742,7 @@
         "Ash": "D",
         "KairosTime": "C",
         "BobbyBS": "D",
-        "Noff.gg": "C",
+        "Noff.gg": "B",
         "MmonsteR": "D",
         "Driffle": "F",
         "BrawlTime Votes": "D",
@@ -1760,13 +1760,13 @@
         "Ash": "D",
         "KairosTime": "B",
         "BobbyBS": "C",
-        "Noff.gg": "F",
+        "Noff.gg": "C",
         "SpenLC": "C",
         "MmonsteR": "D",
         "Driffle": "B",
         "BrawlTime Votes": "D",
         "HMBLE": "F",
-        "Noff Ranked": "F"
+        "Noff Ranked": "D"
       },
       "num_sources": 10,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000022.png"
@@ -1779,7 +1779,7 @@
         "Ash": "D",
         "KairosTime": "B",
         "BobbyBS": "C",
-        "Noff.gg": "D",
+        "Noff.gg": "F",
         "SpenLC": "C",
         "MmonsteR": "D",
         "Driffle": "F",
@@ -1798,13 +1798,13 @@
         "Ash": "F",
         "KairosTime": "D",
         "BobbyBS": "D",
-        "Noff.gg": "D",
+        "Noff.gg": "F",
         "SpenLC": "F",
         "MmonsteR": "B",
         "Driffle": "A",
         "BrawlTime Votes": "D",
         "HMBLE": "C",
-        "Noff Ranked": "D"
+        "Noff Ranked": "C"
       },
       "num_sources": 10,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000048.png"
@@ -1817,13 +1817,13 @@
         "Ash": "C",
         "KairosTime": "D",
         "BobbyBS": "C",
-        "Noff.gg": "F",
+        "Noff.gg": "C",
         "SpenLC": "D",
         "MmonsteR": "C",
         "Driffle": "B",
         "BrawlTime Votes": "D",
         "HMBLE": "D",
-        "Noff Ranked": "F"
+        "Noff Ranked": "C"
       },
       "num_sources": 10,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000056.png"
@@ -1842,7 +1842,7 @@
         "Driffle": "D",
         "BrawlTime Votes": "C",
         "HMBLE": "D",
-        "Noff Ranked": "B"
+        "Noff Ranked": "C"
       },
       "num_sources": 10,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000010.png"
@@ -1859,7 +1859,7 @@
         "Driffle": "F",
         "BrawlTime Votes": "D",
         "HMBLE": "F",
-        "Noff Ranked": "F"
+        "Noff Ranked": "C"
       },
       "num_sources": 8,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000016.png"
@@ -1872,13 +1872,13 @@
         "Ash": "F",
         "KairosTime": "D",
         "BobbyBS": "F",
-        "Noff.gg": "B",
+        "Noff.gg": "F",
         "SpenLC": "F",
         "MmonsteR": "D",
         "Driffle": "C",
         "BrawlTime Votes": "D",
         "HMBLE": "D",
-        "Noff Ranked": "B"
+        "Noff Ranked": "D"
       },
       "num_sources": 10,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000060.png"
@@ -1891,13 +1891,13 @@
         "Ash": "D",
         "KairosTime": "F",
         "BobbyBS": "F",
-        "Noff.gg": "B",
+        "Noff.gg": "F",
         "SpenLC": "F",
         "MmonsteR": "D",
         "Driffle": "C",
         "BrawlTime Votes": "D",
         "HMBLE": "D",
-        "Noff Ranked": "B"
+        "Noff Ranked": "D"
       },
       "num_sources": 10,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000031.png"
@@ -1928,11 +1928,11 @@
         "Ash": "F",
         "KairosTime": "F",
         "BobbyBS": "D",
-        "Noff.gg": "D",
+        "Noff.gg": "B",
         "SpenLC": "F",
         "MmonsteR": "C",
         "Driffle": "C",
-        "BrawlTime Votes": "B",
+        "BrawlTime Votes": "C",
         "HMBLE": "D",
         "Noff Ranked": "D"
       },
@@ -1953,7 +1953,7 @@
         "Driffle": "F",
         "BrawlTime Votes": "D",
         "HMBLE": "D",
-        "Noff Ranked": "F"
+        "Noff Ranked": "C"
       },
       "num_sources": 10,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000100.png"
@@ -1966,7 +1966,7 @@
         "Ash": "F",
         "KairosTime": "F",
         "BobbyBS": "D",
-        "Noff.gg": "D",
+        "Noff.gg": "C",
         "SpenLC": "D",
         "MmonsteR": "D",
         "Driffle": "F",
@@ -2009,10 +2009,22 @@
         "Driffle": "D",
         "BrawlTime Votes": "D",
         "HMBLE": "D",
-        "Noff Ranked": "F"
+        "Noff Ranked": "D"
       },
       "num_sources": 9,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000073.png"
+    },
+    {
+      "name": "Najia",
+      "score": 0,
+      "tier": "C",
+      "sources": {
+        "Noff.gg": "S",
+        "Noff Ranked": "A",
+        "BrawlTime Votes": "C"
+      },
+      "num_sources": 0,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000103.png"
     }
   ]
 }
