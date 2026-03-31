@@ -1018,22 +1018,143 @@ function exportPDF() {
 }
 
 function exportImage(format) {
-  if (typeof html2canvas === 'undefined') { showToast('Image library not loaded'); return; }
-  const el = document.getElementById('tierContainer');
-  if (!el) return;
   showToast('Generating image...');
-  html2canvas(el, {
-    backgroundColor: '#0a0a0f',
-    scale: 2,
-    useCORS: true,
-    logging: false
-  }).then((canvas) => {
+  const SCALE = 2;
+  const ROW_H = 72;
+  const LABEL_W = 80;
+  const ICON_SIZE = 52;
+  const ICON_GAP = 6;
+  const PAD = 14;
+  const HEADER_H = 60;
+  const FOOTER_H = 36;
+  const CANVAS_W = 1200;
+
+  const tierOrder = ['S', 'A', 'B', 'C', 'D', 'F'];
+  const tierBg = { S: '#ff2d55', A: '#ff9500', B: '#ffcc00', C: '#34c759', D: '#5ac8fa', F: '#8e8e93' };
+  const rows = [];
+  tierOrder.forEach((t) => {
+    const names = DISPLAY_TIERS[t];
+    if (!names || (names.length === 0 && t !== 'F')) return;
+    const iconsPerRow = Math.floor((CANVAS_W - LABEL_W - PAD * 2) / (ICON_SIZE + ICON_GAP));
+    const rowCount = Math.max(1, Math.ceil(names.length / iconsPerRow));
+    rows.push({ tier: t, names, rowCount, iconsPerRow });
+  });
+
+  const totalH = HEADER_H + rows.reduce((s, r) => s + r.rowCount * (ICON_SIZE + ICON_GAP) + PAD * 2, 0) + FOOTER_H;
+  const canvas = document.createElement('canvas');
+  canvas.width = CANVAS_W * SCALE;
+  canvas.height = totalH * SCALE;
+  const ctx = canvas.getContext('2d');
+  ctx.scale(SCALE, SCALE);
+
+  // Background
+  ctx.fillStyle = '#0a0a0f';
+  ctx.fillRect(0, 0, CANVAS_W, totalH);
+
+  // Header
+  ctx.fillStyle = '#00e5ff';
+  ctx.font = 'bold 22px Satoshi, system-ui, sans-serif';
+  ctx.fillText('BrawlRank Tier List', PAD, 32);
+  ctx.fillStyle = '#66667a';
+  ctx.font = '13px Satoshi, system-ui, sans-serif';
+  ctx.fillText('Aggregated from 9 sources \u2014 ' + (TIER_DATA.last_updated || '') + ' \u2014 brawlrank.com', PAD, 50);
+
+  let y = HEADER_H;
+
+  // Load all portrait images first, then draw
+  const imgPromises = [];
+  const imgCache = {};
+  rows.forEach((row) => {
+    row.names.forEach((name) => {
+      const b = brawlerMap[name];
+      if (!b) return;
+      const src = b.portrait || b.icon;
+      if (!imgCache[name]) {
+        const p = new Promise((resolve) => {
+          const img = new Image();
+          img.crossOrigin = 'anonymous';
+          img.onload = () => { imgCache[name] = img; resolve(); };
+          img.onerror = () => { imgCache[name] = null; resolve(); };
+          img.src = src;
+        });
+        imgPromises.push(p);
+        imgCache[name] = 'loading';
+      }
+    });
+  });
+
+  Promise.all(imgPromises).then(() => {
+    rows.forEach((row) => {
+      const rowH = row.rowCount * (ICON_SIZE + ICON_GAP) + PAD * 2;
+
+      // Row background
+      ctx.fillStyle = '#12121a';
+      ctx.fillRect(0, y, CANVAS_W, rowH);
+      ctx.strokeStyle = '#2a2a3a';
+      ctx.strokeRect(0, y, CANVAS_W, rowH);
+
+      // Tier label
+      ctx.fillStyle = tierBg[row.tier];
+      ctx.fillRect(0, y, LABEL_W, rowH);
+      ctx.fillStyle = '#fff';
+      ctx.font = 'bold 32px Clash Display, Satoshi, system-ui, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(row.tier, LABEL_W / 2, y + rowH / 2);
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'alphabetic';
+
+      // Brawler icons
+      let ix = LABEL_W + PAD;
+      let iy = y + PAD;
+      row.names.forEach((name, idx) => {
+        const img = imgCache[name];
+        if (img && img.naturalWidth) {
+          ctx.drawImage(img, ix, iy, ICON_SIZE, ICON_SIZE);
+        } else {
+          // Fallback: colored box with first letter
+          ctx.fillStyle = '#1e1e2a';
+          ctx.fillRect(ix, iy, ICON_SIZE, ICON_SIZE);
+          ctx.fillStyle = '#66667a';
+          ctx.font = 'bold 18px Satoshi, system-ui, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText(name.charAt(0), ix + ICON_SIZE / 2, iy + ICON_SIZE / 2);
+          ctx.textAlign = 'left';
+          ctx.textBaseline = 'alphabetic';
+        }
+
+        // Name below icon
+        ctx.fillStyle = '#9898aa';
+        ctx.font = '9px Satoshi, system-ui, sans-serif';
+        ctx.textAlign = 'center';
+        const displayName = name.length > 8 ? name.slice(0, 7) + '\u2026' : name;
+        ctx.fillText(displayName, ix + ICON_SIZE / 2, iy + ICON_SIZE + 10);
+        ctx.textAlign = 'left';
+
+        ix += ICON_SIZE + ICON_GAP;
+        if ((idx + 1) % row.iconsPerRow === 0 && idx < row.names.length - 1) {
+          ix = LABEL_W + PAD;
+          iy += ICON_SIZE + ICON_GAP;
+        }
+      });
+
+      y += rowH;
+    });
+
+    // Footer
+    ctx.fillStyle = '#66667a';
+    ctx.font = '11px Satoshi, system-ui, sans-serif';
+    ctx.fillText('brawlrank.com \u2014 The Meta, Averaged', PAD, y + 22);
+
     const mimeType = format === 'jpg' ? 'image/jpeg' : 'image/png';
     const ext = format === 'jpg' ? 'jpg' : 'png';
     canvas.toBlob((blob) => {
       if (blob) {
         downloadBlob(blob, 'BrawlRank_TierList.' + ext);
         showToast(ext.toUpperCase() + ' exported');
+      } else {
+        showToast('Image export failed');
       }
     }, mimeType, 0.95);
   }).catch(() => showToast('Image export failed'));
