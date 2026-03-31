@@ -958,59 +958,186 @@ function exportPDF() {
   if (typeof jspdf === 'undefined' && typeof window.jspdf === 'undefined') { showToast('PDF library not loaded'); return; }
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
-  const rows = getExportRows();
-  if (!rows.length) return;
+  if (!TIER_DATA || !TIER_DATA.brawlers) return;
 
-  // Title
-  doc.setFontSize(20);
-  doc.setTextColor(0, 229, 255);
-  doc.text('BrawlRank Tier List', 14, 20);
-  doc.setFontSize(10);
-  doc.setTextColor(150, 150, 170);
-  doc.text('Aggregated from 9 sources — ' + (TIER_DATA.last_updated || ''), 14, 28);
-
-  // Table header
-  let y = 38;
-  doc.setFillColor(24, 24, 34);
-  doc.rect(14, y - 5, 182, 8, 'F');
-  doc.setFontSize(10);
-  doc.setTextColor(234, 234, 240);
-  doc.setFont(undefined, 'bold');
-  doc.text('Brawler', 16, y);
-  doc.text('Tier', 80, y);
-  doc.text('Score', 110, y);
-  doc.text('Sources', 145, y);
-  y += 8;
-
+  const W = 210;
+  const M = 14; // margin
+  const CW = W - M * 2; // content width
   const tierColors = { S: [255,45,85], A: [255,149,0], B: [255,204,0], C: [52,199,89], D: [90,200,250], F: [142,142,147] };
-  doc.setFont(undefined, 'normal');
-  doc.setFontSize(9);
+  const tierColorsDim = { S: [255,45,85,0.12], A: [255,149,0,0.10], B: [255,204,0,0.08], C: [52,199,89,0.08], D: [90,200,250,0.08], F: [142,142,147,0.08] };
+  const tierOrder = ['S', 'A', 'B', 'C', 'D', 'F'];
+  const BG = [10, 10, 15];
+  const CARD = [18, 18, 26];
+  const BORDER = [42, 42, 58];
+  const TEXT = [234, 234, 240];
+  const TEXT2 = [152, 152, 170];
+  const TEXT3 = [102, 102, 122];
+  const ACCENT = [0, 229, 255];
 
-  rows.forEach((r, i) => {
-    if (y > 280) { doc.addPage(); y = 20; }
-    if (i % 2 === 0) {
-      doc.setFillColor(18, 18, 26);
-      doc.rect(14, y - 4, 182, 6, 'F');
+  // Group brawlers by tier
+  const sorted = [...TIER_DATA.brawlers].sort((a, b) => b.score - a.score);
+  const tierGroups = {};
+  tierOrder.forEach((t) => { tierGroups[t] = []; });
+  sorted.forEach((b) => { if (tierGroups[b.tier]) tierGroups[b.tier].push(b); });
+
+  function drawPageBg() {
+    doc.setFillColor(BG[0], BG[1], BG[2]);
+    doc.rect(0, 0, W, 297, 'F');
+  }
+
+  function drawFooter(pageNum, totalPages) {
+    doc.setFillColor(CARD[0], CARD[1], CARD[2]);
+    doc.rect(0, 285, W, 12, 'F');
+    doc.setFontSize(7);
+    doc.setTextColor(TEXT3[0], TEXT3[1], TEXT3[2]);
+    doc.text('brawlrank.com', M, 291);
+    doc.text('Page ' + pageNum + ' of ' + totalPages, W - M, 291, { align: 'right' });
+  }
+
+  function checkPageBreak(needed) {
+    if (y + needed > 278) {
+      doc.addPage();
+      drawPageBg();
+      y = M;
+      return true;
     }
-    doc.setTextColor(234, 234, 240);
-    doc.text(r.Brawler, 16, y);
-    const tc = tierColors[r.Tier] || [142,142,147];
-    doc.setTextColor(tc[0], tc[1], tc[2]);
-    doc.text(r.Tier, 80, y);
-    doc.setTextColor(200, 200, 210);
-    doc.text(r.Score, 110, y);
-    doc.text(String(r.Sources), 145, y);
-    y += 6;
+    return false;
+  }
+
+  // === PAGE 1: Header ===
+  drawPageBg();
+  let y = M;
+
+  // Title block
+  doc.setFillColor(CARD[0], CARD[1], CARD[2]);
+  doc.roundedRect(M, y, CW, 32, 3, 3, 'F');
+  doc.setFontSize(18);
+  doc.setTextColor(ACCENT[0], ACCENT[1], ACCENT[2]);
+  doc.setFont(undefined, 'bold');
+  doc.text('BrawlRank', M + 10, y + 14);
+  doc.setFontSize(11);
+  doc.setTextColor(TEXT2[0], TEXT2[1], TEXT2[2]);
+  doc.setFont(undefined, 'normal');
+  doc.text('The Meta, Averaged', M + 58, y + 14);
+  doc.setFontSize(8);
+  doc.setTextColor(TEXT3[0], TEXT3[1], TEXT3[2]);
+  doc.text('Aggregated from 9 sources \u2014 Updated ' + (TIER_DATA.last_updated || '') + ' \u2014 ' + TIER_DATA.total_brawlers + ' brawlers', M + 10, y + 25);
+  y += 40;
+
+  // === Tier sections ===
+  tierOrder.forEach((tier) => {
+    const brawlers = tierGroups[tier];
+    if (!brawlers.length && tier !== 'F') return;
+
+    const tc = tierColors[tier];
+    const ROW_H = 7;
+    const HEADER_H = 10;
+    const sectionH = HEADER_H + 1 + (brawlers.length * ROW_H) + 4;
+
+    checkPageBreak(Math.min(sectionH, HEADER_H + ROW_H * 3 + 10));
+
+    // Tier section header
+    doc.setFillColor(tc[0], tc[1], tc[2]);
+    doc.roundedRect(M, y, CW, HEADER_H, 2, 2, 'F');
+    doc.setFontSize(13);
+    doc.setTextColor(255, 255, 255);
+    doc.setFont(undefined, 'bold');
+    doc.text(tier + ' Tier', M + 6, y + 7.2);
+    // Brawler count
+    doc.setFontSize(9);
+    doc.setFont(undefined, 'normal');
+    doc.text(brawlers.length + ' brawler' + (brawlers.length !== 1 ? 's' : ''), W - M - 6, y + 7, { align: 'right' });
+    y += HEADER_H + 1;
+
+    if (brawlers.length === 0) {
+      doc.setFillColor(CARD[0], CARD[1], CARD[2]);
+      doc.roundedRect(M, y, CW, ROW_H + 2, 2, 2, 'F');
+      doc.setFontSize(8);
+      doc.setTextColor(TEXT3[0], TEXT3[1], TEXT3[2]);
+      doc.setFont(undefined, 'italic');
+      doc.text('No brawlers in this tier', M + 6, y + 5.5);
+      doc.setFont(undefined, 'normal');
+      y += ROW_H + 6;
+      return;
+    }
+
+    // Column headers
+    doc.setFillColor(CARD[0], CARD[1], CARD[2]);
+    doc.rect(M, y, CW, ROW_H, 'F');
+    doc.setFontSize(7);
+    doc.setTextColor(TEXT3[0], TEXT3[1], TEXT3[2]);
+    doc.setFont(undefined, 'bold');
+    doc.text('#', M + 4, y + 5);
+    doc.text('BRAWLER', M + 14, y + 5);
+    doc.text('SCORE', M + 80, y + 5);
+    doc.text('BAR', M + 100, y + 5);
+    doc.text('SOURCES', W - M - 6, y + 5, { align: 'right' });
+    doc.setFont(undefined, 'normal');
+    y += ROW_H;
+
+    // Brawler rows
+    let globalRank = sorted.indexOf(brawlers[0]) + 1;
+    brawlers.forEach((b, i) => {
+      checkPageBreak(ROW_H + 2);
+
+      // Alternating row bg
+      if (i % 2 === 0) {
+        doc.setFillColor(14, 14, 20);
+      } else {
+        doc.setFillColor(CARD[0], CARD[1], CARD[2]);
+      }
+      doc.rect(M, y, CW, ROW_H, 'F');
+
+      // Left accent stripe
+      doc.setFillColor(tc[0], tc[1], tc[2]);
+      doc.rect(M, y, 1.5, ROW_H, 'F');
+
+      // Rank
+      doc.setFontSize(7.5);
+      doc.setTextColor(TEXT3[0], TEXT3[1], TEXT3[2]);
+      doc.text(String(globalRank + i), M + 4, y + 5);
+
+      // Name
+      doc.setFontSize(8.5);
+      doc.setTextColor(TEXT[0], TEXT[1], TEXT[2]);
+      doc.setFont(undefined, 'bold');
+      doc.text(b.name, M + 14, y + 5);
+      doc.setFont(undefined, 'normal');
+
+      // Score
+      doc.setFontSize(8.5);
+      doc.setTextColor(tc[0], tc[1], tc[2]);
+      doc.text(b.score.toFixed(2), M + 80, y + 5);
+
+      // Score bar
+      const barW = 60;
+      const barH = 3;
+      const barY = y + 3;
+      const barX = M + 100;
+      const pct = Math.min(b.score / 6, 1);
+      doc.setFillColor(30, 30, 42);
+      doc.roundedRect(barX, barY, barW, barH, 1.5, 1.5, 'F');
+      if (pct > 0) {
+        doc.setFillColor(tc[0], tc[1], tc[2]);
+        doc.roundedRect(barX, barY, barW * pct, barH, 1.5, 1.5, 'F');
+      }
+
+      // Sources count
+      doc.setFontSize(7.5);
+      doc.setTextColor(TEXT2[0], TEXT2[1], TEXT2[2]);
+      doc.text(String(b.num_sources), W - M - 6, y + 5, { align: 'right' });
+
+      y += ROW_H;
+    });
+
+    y += 4; // gap between tier sections
   });
 
-  // Footer
-  doc.setFontSize(8);
-  doc.setTextColor(100, 100, 120);
+  // Add footers to all pages
   const pageCount = doc.internal.getNumberOfPages();
   for (let p = 1; p <= pageCount; p++) {
     doc.setPage(p);
-    doc.text('brawlrank.com', 14, 290);
-    doc.text('Page ' + p + '/' + pageCount, 180, 290);
+    drawFooter(p, pageCount);
   }
 
   doc.save('BrawlRank_TierList.pdf');
