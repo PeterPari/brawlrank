@@ -110,6 +110,37 @@ let siteVersionValue = '';
 let siteVersionDateValue = '';
 let activeModalMode = null;
 let clarityLoaded = false;
+let previouslyFocusedElement = null;
+
+// Focus trapping for modals
+function trapFocus(overlayEl) {
+  previouslyFocusedElement = document.activeElement;
+  const focusable = overlayEl.querySelectorAll('button, [href], input, [tabindex]:not([tabindex="-1"])');
+  if (focusable.length === 0) return;
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+  first.focus();
+  overlayEl._trapHandler = (e) => {
+    if (e.key !== 'Tab') return;
+    if (e.shiftKey) {
+      if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+    } else {
+      if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  };
+  overlayEl.addEventListener('keydown', overlayEl._trapHandler);
+}
+
+function releaseFocus(overlayEl) {
+  if (overlayEl._trapHandler) {
+    overlayEl.removeEventListener('keydown', overlayEl._trapHandler);
+    overlayEl._trapHandler = null;
+  }
+  if (previouslyFocusedElement) {
+    previouslyFocusedElement.focus();
+    previouslyFocusedElement = null;
+  }
+}
 
 function hasAnalyticsConsent() {
   try {
@@ -368,7 +399,7 @@ function openVersionModal() {
     </div>
     ${versionDateMarkup}
     <div class="version-modal-body">
-      <p class="version-modal-text">BrawlRank is maintained as an open-source project by Tech-Savvies. Explore the codebase, suggest features, or report bugs directly on GitHub.</p>
+      <p class="version-modal-text">BrawlRank is an open-source project. Explore the codebase, suggest features, or report bugs directly on GitHub.</p>
       <div class="version-modal-links">
         <a class="version-modal-link" href="${SITE_REPO_URL}" target="_blank" rel="noopener noreferrer">
           <span class="v-link-left">
@@ -382,12 +413,7 @@ function openVersionModal() {
             Report an Issue
           </span>
         </a>
-        <a class="version-modal-link" href="https://tech-savvies.com/" target="_blank" rel="noopener noreferrer">
-          <span class="v-link-left">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-            Tech-Savvies Website
-          </span>
-        </a>
+
       </div>
     </div>
   `;
@@ -430,15 +456,30 @@ function renderTierList() {
       const wrap = document.createElement('div');
       wrap.className = 'brawler-icon-wrap';
       wrap.dataset.name = name.toLowerCase();
+      wrap.setAttribute('tabindex', '0');
+      wrap.setAttribute('role', 'button');
+      wrap.setAttribute('aria-label', name + ', ' + b.tier + ' tier, score ' + b.score.toFixed(2));
       wrap.onclick = () => openModal(b);
+      wrap.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(b); } };
 
       const img = document.createElement('img');
       img.className = 'brawler-icon';
       img.src = b.portrait || b.icon;
-      img.alt = name;
+      img.alt = name + ' — ' + b.tier + ' Tier brawler in Brawl Stars';
       img.loading = 'lazy';
       img.decoding = 'async';
       img.setAttribute('role', 'img');
+      img.onerror = function () {
+        if (this.src !== b.icon) {
+          this.src = b.icon; // CDN fallback
+        } else {
+          this.style.display = 'none';
+          const fallback = document.createElement('div');
+          fallback.className = 'brawler-icon-fallback';
+          fallback.textContent = name.charAt(0);
+          wrap.insertBefore(fallback, this);
+        }
+      };
 
       const tooltip = document.createElement('div');
       tooltip.className = 'brawler-tooltip';
@@ -524,7 +565,7 @@ function openModal(b) {
 
   modalContent.innerHTML = `
     <div class="modal-header">
-      <img class="modal-icon" src="${b.portrait || b.icon}" alt="${b.name}" loading="eager" decoding="sync">
+      <img class="modal-icon" src="${b.portrait || b.icon}" alt="${b.name} — ${b.tier} Tier" loading="eager" decoding="sync" onerror="if(this.src!=='${b.icon}'){this.src='${b.icon}'}else{this.style.display='none'}">
       <div class="modal-info">
         <h2>${b.name}</h2>
         <span class="modal-tier-badge" style="background:${tierColor}">${b.tier} Tier</span>
@@ -570,6 +611,7 @@ function openModal(b) {
   history.replaceState(null, '', '#' + encodeURIComponent(b.name));
   overlay.classList.add('active');
   document.body.style.overflow = 'hidden';
+  requestAnimationFrame(() => trapFocus(overlay));
 
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
@@ -581,6 +623,7 @@ function openModal(b) {
 
 function closeModal() {
   overlay.classList.remove('active');
+  releaseFocus(overlay);
   if (!srcPopupOverlay.classList.contains('active') && !sourceDetailOverlay.classList.contains('active')) {
     document.body.style.overflow = '';
   }
@@ -596,8 +639,16 @@ modalClose.addEventListener('click', closeModal);
 overlay.addEventListener('click', (e) => {
   if (e.target === overlay) closeModal();
 });
+// Unified Escape key handler — closes topmost overlay only
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeModal();
+  if (e.key !== 'Escape') return;
+  if (sourceDetailOverlay.classList.contains('active')) {
+    closeSourceDetail();
+  } else if (srcPopupOverlay.classList.contains('active')) {
+    closeSourcesPopup();
+  } else if (overlay.classList.contains('active')) {
+    closeModal();
+  }
 });
 
 function renderSources() {
@@ -757,10 +808,12 @@ function openSourceDetail(sourceName) {
 
   sourceDetailOverlay.classList.add('active');
   document.body.style.overflow = 'hidden';
+  requestAnimationFrame(() => trapFocus(sourceDetailOverlay));
 }
 
 function closeSourceDetail() {
   sourceDetailOverlay.classList.remove('active');
+  releaseFocus(sourceDetailOverlay);
   if (!overlay.classList.contains('active') && !srcPopupOverlay.classList.contains('active')) {
     document.body.style.overflow = '';
   }
@@ -769,10 +822,12 @@ function closeSourceDetail() {
 function openSourcesPopup() {
   srcPopupOverlay.classList.add('active');
   document.body.style.overflow = 'hidden';
+  requestAnimationFrame(() => trapFocus(srcPopupOverlay));
 }
 
 function closeSourcesPopup() {
   srcPopupOverlay.classList.remove('active');
+  releaseFocus(srcPopupOverlay);
   if (!overlay.classList.contains('active') && !sourceDetailOverlay.classList.contains('active')) {
     document.body.style.overflow = '';
   }
@@ -790,10 +845,7 @@ sourceDetailClose.addEventListener('click', closeSourceDetail);
 sourceDetailOverlay.addEventListener('click', (e) => {
   if (e.target === sourceDetailOverlay) closeSourceDetail();
 });
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && srcPopupOverlay.classList.contains('active')) closeSourcesPopup();
-  if (e.key === 'Escape' && sourceDetailOverlay.classList.contains('active')) closeSourceDetail();
-});
+
 
 function openBrawlerFromHash() {
   if (!location.hash) return;
