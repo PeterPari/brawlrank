@@ -257,6 +257,41 @@ function getSocialUrl(relativePath) {
   return `${SITE_URL}${relativePath}`;
 }
 
+function buildHomeOgSvg({ lastUpdated, sourceCount }) {
+  const subtitle = `Aggregated from ${sourceCount} sources — data, pros, and community`;
+  const dateLine = `Last updated: ${lastUpdated}`;
+  const logoSvgPath = path.join(rootDir, 'BRlogo.svg');
+  const rawLogo = fs.readFileSync(logoSvgPath, 'utf8');
+  const logoInner = rawLogo
+    .replace(/<\?xml[^>]*\?>\s*/, '')
+    .replace(/<!DOCTYPE[^>]*>\s*/i, '')
+    .replace(/<svg[^>]*>/i, '<svg xmlns="http://www.w3.org/2000/svg" viewBox="843 185 1135 1159" x="80" y="115" width="400" height="408" preserveAspectRatio="xMidYMid meet">');
+
+  return [
+    '<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">',
+    '  <defs>',
+    '    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">',
+    '      <stop stop-color="#0a0a0f"/>',
+    '      <stop offset="1" stop-color="#12121a"/>',
+    '    </linearGradient>',
+    '    <radialGradient id="glow" cx="600" cy="120" r="520" gradientUnits="userSpaceOnUse">',
+    '      <stop stop-color="#00e5ff" stop-opacity="0.18"/>',
+    '      <stop offset="0.45" stop-color="#00e5ff" stop-opacity="0.05"/>',
+    '      <stop offset="1" stop-color="#00e5ff" stop-opacity="0"/>',
+    '    </radialGradient>',
+    '  </defs>',
+    '  <rect width="1200" height="630" fill="url(#bg)"/>',
+    '  <rect width="1200" height="630" fill="url(#glow)"/>',
+    `  ${logoInner}`,
+    `  <text x="540" y="245" fill="#00e5ff" font-family="'Satoshi','Inter',system-ui,sans-serif" font-size="48" font-weight="700" letter-spacing="3.5"><tspan x="540" dy="0">BRAWLRANK: A BRAWL</tspan><tspan x="540" dy="64">STARS TIER LIST</tspan></text>`,
+    `  <text x="540" y="410" fill="#9898aa" font-family="'Satoshi','Inter',system-ui,sans-serif" font-size="24" font-weight="400">${escapeXml(subtitle)}</text>`,
+    `  <text x="540" y="455" fill="#66667a" font-family="'Satoshi','Inter',system-ui,sans-serif" font-size="24" font-weight="400">${escapeXml(dateLine)}</text>`,
+    `  <text x="540" y="555" fill="#3a3a4a" font-family="'Satoshi','Inter',system-ui,sans-serif" font-size="18" font-weight="600" letter-spacing="2">brawlrank.com</text>`,
+    '</svg>',
+    ''
+  ].join('\n');
+}
+
 function computeRankedBrawlers(data) {
   return data.brawlers
     .map((brawler) => {
@@ -316,7 +351,7 @@ function computeRankedBrawlers(data) {
         num_sources: ratings.length,
         disagreement,
         url: getBrawlerUrl(slug),
-        ogImage: getSocialUrl(`social/brawlers/${slug}.svg`)
+        ogImage: getSocialUrl('social/og-home.svg')
       };
     })
     .sort((left, right) => {
@@ -696,7 +731,7 @@ function buildBrawlersIndexPage(data, rankedBrawlers, groupedBrawlers, updatedDa
       canonical,
       ogTitle: title,
       ogDescription: description,
-      ogImage: getSocialUrl('social/og-brawlers.svg'),
+      ogImage: getSocialUrl('social/og-home.svg'),
       relativePrefix: '../',
       articleModifiedTime: toIsoDateTime(updatedDate),
       jsonLdMarkup
@@ -944,7 +979,7 @@ function buildBlogPosts(data, rankedBrawlers, groupedBrawlers, updatedDate) {
     contested,
     pressureTier,
     tierCounts,
-    ogImage: getSocialUrl(`social/blog/${slug}.svg`)
+    ogImage: getSocialUrl('social/og-home.svg')
   }];
 }
 
@@ -982,7 +1017,7 @@ function buildBlogIndexPage(posts, updatedDate, staticPages) {
       canonical,
       ogTitle: title,
       ogDescription: description,
-      ogImage: getSocialUrl('social/og-default.svg'),
+      ogImage: getSocialUrl('social/og-home.svg'),
       relativePrefix: '../',
       articleModifiedTime: toIsoDateTime(updatedDate),
       jsonLdMarkup
@@ -1193,52 +1228,13 @@ function writeBlogPages(blogPosts, updatedDate, staticPages) {
   });
 }
 
-function writeSocialAssets(rankedBrawlers, blogPosts, updatedDate) {
+function writeSocialAssets(rankedBrawlers, blogPosts, updatedDate, data) {
   ensureDir(socialDir);
-  ensureDir(path.join(socialDir, 'brawlers'));
-  ensureDir(path.join(socialDir, 'blog'));
 
-  fs.writeFileSync(path.join(socialDir, 'og-home.svg'), buildOgSvg({
-    eyebrow: 'Homepage',
-    title: 'Brawl Stars Tier List',
-    subtitle: `Aggregated meta rankings for ${formatMonthYear(updatedDate)} from 9 weighted sources.`,
-    accent: '#00e5ff'
+  fs.writeFileSync(path.join(socialDir, 'og-home.svg'), buildHomeOgSvg({
+    lastUpdated: data.last_updated,
+    sourceCount: data.total_sources
   }));
-
-  fs.writeFileSync(path.join(socialDir, 'og-default.svg'), buildOgSvg({
-    eyebrow: 'BrawlRank',
-    title: 'Aggregated Brawl Stars Meta Rankings',
-    subtitle: 'Tier list pages, methodology, and weekly snapshot updates for the live meta.',
-    accent: '#00e5ff'
-  }));
-
-  fs.writeFileSync(path.join(socialDir, 'og-brawlers.svg'), buildOgSvg({
-    eyebrow: 'Brawler Pages',
-    title: '100 Brawl Stars Brawler Pages',
-    subtitle: `Browse live tier, rank, consensus, and source breakdown pages for ${formatMonthYear(updatedDate)}.`,
-    accent: '#ff9500'
-  }));
-
-  rankedBrawlers.forEach((brawler) => {
-    fs.writeFileSync(path.join(socialDir, 'brawlers', `${brawler.slug}.svg`), buildOgSvg({
-      eyebrow: 'Brawler Page',
-      title: `${brawler.name} — ${brawler.tier} Tier`,
-      subtitle: `${brawler.name} is rank #${brawler.rank} with a BrawlRank score of ${brawler.score.toFixed(2)} out of 6.00 in the current Brawl Stars meta.`,
-      accent: TIER_COLORS[brawler.tier],
-      portraitUrl: `${SITE_URL}${brawler.portrait}`,
-      score: `${brawler.score.toFixed(2)} / 6.00`,
-      tier: brawler.tier
-    }));
-  });
-
-  blogPosts.forEach((post) => {
-    fs.writeFileSync(path.join(socialDir, 'blog', `${post.slug}.svg`), buildOgSvg({
-      eyebrow: 'Meta Report',
-      title: post.title,
-      subtitle: post.description,
-      accent: '#ffcc00'
-    }));
-  });
 }
 
 function main() {
@@ -1254,7 +1250,7 @@ function main() {
   const updatedHomepage = updateHomepage(indexHtml, data, rankedBrawlers, groupedBrawlers, faqEntries, updatedDate);
 
   fs.writeFileSync(indexPath, updatedHomepage);
-  writeSocialAssets(rankedBrawlers, blogPosts, updatedDate);
+  writeSocialAssets(rankedBrawlers, blogPosts, updatedDate, data);
   writeBrawlerPages(data, rankedBrawlers, groupedBrawlers, updatedDate, staticPages);
   writeBlogPages(blogPosts, updatedDate, staticPages);
   fs.writeFileSync(sitemapPath, buildSitemapXml(updatedDate, rankedBrawlers, blogPosts, staticPages));
