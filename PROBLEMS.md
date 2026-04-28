@@ -147,13 +147,7 @@ There's no cookie consent banner or privacy policy. If any EU/CA users visit, th
 
 2. **For Clarity, choose one path:**
    - **Option A (recommended): Remove it** — if you're not actively reviewing session replays, delete lines 46-51. It's a privacy cost with no benefit.
-   - **Option B: Add consent gating** — don't load the Clarity script until the user accepts cookies. Implement a minimal consent banner:
-     ```html
-     <div id="consent" class="consent-bar">
-       We use analytics to improve BrawlRank. <button id="acceptBtn">Accept</button>
-     </div>
-     ```
-     On accept, `localStorage.setItem('consent','1')` and dynamically inject the Clarity script. On page load, check localStorage before injecting.
+   - **Option B: 
 
 3. **Add a privacy section** — add a "Privacy" link in the footer that scrolls to or opens a brief section explaining what data is collected (or that no data is collected, if you remove both scripts).
 

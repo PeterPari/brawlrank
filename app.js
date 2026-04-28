@@ -15,6 +15,79 @@ const SOURCE_WEIGHTS = {
   'BrawlTime Votes': 0.3
 };
 
+// Recency decay configuration
+const RECENCY_THRESHOLD_DAYS = 15; // Days before decay starts
+const RECENCY_DECAY_RATE = 0.5; // Half-life in days after threshold
+
+/**
+ * Parse a date string from the sources data.
+ * Handles formats: "April 26, 2026", "April 2026", and standard date strings.
+ * Returns the last day of the month if only month/year is provided.
+ */
+function parseSourceDate(dateStr) {
+  if (!dateStr) return null;
+
+  // Try parsing as full date first (e.g., "April 26, 2026")
+  let date = new Date(dateStr);
+  if (!isNaN(date.getTime())) {
+    return date;
+  }
+
+  // Try parsing as month-year only (e.g., "April 2026")
+  // Use the last day of that month as the most generous interpretation
+  const monthYearMatch = dateStr.match(/^(\w+)\s+(\d{4})$/);
+  if (monthYearMatch) {
+    const monthName = monthYearMatch[1];
+    const year = parseInt(monthYearMatch[2]);
+    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+                        'July', 'August', 'September', 'October', 'November', 'December'];
+    const monthIndex = monthNames.indexOf(monthName);
+    if (monthIndex !== -1) {
+      // Get the last day of the month
+      const lastDay = new Date(year, monthIndex + 1, 0);
+      return lastDay;
+    }
+  }
+
+  return null;
+}
+
+/**
+ * Calculate the effective weight for a source based on its age.
+ * Sources older than RECENCY_THRESHOLD_DAYS get exponentially less weight.
+ * Uses half-life decay: weight = baseWeight * 2^(-daysAfterThreshold / halfLife)
+ */
+function getRecencyAdjustedWeight(baseWeight, sourceDateStr, referenceDate) {
+  const sourceDate = parseSourceDate(sourceDateStr);
+  if (!sourceDate || !referenceDate) return baseWeight;
+
+  const msPerDay = 24 * 60 * 60 * 1000;
+  const daysOld = Math.max(0, Math.floor((referenceDate - sourceDate) / msPerDay));
+
+  if (daysOld <= RECENCY_THRESHOLD_DAYS) {
+    return baseWeight; // No decay for recent sources
+  }
+
+  const daysAfterThreshold = daysOld - RECENCY_THRESHOLD_DAYS;
+  const decayFactor = Math.pow(2, -daysAfterThreshold / RECENCY_DECAY_RATE);
+
+  return baseWeight * decayFactor;
+}
+
+/**
+ * Get the effective weight for a source, applying recency decay.
+ */
+function getEffectiveWeight(sourceName, referenceDate) {
+  const baseWeight = SOURCE_WEIGHTS[sourceName] || 1.0;
+
+  if (!TIER_DATA || !TIER_DATA.sources) return baseWeight;
+
+  const source = TIER_DATA.sources.find(s => s.name === sourceName);
+  if (!source || !source.date) return baseWeight;
+
+  return getRecencyAdjustedWeight(baseWeight, source.date, referenceDate);
+}
+
 const SOURCE_DETAILS = {
   'Noff.gg': {
     whatItIs: 'A fully automated data pipeline that tracks performance statistics for the top 200 players globally and across Ranked Mode. No human analyst is involved — tiers are derived directly from win rates, pick rates, and usage trends at the highest levels of play. BrawlRank merges both Noff data slices (Top 200 + Ranked) into a single averaged rating per brawler.',
@@ -254,7 +327,62 @@ function valueToTier(value) {
   return map[Math.max(1, Math.min(6, rounded))] || 'F';
 }
 
+/**
+ * Get the reference date for recency calculations.
+ * Uses the most recent source date as the reference point.
+ */
+function getReferenceDate() {
+  if (!TIER_DATA || !TIER_DATA.sources) return new Date();
+
+  let latestDate = null;
+  TIER_DATA.sources.forEach((src) => {
+    const date = parseSourceDate(src.date);
+    if (date && (!latestDate || date > latestDate)) {
+      latestDate = date;
+    }
+  });
+
+  return latestDate || new Date();
+}
+
+/**
+ * Get the effective weight for a source, optionally showing recency decay info.
+ * Returns an object with base weight, effective weight, and decay info.
+ */
+function getSourceWeightInfo(sourceName, referenceDate) {
+  const baseWeight = SOURCE_WEIGHTS[sourceName] || 1.0;
+
+  if (!TIER_DATA || !TIER_DATA.sources) {
+    return { baseWeight, effectiveWeight: baseWeight, daysOld: 0, decayFactor: 1.0 };
+  }
+
+  const source = TIER_DATA.sources.find(s => s.name === sourceName);
+  if (!source || !source.date) {
+    return { baseWeight, effectiveWeight: baseWeight, daysOld: 0, decayFactor: 1.0 };
+  }
+
+  const sourceDate = parseSourceDate(source.date);
+  if (!sourceDate || !referenceDate) {
+    return { baseWeight, effectiveWeight: baseWeight, daysOld: 0, decayFactor: 1.0 };
+  }
+
+  const msPerDay = 24 * 60 * 60 * 1000;
+  const daysOld = Math.max(0, Math.floor((referenceDate - sourceDate) / msPerDay));
+
+  if (daysOld <= RECENCY_THRESHOLD_DAYS) {
+    return { baseWeight, effectiveWeight: baseWeight, daysOld, decayFactor: 1.0 };
+  }
+
+  const daysAfterThreshold = daysOld - RECENCY_THRESHOLD_DAYS;
+  const decayFactor = Math.pow(2, -daysAfterThreshold / RECENCY_DECAY_RATE);
+  const effectiveWeight = baseWeight * decayFactor;
+
+  return { baseWeight, effectiveWeight, daysOld, decayFactor };
+}
+
 function calculateAllScores() {
+  const referenceDate = getReferenceDate();
+
   TIER_DATA.brawlers.forEach((b) => {
     let weightedSum = 0;
     let totalWeight = 0;
@@ -271,23 +399,24 @@ function calculateAllScores() {
         mergedNoffValue = TIER_VALUES[noffTop || noffRanked];
       }
 
-      const weight = SOURCE_WEIGHTS['Noff.gg'];
-      weightedSum += mergedNoffValue * weight;
-      totalWeight += weight;
+      const weightInfo = getSourceWeightInfo('Noff.gg', referenceDate);
+      weightedSum += mergedNoffValue * weightInfo.effectiveWeight;
+      totalWeight += weightInfo.effectiveWeight;
       ratings.push(mergedNoffValue);
     }
 
     b.noffMergedTier = mergedNoffValue !== null ? valueToTier(mergedNoffValue) : null;
 
-    for (const [sourceName, weight] of Object.entries(SOURCE_WEIGHTS)) {
+    for (const [sourceName] of Object.entries(SOURCE_WEIGHTS)) {
       if (sourceName === 'Noff.gg') continue;
 
       const tier = b.sources[sourceName];
       if (!tier) continue;
 
       const value = TIER_VALUES[tier];
-      weightedSum += value * weight;
-      totalWeight += weight;
+      const weightInfo = getSourceWeightInfo(sourceName, referenceDate);
+      weightedSum += value * weightInfo.effectiveWeight;
+      totalWeight += weightInfo.effectiveWeight;
       ratings.push(value);
     }
 
@@ -554,6 +683,7 @@ function openModal(b) {
   activeModalMode = 'brawler';
   const tierColor = TIER_COLORS[b.tier];
   const pct = ((b.score / 6) * 100).toFixed(1);
+  const referenceDate = getReferenceDate();
 
   let sourcesHTML = '';
   TIER_DATA.sources.forEach((src) => {
@@ -565,9 +695,15 @@ function openModal(b) {
     }
     if (rating) {
       const rColor = TIER_COLORS[rating] || '#8e8e93';
+      const weightInfo = getSourceWeightInfo(src.name, referenceDate);
+      const isDecayed = weightInfo.decayFactor < 1.0;
+      const decayBadge = isDecayed
+        ? `<span class="modal-source-decay" title="Weight reduced by ${Math.round((1 - weightInfo.decayFactor) * 100)}% due to age">−${Math.round((1 - weightInfo.decayFactor) * 100)}%</span>`
+        : '';
       sourcesHTML += `
-        <div class="modal-source-row">
-          <button class="modal-source-name modal-source-name-btn" type="button" data-source-name="${src.name}" aria-label="Open source details for ${src.name}">${src.name}</button>
+        <div class="modal-source-row${isDecayed ? ' modal-source-row-decayed' : ''}">
+          <button class="modal-source-name modal-source-name-btn" type="button" data-source-name="${src.name}" aria-label="Open source details for ${src.name}${isDecayed ? ', weight reduced due to age' : ''}">${src.name}</button>
+          ${decayBadge}
           <span class="modal-source-tier" style="background:${rColor}">${rating}</span>
         </div>`;
     }
@@ -669,23 +805,39 @@ document.addEventListener('keydown', (e) => {
 });
 
 function renderSources() {
+  const referenceDate = getReferenceDate();
   sourcesGrid.innerHTML = '';
   TIER_DATA.sources.forEach((src) => {
-    const weight = SOURCE_WEIGHTS[src.name] || 1.0;
+    const weightInfo = getSourceWeightInfo(src.name, referenceDate);
+    const baseWeight = weightInfo.baseWeight;
+    const effectiveWeight = weightInfo.effectiveWeight;
+    const isDecayed = weightInfo.decayFactor < 1.0;
+
+    const weightDisplay = isDecayed
+      ? `${effectiveWeight.toFixed(2)}× (was ${baseWeight.toFixed(1)}×)`
+      : `${baseWeight.toFixed(1)}× weight`;
+
+    const decayIndicator = isDecayed
+      ? `<span class="source-decay-badge" title="Weight reduced due to age (${weightInfo.daysOld} days old)">−${Math.round((1 - weightInfo.decayFactor) * 100)}%</span>`
+      : '';
+
     const card = document.createElement('div');
-    card.className = 'source-card';
+    card.className = 'source-card' + (isDecayed ? ' source-card-decayed' : '');
     card.setAttribute('role', 'button');
     card.setAttribute('tabindex', '0');
-    card.setAttribute('aria-label', `Open source details for ${src.name}`);
+    card.setAttribute('aria-label', `Open source details for ${src.name}${isDecayed ? ', weight reduced due to age' : ''}`);
     card.innerHTML = `
       <div class="source-card-name">${src.name}</div>
       <div class="source-card-type">${src.type}</div>
       <div class="source-card-meta">
         <span>${src.date}</span>
-        <button class="source-weight-btn" type="button" aria-label="Weight details">
-          ${weight.toFixed(1)}× weight
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" /></svg>
-        </button>
+        <div class="source-weight-group">
+          <button class="source-weight-btn" type="button" aria-label="Weight details">
+            ${weightDisplay}
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" /></svg>
+          </button>
+          ${decayIndicator}
+        </div>
       </div>
       <a href="${src.url}" target="_blank" rel="noopener noreferrer" class="source-card-link">View source →</a>
     `;
@@ -708,14 +860,27 @@ function renderSources() {
 }
 
 function renderSourcesPopup() {
+  const referenceDate = getReferenceDate();
   srcPopupList.innerHTML = '';
   TIER_DATA.sources.forEach((src) => {
-    const weight = SOURCE_WEIGHTS[src.name] || 1.0;
+    const weightInfo = getSourceWeightInfo(src.name, referenceDate);
+    const baseWeight = weightInfo.baseWeight;
+    const effectiveWeight = weightInfo.effectiveWeight;
+    const isDecayed = weightInfo.decayFactor < 1.0;
+
+    const weightDisplay = isDecayed
+      ? `${effectiveWeight.toFixed(2)}× (was ${baseWeight.toFixed(1)}×)`
+      : `${baseWeight.toFixed(1)}× weight`;
+
+    const decayIndicator = isDecayed
+      ? `<span class="source-decay-badge" title="Weight reduced due to age (${weightInfo.daysOld} days old)">−${Math.round((1 - weightInfo.decayFactor) * 100)}%</span>`
+      : '';
+
     const item = document.createElement('div');
-    item.className = 'src-list-item';
+    item.className = 'src-list-item' + (isDecayed ? ' src-list-item-decayed' : '');
     item.setAttribute('role', 'button');
     item.setAttribute('tabindex', '0');
-    item.setAttribute('aria-label', `Open source details for ${src.name}`);
+    item.setAttribute('aria-label', `Open source details for ${src.name}${isDecayed ? ', weight reduced due to age' : ''}`);
     item.innerHTML = `
       <div class="src-list-left">
         <div class="src-list-name">${src.name}</div>
@@ -723,10 +888,13 @@ function renderSourcesPopup() {
       </div>
       <div class="src-list-right">
         <div class="src-list-date">${src.date}</div>
-        <button class="source-weight-btn" type="button" aria-label="Weight details">
-          ${weight.toFixed(1)}× weight
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" /></svg>
-        </button>
+        <div class="src-weight-group">
+          <button class="source-weight-btn" type="button" aria-label="Weight details">
+            ${weightDisplay}
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" /></svg>
+          </button>
+          ${decayIndicator}
+        </div>
       </div>
     `;
     item.addEventListener('click', (event) => {
@@ -759,7 +927,13 @@ function openSourceDetail(sourceName) {
   const src = TIER_DATA.sources.find((source) => source.name === sourceName);
   if (!src) return;
 
-  const weight = SOURCE_WEIGHTS[src.name] || 1.0;
+  const referenceDate = getReferenceDate();
+  const weightInfo = getSourceWeightInfo(src.name, referenceDate);
+  const baseWeight = weightInfo.baseWeight;
+  const effectiveWeight = weightInfo.effectiveWeight;
+  const isDecayed = weightInfo.decayFactor < 1.0;
+
+  const weight = baseWeight;
   const detail = SOURCE_DETAILS[src.name] || getFallbackSourceDetail(src, weight);
   const usesHtml = detail.uses.map((item) => `<li>${item}</li>`).join('');
   const typeLC = src.type.toLowerCase();
@@ -798,8 +972,10 @@ function openSourceDetail(sourceName) {
         </div>
       </div>
       <div class="source-detail-weight-wrap">
-        <div class="source-detail-weight">${weight.toFixed(1)}×</div>
+        <div class="source-detail-weight">${isDecayed ? effectiveWeight.toFixed(2) + '×' : weight.toFixed(1) + '×'}</div>
         <div class="source-detail-weight-rank">${weightRank}</div>
+        ${isDecayed ? `<div class="source-decay-info" style="font-size:11px;color:#ff6b6b;margin-top:4px;text-align:center;">−${Math.round((1 - weightInfo.decayFactor) * 100)}% (was ${weight.toFixed(1)}×)</div>` : ''}
+        ${isDecayed ? `<div class="source-age-info" style="font-size:10px;color:var(--text-muted);margin-top:2px;text-align:center;">${weightInfo.daysOld} days old</div>` : ''}
       </div>
     </div>
 

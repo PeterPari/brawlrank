@@ -662,6 +662,22 @@ body.consent-visible {
 
 .modal-source-row:last-child { border-bottom: none; }
 
+.modal-source-row-decayed {
+  opacity: 0.7;
+}
+
+.modal-source-decay {
+  font-size: 10px;
+  font-weight: 700;
+  color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.12);
+  border: 1px solid rgba(255, 107, 107, 0.3);
+  padding: 1px 5px;
+  border-radius: 3px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
 .modal-source-name {
   font-size: 14px;
   color: var(--text-primary);
@@ -1118,6 +1134,57 @@ body.consent-visible {
 
 .source-weight-btn:hover svg {
   color: var(--accent);
+}
+
+/* Decay indicator badge */
+.source-decay-badge {
+  font-size: 10px;
+  font-weight: 700;
+  color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.12);
+  border: 1px solid rgba(255, 107, 107, 0.3);
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.source-weight-group,
+.src-weight-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* Decayed source card styling */
+.source-card-decayed {
+  border-color: rgba(255, 107, 107, 0.3);
+  position: relative;
+}
+
+.source-card-decayed::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ff6b6b, transparent);
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.source-card-decayed:hover {
+  border-color: rgba(255, 107, 107, 0.5);
+}
+
+/* Decayed source list item styling */
+.src-list-item-decayed {
+  border-color: rgba(255, 107, 107, 0.15);
+}
+
+.src-list-item-decayed .src-list-name {
+  color: rgba(234, 234, 240, 0.85);
 }
 
 .source-card-link {
