@@ -1,0 +1,45 @@
+{
+  "generated": "2026-04-27T00:00:00Z",
+  "current_version": "2.10.1",
+  "description": "Week-over-week tier change history. Updated alongside data.json each weekly refresh. Consumable at https://brawlrank.com/changelog.json",
+  "entries": [
+    {
+      "version": "2.10.1",
+      "date": "2026-04-27",
+      "label": "April 27, 2026",
+      "brawler_count": 104,
+      "source_count": 9,
+      "summary": "Removed Buzz Lightyear (not in current game roster). Updated SpenLC (April 22), Ash (April 26), Noff.gg (April 28 live), MmonsteR (April 2026), Driffle (April 2026). Damian rises to S tier with perfect score.",
+      "tier_changes": [
+        { "brawler": "Damian", "previous_tier": null, "current_tier": "S", "note": "New brawler — debuts at S tier (score 6.00, 3 sources)" },
+        { "brawler": "Starr Nova", "previous_tier": null, "current_tier": "C", "note": "New brawler — debuts at C tier (2 sources, low sample)" },
+        { "brawler": "Bolt", "previous_tier": null, "current_tier": "C", "note": "New brawler — debuts at C tier (2 sources, low sample)" },
+        { "brawler": "Buzz Lightyear", "previous_tier": "C", "current_tier": null, "note": "Removed from roster — not in current game" }
+      ],
+      "new_brawlers": ["Damian", "Starr Nova", "Bolt"],
+      "removed_brawlers": ["Buzz Lightyear"]
+    },
+    {
+      "version": "2.10.0",
+      "date": "2026-04-27",
+      "label": "April 27, 2026",
+      "brawler_count": 105,
+      "source_count": 9,
+      "summary": "Full data refresh for April 27, 2026. Added Damian, Starr Nova, Bolt, and Buzz Lightyear. Updated all 9 sources.",
+      "tier_changes": [],
+      "new_brawlers": ["Damian", "Starr Nova", "Bolt", "Buzz Lightyear"],
+      "removed_brawlers": []
+    },
+    {
+      "version": "2.9.0",
+      "date": "2026-03-31",
+      "label": "March 31, 2026",
+      "brawler_count": 101,
+      "source_count": 9,
+      "summary": "Updated KairosTime (March 31 community survey), SpenLC Season 49 (April 5), and minor source refreshes.",
+      "tier_changes": [],
+      "new_brawlers": [],
+      "removed_brawlers": []
+    }
+  ]
+}

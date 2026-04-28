@@ -1,0 +1,8 @@
+{
+  "name": "brawlrank",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/generate-structured-data.js",
+    "build:seo": "node scripts/generate-structured-data.js"
+  }
+}

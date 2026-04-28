@@ -413,6 +413,12 @@ function openVersionModal() {
             Report an Issue
           </span>
         </a>
+        <a class="version-modal-link" href="/changelog.json" target="_blank" rel="noopener noreferrer">
+          <span class="v-link-left">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"></path><rect x="9" y="3" width="6" height="4" rx="1"></rect><line x1="9" y1="12" x2="15" y2="12"></line><line x1="9" y1="16" x2="12" y2="16"></line></svg>
+            Change History (changelog.json)
+          </span>
+        </a>
 
       </div>
     </div>
@@ -490,6 +496,13 @@ function renderTierList() {
       nameLabel.textContent = name;
 
       wrap.appendChild(img);
+      if (b.num_sources < 3) {
+        const flag = document.createElement('div');
+        flag.className = 'low-sample-flag';
+        flag.title = `Low sample size (${b.num_sources} source${b.num_sources !== 1 ? 's' : ''}) — tier may shift as more sources rate this brawler`;
+        flag.textContent = '!';
+        wrap.appendChild(flag);
+      }
       wrap.appendChild(tooltip);
       wrap.appendChild(nameLabel);
       brawlers.appendChild(wrap);
@@ -577,6 +590,10 @@ function openModal(b) {
         <div class="modal-score-bar" style="width:0%;background:${tierColor}"></div>
       </div>
     </div>
+    ${b.num_sources < 3 ? `<div class="low-sample-warning">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg>
+      <span>Only ${b.num_sources} source${b.num_sources !== 1 ? 's' : ''} have rated this brawler — placement may shift as more data comes in.</span>
+    </div>` : ''}
     <div class="modal-consensus">
       <span class="consensus-label">Source agreement:</span>
       <span class="consensus-value ${b.disagreement < 0.8 ? 'consensus-strong' : b.disagreement < 1.5 ? 'consensus-moderate' : 'consensus-weak'}">${b.disagreement < 0.8 ? 'Strong' : b.disagreement < 1.5 ? 'Moderate' : 'Weak'} consensus</span>
