@@ -1,12 +1,13 @@
 const fs = require('node:fs');
 const path = require('node:path');
+const { execSync } = require('node:child_process');
 
 const rootDir = path.resolve(__dirname, '..');
 const indexPath = path.join(rootDir, 'index.html');
 const dataPath = path.join(rootDir, 'data.json');
+const changelogPath = path.join(rootDir, 'changelog.json');
 const sitemapPath = path.join(rootDir, 'sitemap.xml');
 const brawlersDir = path.join(rootDir, 'brawlers');
-const blogDir = path.join(rootDir, 'blog');
 const socialDir = path.join(rootDir, 'social');
 
 const SITE_URL = 'https://brawlrank.com/';
@@ -31,7 +32,7 @@ const TIER_THRESHOLDS = {
 };
 const TIER_ORDER = ['S', 'A', 'B', 'C', 'D', 'F'];
 const RECENCY_THRESHOLD_DAYS = 15;
-const RECENCY_DECAY_RATE = 0.5;
+const RECENCY_DECAY_RATE = 7;
 const TIER_COLORS = {
   S: '#ff2d55',
   A: '#ff9500',
@@ -1048,224 +1049,6 @@ function buildBrawlerPage(data, rankedBrawlers, groupedBrawlers, brawler, update
   ].join('\n');
 }
 
-function buildBlogPosts(data, rankedBrawlers, groupedBrawlers, updatedDate) {
-  const monthYear = formatMonthYear(updatedDate);
-  const slug = `${slugify(monthYear)}-meta-report`;
-  const topTier = (groupedBrawlers.S || []).slice(0, 5);
-  const strongestConsensus = [...rankedBrawlers].sort((left, right) => left.disagreement - right.disagreement).slice(0, 4);
-  const contested = [...rankedBrawlers].sort((left, right) => right.disagreement - left.disagreement).slice(0, 4);
-  const pressureTier = [...(groupedBrawlers.D || []), ...(groupedBrawlers.F || [])].slice(0, 6);
-  const tierCounts = TIER_ORDER.map((tier) => ({ tier, count: (groupedBrawlers[tier] || []).length }));
-
-  return [{
-    slug,
-    title: `Brawl Stars Meta Report — ${monthYear}`,
-    description: `${monthYear} Brawl Stars meta report covering the strongest S Tier picks, the most contested placements, and the current pressure points in the live BrawlRank model.`,
-    canonical: `${SITE_URL}blog/${slug}/`,
-    publishedDate: toIsoDate(updatedDate),
-    updatedLabel: data.last_updated,
-    topTier,
-    strongestConsensus,
-    contested,
-    pressureTier,
-    tierCounts,
-    ogImage: getSocialUrl('social/og-home.svg')
-  }];
-}
-
-function buildBlogIndexPage(posts, updatedDate, staticPages) {
-  const title = `Brawl Stars Meta Blog (${formatMonthYear(updatedDate)}) | BrawlRank`;
-  const description = 'Monthly meta reports, methodology breakdowns, and crawlable Brawl Stars analysis generated from the live BrawlRank ranking model.';
-  const canonical = `${SITE_URL}blog/`;
-  const postsMarkup = posts.map((post) => [
-    '        <article class="content-card">',
-    '          <span class="eyebrow">Meta Report</span>',
-    `          <h2><a href="${escapeHtml(post.slug)}/">${escapeHtml(post.title)}</a></h2>`,
-    `          <p>${escapeHtml(post.description)}</p>`,
-    `          <p class="page-meta">Published ${escapeHtml(post.updatedLabel)}</p>`,
-    `          <p><a href="${escapeHtml(post.slug)}/">Read the full report</a></p>`,
-    '        </article>'
-  ].join('\n')).join('\n');
-  const jsonLdMarkup = [
-    '<script type="application/ld+json">',
-    JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'CollectionPage',
-      name: title,
-      url: canonical,
-      description
-    }, null, 2),
-    '</script>'
-  ].join('\n');
-
-  return [
-    '<!DOCTYPE html>',
-    '<html lang="en">',
-    buildHead({
-      title,
-      description,
-      canonical,
-      ogTitle: title,
-      ogDescription: description,
-      ogImage: getSocialUrl('social/og-home.svg'),
-      relativePrefix: '../',
-      articleModifiedTime: toIsoDateTime(updatedDate),
-      jsonLdMarkup
-    }),
-    '<body>',
-    buildNav('../', 'blog', staticPages),
-    '<main class="page-main">',
-    '  <section class="page-hero">',
-    '    <div class="container">',
-    '      <span class="eyebrow">BrawlRank Blog</span>',
-    '      <h1 class="page-title">Monthly Brawl Stars meta reports built from the live ranking model.</h1>',
-    '      <p class="page-lead">This section turns the live BrawlRank dataset into crawlable editorial pages that summarize the strongest picks, the most contested brawlers, and the overall shape of the current Brawl Stars meta.</p>',
-    `      <p class="page-meta">Latest publishing cycle: ${escapeHtml(formatMonthYear(updatedDate))}</p>`,
-    '    </div>',
-    '  </section>',
-    '  <section>',
-    '    <div class="container page-grid">',
-    '      <div class="content-stack">',
-    postsMarkup,
-    '      </div>',
-    '      <aside class="sidebar-stack">',
-    '        <section class="sidebar-card">',
-    '          <h2>What to expect</h2>',
-    '          <p>Each report is generated from the current BrawlRank snapshot and focuses on meta leaders, cross-source agreement, and practical draft implications for the active patch cycle.</p>',
-    '        </section>',
-    '        <section class="sidebar-card">',
-    '          <h2>Internal links</h2>',
-    '          <p>Reports link directly to the main tier list and the individual brawler pages so the editorial layer supports the core rankings instead of fragmenting them.</p>',
-    '        </section>',
-    '      </aside>',
-    '    </div>',
-    '  </section>',
-    '</main>',
-    buildFooter('../', staticPages),
-    '</body>',
-    '</html>',
-    ''
-  ].join('\n');
-}
-
-function buildBlogPostPage(post, updatedDate, staticPages) {
-  const title = `${post.title} | BrawlRank`;
-  const relativePrefix = '../../';
-  const topTierLinks = post.topTier.map((brawler) => `<a class="same-tier-link" href="../../brawlers/${escapeHtml(brawler.slug)}/">${escapeHtml(brawler.name)} <span class="rank-pill">#${brawler.rank}</span></a>`).join('\n            ');
-  const strongConsensusLinks = post.strongestConsensus.map((brawler) => `<a class="same-tier-link" href="../../brawlers/${escapeHtml(brawler.slug)}/">${escapeHtml(brawler.name)} <span class="rank-pill">σ ${brawler.disagreement.toFixed(2)}</span></a>`).join('\n            ');
-  const contestedLinks = post.contested.map((brawler) => `<a class="same-tier-link" href="../../brawlers/${escapeHtml(brawler.slug)}/">${escapeHtml(brawler.name)} <span class="rank-pill">σ ${brawler.disagreement.toFixed(2)}</span></a>`).join('\n            ');
-  const pressureLinks = post.pressureTier.map((brawler) => `<a class="same-tier-link" href="../../brawlers/${escapeHtml(brawler.slug)}/">${escapeHtml(brawler.name)} <span class="rank-pill">${brawler.tier} Tier</span></a>`).join('\n            ');
-  const tierCountMarkup = post.tierCounts.map((entry) => `<div class="stat-item"><span class="stat-label">${entry.tier} Tier</span><span class="stat-value">${entry.count} brawlers</span></div>`).join('');
-  const jsonLdMarkup = [
-    '<script type="application/ld+json">',
-    JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'Article',
-      headline: post.title,
-      description: post.description,
-      datePublished: post.publishedDate,
-      dateModified: post.publishedDate,
-      image: post.ogImage,
-      author: {
-        '@type': 'Organization',
-        name: 'BrawlRank'
-      },
-      publisher: {
-        '@type': 'Organization',
-        name: 'BrawlRank',
-        logo: {
-          '@type': 'ImageObject',
-          url: `${SITE_URL}BRlogo.svg`
-        }
-      },
-      mainEntityOfPage: post.canonical
-    }, null, 2),
-    '</script>',
-    '<script type="application/ld+json">',
-    JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'BrawlRank', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}blog/` },
-        { '@type': 'ListItem', position: 3, name: post.title, item: post.canonical }
-      ]
-    }, null, 2),
-    '</script>'
-  ].join('\n');
-
-  return [
-    '<!DOCTYPE html>',
-    '<html lang="en">',
-    buildHead({
-      title,
-      description: post.description,
-      canonical: post.canonical,
-      ogTitle: post.title,
-      ogDescription: post.description,
-      ogImage: post.ogImage,
-      relativePrefix,
-      articleModifiedTime: toIsoDateTime(updatedDate),
-      jsonLdMarkup
-    }),
-    '<body>',
-    buildNav(relativePrefix, 'blog', staticPages),
-    '<main class="page-main">',
-    '  <section class="page-hero">',
-    '    <div class="container">',
-    '      <span class="eyebrow">Meta Report</span>',
-    `      <h1 class="page-title">${escapeHtml(post.title)}</h1>`,
-    `      <p class="page-lead">${escapeHtml(post.description)}</p>`,
-    `      <p class="page-meta">Published ${escapeHtml(post.updatedLabel)}. Built from the live BrawlRank dataset and linked directly to the current tier pages.</p>`,
-    '    </div>',
-    '  </section>',
-    '  <section>',
-    '    <div class="container page-grid">',
-    '      <div class="content-stack">',
-    '        <article class="content-card">',
-    '          <h2>The top of the current Brawl Stars meta</h2>',
-    '          <p>The current BrawlRank model shows a clear high-end cluster rather than a flat field. The brawlers below currently anchor the meta because they keep showing up at the top of data-heavy sources and creator lists at the same time.</p>',
-    `          <div class="same-tier-links">${topTierLinks}</div>`,
-    '        </article>',
-    '        <article class="content-card">',
-    '          <h2>Where the model is most stable</h2>',
-    '          <p>Low-disagreement brawlers matter because they are the placements you can trust across different source perspectives. These are the names with the tightest spread in the current snapshot.</p>',
-    `          <div class="same-tier-links">${strongConsensusLinks}</div>`,
-    '        </article>',
-    '        <article class="content-card">',
-    '          <h2>The most contested placements</h2>',
-    '          <p>When sources disagree heavily, that usually signals map dependence, role overlap, or a wider gap between ranked ladder performance and coordinated competitive play. These brawlers currently have the widest spread in the model.</p>',
-    `          <div class="same-tier-links">${contestedLinks}</div>`,
-    '        </article>',
-    '        <article class="content-card">',
-    '          <h2>Lower-tier pressure points</h2>',
-    '          <p>These are the brawlers currently feeling the most pressure in the live model. They are still playable in niches, but they need draft support, favorable maps, or balance help before they become broadly attractive picks again.</p>',
-    `          <div class="same-tier-links">${pressureLinks}</div>`,
-    '        </article>',
-    '      </div>',
-    '      <aside class="sidebar-stack">',
-    '        <section class="sidebar-card">',
-    '          <h2>Tier distribution</h2>',
-    `          <div class="stat-list">${tierCountMarkup}</div>`,
-    '        </section>',
-    '        <section class="sidebar-card">',
-    '          <h2>Continue exploring</h2>',
-    '          <div class="adjacent-links">',
-    '            <a class="adjacent-link" href="../../">Back to full tier list</a>',
-    '            <a class="adjacent-link" href="../">View all blog posts</a>',
-    '          </div>',
-    '        </section>',
-    '      </aside>',
-    '    </div>',
-    '  </section>',
-    '</main>',
-    buildFooter(relativePrefix, staticPages),
-    '</body>',
-    '</html>',
-    ''
-  ].join('\n');
-}
-
 function buildSitemapXml(updatedDate, rankedBrawlers, staticPages) {
   const lastmod = toIsoDate(updatedDate);
   const urls = [
@@ -1321,42 +1104,80 @@ function writeBrawlerPages(data, rankedBrawlers, groupedBrawlers, updatedDate, s
   });
 }
 
-function buildBlogRedirectPage() {
-  return [
-    '<!DOCTYPE html>',
-    '<html lang="en">',
-    '<head>',
-    '<meta charset="UTF-8">',
-    '<meta http-equiv="refresh" content="0;url=/">',
-    `<link rel="canonical" href="${SITE_URL}">`,
-    '<title>BrawlRank</title>',
-    '</head>',
-    '<body>',
-    '<p><a href="/">Redirecting to BrawlRank tier list...</a></p>',
-    '</body>',
-    '</html>',
-    ''
-  ].join('\n');
-}
-
-function writeBlogPages(blogPosts) {
-  ensureDir(blogDir);
-  fs.writeFileSync(path.join(blogDir, 'index.html'), buildBlogRedirectPage());
-
-  blogPosts.forEach((post) => {
-    const targetDir = path.join(blogDir, post.slug);
-    ensureDir(targetDir);
-    fs.writeFileSync(path.join(targetDir, 'index.html'), buildBlogRedirectPage());
-  });
-}
-
-function writeSocialAssets(rankedBrawlers, blogPosts, updatedDate, data) {
+function writeSocialAssets(rankedBrawlers, data) {
   ensureDir(socialDir);
 
   fs.writeFileSync(path.join(socialDir, 'og-home.svg'), buildHomeOgSvg({
     lastUpdated: data.last_updated,
     sourceCount: data.total_sources
   }));
+}
+
+function updateChangelog(currentData, currentRankedBrawlers) {
+  const versionPath = path.join(rootDir, 'version');
+  const versionDatePath = path.join(rootDir, 'version-date');
+  if (!fs.existsSync(versionPath) || !fs.existsSync(versionDatePath)) return;
+
+  const version = fs.readFileSync(versionPath, 'utf8').trim();
+  const versionDate = fs.readFileSync(versionDatePath, 'utf8').trim();
+
+  let prevData = null;
+  try {
+    const raw = execSync('git show HEAD:data.json', { cwd: rootDir, stdio: ['pipe', 'pipe', 'pipe'] });
+    prevData = JSON.parse(raw.toString('utf8'));
+  } catch {
+    return;
+  }
+
+  const prevRanked = computeRankedBrawlers(prevData);
+  const prevTierMap = Object.fromEntries(prevRanked.map((b) => [b.name, b.tier]));
+
+  const prevNames = new Set(prevRanked.map((b) => b.name));
+  const currNames = new Set(currentRankedBrawlers.map((b) => b.name));
+
+  const new_brawlers = [...currNames].filter((n) => !prevNames.has(n));
+  const removed_brawlers = [...prevNames].filter((n) => !currNames.has(n));
+  const tier_changes = currentRankedBrawlers
+    .filter((b) => prevTierMap[b.name] && prevTierMap[b.name] !== b.tier)
+    .map((b) => ({ brawler: b.name, previous_tier: prevTierMap[b.name], current_tier: b.tier, note: '' }));
+
+  const brawler_count = currentRankedBrawlers.length;
+  const source_count = currentData.sources ? currentData.sources.length : 0;
+
+  const summaryParts = [`Data refresh for ${versionDate}.`];
+  if (new_brawlers.length) summaryParts.push(`${new_brawlers.length} new brawler${new_brawlers.length > 1 ? 's' : ''}: ${new_brawlers.join(', ')}.`);
+  if (removed_brawlers.length) summaryParts.push(`Removed: ${removed_brawlers.join(', ')}.`);
+  if (tier_changes.length) summaryParts.push(`${tier_changes.length} tier change${tier_changes.length > 1 ? 's' : ''}.`);
+  const summary = summaryParts.join(' ');
+
+  const dateStr = new Date().toISOString().slice(0, 10);
+  const newEntry = {
+    version,
+    date: dateStr,
+    label: versionDate,
+    brawler_count,
+    source_count,
+    summary,
+    tier_changes,
+    new_brawlers,
+    removed_brawlers
+  };
+
+  const changelog = fs.existsSync(changelogPath)
+    ? JSON.parse(fs.readFileSync(changelogPath, 'utf8'))
+    : { entries: [] };
+
+  if (changelog.entries.length > 0 && changelog.entries[0].version === version) {
+    changelog.entries[0] = newEntry;
+  } else {
+    changelog.entries.unshift(newEntry);
+  }
+
+  changelog.generated = new Date().toISOString();
+  changelog.current_version = version;
+  changelog.description = 'Week-over-week tier change history. Updated automatically by the build script each data refresh. Consumable at https://brawlrank.com/changelog.json';
+
+  fs.writeFileSync(changelogPath, JSON.stringify(changelog, null, 2) + '\n');
 }
 
 function main() {
@@ -1366,15 +1187,13 @@ function main() {
   const rankedBrawlers = computeRankedBrawlers(data);
   const groupedBrawlers = groupBrawlersByTier(rankedBrawlers);
   const faqEntries = buildFaqEntries(data, rankedBrawlers);
-  const blogPosts = buildBlogPosts(data, rankedBrawlers, groupedBrawlers, updatedDate);
 
   const indexHtml = fs.readFileSync(indexPath, 'utf8');
   const updatedHomepage = updateHomepage(indexHtml, data, rankedBrawlers, groupedBrawlers, faqEntries, updatedDate, staticPages);
 
   fs.writeFileSync(indexPath, updatedHomepage);
-  writeSocialAssets(rankedBrawlers, blogPosts, updatedDate, data);
+  writeSocialAssets(rankedBrawlers, data);
   writeBrawlerPages(data, rankedBrawlers, groupedBrawlers, updatedDate, staticPages);
-  writeBlogPages(blogPosts);
   fs.writeFileSync(sitemapPath, buildSitemapXml(updatedDate, rankedBrawlers, staticPages));
 
   const updatedBrawlers = data.brawlers.map((original) => {
@@ -1391,7 +1210,9 @@ function main() {
   });
   fs.writeFileSync(dataPath, JSON.stringify({ ...data, brawlers: updatedBrawlers }, null, 2) + '\n');
 
-  process.stdout.write(`Generated homepage SEO blocks, ${rankedBrawlers.length} brawler pages, ${blogPosts.length} blog pages, social share assets, and sitemap entries.\n`);
+  updateChangelog({ ...data, brawlers: updatedBrawlers }, rankedBrawlers);
+
+  process.stdout.write(`Generated homepage SEO blocks, ${rankedBrawlers.length} brawler pages, social share assets, and sitemap entries.\n`);
 }
 
 main();

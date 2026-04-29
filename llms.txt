@@ -1,0 +1,13 @@
+# BrawlRank
+
+> BrawlRank is an aggregated Brawl Stars tier list combining 9 pro, data, and community sources into a weekly-updated meta ranking for all 104 brawlers.
+
+BrawlRank uses a weighted scoring system (0–6.00) to rank brawlers across tiers S through D. Sources include pro players, data analytics sites, and community votes. Recency decay is applied: sources older than 15 days decay with a 7-day half-life.
+
+## Docs
+
+- [Full Tier List](https://brawlrank.com/index.html.md): All 104 brawlers ranked by BrawlRank score for April 2026 — tiers, scores, and source breakdown methodology
+
+## Optional
+
+- [Individual Brawler Pages](https://brawlrank.com/brawlers/): Per-brawler pages showing source-by-source tier ratings and ranking history

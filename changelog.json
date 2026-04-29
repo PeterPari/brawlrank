@@ -1,23 +1,106 @@
 {
-  "generated": "2026-04-27T00:00:00Z",
-  "current_version": "2.10.1",
-  "description": "Week-over-week tier change history. Updated alongside data.json each weekly refresh. Consumable at https://brawlrank.com/changelog.json",
+  "generated": "2026-04-29T22:53:47.758Z",
+  "current_version": "3.0.1",
+  "description": "Week-over-week tier change history. Updated automatically by the build script each data refresh. Consumable at https://brawlrank.com/changelog.json",
   "entries": [
+    {
+      "version": "3.0.1",
+      "date": "2026-04-29",
+      "label": "April 29, 2026",
+      "brawler_count": 104,
+      "source_count": 9,
+      "summary": "Data refresh for April 29, 2026.",
+      "tier_changes": [],
+      "new_brawlers": [],
+      "removed_brawlers": []
+    },
+    {
+      "version": "3.0",
+      "date": "2026-04-28",
+      "label": "April 28, 2026",
+      "brawler_count": 104,
+      "source_count": 9,
+      "summary": "Major overhaul. Every brawler now has a dedicated page with full source breakdowns, tier history context, and SEO metadata. Added source-detail modal with methodology and weight explanations. Added recency decay tooltip. Full redesign of layout, typography, and card system. Najia added to roster.",
+      "tier_changes": [],
+      "new_brawlers": [
+        "Najia"
+      ],
+      "removed_brawlers": []
+    },
+    {
+      "version": "2.13",
+      "date": "2026-04-27",
+      "label": "April 27, 2026",
+      "brawler_count": 104,
+      "source_count": 9,
+      "summary": "Added Open Graph image for social sharing. BrawlRank links now show a preview card on Twitter, Discord, and other platforms.",
+      "tier_changes": [],
+      "new_brawlers": [],
+      "removed_brawlers": []
+    },
+    {
+      "version": "2.12.0",
+      "date": "2026-04-27",
+      "label": "April 27, 2026",
+      "brawler_count": 104,
+      "source_count": 9,
+      "summary": "Added recency decay: sources not updated within 15 days lose weight exponentially (half-life 7 days). Prevents stale data from anchoring brawler scores when the meta has moved on.",
+      "tier_changes": [],
+      "new_brawlers": [],
+      "removed_brawlers": []
+    },
+    {
+      "version": "2.11.0",
+      "date": "2026-04-27",
+      "label": "April 27, 2026",
+      "brawler_count": 104,
+      "source_count": 9,
+      "summary": "Added low-source warning: brawlers rated by fewer than 3 sources now show a caution indicator, making it clear when a placement is based on limited data.",
+      "tier_changes": [],
+      "new_brawlers": [],
+      "removed_brawlers": []
+    },
     {
       "version": "2.10.1",
       "date": "2026-04-27",
       "label": "April 27, 2026",
       "brawler_count": 104,
       "source_count": 9,
-      "summary": "Removed Buzz Lightyear (not in current game roster). Updated SpenLC (April 22), Ash (April 26), Noff.gg (April 28 live), MmonsteR (April 2026), Driffle (April 2026). Damian rises to S tier with perfect score.",
+      "summary": "Removed Buzz Lightyear (not in current game roster). Updated SpenLC (April 22), Ash (April 26), Noff.gg (April 28 live), MmonsteR (April 2026), Driffle (April 2026). Damian rises to S tier with score 6.00.",
       "tier_changes": [
-        { "brawler": "Damian", "previous_tier": null, "current_tier": "S", "note": "New brawler — debuts at S tier (score 6.00, 3 sources)" },
-        { "brawler": "Starr Nova", "previous_tier": null, "current_tier": "C", "note": "New brawler — debuts at C tier (2 sources, low sample)" },
-        { "brawler": "Bolt", "previous_tier": null, "current_tier": "C", "note": "New brawler — debuts at C tier (2 sources, low sample)" },
-        { "brawler": "Buzz Lightyear", "previous_tier": "C", "current_tier": null, "note": "Removed from roster — not in current game" }
+        {
+          "brawler": "Damian",
+          "previous_tier": null,
+          "current_tier": "S",
+          "note": "New brawler — debuts at S tier (score 6.00, 3 sources)"
+        },
+        {
+          "brawler": "Starr Nova",
+          "previous_tier": null,
+          "current_tier": "C",
+          "note": "New brawler — debuts at C tier (2 sources, low sample)"
+        },
+        {
+          "brawler": "Bolt",
+          "previous_tier": null,
+          "current_tier": "C",
+          "note": "New brawler — debuts at C tier (2 sources, low sample)"
+        },
+        {
+          "brawler": "Buzz Lightyear",
+          "previous_tier": "C",
+          "current_tier": null,
+          "note": "Removed from roster — not in current game"
+        }
       ],
-      "new_brawlers": ["Damian", "Starr Nova", "Bolt"],
-      "removed_brawlers": ["Buzz Lightyear"]
+      "new_brawlers": [
+        "Damian",
+        "Starr Nova",
+        "Bolt"
+      ],
+      "removed_brawlers": [
+        "Buzz Lightyear"
+      ]
     },
     {
       "version": "2.10.0",
@@ -27,7 +110,12 @@
       "source_count": 9,
       "summary": "Full data refresh for April 27, 2026. Added Damian, Starr Nova, Bolt, and Buzz Lightyear. Updated all 9 sources.",
       "tier_changes": [],
-      "new_brawlers": ["Damian", "Starr Nova", "Bolt", "Buzz Lightyear"],
+      "new_brawlers": [
+        "Damian",
+        "Starr Nova",
+        "Bolt",
+        "Buzz Lightyear"
+      ],
       "removed_brawlers": []
     },
     {

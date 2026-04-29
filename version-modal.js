@@ -56,10 +56,10 @@
               Report an Issue
             </span>
           </a>
-          <a class="version-modal-link" href="/changelog.json" target="_blank" rel="noopener noreferrer">
+          <a class="version-modal-link" href="/changelog.html">
             <span class="v-link-left">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"></path><rect x="9" y="3" width="6" height="4" rx="1"></rect><line x1="9" y1="12" x2="15" y2="12"></line><line x1="9" y1="16" x2="12" y2="16"></line></svg>
-              Change History (changelog.json)
+              Changelog
             </span>
           </a>
         </div>

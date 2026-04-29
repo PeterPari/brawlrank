@@ -29,7 +29,7 @@
     const daysOver = Math.max(0, daysOld - RECENCY_THRESHOLD_DAYS);
     el.innerHTML = `
       <div class="decay-tooltip-title">Source aging</div>
-      <p class="decay-tooltip-body">Sources older than ${RECENCY_THRESHOLD_DAYS} days lose influence. Weight halves every 12 hours past the threshold.</p>
+      <p class="decay-tooltip-body">Sources older than ${RECENCY_THRESHOLD_DAYS} days lose influence. Weight halves every 7 days past the threshold.</p>
       <p class="decay-tooltip-detail">This source is ${daysOld} days old — ${daysOver} days past threshold — weight reduced by ${pct}%.</p>
     `;
     el.classList.add('visible');

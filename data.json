@@ -174,7 +174,7 @@
   "brawlers": [
     {
       "name": "Bibi",
-      "score": 5.16,
+      "score": 5.29,
       "tier": "A",
       "sources": {
         "SpenLC": "S",
@@ -195,7 +195,7 @@
     },
     {
       "name": "Crow",
-      "score": 5.27,
+      "score": 5.41,
       "tier": "A",
       "sources": {
         "SpenLC": "S",
@@ -215,7 +215,7 @@
     },
     {
       "name": "Spike",
-      "score": 4.07,
+      "score": 4.33,
       "tier": "B",
       "sources": {
         "SpenLC": "B",
@@ -236,7 +236,7 @@
     },
     {
       "name": "Bull",
-      "score": 5.33,
+      "score": 5.45,
       "tier": "A",
       "sources": {
         "SpenLC": "A",
@@ -256,7 +256,7 @@
     },
     {
       "name": "Sirius",
-      "score": 5.14,
+      "score": 5.31,
       "tier": "A",
       "sources": {
         "SpenLC": "S",
@@ -276,7 +276,7 @@
     },
     {
       "name": "Emz",
-      "score": 4.29,
+      "score": 4.45,
       "tier": "B",
       "sources": {
         "SpenLC": "S",
@@ -294,7 +294,7 @@
     },
     {
       "name": "Rico",
-      "score": 4.14,
+      "score": 4.48,
       "tier": "B",
       "sources": {
         "SpenLC": "A",
@@ -336,7 +336,7 @@
     },
     {
       "name": "Mortis",
-      "score": 5.71,
+      "score": 5.7,
       "tier": "S",
       "sources": {
         "SpenLC": "A",
@@ -357,7 +357,7 @@
     },
     {
       "name": "Colt",
-      "score": 4.63,
+      "score": 4.81,
       "tier": "A",
       "sources": {
         "SpenLC": "B",
@@ -378,7 +378,7 @@
     },
     {
       "name": "Pierce",
-      "score": 5.4,
+      "score": 5.27,
       "tier": "A",
       "sources": {
         "SpenLC": "S",
@@ -397,7 +397,7 @@
     },
     {
       "name": "Bo",
-      "score": 4.16,
+      "score": 4.26,
       "tier": "B",
       "sources": {
         "SpenLC": "B",
@@ -418,7 +418,7 @@
     },
     {
       "name": "Glowbert",
-      "score": 3,
+      "score": 3.28,
       "tier": "C",
       "sources": {
         "SpenLC": "C",
@@ -437,7 +437,7 @@
     },
     {
       "name": "Frank",
-      "score": 3.37,
+      "score": 3.49,
       "tier": "C",
       "sources": {
         "SpenLC": "B",
@@ -458,7 +458,7 @@
     },
     {
       "name": "Shelly",
-      "score": 4.34,
+      "score": 4.38,
       "tier": "B",
       "sources": {
         "SpenLC": "B",
@@ -479,7 +479,7 @@
     },
     {
       "name": "Mina",
-      "score": 4.4,
+      "score": 4.34,
       "tier": "B",
       "sources": {
         "BrawlTime Votes": "C",
@@ -498,7 +498,7 @@
     },
     {
       "name": "Byron",
-      "score": 3.97,
+      "score": 4.08,
       "tier": "B",
       "sources": {
         "SpenLC": "A",
@@ -519,8 +519,8 @@
     },
     {
       "name": "Nita",
-      "score": 3.46,
-      "tier": "C",
+      "score": 3.63,
+      "tier": "B",
       "sources": {
         "SpenLC": "A",
         "BrawlTime Votes": "D",
@@ -540,7 +540,7 @@
     },
     {
       "name": "Cordelius",
-      "score": 4.21,
+      "score": 4.26,
       "tier": "B",
       "sources": {
         "SpenLC": "B",
@@ -561,7 +561,7 @@
     },
     {
       "name": "Shade",
-      "score": 4.2,
+      "score": 4.13,
       "tier": "B",
       "sources": {
         "SpenLC": "A",
@@ -581,7 +581,7 @@
     },
     {
       "name": "Otis",
-      "score": 4.39,
+      "score": 4.3,
       "tier": "B",
       "sources": {
         "SpenLC": "A",
@@ -601,7 +601,7 @@
     },
     {
       "name": "Angelo",
-      "score": 3.89,
+      "score": 3.98,
       "tier": "B",
       "sources": {
         "SpenLC": "A",
@@ -622,7 +622,7 @@
     },
     {
       "name": "Kaze",
-      "score": 4.19,
+      "score": 4.13,
       "tier": "B",
       "sources": {
         "SpenLC": "A",
@@ -642,7 +642,7 @@
     },
     {
       "name": "Mandy",
-      "score": 2.77,
+      "score": 3.13,
       "tier": "C",
       "sources": {
         "BrawlTime Votes": "S",
@@ -663,7 +663,7 @@
     },
     {
       "name": "Gus",
-      "score": 3.77,
+      "score": 3.88,
       "tier": "B",
       "sources": {
         "BrawlTime Votes": "C",
@@ -684,7 +684,7 @@
     },
     {
       "name": "Finx",
-      "score": 3.34,
+      "score": 3.44,
       "tier": "C",
       "sources": {
         "SpenLC": "A",
@@ -703,8 +703,8 @@
     },
     {
       "name": "Amber",
-      "score": 3.47,
-      "tier": "C",
+      "score": 3.65,
+      "tier": "B",
       "sources": {
         "BrawlTime Votes": "C",
         "SpenLC": "B",
@@ -724,7 +724,7 @@
     },
     {
       "name": "Chester",
-      "score": 4.69,
+      "score": 4.6,
       "tier": "A",
       "sources": {
         "SpenLC": "A",
@@ -745,7 +745,7 @@
     },
     {
       "name": "Nani",
-      "score": 3.06,
+      "score": 3.24,
       "tier": "C",
       "sources": {
         "SpenLC": "B",
@@ -766,7 +766,7 @@
     },
     {
       "name": "Bea",
-      "score": 3.96,
+      "score": 4.05,
       "tier": "B",
       "sources": {
         "BrawlTime Votes": "S",
@@ -787,8 +787,8 @@
     },
     {
       "name": "Piper",
-      "score": 3.46,
-      "tier": "C",
+      "score": 3.58,
+      "tier": "B",
       "sources": {
         "SpenLC": "C",
         "BrawlTime Votes": "S",
@@ -807,8 +807,8 @@
     },
     {
       "name": "Max",
-      "score": 3.49,
-      "tier": "C",
+      "score": 3.59,
+      "tier": "B",
       "sources": {
         "SpenLC": "B",
         "BrawlTime Votes": "C",
@@ -828,7 +828,7 @@
     },
     {
       "name": "Meeple",
-      "score": 3.97,
+      "score": 3.93,
       "tier": "B",
       "sources": {
         "BrawlTime Votes": "C",
@@ -849,7 +849,7 @@
     },
     {
       "name": "Lily",
-      "score": 4.86,
+      "score": 4.64,
       "tier": "A",
       "sources": {
         "BrawlTime Votes": "B",
@@ -870,7 +870,7 @@
     },
     {
       "name": "Gene",
-      "score": 3.46,
+      "score": 3.44,
       "tier": "C",
       "sources": {
         "SpenLC": "A",
@@ -912,7 +912,7 @@
     },
     {
       "name": "Belle",
-      "score": 3.19,
+      "score": 3.35,
       "tier": "C",
       "sources": {
         "SpenLC": "B",
@@ -933,7 +933,7 @@
     },
     {
       "name": "Charlie",
-      "score": 3.46,
+      "score": 3.45,
       "tier": "C",
       "sources": {
         "SpenLC": "A",
@@ -975,7 +975,7 @@
     },
     {
       "name": "Alli",
-      "score": 5.06,
+      "score": 4.61,
       "tier": "A",
       "sources": {
         "BrawlTime Votes": "C",
@@ -995,7 +995,7 @@
     },
     {
       "name": "Kenji",
-      "score": 4.06,
+      "score": 4.02,
       "tier": "B",
       "sources": {
         "SpenLC": "A",
@@ -1015,7 +1015,7 @@
     },
     {
       "name": "Janet",
-      "score": 2.91,
+      "score": 2.94,
       "tier": "C",
       "sources": {
         "BrawlTime Votes": "D",
@@ -1035,7 +1035,7 @@
     },
     {
       "name": "Buster",
-      "score": 2.57,
+      "score": 2.77,
       "tier": "C",
       "sources": {
         "BrawlTime Votes": "C",
@@ -1055,7 +1055,7 @@
     },
     {
       "name": "8-Bit",
-      "score": 3.04,
+      "score": 3.09,
       "tier": "C",
       "sources": {
         "BrawlTime Votes": "A",
@@ -1075,7 +1075,7 @@
     },
     {
       "name": "Squeak",
-      "score": 2.86,
+      "score": 2.99,
       "tier": "C",
       "sources": {
         "SpenLC": "B",
@@ -1117,7 +1117,7 @@
     },
     {
       "name": "Melodie",
-      "score": 2.8,
+      "score": 2.82,
       "tier": "C",
       "sources": {
         "SpenLC": "C",
@@ -1138,7 +1138,7 @@
     },
     {
       "name": "Lou",
-      "score": 2.66,
+      "score": 2.83,
       "tier": "C",
       "sources": {
         "SpenLC": "B",
@@ -1159,7 +1159,7 @@
     },
     {
       "name": "Gray",
-      "score": 3.8,
+      "score": 3.75,
       "tier": "B",
       "sources": {
         "SpenLC": "A",
@@ -1179,7 +1179,7 @@
     },
     {
       "name": "Trunk",
-      "score": 3,
+      "score": 2.95,
       "tier": "C",
       "sources": {
         "SpenLC": "C",
@@ -1219,7 +1219,7 @@
     },
     {
       "name": "Meg",
-      "score": 3.37,
+      "score": 3.36,
       "tier": "C",
       "sources": {
         "BrawlTime Votes": "C",
@@ -1240,7 +1240,7 @@
     },
     {
       "name": "Carl",
-      "score": 3.06,
+      "score": 3.14,
       "tier": "C",
       "sources": {
         "BrawlTime Votes": "C",
@@ -1260,7 +1260,7 @@
     },
     {
       "name": "R-T",
-      "score": 3.7,
+      "score": 3.66,
       "tier": "B",
       "sources": {
         "BrawlTime Votes": "C",
@@ -1280,7 +1280,7 @@
     },
     {
       "name": "Larry & Lawrie",
-      "score": 2,
+      "score": 2.28,
       "tier": "D",
       "sources": {
         "BrawlTime Votes": "D",
@@ -1300,8 +1300,8 @@
     },
     {
       "name": "Kit",
-      "score": 4.6,
-      "tier": "A",
+      "score": 4.49,
+      "tier": "B",
       "sources": {
         "BrawlTime Votes": "S",
         "SpenLC": "B",
@@ -1321,8 +1321,8 @@
     },
     {
       "name": "Griff",
-      "score": 4.69,
-      "tier": "A",
+      "score": 4.43,
+      "tier": "B",
       "sources": {
         "BrawlTime Votes": "B",
         "SpenLC": "A",
@@ -1342,7 +1342,7 @@
     },
     {
       "name": "Doug",
-      "score": 3.01,
+      "score": 3.04,
       "tier": "C",
       "sources": {
         "BrawlTime Votes": "C",
@@ -1363,7 +1363,7 @@
     },
     {
       "name": "Poco",
-      "score": 2.54,
+      "score": 2.64,
       "tier": "C",
       "sources": {
         "BrawlTime Votes": "D",
@@ -1384,7 +1384,7 @@
     },
     {
       "name": "Mico",
-      "score": 3.18,
+      "score": 3.09,
       "tier": "C",
       "sources": {
         "SpenLC": "D",
@@ -1402,7 +1402,7 @@
     },
     {
       "name": "Tara",
-      "score": 3.06,
+      "score": 3.21,
       "tier": "C",
       "sources": {
         "BrawlTime Votes": "C",
@@ -1422,7 +1422,7 @@
     },
     {
       "name": "Sandy",
-      "score": 2.57,
+      "score": 2.77,
       "tier": "C",
       "sources": {
         "BrawlTime Votes": "C",
@@ -1443,7 +1443,7 @@
     },
     {
       "name": "Moe",
-      "score": 2.63,
+      "score": 2.72,
       "tier": "C",
       "sources": {
         "SpenLC": "D",
@@ -1464,8 +1464,8 @@
     },
     {
       "name": "Ziggy",
-      "score": 4.55,
-      "tier": "A",
+      "score": 4.08,
+      "tier": "B",
       "sources": {
         "SpenLC": "A",
         "BrawlTime Votes": "D",
@@ -1483,7 +1483,7 @@
     },
     {
       "name": "Fang",
-      "score": 2.8,
+      "score": 2.87,
       "tier": "C",
       "sources": {
         "BrawlTime Votes": "B",
@@ -1503,7 +1503,7 @@
     },
     {
       "name": "Berry",
-      "score": 2.36,
+      "score": 2.46,
       "tier": "D",
       "sources": {
         "SpenLC": "C",
@@ -1520,7 +1520,7 @@
     },
     {
       "name": "Dynamike",
-      "score": 2.31,
+      "score": 2.48,
       "tier": "D",
       "sources": {
         "SpenLC": "D",
@@ -1541,8 +1541,8 @@
     },
     {
       "name": "Juju",
-      "score": 2.49,
-      "tier": "D",
+      "score": 2.65,
+      "tier": "C",
       "sources": {
         "BrawlTime Votes": "D",
         "SpenLC": "C",
@@ -1561,7 +1561,7 @@
     },
     {
       "name": "Lola",
-      "score": 2.7,
+      "score": 2.62,
       "tier": "C",
       "sources": {
         "SpenLC": "C",
@@ -1582,7 +1582,7 @@
     },
     {
       "name": "Hank",
-      "score": 2.71,
+      "score": 2.69,
       "tier": "C",
       "sources": {
         "SpenLC": "C",
@@ -1603,7 +1603,7 @@
     },
     {
       "name": "Darryl",
-      "score": 3.18,
+      "score": 3.16,
       "tier": "C",
       "sources": {
         "SpenLC": "D",
@@ -1623,7 +1623,7 @@
     },
     {
       "name": "Draco",
-      "score": 2.83,
+      "score": 2.86,
       "tier": "C",
       "sources": {
         "SpenLC": "D",
@@ -1643,7 +1643,7 @@
     },
     {
       "name": "Penny",
-      "score": 2.97,
+      "score": 2.93,
       "tier": "C",
       "sources": {
         "SpenLC": "B",
@@ -1664,7 +1664,7 @@
     },
     {
       "name": "Gale",
-      "score": 3,
+      "score": 3.02,
       "tier": "C",
       "sources": {
         "SpenLC": "C",
@@ -1685,7 +1685,7 @@
     },
     {
       "name": "Ollie",
-      "score": 3.25,
+      "score": 3.21,
       "tier": "C",
       "sources": {
         "SpenLC": "B",
@@ -1703,7 +1703,7 @@
     },
     {
       "name": "Maisie",
-      "score": 2.09,
+      "score": 2.29,
       "tier": "D",
       "sources": {
         "SpenLC": "D",
@@ -1724,7 +1724,7 @@
     },
     {
       "name": "Willow",
-      "score": 2.91,
+      "score": 2.97,
       "tier": "C",
       "sources": {
         "SpenLC": "C",
@@ -1745,7 +1745,7 @@
     },
     {
       "name": "Barley",
-      "score": 2.29,
+      "score": 2.4,
       "tier": "D",
       "sources": {
         "SpenLC": "C",
@@ -1766,7 +1766,7 @@
     },
     {
       "name": "Surge",
-      "score": 3.46,
+      "score": 3.3,
       "tier": "C",
       "sources": {
         "SpenLC": "D",
@@ -1787,7 +1787,7 @@
     },
     {
       "name": "Ash",
-      "score": 1.51,
+      "score": 1.72,
       "tier": "D",
       "sources": {
         "SpenLC": "F",
@@ -1808,7 +1808,7 @@
     },
     {
       "name": "Lumi",
-      "score": 3.89,
+      "score": 3.72,
       "tier": "B",
       "sources": {
         "SpenLC": "A",
@@ -1829,8 +1829,8 @@
     },
     {
       "name": "Colette",
-      "score": 3.74,
-      "tier": "B",
+      "score": 3.37,
+      "tier": "C",
       "sources": {
         "BrawlTime Votes": "C",
         "KairosTime": "D",
@@ -1850,7 +1850,7 @@
     },
     {
       "name": "Rosa",
-      "score": 2.23,
+      "score": 2.2,
       "tier": "D",
       "sources": {
         "BrawlTime Votes": "D",
@@ -1871,7 +1871,7 @@
     },
     {
       "name": "Buzz",
-      "score": 4.17,
+      "score": 3.91,
       "tier": "B",
       "sources": {
         "SpenLC": "C",
@@ -1892,7 +1892,7 @@
     },
     {
       "name": "Bonnie",
-      "score": 1.94,
+      "score": 2.07,
       "tier": "D",
       "sources": {
         "SpenLC": "F",
@@ -1913,7 +1913,7 @@
     },
     {
       "name": "Pearl",
-      "score": 2.71,
+      "score": 2.65,
       "tier": "C",
       "sources": {
         "BrawlTime Votes": "D",
@@ -1934,7 +1934,7 @@
     },
     {
       "name": "Tick",
-      "score": 2.86,
+      "score": 2.82,
       "tier": "C",
       "sources": {
         "SpenLC": "C",
@@ -1974,7 +1974,7 @@
     },
     {
       "name": "Grom",
-      "score": 1.77,
+      "score": 2,
       "tier": "D",
       "sources": {
         "SpenLC": "F",
@@ -1995,7 +1995,7 @@
     },
     {
       "name": "Eve",
-      "score": 2.29,
+      "score": 2.38,
       "tier": "D",
       "sources": {
         "SpenLC": "C",
@@ -2015,7 +2015,7 @@
     },
     {
       "name": "El Primo",
-      "score": 2.89,
+      "score": 2.76,
       "tier": "C",
       "sources": {
         "SpenLC": "F",
@@ -2036,7 +2036,7 @@
     },
     {
       "name": "Pam",
-      "score": 2.29,
+      "score": 2.37,
       "tier": "D",
       "sources": {
         "BrawlTime Votes": "D",
@@ -2056,7 +2056,7 @@
     },
     {
       "name": "Sam",
-      "score": 1.94,
+      "score": 1.92,
       "tier": "D",
       "sources": {
         "SpenLC": "F",
@@ -2077,7 +2077,7 @@
     },
     {
       "name": "Mr. P",
-      "score": 1.51,
+      "score": 1.59,
       "tier": "D",
       "sources": {
         "SpenLC": "F",
@@ -2098,7 +2098,7 @@
     },
     {
       "name": "Clancy",
-      "score": 4.16,
+      "score": 3.64,
       "tier": "B",
       "sources": {
         "SpenLC": "S",
@@ -2118,7 +2118,7 @@
     },
     {
       "name": "Edgar",
-      "score": 5.46,
+      "score": 4.75,
       "tier": "A",
       "sources": {
         "SpenLC": "A",
@@ -2139,7 +2139,7 @@
     },
     {
       "name": "Gigi",
-      "score": 2.14,
+      "score": 2.21,
       "tier": "D",
       "sources": {
         "SpenLC": "F",
@@ -2159,7 +2159,7 @@
     },
     {
       "name": "Jessie",
-      "score": 1.51,
+      "score": 1.54,
       "tier": "D",
       "sources": {
         "SpenLC": "F",
@@ -2201,7 +2201,7 @@
     },
     {
       "name": "Chuck",
-      "score": 2.23,
+      "score": 2.14,
       "tier": "D",
       "sources": {
         "SpenLC": "D",
@@ -2222,7 +2222,7 @@
     },
     {
       "name": "Najia",
-      "score": 5.31,
+      "score": 5.29,
       "tier": "A",
       "sources": {
         "BrawlTime Votes": "C",

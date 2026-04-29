@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="BRlogo.svg" sizes="any">
+<title>Changelog | BrawlRank</title>
+<meta name="description" content="BrawlRank version history — tier changes, new brawlers, and data updates.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://brawlrank.com/changelog.html">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .cl-page { max-width: 760px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+  .cl-page h1 { font-family: 'Clash Display', sans-serif; font-size: 2rem; margin-bottom: 0.25rem; }
+  .cl-intro { color: var(--text-secondary); margin-bottom: 2.5rem; font-size: 0.95rem; }
+
+  .cl-entry { border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-card); padding: 1.5rem; margin-bottom: 1.25rem; }
+  .cl-header { display: flex; align-items: baseline; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+  .cl-version { font-family: 'Clash Display', sans-serif; font-size: 1.1rem; color: var(--accent); }
+  .cl-date { color: var(--text-secondary); font-size: 0.9rem; }
+  .cl-meta { color: var(--text-muted); font-size: 0.8rem; margin-left: auto; }
+  .cl-summary { color: var(--text-secondary); font-size: 0.93rem; line-height: 1.6; margin-bottom: 1rem; }
+
+  .cl-section { margin-top: 0.85rem; }
+  .cl-section-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.4rem; }
+
+  .cl-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .cl-tag { font-size: 0.8rem; padding: 0.15rem 0.55rem; border-radius: 999px; background: var(--bg-elevated); color: var(--text-secondary); border: 1px solid var(--border); }
+  .cl-tag.new { border-color: #34c75960; color: #34c759; background: #34c75912; }
+  .cl-tag.removed { border-color: #ff2d5560; color: #ff2d55; background: #ff2d5512; }
+
+  .cl-changes { display: flex; flex-direction: column; gap: 0.35rem; }
+  .cl-change { display: flex; align-items: center; gap: 0.5rem; font-size: 0.87rem; }
+  .cl-change-name { color: var(--text-primary); min-width: 120px; }
+  .cl-change-note { color: var(--text-muted); font-size: 0.8rem; }
+  .tier-badge {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 1.6rem; height: 1.6rem; border-radius: 4px;
+    font-weight: 700; font-size: 0.8rem; flex-shrink: 0;
+  }
+  .tier-S { background: #ff2d5522; color: #ff2d55; border: 1px solid #ff2d5560; }
+  .tier-A { background: #ff950022; color: #ff9500; border: 1px solid #ff950060; }
+  .tier-B { background: #ffcc0022; color: #ffcc00; border: 1px solid #ffcc0060; }
+  .tier-C { background: #34c75922; color: #34c759; border: 1px solid #34c75960; }
+  .tier-D { background: #5ac8fa22; color: #5ac8fa; border: 1px solid #5ac8fa60; }
+  .tier-F { background: #8e8e9322; color: #8e8e93; border: 1px solid #8e8e9360; }
+  .tier-arrow { color: var(--text-muted); font-size: 0.75rem; }
+  .tier-new { color: #34c759; font-size: 0.75rem; font-style: italic; }
+  .tier-removed { color: #ff2d55; font-size: 0.75rem; font-style: italic; }
+
+  .cl-loading { color: var(--text-muted); text-align: center; padding: 3rem 0; }
+  .cl-error { color: #ff2d55; text-align: center; padding: 3rem 0; }
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="container">
+    <div class="hero-brand">
+      <a href="/"><img class="logo-img" src="BRlogo.svg" alt="BrawlRank" draggable="false"></a>
+      <div class="hero-copy">
+        <h1 class="tagline"><a href="/" style="color:inherit;text-decoration:none;">BrawlRank</a></h1>
+        <p class="header-sub">Aggregated Brawl Stars tier list</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="content">
+  <div class="cl-page">
+    <h1>Changelog</h1>
+    <p class="cl-intro">Tier changes, new brawlers, and data updates — auto-generated each build from source data.</p>
+    <div id="clEntries"><p class="cl-loading">Loading changelog…</p></div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-links">
+      <a href="/">Tier List</a>
+      <a href="https://tech-savvies.com/" target="_blank" rel="noopener noreferrer">Built by Tech-savvies</a>
+      <a href="https://brawlify.com" target="_blank" rel="noopener noreferrer">Data: Brawlify</a>
+    </div>
+    <button class="footer-version" id="siteVersion" type="button" aria-haspopup="dialog">Version --</button>
+    <p class="footer-disclaimer">BrawlRank is an independent fan site and is not affiliated with, endorsed by, or connected to Supercell. Brawl Stars is a trademark of Supercell.</p>
+    <p class="footer-copyright">© 2026 BrawlRank. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  function tierBadge(tier) {
+    if (!tier) return '';
+    return `<span class="tier-badge tier-${tier}">${tier}</span>`;
+  }
+
+  function renderEntry(entry) {
+    const hasTierChanges = entry.tier_changes && entry.tier_changes.length > 0;
+    const hasNew = entry.new_brawlers && entry.new_brawlers.length > 0;
+    const hasRemoved = entry.removed_brawlers && entry.removed_brawlers.length > 0;
+
+    let changesHtml = '';
+    if (hasTierChanges) {
+      const rows = entry.tier_changes.map((c) => {
+        const prevBadge = c.previous_tier ? tierBadge(c.previous_tier) : '<span class="tier-new">new</span>';
+        const currBadge = c.current_tier ? tierBadge(c.current_tier) : '<span class="tier-removed">removed</span>';
+        const note = c.note ? `<span class="cl-change-note">— ${c.note}</span>` : '';
+        return `<div class="cl-change">
+          <span class="cl-change-name">${c.brawler}</span>
+          ${prevBadge}
+          <span class="tier-arrow">→</span>
+          ${currBadge}
+          ${note}
+        </div>`;
+      }).join('');
+      changesHtml = `<div class="cl-section">
+        <div class="cl-section-label">Tier changes</div>
+        <div class="cl-changes">${rows}</div>
+      </div>`;
+    }
+
+    let newHtml = '';
+    if (hasNew) {
+      const tags = entry.new_brawlers.map((n) => `<span class="cl-tag new">${n}</span>`).join('');
+      newHtml = `<div class="cl-section">
+        <div class="cl-section-label">New brawlers</div>
+        <div class="cl-tags">${tags}</div>
+      </div>`;
+    }
+
+    let removedHtml = '';
+    if (hasRemoved) {
+      const tags = entry.removed_brawlers.map((n) => `<span class="cl-tag removed">${n}</span>`).join('');
+      removedHtml = `<div class="cl-section">
+        <div class="cl-section-label">Removed</div>
+        <div class="cl-tags">${tags}</div>
+      </div>`;
+    }
+
+    const meta = [
+      entry.brawler_count ? `${entry.brawler_count} brawlers` : '',
+      entry.source_count ? `${entry.source_count} sources` : ''
+    ].filter(Boolean).join(' · ');
+
+    return `<div class="cl-entry">
+      <div class="cl-header">
+        <span class="cl-version">v${entry.version}</span>
+        <span class="cl-date">${entry.label || entry.date}</span>
+        ${meta ? `<span class="cl-meta">${meta}</span>` : ''}
+      </div>
+      ${entry.summary ? `<p class="cl-summary">${entry.summary}</p>` : ''}
+      ${newHtml}${removedHtml}${changesHtml}
+    </div>`;
+  }
+
+  fetch('/changelog.json', { cache: 'no-cache' })
+    .then((r) => r.json())
+    .then((data) => {
+      const container = document.getElementById('clEntries');
+      if (!data.entries || data.entries.length === 0) {
+        container.innerHTML = '<p class="cl-loading">No changelog entries yet.</p>';
+        return;
+      }
+      container.innerHTML = data.entries.map(renderEntry).join('');
+    })
+    .catch(() => {
+      document.getElementById('clEntries').innerHTML =
+        '<p class="cl-error">Failed to load changelog.</p>';
+    });
+})();
+</script>
+<script src="version-modal.js"></script>
+</body>
+</html>

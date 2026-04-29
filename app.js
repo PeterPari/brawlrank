@@ -17,7 +17,7 @@ const SOURCE_WEIGHTS = {
 
 // Recency decay configuration
 const RECENCY_THRESHOLD_DAYS = 15; // Days before decay starts
-const RECENCY_DECAY_RATE = 0.5; // Half-life in days after threshold
+const RECENCY_DECAY_RATE = 7; // Half-life in days after threshold
 
 /**
  * Parse a date string from the sources data.
