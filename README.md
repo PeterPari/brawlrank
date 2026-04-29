@@ -2,7 +2,7 @@
 
 **The Ultimate Brawl Stars Tier List & Ranking Hub**
 
-Welcome to BrawlRank! This website is dedicated to providing the most accurate, up-to-date, and comprehensive tier lists for Brawl Stars. Whether you are a competitive esports player looking to optimize your drafts or a casual player figuring out who to upgrade next, BrawlRank has you covered.
+BrawlRank is a comprehensive Brawl Stars tier list aggregator that combines empirical performance statistics, professional player opinions, and community votes to calculate an objective, weighted meta ranking for every brawler in the game.
 
 ## 🚀 Get Early Access to Updates
 
