@@ -30,6 +30,8 @@ const TIER_THRESHOLDS = {
   D: 1.5
 };
 const TIER_ORDER = ['S', 'A', 'B', 'C', 'D', 'F'];
+const RECENCY_THRESHOLD_DAYS = 15;
+const RECENCY_DECAY_RATE = 0.5;
 const TIER_COLORS = {
   S: '#ff2d55',
   A: '#ff9500',
@@ -57,6 +59,30 @@ function valueToTier(value) {
   const rounded = Math.round(value);
   const map = { 6: 'S', 5: 'A', 4: 'B', 3: 'C', 2: 'D', 1: 'F' };
   return map[Math.max(1, Math.min(6, rounded))] || 'F';
+}
+
+function parseSourceDate(dateStr) {
+  if (!dateStr) return null;
+  const full = new Date(dateStr);
+  if (!isNaN(full.getTime())) return full;
+  const match = dateStr.match(/^(\w+)\s+(\d{4})$/);
+  if (match) {
+    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const monthIndex = monthNames.indexOf(match[1]);
+    if (monthIndex !== -1) return new Date(parseInt(match[2]), monthIndex + 1, 0);
+  }
+  return null;
+}
+
+function getEffectiveWeight(sourceName, sources, referenceDate) {
+  const baseWeight = SOURCE_WEIGHTS[sourceName] || 1.0;
+  const source = sources.find((s) => s.name === sourceName);
+  if (!source || !source.date) return baseWeight;
+  const sourceDate = parseSourceDate(source.date);
+  if (!sourceDate || !referenceDate) return baseWeight;
+  const daysOld = Math.max(0, Math.floor((referenceDate - sourceDate) / (24 * 60 * 60 * 1000)));
+  if (daysOld <= RECENCY_THRESHOLD_DAYS) return baseWeight;
+  return baseWeight * Math.pow(2, -(daysOld - RECENCY_THRESHOLD_DAYS) / RECENCY_DECAY_RATE);
 }
 
 function escapeHtml(value) {
@@ -293,6 +319,11 @@ function buildHomeOgSvg({ lastUpdated, sourceCount }) {
 }
 
 function computeRankedBrawlers(data) {
+  const referenceDate = data.sources.reduce((latest, src) => {
+    const d = parseSourceDate(src.date);
+    return d && (!latest || d > latest) ? d : latest;
+  }, null);
+
   return data.brawlers
     .map((brawler) => {
       let weightedSum = 0;
@@ -308,12 +339,13 @@ function computeRankedBrawlers(data) {
           ? (TIER_VALUES[noffTop] + TIER_VALUES[noffRanked]) / 2
           : TIER_VALUES[noffTop || noffRanked];
 
-        weightedSum += mergedNoffValue * SOURCE_WEIGHTS['Noff.gg'];
-        totalWeight += SOURCE_WEIGHTS['Noff.gg'];
+        const noffWeight = getEffectiveWeight('Noff.gg', data.sources, referenceDate);
+        weightedSum += mergedNoffValue * noffWeight;
+        totalWeight += noffWeight;
         ratings.push(mergedNoffValue);
       }
 
-      for (const [sourceName, weight] of Object.entries(SOURCE_WEIGHTS)) {
+      for (const [sourceName] of Object.entries(SOURCE_WEIGHTS)) {
         if (sourceName === 'Noff.gg') {
           continue;
         }
@@ -324,6 +356,7 @@ function computeRankedBrawlers(data) {
         }
 
         const value = TIER_VALUES[tier];
+        const weight = getEffectiveWeight(sourceName, data.sources, referenceDate);
         weightedSum += value * weight;
         totalWeight += weight;
         ratings.push(value);
@@ -498,7 +531,7 @@ function buildMetaSummaryMarkup(data, rankedBrawlers, updatedDate) {
     `      <h2 class="section-heading">Brawl Stars Meta Summary — ${escapeHtml(formatMonthYear(updatedDate))}</h2>`,
     `      <p>The ${escapeHtml(formatMonthYear(updatedDate))} BrawlRank update currently puts ${escapeHtml(sTier.join(', '))} at the front of the Brawl Stars meta. This homepage ranks ${rankedBrawlers.length} brawlers by blending ${data.total_sources} data, pro, creator, and community inputs into one weighted list.</p>`,
     `      <p>The clearest cross-source agreement right now is on ${escapeHtml(strongestAgreement)}, while the most debated placements currently include ${escapeHtml(mostContested)}. That disagreement signal matters because it highlights which brawlers are stable meta picks and which are more map-, comp-, or skill-dependent.</p>`,
-    `      <p>The lowest end of the current model includes ${escapeHtml(lowerTier)}. For deeper analysis, every brawler below links to its own static page with rank, score, consensus level, and source breakdown, and you can browse the full hub at <a href="brawlers/">/brawlers/</a>.</p>`,
+    `      <p>The lowest end of the current model includes ${escapeHtml(lowerTier)}. For deeper analysis, every brawler icon in the tier list links to its own page with rank, score, consensus level, and full source breakdown.</p>`,
     '    </div>',
     '  </div>',
     '</section>'
@@ -558,7 +591,7 @@ function replaceMetaContent(contents, attribute, name, newValue) {
   );
 }
 
-function updateHomepage(indexHtml, data, rankedBrawlers, groupedBrawlers, faqEntries, updatedDate) {
+function updateHomepage(indexHtml, data, rankedBrawlers, groupedBrawlers, faqEntries, updatedDate, staticPages) {
   const monthYear = formatMonthYear(updatedDate);
   const homepageTitle = `Brawl Stars Tier List (${monthYear}) | BrawlRank Meta Rankings`;
   const homepageDescription = `Brawl Stars tier list for ${monthYear} — ${rankedBrawlers.length} brawlers ranked by aggregating ${data.total_sources} pro, data, and community sources. See which brawlers are S Tier right now. Updated weekly.`;
@@ -604,8 +637,50 @@ function updateHomepage(indexHtml, data, rankedBrawlers, groupedBrawlers, faqEnt
     '<!-- GENERATED_TIER_LIST_END -->',
     buildTierListMarkup(groupedBrawlers)
   );
+  updatedHtml = replaceGeneratedBlock(
+    updatedHtml,
+    '<!-- GENERATED_FOOTER_START -->',
+    '<!-- GENERATED_FOOTER_END -->',
+    buildHomepageFooter(staticPages)
+  );
 
   return updatedHtml;
+}
+
+function buildHomepageFooter(staticPages) {
+  const staticLinks = staticPages.map((page) => `      <a href="${page.fileName}">${page.page === 'privacy' ? 'Privacy Policy' : page.label}</a>`);
+  return [
+    '<footer class="footer">',
+    '  <div class="container">',
+    '    <div class="footer-links">',
+    `      <a href="/">Tier List</a>`,
+    ...staticLinks,
+    '      <a href="https://tech-savvies.com/" target="_blank" rel="noopener noreferrer">Built by Tech-savvies</a>',
+    '      <a href="https://brawlify.com" target="_blank" rel="noopener noreferrer">Data: Brawlify</a>',
+    '    </div>',
+    '    <button class="footer-version" id="siteVersion" type="button" aria-haspopup="dialog">Version --</button>',
+    '    <p class="footer-disclaimer">BrawlRank is an independent fan site and is not affiliated with, endorsed by, or connected to Supercell. Brawl Stars is a trademark of Supercell.</p>',
+    '    <p class="footer-copyright">© 2026 BrawlRank. All rights reserved.</p>',
+    '  </div>',
+    '</footer>'
+  ].join('\n');
+}
+
+function buildBrawlerNav() {
+  return [
+    '<nav class="site-nav brawler-nav" aria-label="Primary">',
+    '  <div class="container">',
+    '    <a href="../../" class="nav-home">',
+    '      <img src="../../BRlogo.svg" alt="BrawlRank logo" draggable="false">',
+    '      <span>BrawlRank</span>',
+    '    </a>',
+    '    <a href="../../" class="nav-back-btn" aria-label="Back to tier list">',
+    '      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>',
+    '      Tier List',
+    '    </a>',
+    '  </div>',
+    '</nav>'
+  ].join('\n');
 }
 
 function buildNav(relativePrefix, currentPage, staticPages) {
@@ -619,8 +694,6 @@ function buildNav(relativePrefix, currentPage, staticPages) {
     '    </a>',
     '    <div class="nav-links">',
     `      <a href="${relativePrefix}"${currentPage === 'home' ? ' aria-current="page"' : ''}>Tier List</a>`,
-    `      <a href="${relativePrefix}brawlers/"${currentPage === 'brawlers' ? ' aria-current="page"' : ''}>Brawlers</a>`,
-    `      <a href="${relativePrefix}blog/"${currentPage === 'blog' ? ' aria-current="page"' : ''}>Blog</a>`,
     ...staticLinks,
     '    </div>',
     '  </div>',
@@ -635,16 +708,17 @@ function buildFooter(relativePrefix, staticPages) {
     '  <div class="container">',
     '    <div class="footer-links">',
     `      <a href="${relativePrefix}">Tier List</a>`,
-    `      <a href="${relativePrefix}brawlers/">All Brawlers</a>`,
-    `      <a href="${relativePrefix}blog/">Blog</a>`,
     ...staticLinks,
     '      <a href="https://tech-savvies.com/" target="_blank" rel="noopener noreferrer">Built by Tech-savvies</a>',
     '      <a href="https://brawlify.com" target="_blank" rel="noopener noreferrer">Data: Brawlify</a>',
     '    </div>',
+    '    <button class="footer-version" id="siteVersion" type="button" aria-haspopup="dialog">Version --</button>',
     '    <p class="footer-disclaimer">BrawlRank is an independent fan site and is not affiliated with, endorsed by, or connected to Supercell. Brawl Stars is a trademark of Supercell.</p>',
     '    <p class="footer-copyright">© 2026 BrawlRank. All rights reserved.</p>',
     '  </div>',
-    '</footer>'
+    '</footer>',
+    `<script src="${relativePrefix}version-modal.js"></script>`,
+    `<script src="${relativePrefix}decay-tooltip.js"></script>`
   ].join('\n');
 }
 
@@ -829,12 +903,16 @@ function buildBrawlerPage(data, rankedBrawlers, groupedBrawlers, brawler, update
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'BrawlRank', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'Brawlers', item: `${SITE_URL}brawlers/` },
-        { '@type': 'ListItem', position: 3, name: brawler.name, item: canonical }
+        { '@type': 'ListItem', position: 2, name: brawler.name, item: canonical }
       ]
     }, null, 2),
     '</script>'
   ].join('\n');
+
+  const referenceDate = data.sources.reduce((latest, src) => {
+    const d = parseSourceDate(src.date);
+    return d && (!latest || d > latest) ? d : latest;
+  }, null);
 
   const sourceRows = data.sources.map((source) => {
     const rating = source.name === 'Noff.gg' ? brawler.noffMergedTier : brawler.sources[source.name];
@@ -842,12 +920,20 @@ function buildBrawlerPage(data, rankedBrawlers, groupedBrawlers, brawler, update
       return '';
     }
 
-    const weight = SOURCE_WEIGHTS[source.name] || 1;
+    const baseWeight = SOURCE_WEIGHTS[source.name] || 1;
+    const effectiveWeight = getEffectiveWeight(source.name, data.sources, referenceDate);
+    const isDecayed = effectiveWeight < baseWeight - 0.001;
+    const decayPct = isDecayed ? Math.round((1 - effectiveWeight / baseWeight) * 100) : 0;
+    const weightCell = isDecayed ? `${effectiveWeight.toFixed(2)}×` : `${baseWeight.toFixed(1)}×`;
+    const srcDate = parseSourceDate(source.date);
+    const daysOld = (srcDate && referenceDate) ? Math.max(0, Math.floor((referenceDate - srcDate) / (24 * 60 * 60 * 1000))) : 0;
+    const decayBadge = isDecayed ? ` <span class="table-decay-badge" data-decay-pct="${decayPct}" data-decay-days="${daysOld}">−${decayPct}%</span>` : '';
+    const rowClass = isDecayed ? ' class="table-row-decayed"' : '';
     return [
-      '                <tr>',
-      `                  <td><a class="source-link-inline" href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.name)}</a></td>`,
+      `                <tr${rowClass}>`,
+      `                  <td><button class="source-link-btn" type="button" data-source-name="${escapeHtml(source.name)}" data-source-date="${escapeHtml(source.date)}" data-source-url="${escapeHtml(source.url)}" data-source-type="${escapeHtml(source.type)}">${escapeHtml(source.name)}</button>${decayBadge}</td>`,
       `                  <td><span class="table-tier-pill" style="background:${TIER_COLORS[rating] || '#8e8e93'}">${rating}</span></td>`,
-      `                  <td>${weight.toFixed(1)}×</td>`,
+      `                  <td>${weightCell}</td>`,
       `                  <td>${escapeHtml(source.date)}</td>`,
       '                </tr>'
     ].join('\n');
@@ -859,7 +945,7 @@ function buildBrawlerPage(data, rankedBrawlers, groupedBrawlers, brawler, update
     .join('\n            ');
 
   const sameTierLinks = sameTier
-    .map((entry) => `<a class="same-tier-link" href="../${escapeHtml(entry.slug)}/">${escapeHtml(entry.name)} <span class="rank-pill">#${entry.rank}</span></a>`)
+    .map((entry) => `<a class="same-tier-icon-link" href="../${escapeHtml(entry.slug)}/" title="${escapeHtml(entry.name)} — #${entry.rank}"><img src="../../${escapeHtml(entry.portrait)}" alt="${escapeHtml(entry.name)}" width="52" height="52" loading="lazy" onerror="this.src='${escapeHtml(entry.icon)}'"></a>`)
     .join('\n            ');
 
   const heroLead = `${brawler.name} is currently rated ${brawler.tier} Tier in Brawl Stars with a weighted BrawlRank score of ${brawler.score.toFixed(2)} out of 6.00. The live placement is based on ${data.total_sources} weighted sources and currently sits at rank #${brawler.rank} overall.`;
@@ -880,7 +966,7 @@ function buildBrawlerPage(data, rankedBrawlers, groupedBrawlers, brawler, update
       jsonLdMarkup: articleJsonLd
     }),
     '<body>',
-    buildNav('../../', 'brawlers', staticPages),
+    buildBrawlerNav(),
     '<main class="page-main">',
     '  <section class="page-hero">',
     '    <div class="container brawler-hero-layout">',
@@ -890,6 +976,7 @@ function buildBrawlerPage(data, rankedBrawlers, groupedBrawlers, brawler, update
     `        <h1 class="page-title">${escapeHtml(brawler.name)} — ${brawler.tier} Tier</h1>`,
     `        <p class="page-lead">${escapeHtml(heroLead)}</p>`,
     `        <div class="brawler-hero-badges"><span class="tier-badge-large" style="background:${TIER_COLORS[brawler.tier]}">${brawler.tier} Tier</span><span class="score-pill">${brawler.score.toFixed(2)} / 6.00</span><span class="rank-pill">Rank #${brawler.rank}</span><span class="consensus-pill ${consensus.className}">${consensus.label}</span></div>`,
+    `        <div class="brawler-score-bar-bg"><div class="brawler-score-bar" style="width:${(brawler.score / 6 * 100).toFixed(1)}%;background:${TIER_COLORS[brawler.tier]};"></div></div>`,
     `        <p class="page-meta">Updated ${escapeHtml(data.last_updated)}. Consensus spread: σ = ${brawler.disagreement.toFixed(2)}.</p>`,
     '      </div>',
     '    </div>',
@@ -897,6 +984,12 @@ function buildBrawlerPage(data, rankedBrawlers, groupedBrawlers, brawler, update
     '  <section>',
     '    <div class="container page-grid">',
     '      <div class="content-stack">',
+    ...(brawler.num_sources < 3 ? [
+      '        <div class="low-sample-warning">',
+      '          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg>',
+      `          <span>Limited data — only ${brawler.num_sources} source${brawler.num_sources !== 1 ? 's' : ''} have rated this brawler. Ranking may be less reliable.</span>`,
+      '        </div>'
+    ] : []),
     '        <article class="content-card">',
     '          <h2>Current snapshot</h2>',
     '          <div class="brawler-stat-grid">',
@@ -933,25 +1026,22 @@ function buildBrawlerPage(data, rankedBrawlers, groupedBrawlers, brawler, update
     '          <h2>How BrawlRank calculates this page</h2>',
     `          <p>BrawlRank aggregates ${data.total_sources} independent sources, converts each tier rating into a numeric value from 6 to 1, applies source-specific weights that prioritize empirical data, and then calculates a weighted average. This page updates from the same live dataset that powers the homepage tier list.</p>`,
     '        </article>',
+    '        <div class="modal-share-row">',
+    `          <button class="modal-share-btn" id="brawlerCopyBtn"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101"/><path stroke-linecap="round" stroke-linejoin="round" d="M10.172 13.828a4 4 0 015.656 0l4 4a4 4 0 01-5.656 5.656l-1.1-1.1"/></svg> Copy link</button>`,
+    `          <a class="modal-tweet-btn" href="https://twitter.com/intent/tweet?text=${encodeURIComponent(`${brawler.name} is ${brawler.tier} Tier on BrawlRank (${brawler.score.toFixed(2)}/6.00) — check the full Brawl Stars meta ranking:`)}&url=${encodeURIComponent(brawler.url)}" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Tweet</a>`,
+    '        </div>',
     '      </div>',
     '      <aside class="sidebar-stack">',
     '        <section class="sidebar-card">',
-    '          <h2>Navigation</h2>',
-    '          <div class="adjacent-links">',
-    '            <a class="adjacent-link" href="../../">Back to full tier list</a>',
-    '            <a class="adjacent-link" href="../">Browse all brawlers</a>',
-    `            ${adjacentLinks}`,
-    '          </div>',
-    '        </section>',
-    '        <section class="sidebar-card">',
     `          <h2>Other ${brawler.tier} Tier brawlers</h2>`,
-    `          <div class="same-tier-links">${sameTierLinks || '<span class="stat-value">No other brawlers currently share this tier.</span>'}</div>`,
+    `          <div class="same-tier-grid">${sameTierLinks || '<span class="stat-value">No other brawlers currently share this tier.</span>'}</div>`,
     '        </section>',
     '      </aside>',
     '    </div>',
     '  </section>',
     '</main>',
     buildFooter('../../', staticPages),
+    '<script src="../../source-detail.js"></script>',
     '</body>',
     '</html>',
     ''
@@ -1162,7 +1252,6 @@ function buildBlogPostPage(post, updatedDate, staticPages) {
     '          <h2>Continue exploring</h2>',
     '          <div class="adjacent-links">',
     '            <a class="adjacent-link" href="../../">Back to full tier list</a>',
-    '            <a class="adjacent-link" href="../../brawlers/">Browse all brawler pages</a>',
     '            <a class="adjacent-link" href="../">View all blog posts</a>',
     '          </div>',
     '        </section>',
@@ -1177,14 +1266,11 @@ function buildBlogPostPage(post, updatedDate, staticPages) {
   ].join('\n');
 }
 
-function buildSitemapXml(updatedDate, rankedBrawlers, blogPosts, staticPages) {
+function buildSitemapXml(updatedDate, rankedBrawlers, staticPages) {
   const lastmod = toIsoDate(updatedDate);
   const urls = [
     { loc: SITE_URL, priority: '1.0', changefreq: 'weekly' },
-    { loc: `${SITE_URL}brawlers/`, priority: '0.9', changefreq: 'weekly' },
-    { loc: `${SITE_URL}blog/`, priority: '0.8', changefreq: 'monthly' },
     ...staticPages.map((page) => ({ loc: page.href, priority: '0.5', changefreq: 'monthly' })),
-    ...blogPosts.map((post) => ({ loc: post.canonical, priority: '0.7', changefreq: 'monthly' })),
     ...rankedBrawlers.map((brawler) => ({ loc: brawler.url, priority: '0.7', changefreq: 'weekly' }))
   ];
 
@@ -1206,9 +1292,27 @@ function buildSitemapXml(updatedDate, rankedBrawlers, blogPosts, staticPages) {
   ].join('\n');
 }
 
+function buildBrawlersRedirectPage() {
+  return [
+    '<!DOCTYPE html>',
+    '<html lang="en">',
+    '<head>',
+    '<meta charset="UTF-8">',
+    '<meta http-equiv="refresh" content="0;url=/">',
+    `<link rel="canonical" href="${SITE_URL}">`,
+    '<title>BrawlRank</title>',
+    '</head>',
+    '<body>',
+    '<p><a href="/">Redirecting to BrawlRank tier list...</a></p>',
+    '</body>',
+    '</html>',
+    ''
+  ].join('\n');
+}
+
 function writeBrawlerPages(data, rankedBrawlers, groupedBrawlers, updatedDate, staticPages) {
   ensureDir(brawlersDir);
-  fs.writeFileSync(path.join(brawlersDir, 'index.html'), buildBrawlersIndexPage(data, rankedBrawlers, groupedBrawlers, updatedDate, staticPages));
+  fs.writeFileSync(path.join(brawlersDir, 'index.html'), buildBrawlersRedirectPage());
 
   rankedBrawlers.forEach((brawler) => {
     const targetDir = path.join(brawlersDir, brawler.slug);
@@ -1217,14 +1321,32 @@ function writeBrawlerPages(data, rankedBrawlers, groupedBrawlers, updatedDate, s
   });
 }
 
-function writeBlogPages(blogPosts, updatedDate, staticPages) {
+function buildBlogRedirectPage() {
+  return [
+    '<!DOCTYPE html>',
+    '<html lang="en">',
+    '<head>',
+    '<meta charset="UTF-8">',
+    '<meta http-equiv="refresh" content="0;url=/">',
+    `<link rel="canonical" href="${SITE_URL}">`,
+    '<title>BrawlRank</title>',
+    '</head>',
+    '<body>',
+    '<p><a href="/">Redirecting to BrawlRank tier list...</a></p>',
+    '</body>',
+    '</html>',
+    ''
+  ].join('\n');
+}
+
+function writeBlogPages(blogPosts) {
   ensureDir(blogDir);
-  fs.writeFileSync(path.join(blogDir, 'index.html'), buildBlogIndexPage(blogPosts, updatedDate, staticPages));
+  fs.writeFileSync(path.join(blogDir, 'index.html'), buildBlogRedirectPage());
 
   blogPosts.forEach((post) => {
     const targetDir = path.join(blogDir, post.slug);
     ensureDir(targetDir);
-    fs.writeFileSync(path.join(targetDir, 'index.html'), buildBlogPostPage(post, updatedDate, staticPages));
+    fs.writeFileSync(path.join(targetDir, 'index.html'), buildBlogRedirectPage());
   });
 }
 
@@ -1247,13 +1369,27 @@ function main() {
   const blogPosts = buildBlogPosts(data, rankedBrawlers, groupedBrawlers, updatedDate);
 
   const indexHtml = fs.readFileSync(indexPath, 'utf8');
-  const updatedHomepage = updateHomepage(indexHtml, data, rankedBrawlers, groupedBrawlers, faqEntries, updatedDate);
+  const updatedHomepage = updateHomepage(indexHtml, data, rankedBrawlers, groupedBrawlers, faqEntries, updatedDate, staticPages);
 
   fs.writeFileSync(indexPath, updatedHomepage);
   writeSocialAssets(rankedBrawlers, blogPosts, updatedDate, data);
   writeBrawlerPages(data, rankedBrawlers, groupedBrawlers, updatedDate, staticPages);
-  writeBlogPages(blogPosts, updatedDate, staticPages);
-  fs.writeFileSync(sitemapPath, buildSitemapXml(updatedDate, rankedBrawlers, blogPosts, staticPages));
+  writeBlogPages(blogPosts);
+  fs.writeFileSync(sitemapPath, buildSitemapXml(updatedDate, rankedBrawlers, staticPages));
+
+  const updatedBrawlers = data.brawlers.map((original) => {
+    const computed = rankedBrawlers.find((b) => b.name === original.name);
+    if (!computed) return original;
+    return {
+      ...original,
+      score: computed.score,
+      tier: computed.tier,
+      num_sources: computed.num_sources,
+      disagreement: computed.disagreement,
+      noffMergedTier: computed.noffMergedTier
+    };
+  });
+  fs.writeFileSync(dataPath, JSON.stringify({ ...data, brawlers: updatedBrawlers }, null, 2) + '\n');
 
   process.stdout.write(`Generated homepage SEO blocks, ${rankedBrawlers.length} brawler pages, ${blogPosts.length} blog pages, social share assets, and sitemap entries.\n`);
 }

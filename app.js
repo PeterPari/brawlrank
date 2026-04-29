@@ -167,11 +167,9 @@ const modalContent = document.getElementById('modalContent');
 const srcPopupOverlay = document.getElementById('sourcesPopupOverlay');
 const srcPopupClose = document.getElementById('sourcesPopupClose');
 const srcPopupList = document.getElementById('sourcesPopupList');
-const sourcesBtn = document.getElementById('sourcesBtn');
 const sourceDetailOverlay = document.getElementById('sourceDetailOverlay');
 const sourceDetailClose = document.getElementById('sourceDetailClose');
 const sourceDetailContent = document.getElementById('sourceDetailContent');
-const siteVersion = document.getElementById('siteVersion');
 const consentBanner = document.getElementById('consent');
 const acceptBtn = document.getElementById('acceptBtn');
 const SITE_REPO_URL = 'https://github.com/PeterPari/brawlrank';
@@ -179,8 +177,6 @@ const SITE_ISSUES_URL = 'https://github.com/PeterPari/brawlrank/issues';
 const CONSENT_STORAGE_KEY = 'consent';
 const CLARITY_PROJECT_ID = 'vwyrtsgbq7';
 
-let siteVersionValue = '';
-let siteVersionDateValue = '';
 let activeModalMode = null;
 let clarityLoaded = false;
 let previouslyFocusedElement = null;
@@ -290,22 +286,13 @@ async function loadTierData() {
   return response.json();
 }
 
-async function loadSiteVersion() {
-  const response = await fetch('version', { cache: 'no-cache' });
-  if (!response.ok) {
-    throw new Error(`Unable to load site version (${response.status})`);
-  }
 
-  return response.text();
-}
-
-async function loadSiteVersionDate() {
-  const response = await fetch('version-date', { cache: 'no-cache' });
-  if (!response.ok) {
-    throw new Error(`Unable to load site version date (${response.status})`);
-  }
-
-  return response.text();
+function slugify(name) {
+  return name
+    .toLowerCase()
+    .normalize('NFKD')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 }
 
 function createEmptyTiers() {
@@ -319,12 +306,6 @@ function getTierFromScore(score) {
   if (score >= TIER_THRESHOLDS.C) return 'C';
   if (score >= TIER_THRESHOLDS.D) return 'D';
   return 'F';
-}
-
-function valueToTier(value) {
-  const rounded = Math.round(value);
-  const map = { 6: 'S', 5: 'A', 4: 'B', 3: 'C', 2: 'D', 1: 'F' };
-  return map[Math.max(1, Math.min(6, rounded))] || 'F';
 }
 
 /**
@@ -380,61 +361,6 @@ function getSourceWeightInfo(sourceName, referenceDate) {
   return { baseWeight, effectiveWeight, daysOld, decayFactor };
 }
 
-function calculateAllScores() {
-  const referenceDate = getReferenceDate();
-
-  TIER_DATA.brawlers.forEach((b) => {
-    let weightedSum = 0;
-    let totalWeight = 0;
-    const ratings = [];
-
-    const noffTop = b.sources['Noff.gg'];
-    const noffRanked = b.sources['Noff Ranked'];
-    let mergedNoffValue = null;
-
-    if (noffTop || noffRanked) {
-      if (noffTop && noffRanked) {
-        mergedNoffValue = (TIER_VALUES[noffTop] + TIER_VALUES[noffRanked]) / 2;
-      } else {
-        mergedNoffValue = TIER_VALUES[noffTop || noffRanked];
-      }
-
-      const weightInfo = getSourceWeightInfo('Noff.gg', referenceDate);
-      weightedSum += mergedNoffValue * weightInfo.effectiveWeight;
-      totalWeight += weightInfo.effectiveWeight;
-      ratings.push(mergedNoffValue);
-    }
-
-    b.noffMergedTier = mergedNoffValue !== null ? valueToTier(mergedNoffValue) : null;
-
-    for (const [sourceName] of Object.entries(SOURCE_WEIGHTS)) {
-      if (sourceName === 'Noff.gg') continue;
-
-      const tier = b.sources[sourceName];
-      if (!tier) continue;
-
-      const value = TIER_VALUES[tier];
-      const weightInfo = getSourceWeightInfo(sourceName, referenceDate);
-      weightedSum += value * weightInfo.effectiveWeight;
-      totalWeight += weightInfo.effectiveWeight;
-      ratings.push(value);
-    }
-
-    b.score = totalWeight > 0 ? Math.round((weightedSum / totalWeight) * 100) / 100 : 0;
-    b.num_sources = ratings.length;
-
-    if (ratings.length > 0) {
-      const mean = ratings.reduce((sum, value) => sum + value, 0) / ratings.length;
-      const variance = ratings.reduce((sum, value) => sum + (value - mean) ** 2, 0) / ratings.length;
-      b.disagreement = Math.round(Math.sqrt(variance) * 100) / 100;
-    } else {
-      b.disagreement = 0;
-    }
-  });
-
-  TIER_DATA.brawlers.sort((a, b) => b.score - a.score);
-}
-
 function buildTiersFromScores() {
   const tiers = createEmptyTiers();
 
@@ -463,7 +389,7 @@ function addPortraitPaths() {
 
 function rebuildDerivedState() {
   addPortraitPaths();
-  calculateAllScores();
+  TIER_DATA.brawlers.sort((a, b) => b.score - a.score);
 
   Object.keys(brawlerMap).forEach((name) => delete brawlerMap[name]);
   TIER_DATA.brawlers.forEach((b) => {
@@ -474,7 +400,7 @@ function rebuildDerivedState() {
 }
 
 function syncDataMetadata() {
-  const headerDate = siteVersionDateValue || TIER_DATA.last_updated;
+  const headerDate = TIER_DATA.last_updated;
   lastUpdated.textContent = 'Last updated: ' + headerDate;
   if (sourceCountBadge) {
     sourceCountBadge.textContent = String(TIER_DATA.total_sources);
@@ -493,70 +419,6 @@ function renderDataLoadError() {
   searchInput.disabled = true;
 }
 
-function syncSiteVersion(versionText) {
-  if (!siteVersion) return;
-
-  const cleanedVersion = versionText.trim();
-  siteVersionValue = cleanedVersion;
-  siteVersion.textContent = cleanedVersion ? `Version ${cleanedVersion}` : 'Version unavailable';
-  siteVersion.disabled = !cleanedVersion;
-}
-
-function syncSiteVersionDate(versionDateText) {
-  siteVersionDateValue = versionDateText.trim();
-}
-
-function openVersionModal() {
-  if (!siteVersionValue) return;
-
-  const versionDateMarkup = siteVersionDateValue
-    ? `<div class="version-modal-meta">
-         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-         Released ${siteVersionDateValue}
-       </div>`
-    : '<div class="version-modal-meta">Release date unavailable</div>';
-
-  modalContent.innerHTML = `
-    <div class="version-modal-header">
-      <div class="version-modal-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-      </div>
-      <div>
-        <h2 class="version-modal-title">BrawlRank Open Source</h2>
-        <div class="version-modal-badge">v${siteVersionValue}</div>
-      </div>
-    </div>
-    ${versionDateMarkup}
-    <div class="version-modal-body">
-      <p class="version-modal-text">BrawlRank is an open-source project. Explore the codebase, suggest features, or report bugs directly on GitHub.</p>
-      <div class="version-modal-links">
-        <a class="version-modal-link" href="${SITE_REPO_URL}" target="_blank" rel="noopener noreferrer">
-          <span class="v-link-left">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-            GitHub Repository
-          </span>
-        </a>
-        <a class="version-modal-link" href="${SITE_ISSUES_URL}" target="_blank" rel="noopener noreferrer">
-          <span class="v-link-left">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-            Report an Issue
-          </span>
-        </a>
-        <a class="version-modal-link" href="/changelog.json" target="_blank" rel="noopener noreferrer">
-          <span class="v-link-left">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"></path><rect x="9" y="3" width="6" height="4" rx="1"></rect><line x1="9" y1="12" x2="15" y2="12"></line><line x1="9" y1="16" x2="12" y2="16"></line></svg>
-            Change History (changelog.json)
-          </span>
-        </a>
-
-      </div>
-    </div>
-  `;
-
-  activeModalMode = 'version';
-  overlay.classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
 
 function renderTierList() {
   tierContainer.innerHTML = '';
@@ -588,14 +450,11 @@ function renderTierList() {
       const b = brawlerMap[name];
       if (!b) return;
 
-      const wrap = document.createElement('div');
+      const wrap = document.createElement('a');
       wrap.className = 'brawler-icon-wrap';
       wrap.dataset.name = name.toLowerCase();
-      wrap.setAttribute('tabindex', '0');
-      wrap.setAttribute('role', 'button');
+      wrap.href = '/brawlers/' + slugify(name) + '/';
       wrap.setAttribute('aria-label', name + ', ' + b.tier + ' tier, score ' + b.score.toFixed(2));
-      wrap.onclick = () => openModal(b);
-      wrap.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(b); } };
 
       const img = document.createElement('img');
       img.className = 'brawler-icon';
@@ -697,8 +556,9 @@ function openModal(b) {
       const rColor = TIER_COLORS[rating] || '#8e8e93';
       const weightInfo = getSourceWeightInfo(src.name, referenceDate);
       const isDecayed = weightInfo.decayFactor < 1.0;
+      const decayPct = Math.round((1 - weightInfo.decayFactor) * 100);
       const decayBadge = isDecayed
-        ? `<span class="modal-source-decay" title="Weight reduced by ${Math.round((1 - weightInfo.decayFactor) * 100)}% due to age">−${Math.round((1 - weightInfo.decayFactor) * 100)}%</span>`
+        ? `<span class="modal-source-decay" data-decay-pct="${decayPct}" data-decay-days="${weightInfo.daysOld}">−${decayPct}%</span>`
         : '';
       sourcesHTML += `
         <div class="modal-source-row${isDecayed ? ' modal-source-row-decayed' : ''}">
@@ -817,8 +677,9 @@ function renderSources() {
       ? `${effectiveWeight.toFixed(2)}× (was ${baseWeight.toFixed(1)}×)`
       : `${baseWeight.toFixed(1)}× weight`;
 
+    const srcDecayPct = Math.round((1 - weightInfo.decayFactor) * 100);
     const decayIndicator = isDecayed
-      ? `<span class="source-decay-badge" title="Weight reduced due to age (${weightInfo.daysOld} days old)">−${Math.round((1 - weightInfo.decayFactor) * 100)}%</span>`
+      ? `<span class="source-decay-badge" data-decay-pct="${srcDecayPct}" data-decay-days="${weightInfo.daysOld}">−${srcDecayPct}%</span>`
       : '';
 
     const card = document.createElement('div');
@@ -872,8 +733,9 @@ function renderSourcesPopup() {
       ? `${effectiveWeight.toFixed(2)}× (was ${baseWeight.toFixed(1)}×)`
       : `${baseWeight.toFixed(1)}× weight`;
 
+    const popupDecayPct = Math.round((1 - weightInfo.decayFactor) * 100);
     const decayIndicator = isDecayed
-      ? `<span class="source-decay-badge" title="Weight reduced due to age (${weightInfo.daysOld} days old)">−${Math.round((1 - weightInfo.decayFactor) * 100)}%</span>`
+      ? `<span class="source-decay-badge" data-decay-pct="${popupDecayPct}" data-decay-days="${weightInfo.daysOld}">−${popupDecayPct}%</span>`
       : '';
 
     const item = document.createElement('div');
@@ -974,10 +836,16 @@ function openSourceDetail(sourceName) {
       <div class="source-detail-weight-wrap">
         <div class="source-detail-weight">${isDecayed ? effectiveWeight.toFixed(2) + '×' : weight.toFixed(1) + '×'}</div>
         <div class="source-detail-weight-rank">${weightRank}</div>
-        ${isDecayed ? `<div class="source-decay-info" style="font-size:11px;color:#ff6b6b;margin-top:4px;text-align:center;">−${Math.round((1 - weightInfo.decayFactor) * 100)}% (was ${weight.toFixed(1)}×)</div>` : ''}
-        ${isDecayed ? `<div class="source-age-info" style="font-size:10px;color:var(--text-muted);margin-top:2px;text-align:center;">${weightInfo.daysOld} days old</div>` : ''}
+        ${isDecayed ? `<span class="source-detail-decay-badge" data-decay-pct="${Math.round((1 - weightInfo.decayFactor) * 100)}" data-decay-days="${weightInfo.daysOld}">−${Math.round((1 - weightInfo.decayFactor) * 100)}% aged</span>` : ''}
       </div>
     </div>
+
+    ${isDecayed ? `
+    <div class="source-detail-block source-block-decay">
+      <h3><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Source Aging</h3>
+      <p>This source is <strong>${weightInfo.daysOld} days old</strong> — ${Math.max(0, weightInfo.daysOld - 15)} days past the 15-day threshold. Its base weight of ${weight.toFixed(1)}× has been reduced to <strong>${effectiveWeight.toFixed(2)}×</strong> (−${Math.round((1 - weightInfo.decayFactor) * 100)}%). Weight halves every 12 hours past the threshold.</p>
+    </div>
+    ` : ''}
 
     <div class="source-detail-block source-block-about">
       <h3>${iconInfo} About</h3>
@@ -1026,10 +894,6 @@ function closeSourcesPopup() {
   }
 }
 
-sourcesBtn.addEventListener('click', openSourcesPopup);
-if (siteVersion) {
-  siteVersion.addEventListener('click', openVersionModal);
-}
 srcPopupClose.addEventListener('click', closeSourcesPopup);
 srcPopupOverlay.addEventListener('click', (e) => {
   if (e.target === srcPopupOverlay) closeSourcesPopup();
@@ -1055,15 +919,8 @@ function openBrawlerFromHash() {
 
 async function initApp() {
   try {
-    const [tierData, versionText, versionDateText] = await Promise.all([
-      loadTierData(),
-      loadSiteVersion().catch(() => ''),
-      loadSiteVersionDate().catch(() => '')
-    ]);
-
+    const tierData = await loadTierData();
     TIER_DATA = tierData;
-    syncSiteVersion(versionText);
-    syncSiteVersionDate(versionDateText);
     syncDataMetadata();
     rebuildDerivedState();
     renderTierList();
@@ -1072,8 +929,6 @@ async function initApp() {
     openBrawlerFromHash();
   } catch (error) {
     console.error(error);
-    syncSiteVersion('');
-    syncSiteVersionDate('');
     renderDataLoadError();
   }
 }
@@ -1513,3 +1368,4 @@ function exportTierList(format) {
 
 initAnalyticsConsent();
 initApp();
+
