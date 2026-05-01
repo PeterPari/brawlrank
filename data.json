@@ -1,61 +1,61 @@
 {
-  "last_updated": "April 27, 2026",
+  "last_updated": "April 30, 2026",
   "total_sources": 9,
   "total_brawlers": 104,
   "sources": [
     {
       "name": "Ash",
       "type": "Creator",
-      "date": "April 26, 2026",
-      "url": "https://www.youtube.com/watch?v=y4baCM7rWIs"
+      "date": "April 29, 2026",
+      "url": "https://www.youtube.com/watch?v=-iihu8ufYOk"
     },
     {
       "name": "KairosTime",
       "type": "Pro Tier List",
-      "date": "March 31, 2026",
+      "date": "March 30, 2026",
       "url": "https://www.youtube.com/watch?v=3kvvBO84jx4"
     },
     {
       "name": "BobbyBS",
       "type": "Creator + 10 Pros",
-      "date": "March 3, 2026",
-      "url": "https://www.youtube.com/watch?v=qpRBEf4Vs6Q"
+      "date": "April 30, 2026",
+      "url": "https://www.youtube.com/watch?v=jtHKe_2tC3U"
     },
     {
       "name": "Noff.gg",
       "type": "Data (Top 200 + Ranked)",
-      "date": "April 28, 2026",
+      "date": "April 30, 2026",
       "url": "https://www.noff.gg/brawl-stars/tier-list"
     },
     {
       "name": "SpenLC",
       "type": "Pro Player",
-      "date": "April 22, 2026",
-      "url": "https://www.youtube.com/watch?v=8I3C-I780r0"
+      "date": "April 29, 2026",
+      "url": "https://www.youtube.com/watch?v=W__Jm62F8qc"
     },
     {
       "name": "MmonsteR",
       "type": "Data (Top 200)",
-      "date": "April 2026",
+      "date": "April 1, 2026",
       "url": "https://mmonster.co/blog/brawl-stars-meta"
     },
     {
       "name": "Driffle",
       "type": "Editorial",
-      "date": "April 2026",
+      "date": "April 2, 2026",
       "url": "https://driffle.com/blog/brawl-stars-tier-list/"
     },
     {
       "name": "BrawlTime Votes",
       "type": "Community (231K Votes)",
-      "date": "April 28, 2026",
+      "date": "April 30, 2026",
       "url": "https://brawltime.ninja/tier-list/brawler"
     },
     {
       "name": "HMBLE",
       "type": "Pro Team",
-      "date": "March 12, 2026",
-      "url": "https://www.youtube.com/watch?v=dmqCRfwz3Zk"
+      "date": "April 17, 2026",
+      "url": "https://www.youtube.com/watch?v=TBvavPum4lU"
     }
   ],
   "tiers": {
@@ -174,29 +174,27 @@
   "brawlers": [
     {
       "name": "Bibi",
-      "score": 5.29,
-      "tier": "A",
+      "score": 4.35,
+      "tier": "B",
       "sources": {
-        "SpenLC": "S",
+        "SpenLC": "B",
         "BrawlTime Votes": "S",
         "KairosTime": "S",
-        "BobbyBS": "S",
+        "BobbyBS": "B",
         "HMBLE": "D",
-        "Ash": "A",
         "Driffle": "S",
         "MmonsteR": "S",
-        "Noff.gg": "A",
-        "Noff Ranked": "B"
+        "Noff.gg": "A"
       },
-      "num_sources": 9,
+      "num_sources": 8,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000026.png",
-      "disagreement": 1.27,
+      "disagreement": 1.36,
       "noffMergedTier": "A"
     },
     {
       "name": "Crow",
-      "score": 5.41,
-      "tier": "A",
+      "score": 5.95,
+      "tier": "S",
       "sources": {
         "SpenLC": "S",
         "BrawlTime Votes": "A",
@@ -206,57 +204,55 @@
         "Driffle": "S",
         "MmonsteR": "S",
         "Noff.gg": "S",
-        "Noff Ranked": "C"
+        "HMBLE": "S"
       },
-      "num_sources": 8,
+      "num_sources": 9,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000012.png",
-      "disagreement": 0.56,
-      "noffMergedTier": "A"
+      "disagreement": 0.31,
+      "noffMergedTier": "S"
     },
     {
       "name": "Spike",
-      "score": 4.33,
+      "score": 4.09,
       "tier": "B",
       "sources": {
         "SpenLC": "B",
         "BrawlTime Votes": "A",
         "KairosTime": "S",
-        "BobbyBS": "S",
-        "HMBLE": "S",
-        "Ash": "A",
+        "BobbyBS": "B",
+        "HMBLE": "A",
         "Driffle": "A",
         "MmonsteR": "A",
-        "Noff.gg": "B",
-        "Noff Ranked": "C"
+        "Noff.gg": "C"
       },
-      "num_sources": 9,
+      "num_sources": 8,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000005.png",
-      "disagreement": 0.83,
-      "noffMergedTier": "B"
+      "disagreement": 0.86,
+      "noffMergedTier": "C"
     },
     {
       "name": "Bull",
-      "score": 5.45,
+      "score": 4.95,
       "tier": "A",
       "sources": {
         "SpenLC": "A",
-        "BrawlTime Votes": "B",
+        "BrawlTime Votes": "A",
         "KairosTime": "S",
-        "BobbyBS": "S",
+        "BobbyBS": "C",
         "Ash": "S",
         "Driffle": "S",
         "MmonsteR": "S",
         "Noff.gg": "A",
-        "Noff Ranked": "S"
+        "HMBLE": "A"
       },
-      "num_sources": 8,
+      "num_sources": 9,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000002.png",
-      "disagreement": 0.68,
-      "noffMergedTier": "S"
+      "disagreement": 0.92,
+      "noffMergedTier": "A"
     },
     {
       "name": "Sirius",
-      "score": 5.31,
+      "score": 5.36,
       "tier": "A",
       "sources": {
         "SpenLC": "S",
@@ -264,91 +260,88 @@
         "KairosTime": "S",
         "BobbyBS": "S",
         "HMBLE": "S",
-        "Ash": "S",
+        "Ash": "A",
         "Driffle": "S",
         "MmonsteR": "S",
         "Noff.gg": "B"
       },
       "num_sources": 9,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000102.png",
-      "disagreement": 0.63,
+      "disagreement": 0.67,
       "noffMergedTier": "B"
     },
     {
       "name": "Emz",
-      "score": 4.45,
-      "tier": "B",
-      "sources": {
-        "SpenLC": "S",
-        "BrawlTime Votes": "A",
-        "HMBLE": "S",
-        "Driffle": "S",
-        "MmonsteR": "A",
-        "Noff.gg": "B",
-        "Noff Ranked": "D"
-      },
-      "num_sources": 6,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000030.png",
-      "disagreement": 1.07,
-      "noffMergedTier": "C"
-    },
-    {
-      "name": "Rico",
-      "score": 4.48,
-      "tier": "B",
-      "sources": {
-        "SpenLC": "A",
-        "BrawlTime Votes": "A",
-        "KairosTime": "S",
-        "BobbyBS": "A",
-        "HMBLE": "B",
-        "Ash": "A",
-        "Driffle": "S",
-        "MmonsteR": "S",
-        "Noff.gg": "B",
-        "Noff Ranked": "D"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000004.png",
-      "disagreement": 0.94,
-      "noffMergedTier": "C"
-    },
-    {
-      "name": "Leon",
-      "score": 5.27,
+      "score": 5.16,
       "tier": "A",
       "sources": {
-        "SpenLC": "S",
-        "BrawlTime Votes": "A",
-        "KairosTime": "S",
-        "BobbyBS": "S",
+        "SpenLC": "A",
+        "BrawlTime Votes": "B",
         "HMBLE": "S",
-        "Ash": "S",
-        "Driffle": "B",
+        "Driffle": "S",
         "MmonsteR": "A",
         "Noff.gg": "A",
-        "Noff Ranked": "B"
+        "KairosTime": "S",
+        "BobbyBS": "A"
       },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000023.png",
-      "disagreement": 0.74,
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000030.png",
+      "disagreement": 0.66,
       "noffMergedTier": "A"
     },
     {
-      "name": "Mortis",
-      "score": 5.7,
-      "tier": "S",
+      "name": "Rico",
+      "score": 4.47,
+      "tier": "B",
       "sources": {
-        "SpenLC": "A",
-        "BrawlTime Votes": "S",
-        "KairosTime": "A",
+        "SpenLC": "B",
+        "BrawlTime Votes": "A",
+        "KairosTime": "S",
         "BobbyBS": "B",
-        "HMBLE": "S",
-        "Ash": "S",
+        "HMBLE": "A",
         "Driffle": "S",
         "MmonsteR": "S",
-        "Noff.gg": "S",
-        "Noff Ranked": "S"
+        "Noff.gg": "B"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000004.png",
+      "disagreement": 0.87,
+      "noffMergedTier": "B"
+    },
+    {
+      "name": "Leon",
+      "score": 5.59,
+      "tier": "S",
+      "sources": {
+        "SpenLC": "S",
+        "BrawlTime Votes": "A",
+        "KairosTime": "S",
+        "BobbyBS": "A",
+        "HMBLE": "S",
+        "Ash": "A",
+        "Driffle": "B",
+        "MmonsteR": "A",
+        "Noff.gg": "S"
+      },
+      "num_sources": 9,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000023.png",
+      "disagreement": 0.67,
+      "noffMergedTier": "S"
+    },
+    {
+      "name": "Mortis",
+      "score": 5.74,
+      "tier": "S",
+      "sources": {
+        "SpenLC": "S",
+        "BrawlTime Votes": "B",
+        "KairosTime": "A",
+        "BobbyBS": "S",
+        "HMBLE": "S",
+        "Ash": "A",
+        "Driffle": "S",
+        "MmonsteR": "S",
+        "Noff.gg": "S"
       },
       "num_sources": 9,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000011.png",
@@ -357,1665 +350,1534 @@
     },
     {
       "name": "Colt",
-      "score": 4.81,
+      "score": 4.65,
       "tier": "A",
       "sources": {
         "SpenLC": "B",
         "BrawlTime Votes": "B",
         "KairosTime": "A",
-        "BobbyBS": "B",
+        "BobbyBS": "C",
         "HMBLE": "B",
-        "Ash": "A",
         "Driffle": "S",
         "MmonsteR": "S",
-        "Noff.gg": "S",
-        "Noff Ranked": "B"
+        "Noff.gg": "S"
       },
-      "num_sources": 9,
+      "num_sources": 8,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000001.png",
-      "disagreement": 0.79,
-      "noffMergedTier": "A"
+      "disagreement": 1.09,
+      "noffMergedTier": "S"
     },
     {
       "name": "Pierce",
-      "score": 5.27,
-      "tier": "A",
+      "score": 5.53,
+      "tier": "S",
       "sources": {
         "SpenLC": "S",
-        "BrawlTime Votes": "B",
+        "BrawlTime Votes": "A",
         "KairosTime": "S",
         "BobbyBS": "S",
-        "Ash": "S",
+        "Ash": "A",
         "Driffle": "B",
         "MmonsteR": "B",
-        "Noff.gg": "A"
+        "Noff.gg": "S",
+        "HMBLE": "A"
       },
-      "num_sources": 8,
+      "num_sources": 9,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000099.png",
-      "disagreement": 0.93,
-      "noffMergedTier": "A"
+      "disagreement": 0.79,
+      "noffMergedTier": "S"
     },
     {
       "name": "Bo",
-      "score": 4.26,
+      "score": 3.76,
       "tier": "B",
       "sources": {
-        "SpenLC": "B",
-        "BrawlTime Votes": "S",
+        "SpenLC": "C",
+        "BrawlTime Votes": "B",
         "KairosTime": "S",
-        "BobbyBS": "S",
+        "BobbyBS": "B",
         "HMBLE": "B",
         "Ash": "A",
         "Driffle": "B",
         "MmonsteR": "B",
-        "Noff.gg": "B",
-        "Noff Ranked": "C"
+        "Noff.gg": "C"
       },
       "num_sources": 9,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000014.png",
-      "disagreement": 0.97,
-      "noffMergedTier": "B"
+      "disagreement": 0.87,
+      "noffMergedTier": "C"
     },
     {
       "name": "Glowbert",
-      "score": 3.28,
-      "tier": "C",
+      "score": 4.02,
+      "tier": "B",
       "sources": {
-        "SpenLC": "C",
-        "BrawlTime Votes": "C",
+        "SpenLC": "B",
+        "BrawlTime Votes": "D",
         "KairosTime": "A",
-        "BobbyBS": "A",
+        "BobbyBS": "C",
         "HMBLE": "S",
-        "Ash": "C",
         "Driffle": "B",
         "MmonsteR": "C"
       },
-      "num_sources": 8,
+      "num_sources": 7,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000101.png",
-      "disagreement": 1.12,
+      "disagreement": 1.25,
       "noffMergedTier": null
     },
     {
       "name": "Frank",
-      "score": 3.49,
+      "score": 3.14,
       "tier": "C",
       "sources": {
-        "SpenLC": "B",
-        "BrawlTime Votes": "B",
-        "KairosTime": "A",
-        "BobbyBS": "S",
-        "HMBLE": "S",
-        "Ash": "C",
-        "Driffle": "B",
-        "MmonsteR": "C",
-        "Noff.gg": "C",
-        "Noff Ranked": "C"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000020.png",
-      "disagreement": 1.13,
-      "noffMergedTier": "C"
-    },
-    {
-      "name": "Shelly",
-      "score": 4.38,
-      "tier": "B",
-      "sources": {
-        "SpenLC": "B",
+        "SpenLC": "C",
         "BrawlTime Votes": "C",
         "KairosTime": "A",
         "BobbyBS": "B",
+        "HMBLE": "S",
+        "Driffle": "B",
+        "MmonsteR": "C",
+        "Noff.gg": "F"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000020.png",
+      "disagreement": 1.41,
+      "noffMergedTier": "F"
+    },
+    {
+      "name": "Shelly",
+      "score": 3.51,
+      "tier": "B",
+      "sources": {
+        "SpenLC": "C",
+        "BrawlTime Votes": "C",
+        "KairosTime": "A",
+        "BobbyBS": "C",
         "HMBLE": "A",
-        "Ash": "B",
         "Driffle": "A",
         "MmonsteR": "B",
-        "Noff.gg": "B",
-        "Noff Ranked": "S"
+        "Noff.gg": "C"
       },
-      "num_sources": 9,
+      "num_sources": 8,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000000.png",
-      "disagreement": 0.67,
-      "noffMergedTier": "A"
+      "disagreement": 0.93,
+      "noffMergedTier": "C"
     },
     {
       "name": "Mina",
-      "score": 4.34,
+      "score": 3.88,
       "tier": "B",
       "sources": {
-        "BrawlTime Votes": "C",
+        "BrawlTime Votes": "B",
         "SpenLC": "A",
         "KairosTime": "A",
-        "BobbyBS": "A",
-        "Ash": "A",
+        "BobbyBS": "B",
         "Driffle": "D",
+        "MmonsteR": "B",
+        "Noff.gg": "C"
+      },
+      "num_sources": 7,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000097.png",
+      "disagreement": 0.99,
+      "noffMergedTier": "C"
+    },
+    {
+      "name": "Byron",
+      "score": 4.52,
+      "tier": "A",
+      "sources": {
+        "SpenLC": "A",
+        "BrawlTime Votes": "C",
+        "KairosTime": "A",
+        "BobbyBS": "A",
+        "HMBLE": "A",
+        "Driffle": "A",
         "MmonsteR": "B",
         "Noff.gg": "B"
       },
       "num_sources": 8,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000097.png",
-      "disagreement": 1.05,
-      "noffMergedTier": "B"
-    },
-    {
-      "name": "Byron",
-      "score": 4.08,
-      "tier": "B",
-      "sources": {
-        "SpenLC": "A",
-        "BrawlTime Votes": "C",
-        "KairosTime": "A",
-        "BobbyBS": "A",
-        "HMBLE": "A",
-        "Ash": "A",
-        "Driffle": "A",
-        "MmonsteR": "B",
-        "Noff.gg": "B",
-        "Noff Ranked": "D"
-      },
-      "num_sources": 9,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000042.png",
-      "disagreement": 0.83,
-      "noffMergedTier": "C"
-    },
-    {
-      "name": "Nita",
-      "score": 3.63,
-      "tier": "B",
-      "sources": {
-        "SpenLC": "A",
-        "BrawlTime Votes": "D",
-        "KairosTime": "A",
-        "BobbyBS": "A",
-        "HMBLE": "B",
-        "Ash": "A",
-        "Driffle": "B",
-        "MmonsteR": "B",
-        "Noff.gg": "D",
-        "Noff Ranked": "D"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000008.png",
-      "disagreement": 1.15,
-      "noffMergedTier": "D"
-    },
-    {
-      "name": "Cordelius",
-      "score": 4.26,
-      "tier": "B",
-      "sources": {
-        "SpenLC": "B",
-        "BrawlTime Votes": "B",
-        "KairosTime": "A",
-        "BobbyBS": "B",
-        "HMBLE": "B",
-        "Ash": "B",
-        "Driffle": "A",
-        "MmonsteR": "B",
-        "Noff.gg": "B",
-        "Noff Ranked": "A"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000070.png",
-      "disagreement": 0.42,
-      "noffMergedTier": "A"
-    },
-    {
-      "name": "Shade",
-      "score": 4.13,
-      "tier": "B",
-      "sources": {
-        "SpenLC": "A",
-        "BrawlTime Votes": "C",
-        "KairosTime": "A",
-        "BobbyBS": "B",
-        "Ash": "B",
-        "Driffle": "B",
-        "MmonsteR": "C",
-        "Noff.gg": "B",
-        "Noff Ranked": "B"
-      },
-      "num_sources": 8,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000086.png",
       "disagreement": 0.71,
       "noffMergedTier": "B"
     },
     {
-      "name": "Otis",
-      "score": 4.3,
+      "name": "Nita",
+      "score": 4.32,
       "tier": "B",
       "sources": {
-        "SpenLC": "A",
-        "BrawlTime Votes": "C",
-        "KairosTime": "A",
-        "BobbyBS": "A",
-        "Ash": "S",
-        "Driffle": "F",
-        "MmonsteR": "B",
-        "Noff.gg": "B",
-        "Noff Ranked": "C"
-      },
-      "num_sources": 8,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000059.png",
-      "disagreement": 1.47,
-      "noffMergedTier": "B"
-    },
-    {
-      "name": "Angelo",
-      "score": 3.98,
-      "tier": "B",
-      "sources": {
-        "SpenLC": "A",
-        "BrawlTime Votes": "D",
-        "KairosTime": "A",
-        "BobbyBS": "A",
-        "HMBLE": "A",
-        "Ash": "A",
-        "Driffle": "B",
-        "MmonsteR": "B",
-        "Noff.gg": "C",
-        "Noff Ranked": "C"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000079.png",
-      "disagreement": 1.03,
-      "noffMergedTier": "C"
-    },
-    {
-      "name": "Kaze",
-      "score": 4.13,
-      "tier": "B",
-      "sources": {
-        "SpenLC": "A",
-        "BrawlTime Votes": "C",
-        "KairosTime": "A",
-        "BobbyBS": "A",
-        "Ash": "A",
-        "Driffle": "B",
-        "MmonsteR": "C",
-        "Noff.gg": "B",
-        "Noff Ranked": "C"
-      },
-      "num_sources": 8,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000094.png",
-      "disagreement": 0.86,
-      "noffMergedTier": "B"
-    },
-    {
-      "name": "Mandy",
-      "score": 3.13,
-      "tier": "C",
-      "sources": {
-        "BrawlTime Votes": "S",
-        "SpenLC": "D",
-        "KairosTime": "B",
-        "BobbyBS": "B",
-        "HMBLE": "B",
-        "Ash": "D",
-        "Driffle": "A",
-        "MmonsteR": "A",
-        "Noff.gg": "C",
-        "Noff Ranked": "C"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000065.png",
-      "disagreement": 1.29,
-      "noffMergedTier": "C"
-    },
-    {
-      "name": "Gus",
-      "score": 3.88,
-      "tier": "B",
-      "sources": {
-        "BrawlTime Votes": "C",
-        "SpenLC": "A",
-        "KairosTime": "A",
-        "BobbyBS": "B",
-        "HMBLE": "B",
-        "Ash": "B",
-        "Driffle": "B",
-        "MmonsteR": "B",
-        "Noff.gg": "B",
-        "Noff Ranked": "D"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000061.png",
-      "disagreement": 0.67,
-      "noffMergedTier": "C"
-    },
-    {
-      "name": "Finx",
-      "score": 3.44,
-      "tier": "C",
-      "sources": {
-        "SpenLC": "A",
-        "BrawlTime Votes": "C",
-        "KairosTime": "A",
-        "Ash": "B",
-        "Driffle": "B",
-        "MmonsteR": "C",
-        "Noff.gg": "D",
-        "Noff Ranked": "D"
-      },
-      "num_sources": 7,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000092.png",
-      "disagreement": 1.03,
-      "noffMergedTier": "D"
-    },
-    {
-      "name": "Amber",
-      "score": 3.65,
-      "tier": "B",
-      "sources": {
-        "BrawlTime Votes": "C",
         "SpenLC": "B",
+        "BrawlTime Votes": "C",
         "KairosTime": "A",
-        "BobbyBS": "A",
-        "HMBLE": "A",
-        "Ash": "A",
-        "Driffle": "B",
-        "MmonsteR": "B",
-        "Noff.gg": "C",
-        "Noff Ranked": "D"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000040.png",
-      "disagreement": 0.88,
-      "noffMergedTier": "C"
-    },
-    {
-      "name": "Chester",
-      "score": 4.6,
-      "tier": "A",
-      "sources": {
-        "SpenLC": "A",
-        "BrawlTime Votes": "B",
-        "KairosTime": "A",
-        "BobbyBS": "B",
+        "BobbyBS": "S",
         "HMBLE": "S",
-        "Ash": "S",
-        "Driffle": "C",
-        "MmonsteR": "B",
-        "Noff.gg": "A",
-        "Noff Ranked": "C"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000063.png",
-      "disagreement": 0.96,
-      "noffMergedTier": "B"
-    },
-    {
-      "name": "Nani",
-      "score": 3.24,
-      "tier": "C",
-      "sources": {
-        "SpenLC": "B",
-        "BrawlTime Votes": "C",
-        "KairosTime": "B",
-        "BobbyBS": "B",
-        "HMBLE": "B",
-        "Ash": "B",
         "Driffle": "B",
         "MmonsteR": "B",
-        "Noff.gg": "D",
-        "Noff Ranked": "D"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000036.png",
-      "disagreement": 0.67,
-      "noffMergedTier": "D"
-    },
-    {
-      "name": "Bea",
-      "score": 4.05,
-      "tier": "B",
-      "sources": {
-        "BrawlTime Votes": "S",
-        "SpenLC": "B",
-        "KairosTime": "B",
-        "BobbyBS": "C",
-        "HMBLE": "C",
-        "Ash": "B",
-        "Driffle": "B",
-        "MmonsteR": "A",
-        "Noff.gg": "A",
-        "Noff Ranked": "D"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000029.png",
-      "disagreement": 0.9,
-      "noffMergedTier": "B"
-    },
-    {
-      "name": "Piper",
-      "score": 3.58,
-      "tier": "B",
-      "sources": {
-        "SpenLC": "C",
-        "BrawlTime Votes": "S",
-        "KairosTime": "B",
-        "BobbyBS": "C",
-        "Ash": "B",
-        "Driffle": "A",
-        "MmonsteR": "B",
-        "Noff.gg": "C",
-        "Noff Ranked": "C"
-      },
-      "num_sources": 8,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000015.png",
-      "disagreement": 1,
-      "noffMergedTier": "C"
-    },
-    {
-      "name": "Max",
-      "score": 3.59,
-      "tier": "B",
-      "sources": {
-        "SpenLC": "B",
-        "BrawlTime Votes": "C",
-        "KairosTime": "B",
-        "BobbyBS": "B",
-        "HMBLE": "A",
-        "Ash": "B",
-        "Driffle": "B",
-        "MmonsteR": "B",
-        "Noff.gg": "C",
-        "Noff Ranked": "C"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000032.png",
-      "disagreement": 0.57,
-      "noffMergedTier": "C"
-    },
-    {
-      "name": "Meeple",
-      "score": 3.93,
-      "tier": "B",
-      "sources": {
-        "BrawlTime Votes": "C",
-        "SpenLC": "A",
-        "KairosTime": "A",
-        "BobbyBS": "B",
-        "HMBLE": "A",
-        "Ash": "A",
-        "Driffle": "C",
-        "MmonsteR": "C",
-        "Noff.gg": "C",
-        "Noff Ranked": "C"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000089.png",
-      "disagreement": 0.94,
-      "noffMergedTier": "C"
-    },
-    {
-      "name": "Lily",
-      "score": 4.64,
-      "tier": "A",
-      "sources": {
-        "BrawlTime Votes": "B",
-        "SpenLC": "B",
-        "KairosTime": "A",
-        "BobbyBS": "B",
-        "HMBLE": "B",
-        "Ash": "B",
-        "Driffle": "C",
-        "MmonsteR": "C",
-        "Noff.gg": "S",
-        "Noff Ranked": "S"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000081.png",
-      "disagreement": 0.87,
-      "noffMergedTier": "S"
-    },
-    {
-      "name": "Gene",
-      "score": 3.44,
-      "tier": "C",
-      "sources": {
-        "SpenLC": "A",
-        "BrawlTime Votes": "D",
-        "KairosTime": "B",
-        "BobbyBS": "B",
-        "HMBLE": "B",
-        "Ash": "A",
-        "Driffle": "C",
-        "MmonsteR": "C",
-        "Noff.gg": "D",
-        "Noff Ranked": "D"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000021.png",
-      "disagreement": 1.07,
-      "noffMergedTier": "D"
-    },
-    {
-      "name": "Colonel Ruffs",
-      "score": 3.03,
-      "tier": "C",
-      "sources": {
-        "BrawlTime Votes": "D",
-        "SpenLC": "A",
-        "KairosTime": "B",
-        "BobbyBS": "B",
-        "HMBLE": "C",
-        "Ash": "A",
-        "Driffle": "F",
-        "MmonsteR": "C",
-        "Noff.gg": "F",
-        "Noff Ranked": "F"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000044.png",
-      "disagreement": 1.45,
-      "noffMergedTier": "F"
-    },
-    {
-      "name": "Belle",
-      "score": 3.35,
-      "tier": "C",
-      "sources": {
-        "SpenLC": "B",
-        "BrawlTime Votes": "D",
-        "KairosTime": "B",
-        "BobbyBS": "B",
-        "HMBLE": "A",
-        "Ash": "B",
-        "Driffle": "B",
-        "MmonsteR": "B",
-        "Noff.gg": "C",
-        "Noff Ranked": "D"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000046.png",
-      "disagreement": 0.85,
-      "noffMergedTier": "C"
-    },
-    {
-      "name": "Charlie",
-      "score": 3.45,
-      "tier": "C",
-      "sources": {
-        "SpenLC": "A",
-        "BrawlTime Votes": "D",
-        "KairosTime": "B",
-        "BobbyBS": "B",
-        "HMBLE": "A",
-        "Ash": "A",
-        "Driffle": "C",
-        "MmonsteR": "C",
-        "Noff.gg": "D",
-        "Noff Ranked": "D"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000074.png",
-      "disagreement": 1.15,
-      "noffMergedTier": "D"
-    },
-    {
-      "name": "Brock",
-      "score": 3.94,
-      "tier": "B",
-      "sources": {
-        "BrawlTime Votes": "S",
-        "SpenLC": "B",
-        "KairosTime": "B",
-        "BobbyBS": "C",
-        "HMBLE": "C",
-        "Ash": "A",
-        "Driffle": "B",
-        "MmonsteR": "B",
-        "Noff.gg": "B",
-        "Noff Ranked": "D"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000003.png",
-      "disagreement": 0.94,
-      "noffMergedTier": "C"
-    },
-    {
-      "name": "Alli",
-      "score": 4.61,
-      "tier": "A",
-      "sources": {
-        "BrawlTime Votes": "C",
-        "SpenLC": "A",
-        "KairosTime": "D",
-        "BobbyBS": "A",
-        "Ash": "B",
-        "Driffle": "C",
-        "MmonsteR": "C",
-        "Noff.gg": "S",
-        "Noff Ranked": "S"
-      },
-      "num_sources": 8,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000095.png",
-      "disagreement": 1.27,
-      "noffMergedTier": "S"
-    },
-    {
-      "name": "Kenji",
-      "score": 4.02,
-      "tier": "B",
-      "sources": {
-        "SpenLC": "A",
-        "BrawlTime Votes": "B",
-        "KairosTime": "A",
-        "BobbyBS": "A",
-        "Ash": "A",
-        "Driffle": "B",
-        "MmonsteR": "C",
-        "Noff.gg": "C",
-        "Noff Ranked": "C"
-      },
-      "num_sources": 8,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000085.png",
-      "disagreement": 0.83,
-      "noffMergedTier": "C"
-    },
-    {
-      "name": "Janet",
-      "score": 2.94,
-      "tier": "C",
-      "sources": {
-        "BrawlTime Votes": "D",
-        "SpenLC": "C",
-        "KairosTime": "C",
-        "HMBLE": "B",
-        "Ash": "C",
-        "Driffle": "C",
-        "MmonsteR": "C",
-        "Noff.gg": "C",
-        "Noff Ranked": "C"
-      },
-      "num_sources": 8,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000057.png",
-      "disagreement": 0.5,
-      "noffMergedTier": "C"
-    },
-    {
-      "name": "Buster",
-      "score": 2.77,
-      "tier": "C",
-      "sources": {
-        "BrawlTime Votes": "C",
-        "SpenLC": "C",
-        "KairosTime": "C",
-        "BobbyBS": "C",
-        "Ash": "C",
-        "Driffle": "B",
-        "MmonsteR": "B",
-        "Noff.gg": "D",
-        "Noff Ranked": "D"
-      },
-      "num_sources": 8,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000062.png",
-      "disagreement": 0.6,
-      "noffMergedTier": "D"
-    },
-    {
-      "name": "8-Bit",
-      "score": 3.09,
-      "tier": "C",
-      "sources": {
-        "BrawlTime Votes": "A",
-        "SpenLC": "B",
-        "KairosTime": "C",
-        "BobbyBS": "C",
-        "HMBLE": "C",
-        "Driffle": "A",
-        "MmonsteR": "C",
-        "Noff.gg": "D",
-        "Noff Ranked": "D"
-      },
-      "num_sources": 8,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000027.png",
-      "disagreement": 1,
-      "noffMergedTier": "D"
-    },
-    {
-      "name": "Squeak",
-      "score": 2.99,
-      "tier": "C",
-      "sources": {
-        "SpenLC": "B",
-        "BrawlTime Votes": "C",
-        "KairosTime": "B",
-        "BobbyBS": "B",
-        "HMBLE": "B",
-        "Ash": "C",
-        "Driffle": "B",
-        "MmonsteR": "C",
-        "Noff.gg": "D",
-        "Noff Ranked": "D"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000047.png",
-      "disagreement": 0.68,
-      "noffMergedTier": "D"
-    },
-    {
-      "name": "Stu",
-      "score": 3.5,
-      "tier": "B",
-      "sources": {
-        "SpenLC": "C",
-        "BrawlTime Votes": "B",
-        "KairosTime": "B",
-        "BobbyBS": "C",
-        "HMBLE": "B",
-        "Ash": "B",
-        "Driffle": "B",
-        "MmonsteR": "C",
-        "Noff.gg": "C",
-        "Noff Ranked": "B"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000045.png",
-      "disagreement": 0.46,
-      "noffMergedTier": "B"
-    },
-    {
-      "name": "Melodie",
-      "score": 2.82,
-      "tier": "C",
-      "sources": {
-        "SpenLC": "C",
-        "BrawlTime Votes": "C",
-        "KairosTime": "C",
-        "BobbyBS": "B",
-        "HMBLE": "B",
-        "Ash": "D",
-        "Driffle": "D",
-        "MmonsteR": "C",
-        "Noff.gg": "B",
-        "Noff Ranked": "D"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000078.png",
-      "disagreement": 0.67,
-      "noffMergedTier": "C"
-    },
-    {
-      "name": "Lou",
-      "score": 2.83,
-      "tier": "C",
-      "sources": {
-        "SpenLC": "B",
-        "BrawlTime Votes": "C",
-        "KairosTime": "B",
-        "BobbyBS": "B",
-        "HMBLE": "A",
-        "Ash": "D",
-        "Driffle": "B",
-        "MmonsteR": "C",
-        "Noff.gg": "D",
-        "Noff Ranked": "D"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000041.png",
-      "disagreement": 0.96,
-      "noffMergedTier": "D"
-    },
-    {
-      "name": "Gray",
-      "score": 3.75,
-      "tier": "B",
-      "sources": {
-        "SpenLC": "A",
-        "BrawlTime Votes": "S",
-        "KairosTime": "B",
-        "BobbyBS": "B",
-        "Ash": "A",
-        "Driffle": "F",
-        "MmonsteR": "B",
-        "Noff.gg": "D",
-        "Noff Ranked": "D"
-      },
-      "num_sources": 8,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000064.png",
-      "disagreement": 1.54,
-      "noffMergedTier": "D"
-    },
-    {
-      "name": "Trunk",
-      "score": 2.95,
-      "tier": "C",
-      "sources": {
-        "SpenLC": "C",
-        "BrawlTime Votes": "C",
-        "KairosTime": "C",
-        "BobbyBS": "B",
-        "Ash": "C",
-        "Driffle": "F",
-        "MmonsteR": "C",
         "Noff.gg": "C"
       },
       "num_sources": 8,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000096.png",
-      "disagreement": 0.78,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000008.png",
+      "disagreement": 1.11,
       "noffMergedTier": "C"
     },
     {
-      "name": "Jae-yong",
-      "score": 2.77,
-      "tier": "C",
-      "sources": {
-        "SpenLC": "B",
-        "BrawlTime Votes": "D",
-        "KairosTime": "C",
-        "BobbyBS": "B",
-        "HMBLE": "A",
-        "Ash": "C",
-        "Driffle": "B",
-        "MmonsteR": "D",
-        "Noff.gg": "D",
-        "Noff Ranked": "D"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000093.png",
-      "disagreement": 1.03,
-      "noffMergedTier": "D"
-    },
-    {
-      "name": "Meg",
-      "score": 3.36,
-      "tier": "C",
-      "sources": {
-        "BrawlTime Votes": "C",
-        "SpenLC": "A",
-        "KairosTime": "C",
-        "BobbyBS": "S",
-        "HMBLE": "S",
-        "Ash": "D",
-        "Driffle": "B",
-        "MmonsteR": "C",
-        "Noff.gg": "C",
-        "Noff Ranked": "C"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000052.png",
-      "disagreement": 1.37,
-      "noffMergedTier": "C"
-    },
-    {
-      "name": "Carl",
-      "score": 3.14,
-      "tier": "C",
-      "sources": {
-        "BrawlTime Votes": "C",
-        "SpenLC": "B",
-        "KairosTime": "B",
-        "BobbyBS": "D",
-        "Ash": "B",
-        "Driffle": "F",
-        "MmonsteR": "B",
-        "Noff.gg": "D",
-        "Noff Ranked": "D"
-      },
-      "num_sources": 8,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000025.png",
-      "disagreement": 1.12,
-      "noffMergedTier": "D"
-    },
-    {
-      "name": "R-T",
-      "score": 3.66,
+      "name": "Cordelius",
+      "score": 4.06,
       "tier": "B",
       "sources": {
-        "BrawlTime Votes": "C",
         "SpenLC": "B",
-        "KairosTime": "B",
+        "BrawlTime Votes": "B",
+        "KairosTime": "A",
         "BobbyBS": "B",
-        "Ash": "B",
-        "Driffle": "B",
-        "MmonsteR": "C",
-        "Noff.gg": "B",
-        "Noff Ranked": "C"
+        "HMBLE": "B",
+        "Driffle": "A",
+        "MmonsteR": "B",
+        "Noff.gg": "B"
       },
       "num_sources": 8,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000066.png",
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000070.png",
       "disagreement": 0.43,
       "noffMergedTier": "B"
     },
     {
-      "name": "Larry & Lawrie",
-      "score": 2.28,
-      "tier": "D",
+      "name": "Shade",
+      "score": 4.65,
+      "tier": "A",
       "sources": {
-        "BrawlTime Votes": "D",
-        "KairosTime": "B",
-        "BobbyBS": "B",
-        "HMBLE": "A",
-        "Ash": "D",
+        "SpenLC": "A",
+        "BrawlTime Votes": "B",
+        "KairosTime": "A",
+        "BobbyBS": "A",
         "Driffle": "B",
-        "MmonsteR": "D",
-        "Noff.gg": "D",
-        "Noff Ranked": "D"
+        "MmonsteR": "C",
+        "Noff.gg": "B",
+        "HMBLE": "S"
       },
       "num_sources": 8,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000077.png",
-      "disagreement": 1.17,
-      "noffMergedTier": "D"
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000086.png",
+      "disagreement": 0.87,
+      "noffMergedTier": "B"
     },
     {
-      "name": "Kit",
-      "score": 4.49,
-      "tier": "B",
+      "name": "Otis",
+      "score": 5.09,
+      "tier": "A",
       "sources": {
-        "BrawlTime Votes": "S",
-        "SpenLC": "B",
-        "KairosTime": "B",
-        "BobbyBS": "C",
-        "HMBLE": "A",
-        "Ash": "B",
-        "Driffle": "B",
+        "SpenLC": "S",
+        "BrawlTime Votes": "C",
+        "KairosTime": "A",
+        "BobbyBS": "S",
+        "Ash": "A",
+        "Driffle": "F",
         "MmonsteR": "B",
-        "Noff.gg": "A",
-        "Noff Ranked": "A"
+        "Noff.gg": "A"
       },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000076.png",
-      "disagreement": 0.82,
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000059.png",
+      "disagreement": 1.58,
       "noffMergedTier": "A"
     },
     {
-      "name": "Griff",
-      "score": 4.43,
+      "name": "Angelo",
+      "score": 4.11,
       "tier": "B",
       "sources": {
-        "BrawlTime Votes": "B",
         "SpenLC": "A",
+        "BrawlTime Votes": "D",
         "KairosTime": "A",
-        "BobbyBS": "D",
-        "HMBLE": "C",
-        "Ash": "S",
-        "Driffle": "F",
-        "MmonsteR": "C",
-        "Noff.gg": "A",
-        "Noff Ranked": "C"
+        "BobbyBS": "A",
+        "HMBLE": "B",
+        "Ash": "A",
+        "Driffle": "B",
+        "MmonsteR": "B",
+        "Noff.gg": "C"
       },
       "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000050.png",
-      "disagreement": 1.49,
-      "noffMergedTier": "B"
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000079.png",
+      "disagreement": 0.99,
+      "noffMergedTier": "C"
     },
     {
-      "name": "Doug",
-      "score": 3.04,
+      "name": "Kaze",
+      "score": 4.04,
+      "tier": "B",
+      "sources": {
+        "SpenLC": "A",
+        "BrawlTime Votes": "B",
+        "KairosTime": "A",
+        "BobbyBS": "A",
+        "Driffle": "B",
+        "MmonsteR": "C",
+        "Noff.gg": "C"
+      },
+      "num_sources": 7,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000094.png",
+      "disagreement": 0.83,
+      "noffMergedTier": "C"
+    },
+    {
+      "name": "Mandy",
+      "score": 3.47,
       "tier": "C",
       "sources": {
         "BrawlTime Votes": "C",
-        "SpenLC": "C",
-        "KairosTime": "C",
-        "BobbyBS": "D",
-        "HMBLE": "C",
-        "Ash": "D",
-        "Driffle": "B",
-        "MmonsteR": "C",
-        "Noff.gg": "C",
-        "Noff Ranked": "B"
+        "SpenLC": "D",
+        "KairosTime": "B",
+        "BobbyBS": "C",
+        "HMBLE": "B",
+        "Driffle": "A",
+        "MmonsteR": "A",
+        "Noff.gg": "B"
       },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000071.png",
-      "disagreement": 0.6,
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000065.png",
+      "disagreement": 0.97,
       "noffMergedTier": "B"
     },
     {
-      "name": "Poco",
-      "score": 2.64,
+      "name": "Gus",
+      "score": 3.68,
+      "tier": "B",
+      "sources": {
+        "BrawlTime Votes": "C",
+        "SpenLC": "B",
+        "KairosTime": "A",
+        "BobbyBS": "B",
+        "HMBLE": "B",
+        "Driffle": "B",
+        "MmonsteR": "B",
+        "Noff.gg": "C"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000061.png",
+      "disagreement": 0.6,
+      "noffMergedTier": "C"
+    },
+    {
+      "name": "Finx",
+      "score": 3.62,
+      "tier": "B",
+      "sources": {
+        "SpenLC": "A",
+        "BrawlTime Votes": "C",
+        "KairosTime": "A",
+        "Driffle": "B",
+        "MmonsteR": "C",
+        "Noff.gg": "D",
+        "BobbyBS": "A"
+      },
+      "num_sources": 7,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000092.png",
+      "disagreement": 1.12,
+      "noffMergedTier": "D"
+    },
+    {
+      "name": "Amber",
+      "score": 3.41,
       "tier": "C",
       "sources": {
-        "BrawlTime Votes": "D",
+        "BrawlTime Votes": "C",
         "SpenLC": "B",
         "KairosTime": "A",
         "BobbyBS": "A",
-        "HMBLE": "S",
-        "Ash": "B",
-        "Driffle": "F",
-        "MmonsteR": "D",
-        "Noff.gg": "F",
-        "Noff Ranked": "F"
+        "HMBLE": "A",
+        "Driffle": "B",
+        "MmonsteR": "B",
+        "Noff.gg": "F"
       },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000013.png",
-      "disagreement": 1.76,
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000040.png",
+      "disagreement": 1.27,
       "noffMergedTier": "F"
     },
     {
-      "name": "Mico",
-      "score": 3.09,
-      "tier": "C",
-      "sources": {
-        "SpenLC": "D",
-        "BrawlTime Votes": "C",
-        "HMBLE": "A",
-        "Driffle": "B",
-        "MmonsteR": "D",
-        "Noff.gg": "C",
-        "Noff Ranked": "A"
-      },
-      "num_sources": 6,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000075.png",
-      "disagreement": 1.11,
-      "noffMergedTier": "B"
-    },
-    {
-      "name": "Tara",
-      "score": 3.21,
-      "tier": "C",
-      "sources": {
-        "BrawlTime Votes": "C",
-        "SpenLC": "B",
-        "KairosTime": "B",
-        "BobbyBS": "B",
-        "Ash": "B",
-        "Driffle": "C",
-        "MmonsteR": "B",
-        "Noff.gg": "D",
-        "Noff Ranked": "D"
-      },
-      "num_sources": 8,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000017.png",
-      "disagreement": 0.71,
-      "noffMergedTier": "D"
-    },
-    {
-      "name": "Sandy",
-      "score": 2.77,
-      "tier": "C",
-      "sources": {
-        "BrawlTime Votes": "C",
-        "SpenLC": "C",
-        "KairosTime": "B",
-        "BobbyBS": "B",
-        "HMBLE": "A",
-        "Ash": "C",
-        "Driffle": "B",
-        "MmonsteR": "C",
-        "Noff.gg": "D",
-        "Noff Ranked": "D"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000028.png",
-      "disagreement": 0.83,
-      "noffMergedTier": "D"
-    },
-    {
-      "name": "Moe",
-      "score": 2.72,
-      "tier": "C",
-      "sources": {
-        "SpenLC": "D",
-        "BrawlTime Votes": "D",
-        "KairosTime": "D",
-        "BobbyBS": "B",
-        "HMBLE": "A",
-        "Ash": "C",
-        "Driffle": "D",
-        "MmonsteR": "B",
-        "Noff.gg": "B",
-        "Noff Ranked": "D"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000084.png",
-      "disagreement": 1.05,
-      "noffMergedTier": "C"
-    },
-    {
-      "name": "Ziggy",
-      "score": 4.08,
-      "tier": "B",
+      "name": "Chester",
+      "score": 5.05,
+      "tier": "A",
       "sources": {
         "SpenLC": "A",
-        "BrawlTime Votes": "D",
-        "KairosTime": "C",
-        "BobbyBS": "C",
-        "HMBLE": "S",
-        "Ash": "A",
-        "Driffle": "D",
-        "MmonsteR": "C"
-      },
-      "num_sources": 8,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000098.png",
-      "disagreement": 1.41,
-      "noffMergedTier": null
-    },
-    {
-      "name": "Fang",
-      "score": 2.87,
-      "tier": "C",
-      "sources": {
-        "BrawlTime Votes": "B",
-        "SpenLC": "D",
-        "KairosTime": "C",
-        "BobbyBS": "D",
-        "Ash": "C",
-        "Driffle": "F",
+        "BrawlTime Votes": "A",
+        "KairosTime": "A",
+        "BobbyBS": "S",
+        "HMBLE": "A",
+        "Driffle": "C",
         "MmonsteR": "B",
-        "Noff.gg": "C",
-        "Noff Ranked": "C"
+        "Noff.gg": "A"
       },
       "num_sources": 8,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000054.png",
-      "disagreement": 0.97,
-      "noffMergedTier": "C"
-    },
-    {
-      "name": "Berry",
-      "score": 2.46,
-      "tier": "D",
-      "sources": {
-        "SpenLC": "C",
-        "BrawlTime Votes": "D",
-        "Driffle": "C",
-        "MmonsteR": "C",
-        "Noff.gg": "D",
-        "Noff Ranked": "D"
-      },
-      "num_sources": 5,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000082.png",
-      "disagreement": 0.49,
-      "noffMergedTier": "D"
-    },
-    {
-      "name": "Dynamike",
-      "score": 2.48,
-      "tier": "D",
-      "sources": {
-        "SpenLC": "D",
-        "BrawlTime Votes": "C",
-        "KairosTime": "C",
-        "BobbyBS": "C",
-        "HMBLE": "C",
-        "Ash": "F",
-        "Driffle": "B",
-        "MmonsteR": "C",
-        "Noff.gg": "C",
-        "Noff Ranked": "C"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000009.png",
-      "disagreement": 0.79,
-      "noffMergedTier": "C"
-    },
-    {
-      "name": "Juju",
-      "score": 2.65,
-      "tier": "C",
-      "sources": {
-        "BrawlTime Votes": "D",
-        "SpenLC": "C",
-        "KairosTime": "B",
-        "BobbyBS": "B",
-        "Ash": "C",
-        "Driffle": "C",
-        "MmonsteR": "C",
-        "Noff.gg": "D",
-        "Noff Ranked": "D"
-      },
-      "num_sources": 8,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000087.png",
-      "disagreement": 0.71,
-      "noffMergedTier": "D"
-    },
-    {
-      "name": "Lola",
-      "score": 2.62,
-      "tier": "C",
-      "sources": {
-        "SpenLC": "C",
-        "BrawlTime Votes": "D",
-        "KairosTime": "F",
-        "BobbyBS": "D",
-        "HMBLE": "A",
-        "Ash": "C",
-        "Driffle": "D",
-        "MmonsteR": "C",
-        "Noff.gg": "C",
-        "Noff Ranked": "D"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000053.png",
-      "disagreement": 1.05,
-      "noffMergedTier": "C"
-    },
-    {
-      "name": "Hank",
-      "score": 2.69,
-      "tier": "C",
-      "sources": {
-        "SpenLC": "C",
-        "BrawlTime Votes": "D",
-        "KairosTime": "C",
-        "BobbyBS": "C",
-        "HMBLE": "A",
-        "Ash": "D",
-        "Driffle": "C",
-        "MmonsteR": "D",
-        "Noff.gg": "C",
-        "Noff Ranked": "C"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000069.png",
-      "disagreement": 0.87,
-      "noffMergedTier": "C"
-    },
-    {
-      "name": "Darryl",
-      "score": 3.16,
-      "tier": "C",
-      "sources": {
-        "SpenLC": "D",
-        "BrawlTime Votes": "C",
-        "KairosTime": "C",
-        "BobbyBS": "F",
-        "HMBLE": "C",
-        "Driffle": "B",
-        "MmonsteR": "C",
-        "Noff.gg": "B",
-        "Noff Ranked": "B"
-      },
-      "num_sources": 8,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000018.png",
-      "disagreement": 0.93,
-      "noffMergedTier": "B"
-    },
-    {
-      "name": "Draco",
-      "score": 2.86,
-      "tier": "C",
-      "sources": {
-        "SpenLC": "D",
-        "BrawlTime Votes": "D",
-        "KairosTime": "C",
-        "BobbyBS": "C",
-        "Ash": "B",
-        "Driffle": "C",
-        "MmonsteR": "C",
-        "Noff.gg": "C",
-        "Noff Ranked": "C"
-      },
-      "num_sources": 8,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000080.png",
-      "disagreement": 0.6,
-      "noffMergedTier": "C"
-    },
-    {
-      "name": "Penny",
-      "score": 2.93,
-      "tier": "C",
-      "sources": {
-        "SpenLC": "B",
-        "BrawlTime Votes": "D",
-        "KairosTime": "C",
-        "BobbyBS": "C",
-        "HMBLE": "B",
-        "Ash": "B",
-        "Driffle": "F",
-        "MmonsteR": "C",
-        "Noff.gg": "D",
-        "Noff Ranked": "D"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000019.png",
-      "disagreement": 0.99,
-      "noffMergedTier": "D"
-    },
-    {
-      "name": "Gale",
-      "score": 3.02,
-      "tier": "C",
-      "sources": {
-        "SpenLC": "C",
-        "BrawlTime Votes": "C",
-        "KairosTime": "B",
-        "BobbyBS": "C",
-        "HMBLE": "B",
-        "Ash": "C",
-        "Driffle": "F",
-        "MmonsteR": "C",
-        "Noff.gg": "C",
-        "Noff Ranked": "C"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000035.png",
-      "disagreement": 0.82,
-      "noffMergedTier": "C"
-    },
-    {
-      "name": "Ollie",
-      "score": 3.21,
-      "tier": "C",
-      "sources": {
-        "SpenLC": "B",
-        "BrawlTime Votes": "D",
-        "BobbyBS": "B",
-        "Driffle": "C",
-        "MmonsteR": "C",
-        "Noff.gg": "C",
-        "Noff Ranked": "C"
-      },
-      "num_sources": 6,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000090.png",
-      "disagreement": 0.69,
-      "noffMergedTier": "C"
-    },
-    {
-      "name": "Maisie",
-      "score": 2.29,
-      "tier": "D",
-      "sources": {
-        "SpenLC": "D",
-        "BrawlTime Votes": "C",
-        "KairosTime": "C",
-        "BobbyBS": "C",
-        "HMBLE": "C",
-        "Ash": "D",
-        "Driffle": "B",
-        "MmonsteR": "C",
-        "Noff.gg": "D",
-        "Noff Ranked": "D"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000068.png",
-      "disagreement": 0.63,
-      "noffMergedTier": "D"
-    },
-    {
-      "name": "Willow",
-      "score": 2.97,
-      "tier": "C",
-      "sources": {
-        "SpenLC": "C",
-        "BrawlTime Votes": "D",
-        "KairosTime": "C",
-        "BobbyBS": "C",
-        "HMBLE": "A",
-        "Ash": "C",
-        "Driffle": "B",
-        "MmonsteR": "C",
-        "Noff.gg": "C",
-        "Noff Ranked": "C"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000067.png",
-      "disagreement": 0.79,
-      "noffMergedTier": "C"
-    },
-    {
-      "name": "Barley",
-      "score": 2.4,
-      "tier": "D",
-      "sources": {
-        "SpenLC": "C",
-        "BrawlTime Votes": "D",
-        "KairosTime": "B",
-        "BobbyBS": "C",
-        "HMBLE": "C",
-        "Ash": "D",
-        "Driffle": "C",
-        "MmonsteR": "D",
-        "Noff.gg": "D",
-        "Noff Ranked": "D"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000006.png",
-      "disagreement": 0.67,
-      "noffMergedTier": "D"
-    },
-    {
-      "name": "Surge",
-      "score": 3.3,
-      "tier": "C",
-      "sources": {
-        "SpenLC": "D",
-        "BrawlTime Votes": "B",
-        "KairosTime": "C",
-        "BobbyBS": "C",
-        "HMBLE": "D",
-        "Ash": "D",
-        "Driffle": "F",
-        "MmonsteR": "C",
-        "Noff.gg": "A",
-        "Noff Ranked": "A"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000038.png",
-      "disagreement": 1.13,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000063.png",
+      "disagreement": 0.83,
       "noffMergedTier": "A"
     },
     {
-      "name": "Ash",
-      "score": 1.72,
-      "tier": "D",
+      "name": "Nani",
+      "score": 3.48,
+      "tier": "C",
       "sources": {
-        "SpenLC": "F",
-        "BrawlTime Votes": "D",
-        "KairosTime": "D",
-        "BobbyBS": "D",
+        "SpenLC": "B",
+        "BrawlTime Votes": "C",
+        "KairosTime": "B",
+        "BobbyBS": "C",
         "HMBLE": "B",
-        "Ash": "F",
-        "Driffle": "D",
-        "MmonsteR": "C",
-        "Noff.gg": "D",
-        "Noff Ranked": "D"
+        "Driffle": "B",
+        "MmonsteR": "B",
+        "Noff.gg": "C"
       },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000051.png",
-      "disagreement": 0.87,
-      "noffMergedTier": "D"
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000036.png",
+      "disagreement": 0.48,
+      "noffMergedTier": "C"
     },
     {
-      "name": "Lumi",
+      "name": "Bea",
+      "score": 3.79,
+      "tier": "B",
+      "sources": {
+        "BrawlTime Votes": "C",
+        "SpenLC": "C",
+        "KairosTime": "B",
+        "BobbyBS": "C",
+        "HMBLE": "C",
+        "Driffle": "B",
+        "MmonsteR": "A",
+        "Noff.gg": "A"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000029.png",
+      "disagreement": 0.83,
+      "noffMergedTier": "A"
+    },
+    {
+      "name": "Piper",
+      "score": 2.94,
+      "tier": "C",
+      "sources": {
+        "SpenLC": "D",
+        "BrawlTime Votes": "C",
+        "KairosTime": "B",
+        "BobbyBS": "C",
+        "Driffle": "A",
+        "MmonsteR": "B",
+        "Noff.gg": "C"
+      },
+      "num_sources": 7,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000015.png",
+      "disagreement": 0.9,
+      "noffMergedTier": "C"
+    },
+    {
+      "name": "Max",
+      "score": 3.6,
+      "tier": "B",
+      "sources": {
+        "SpenLC": "C",
+        "BrawlTime Votes": "C",
+        "KairosTime": "B",
+        "BobbyBS": "B",
+        "HMBLE": "A",
+        "Driffle": "B",
+        "MmonsteR": "B",
+        "Noff.gg": "C"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000032.png",
+      "disagreement": 0.66,
+      "noffMergedTier": "C"
+    },
+    {
+      "name": "Meeple",
+      "score": 4.25,
+      "tier": "B",
+      "sources": {
+        "BrawlTime Votes": "C",
+        "SpenLC": "A",
+        "KairosTime": "A",
+        "BobbyBS": "B",
+        "HMBLE": "A",
+        "Driffle": "C",
+        "MmonsteR": "C",
+        "Noff.gg": "B"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000089.png",
+      "disagreement": 0.87,
+      "noffMergedTier": "B"
+    },
+    {
+      "name": "Lily",
+      "score": 3.82,
+      "tier": "B",
+      "sources": {
+        "BrawlTime Votes": "B",
+        "SpenLC": "B",
+        "KairosTime": "A",
+        "BobbyBS": "A",
+        "HMBLE": "B",
+        "Driffle": "C",
+        "MmonsteR": "C",
+        "Noff.gg": "C"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000081.png",
+      "disagreement": 0.78,
+      "noffMergedTier": "C"
+    },
+    {
+      "name": "Gene",
       "score": 3.72,
       "tier": "B",
       "sources": {
         "SpenLC": "A",
         "BrawlTime Votes": "D",
+        "KairosTime": "B",
+        "BobbyBS": "S",
+        "HMBLE": "B",
+        "Driffle": "C",
+        "MmonsteR": "C",
+        "Noff.gg": "D"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000021.png",
+      "disagreement": 1.32,
+      "noffMergedTier": "D"
+    },
+    {
+      "name": "Colonel Ruffs",
+      "score": 3.35,
+      "tier": "C",
+      "sources": {
+        "BrawlTime Votes": "D",
+        "SpenLC": "A",
+        "KairosTime": "B",
+        "BobbyBS": "A",
+        "HMBLE": "C",
+        "Driffle": "F",
+        "MmonsteR": "C",
+        "Noff.gg": "D"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000044.png",
+      "disagreement": 1.36,
+      "noffMergedTier": "D"
+    },
+    {
+      "name": "Belle",
+      "score": 3.44,
+      "tier": "C",
+      "sources": {
+        "SpenLC": "B",
+        "BrawlTime Votes": "D",
+        "KairosTime": "B",
+        "BobbyBS": "B",
+        "HMBLE": "A",
+        "Driffle": "B",
+        "MmonsteR": "B",
+        "Noff.gg": "D"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000046.png",
+      "disagreement": 0.99,
+      "noffMergedTier": "D"
+    },
+    {
+      "name": "Charlie",
+      "score": 3.7,
+      "tier": "B",
+      "sources": {
+        "SpenLC": "A",
+        "BrawlTime Votes": "D",
+        "KairosTime": "B",
+        "BobbyBS": "B",
+        "HMBLE": "B",
+        "Driffle": "C",
+        "MmonsteR": "C",
+        "Noff.gg": "C"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000074.png",
+      "disagreement": 0.87,
+      "noffMergedTier": "C"
+    },
+    {
+      "name": "Brock",
+      "score": 3.62,
+      "tier": "B",
+      "sources": {
+        "BrawlTime Votes": "C",
+        "SpenLC": "B",
+        "KairosTime": "B",
+        "BobbyBS": "C",
+        "HMBLE": "C",
+        "Driffle": "B",
+        "MmonsteR": "B",
+        "Noff.gg": "B"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000003.png",
+      "disagreement": 0.48,
+      "noffMergedTier": "B"
+    },
+    {
+      "name": "Alli",
+      "score": 3,
+      "tier": "C",
+      "sources": {
+        "BrawlTime Votes": "C",
+        "SpenLC": "B",
+        "KairosTime": "A",
+        "BobbyBS": "A",
+        "Driffle": "C",
+        "MmonsteR": "C",
+        "Noff.gg": "F"
+      },
+      "num_sources": 7,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000095.png",
+      "disagreement": 1.29,
+      "noffMergedTier": "F"
+    },
+    {
+      "name": "Kenji",
+      "score": 3.26,
+      "tier": "C",
+      "sources": {
+        "SpenLC": "B",
+        "BrawlTime Votes": "B",
+        "KairosTime": "A",
+        "BobbyBS": "B",
+        "Driffle": "B",
+        "MmonsteR": "C",
+        "Noff.gg": "D"
+      },
+      "num_sources": 7,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000085.png",
+      "disagreement": 0.88,
+      "noffMergedTier": "D"
+    },
+    {
+      "name": "Janet",
+      "score": 3.26,
+      "tier": "C",
+      "sources": {
+        "BrawlTime Votes": "D",
+        "SpenLC": "C",
+        "KairosTime": "C",
+        "HMBLE": "B",
+        "Driffle": "C",
+        "MmonsteR": "C",
+        "Noff.gg": "C",
+        "BobbyBS": "B"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000057.png",
+      "disagreement": 0.6,
+      "noffMergedTier": "C"
+    },
+    {
+      "name": "Buster",
+      "score": 3.1,
+      "tier": "C",
+      "sources": {
+        "BrawlTime Votes": "C",
+        "SpenLC": "C",
         "KairosTime": "C",
         "BobbyBS": "C",
+        "Driffle": "B",
+        "MmonsteR": "B",
+        "Noff.gg": "C"
+      },
+      "num_sources": 7,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000062.png",
+      "disagreement": 0.45,
+      "noffMergedTier": "C"
+    },
+    {
+      "name": "8-Bit",
+      "score": 3.18,
+      "tier": "C",
+      "sources": {
+        "BrawlTime Votes": "D",
+        "SpenLC": "B",
+        "KairosTime": "C",
+        "BobbyBS": "C",
+        "HMBLE": "C",
+        "Driffle": "A",
+        "MmonsteR": "C",
+        "Noff.gg": "C"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000027.png",
+      "disagreement": 0.83,
+      "noffMergedTier": "C"
+    },
+    {
+      "name": "Squeak",
+      "score": 2.63,
+      "tier": "C",
+      "sources": {
+        "SpenLC": "C",
+        "BrawlTime Votes": "C",
+        "KairosTime": "B",
+        "BobbyBS": "C",
+        "HMBLE": "B",
+        "Driffle": "B",
+        "MmonsteR": "C",
+        "Noff.gg": "F"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000047.png",
+      "disagreement": 0.93,
+      "noffMergedTier": "F"
+    },
+    {
+      "name": "Stu",
+      "score": 3.9,
+      "tier": "B",
+      "sources": {
+        "SpenLC": "C",
+        "BrawlTime Votes": "B",
+        "KairosTime": "B",
+        "BobbyBS": "A",
+        "HMBLE": "B",
+        "Driffle": "B",
+        "MmonsteR": "C",
+        "Noff.gg": "B"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000045.png",
+      "disagreement": 0.6,
+      "noffMergedTier": "B"
+    },
+    {
+      "name": "Melodie",
+      "score": 3.59,
+      "tier": "B",
+      "sources": {
+        "SpenLC": "C",
+        "BrawlTime Votes": "C",
+        "KairosTime": "C",
+        "BobbyBS": "B",
+        "HMBLE": "B",
+        "Driffle": "D",
+        "MmonsteR": "C",
+        "Noff.gg": "B"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000078.png",
+      "disagreement": 0.66,
+      "noffMergedTier": "B"
+    },
+    {
+      "name": "Lou",
+      "score": 3.54,
+      "tier": "B",
+      "sources": {
+        "SpenLC": "C",
+        "BrawlTime Votes": "C",
+        "KairosTime": "B",
+        "BobbyBS": "B",
+        "HMBLE": "A",
+        "Driffle": "B",
+        "MmonsteR": "C",
+        "Noff.gg": "C"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000041.png",
+      "disagreement": 0.7,
+      "noffMergedTier": "C"
+    },
+    {
+      "name": "Gray",
+      "score": 3.31,
+      "tier": "C",
+      "sources": {
+        "SpenLC": "B",
+        "BrawlTime Votes": "C",
+        "KairosTime": "B",
+        "BobbyBS": "C",
+        "Driffle": "F",
+        "MmonsteR": "B",
+        "Noff.gg": "C"
+      },
+      "num_sources": 7,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000064.png",
+      "disagreement": 0.99,
+      "noffMergedTier": "C"
+    },
+    {
+      "name": "Trunk",
+      "score": 2.52,
+      "tier": "C",
+      "sources": {
+        "SpenLC": "C",
+        "BrawlTime Votes": "D",
+        "KairosTime": "C",
+        "BobbyBS": "C",
+        "Driffle": "F",
+        "MmonsteR": "C",
+        "Noff.gg": "D"
+      },
+      "num_sources": 7,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000096.png",
+      "disagreement": 0.73,
+      "noffMergedTier": "D"
+    },
+    {
+      "name": "Jae-yong",
+      "score": 3.73,
+      "tier": "B",
+      "sources": {
+        "SpenLC": "B",
+        "BrawlTime Votes": "D",
+        "KairosTime": "C",
+        "BobbyBS": "A",
+        "HMBLE": "A",
+        "Driffle": "B",
+        "MmonsteR": "D",
+        "Noff.gg": "C"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000093.png",
+      "disagreement": 1.12,
+      "noffMergedTier": "C"
+    },
+    {
+      "name": "Meg",
+      "score": 3.2,
+      "tier": "C",
+      "sources": {
+        "BrawlTime Votes": "C",
+        "SpenLC": "C",
+        "KairosTime": "C",
+        "BobbyBS": "C",
+        "HMBLE": "S",
+        "Driffle": "B",
+        "MmonsteR": "C",
+        "Noff.gg": "D"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000052.png",
+      "disagreement": 1.11,
+      "noffMergedTier": "D"
+    },
+    {
+      "name": "Carl",
+      "score": 3.62,
+      "tier": "B",
+      "sources": {
+        "BrawlTime Votes": "C",
+        "SpenLC": "C",
+        "KairosTime": "B",
+        "BobbyBS": "B",
+        "Driffle": "F",
+        "MmonsteR": "B",
+        "Noff.gg": "B"
+      },
+      "num_sources": 7,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000025.png",
+      "disagreement": 1.03,
+      "noffMergedTier": "B"
+    },
+    {
+      "name": "R-T",
+      "score": 3.15,
+      "tier": "C",
+      "sources": {
+        "BrawlTime Votes": "C",
+        "SpenLC": "B",
+        "KairosTime": "B",
+        "BobbyBS": "B",
+        "Driffle": "B",
+        "MmonsteR": "C",
+        "Noff.gg": "D"
+      },
+      "num_sources": 7,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000066.png",
+      "disagreement": 0.73,
+      "noffMergedTier": "D"
+    },
+    {
+      "name": "Larry & Lawrie",
+      "score": 2.46,
+      "tier": "D",
+      "sources": {
+        "BrawlTime Votes": "D",
+        "KairosTime": "B",
+        "BobbyBS": "C",
+        "HMBLE": "A",
+        "Driffle": "B",
+        "MmonsteR": "D",
+        "Noff.gg": "F",
+        "SpenLC": "D"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000077.png",
+      "disagreement": 1.27,
+      "noffMergedTier": "F"
+    },
+    {
+      "name": "Kit",
+      "score": 4.36,
+      "tier": "B",
+      "sources": {
+        "BrawlTime Votes": "B",
+        "SpenLC": "A",
+        "KairosTime": "B",
+        "BobbyBS": "B",
+        "HMBLE": "A",
+        "Driffle": "B",
+        "MmonsteR": "B",
+        "Noff.gg": "B"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000076.png",
+      "disagreement": 0.43,
+      "noffMergedTier": "B"
+    },
+    {
+      "name": "Griff",
+      "score": 4.77,
+      "tier": "A",
+      "sources": {
+        "BrawlTime Votes": "B",
+        "SpenLC": "S",
+        "KairosTime": "A",
+        "BobbyBS": "A",
+        "HMBLE": "C",
+        "Ash": "S",
+        "Driffle": "F",
+        "MmonsteR": "C",
+        "Noff.gg": "A"
+      },
+      "num_sources": 9,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000050.png",
+      "disagreement": 1.55,
+      "noffMergedTier": "A"
+    },
+    {
+      "name": "Doug",
+      "score": 2.23,
+      "tier": "D",
+      "sources": {
+        "BrawlTime Votes": "C",
+        "SpenLC": "D",
+        "KairosTime": "C",
+        "BobbyBS": "C",
+        "HMBLE": "C",
+        "Driffle": "B",
+        "MmonsteR": "C",
+        "Noff.gg": "F"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000071.png",
+      "disagreement": 0.83,
+      "noffMergedTier": "F"
+    },
+    {
+      "name": "Poco",
+      "score": 3.01,
+      "tier": "C",
+      "sources": {
+        "BrawlTime Votes": "C",
+        "SpenLC": "C",
+        "KairosTime": "A",
+        "BobbyBS": "B",
+        "HMBLE": "S",
+        "Driffle": "F",
+        "MmonsteR": "D",
+        "Noff.gg": "F"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000013.png",
+      "disagreement": 1.69,
+      "noffMergedTier": "F"
+    },
+    {
+      "name": "Mico",
+      "score": 2.78,
+      "tier": "C",
+      "sources": {
+        "SpenLC": "D",
+        "BrawlTime Votes": "C",
+        "HMBLE": "A",
+        "Driffle": "B",
+        "MmonsteR": "D",
+        "Noff.gg": "D",
+        "KairosTime": "C",
+        "BobbyBS": "C"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000075.png",
+      "disagreement": 1,
+      "noffMergedTier": "D"
+    },
+    {
+      "name": "Tara",
+      "score": 2.61,
+      "tier": "C",
+      "sources": {
+        "BrawlTime Votes": "C",
+        "SpenLC": "C",
+        "KairosTime": "B",
+        "BobbyBS": "B",
+        "Driffle": "C",
+        "MmonsteR": "B",
+        "Noff.gg": "F"
+      },
+      "num_sources": 7,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000017.png",
+      "disagreement": 0.99,
+      "noffMergedTier": "F"
+    },
+    {
+      "name": "Sandy",
+      "score": 3.1,
+      "tier": "C",
+      "sources": {
+        "BrawlTime Votes": "C",
+        "SpenLC": "C",
+        "KairosTime": "B",
+        "BobbyBS": "A",
+        "HMBLE": "A",
+        "Driffle": "B",
+        "MmonsteR": "C",
+        "Noff.gg": "F"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000028.png",
+      "disagreement": 1.22,
+      "noffMergedTier": "F"
+    },
+    {
+      "name": "Moe",
+      "score": 3.84,
+      "tier": "B",
+      "sources": {
+        "SpenLC": "B",
+        "BrawlTime Votes": "C",
+        "KairosTime": "D",
+        "BobbyBS": "A",
+        "HMBLE": "A",
+        "Driffle": "D",
+        "MmonsteR": "B",
+        "Noff.gg": "C"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000084.png",
+      "disagreement": 1.12,
+      "noffMergedTier": "C"
+    },
+    {
+      "name": "Ziggy",
+      "score": 3.22,
+      "tier": "C",
+      "sources": {
+        "SpenLC": "B",
+        "BrawlTime Votes": "C",
+        "KairosTime": "C",
+        "BobbyBS": "B",
+        "HMBLE": "S",
+        "Driffle": "D",
+        "MmonsteR": "C",
+        "Noff.gg": "F"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000098.png",
+      "disagreement": 1.39,
+      "noffMergedTier": "F"
+    },
+    {
+      "name": "Fang",
+      "score": 3.18,
+      "tier": "C",
+      "sources": {
+        "BrawlTime Votes": "B",
+        "SpenLC": "D",
+        "KairosTime": "C",
+        "BobbyBS": "B",
+        "Driffle": "F",
+        "MmonsteR": "B",
+        "Noff.gg": "B",
+        "HMBLE": "D"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000054.png",
+      "disagreement": 1.12,
+      "noffMergedTier": "B"
+    },
+    {
+      "name": "Berry",
+      "score": 2.81,
+      "tier": "C",
+      "sources": {
+        "SpenLC": "C",
+        "BrawlTime Votes": "D",
+        "Driffle": "C",
+        "MmonsteR": "C",
+        "Noff.gg": "D",
+        "KairosTime": "B",
+        "BobbyBS": "B"
+      },
+      "num_sources": 7,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000082.png",
+      "disagreement": 0.76,
+      "noffMergedTier": "D"
+    },
+    {
+      "name": "Dynamike",
+      "score": 2.21,
+      "tier": "D",
+      "sources": {
+        "SpenLC": "D",
+        "BrawlTime Votes": "C",
+        "KairosTime": "C",
+        "BobbyBS": "D",
+        "HMBLE": "D",
+        "Driffle": "B",
+        "MmonsteR": "C",
+        "Noff.gg": "D"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000009.png",
+      "disagreement": 0.7,
+      "noffMergedTier": "D"
+    },
+    {
+      "name": "Juju",
+      "score": 2.27,
+      "tier": "D",
+      "sources": {
+        "BrawlTime Votes": "D",
+        "SpenLC": "C",
+        "KairosTime": "B",
+        "BobbyBS": "C",
+        "Driffle": "C",
+        "MmonsteR": "C",
+        "Noff.gg": "F"
+      },
+      "num_sources": 7,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000087.png",
+      "disagreement": 0.88,
+      "noffMergedTier": "F"
+    },
+    {
+      "name": "Lola",
+      "score": 3.23,
+      "tier": "C",
+      "sources": {
+        "SpenLC": "B",
+        "BrawlTime Votes": "D",
+        "KairosTime": "F",
+        "BobbyBS": "S",
+        "HMBLE": "A",
+        "Driffle": "D",
+        "MmonsteR": "C",
+        "Noff.gg": "F"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000053.png",
+      "disagreement": 1.73,
+      "noffMergedTier": "F"
+    },
+    {
+      "name": "Hank",
+      "score": 2.6,
+      "tier": "C",
+      "sources": {
+        "SpenLC": "C",
+        "BrawlTime Votes": "D",
+        "KairosTime": "C",
+        "BobbyBS": "C",
+        "HMBLE": "A",
+        "Driffle": "C",
+        "MmonsteR": "D",
+        "Noff.gg": "F"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000069.png",
+      "disagreement": 1.09,
+      "noffMergedTier": "F"
+    },
+    {
+      "name": "Darryl",
+      "score": 2.23,
+      "tier": "D",
+      "sources": {
+        "SpenLC": "D",
+        "BrawlTime Votes": "C",
+        "KairosTime": "C",
+        "BobbyBS": "C",
+        "HMBLE": "C",
+        "Driffle": "B",
+        "MmonsteR": "C",
+        "Noff.gg": "F"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000018.png",
+      "disagreement": 0.83,
+      "noffMergedTier": "F"
+    },
+    {
+      "name": "Draco",
+      "score": 3.12,
+      "tier": "C",
+      "sources": {
+        "SpenLC": "C",
+        "BrawlTime Votes": "D",
+        "KairosTime": "C",
+        "BobbyBS": "B",
+        "Driffle": "C",
+        "MmonsteR": "C",
+        "Noff.gg": "C"
+      },
+      "num_sources": 7,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000080.png",
+      "disagreement": 0.53,
+      "noffMergedTier": "C"
+    },
+    {
+      "name": "Penny",
+      "score": 3.25,
+      "tier": "C",
+      "sources": {
+        "SpenLC": "B",
+        "BrawlTime Votes": "D",
+        "KairosTime": "C",
+        "BobbyBS": "C",
+        "HMBLE": "B",
+        "Driffle": "F",
+        "MmonsteR": "C",
+        "Noff.gg": "C"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000019.png",
+      "disagreement": 0.93,
+      "noffMergedTier": "C"
+    },
+    {
+      "name": "Gale",
+      "score": 3.16,
+      "tier": "C",
+      "sources": {
+        "SpenLC": "C",
+        "BrawlTime Votes": "C",
+        "KairosTime": "B",
+        "BobbyBS": "C",
+        "HMBLE": "B",
+        "Driffle": "F",
+        "MmonsteR": "C",
+        "Noff.gg": "C"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000035.png",
+      "disagreement": 0.87,
+      "noffMergedTier": "C"
+    },
+    {
+      "name": "Ollie",
+      "score": 3.42,
+      "tier": "C",
+      "sources": {
+        "SpenLC": "B",
+        "BrawlTime Votes": "D",
+        "BobbyBS": "B",
+        "Driffle": "C",
+        "MmonsteR": "C",
+        "Noff.gg": "C",
+        "KairosTime": "D",
+        "HMBLE": "B"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000090.png",
+      "disagreement": 0.78,
+      "noffMergedTier": "C"
+    },
+    {
+      "name": "Maisie",
+      "score": 3.12,
+      "tier": "C",
+      "sources": {
+        "SpenLC": "D",
+        "BrawlTime Votes": "C",
+        "KairosTime": "C",
+        "BobbyBS": "C",
+        "HMBLE": "C",
+        "Driffle": "B",
+        "MmonsteR": "C",
+        "Noff.gg": "B"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000068.png",
+      "disagreement": 0.6,
+      "noffMergedTier": "B"
+    },
+    {
+      "name": "Willow",
+      "score": 2.68,
+      "tier": "C",
+      "sources": {
+        "SpenLC": "C",
+        "BrawlTime Votes": "D",
+        "KairosTime": "C",
+        "BobbyBS": "C",
+        "HMBLE": "A",
+        "Driffle": "B",
+        "MmonsteR": "C",
+        "Noff.gg": "F"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000067.png",
+      "disagreement": 1.12,
+      "noffMergedTier": "F"
+    },
+    {
+      "name": "Barley",
+      "score": 2.08,
+      "tier": "D",
+      "sources": {
+        "SpenLC": "D",
+        "BrawlTime Votes": "D",
+        "KairosTime": "C",
+        "BobbyBS": "C",
+        "HMBLE": "C",
+        "Driffle": "C",
+        "MmonsteR": "D",
+        "Noff.gg": "F"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000006.png",
+      "disagreement": 0.7,
+      "noffMergedTier": "F"
+    },
+    {
+      "name": "Surge",
+      "score": 2.52,
+      "tier": "C",
+      "sources": {
+        "SpenLC": "D",
+        "BrawlTime Votes": "B",
+        "KairosTime": "C",
+        "BobbyBS": "B",
+        "HMBLE": "D",
+        "Driffle": "F",
+        "MmonsteR": "C",
+        "Noff.gg": "D"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000038.png",
+      "disagreement": 0.99,
+      "noffMergedTier": "D"
+    },
+    {
+      "name": "Ash",
+      "score": 2.84,
+      "tier": "C",
+      "sources": {
+        "SpenLC": "D",
+        "BrawlTime Votes": "D",
+        "KairosTime": "D",
+        "BobbyBS": "C",
+        "HMBLE": "B",
+        "Driffle": "D",
+        "MmonsteR": "C",
+        "Noff.gg": "C"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000051.png",
+      "disagreement": 0.7,
+      "noffMergedTier": "C"
+    },
+    {
+      "name": "Lumi",
+      "score": 4.59,
+      "tier": "A",
+      "sources": {
+        "SpenLC": "S",
+        "BrawlTime Votes": "C",
+        "KairosTime": "C",
+        "BobbyBS": "S",
         "HMBLE": "B",
         "Ash": "A",
         "Driffle": "C",
         "MmonsteR": "C",
-        "Noff.gg": "B",
-        "Noff Ranked": "D"
+        "Noff.gg": "B"
       },
       "num_sources": 9,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000091.png",
-      "disagreement": 0.96,
-      "noffMergedTier": "C"
+      "disagreement": 1.2,
+      "noffMergedTier": "B"
     },
     {
       "name": "Colette",
-      "score": 3.37,
-      "tier": "C",
+      "score": 4.68,
+      "tier": "A",
       "sources": {
         "BrawlTime Votes": "C",
         "KairosTime": "D",
-        "BobbyBS": "C",
+        "BobbyBS": "S",
         "HMBLE": "F",
         "Ash": "S",
         "Driffle": "F",
         "MmonsteR": "D",
-        "Noff.gg": "D",
-        "Noff Ranked": "D",
-        "SpenLC": "A"
+        "Noff.gg": "S",
+        "SpenLC": "S"
       },
       "num_sources": 9,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000039.png",
-      "disagreement": 1.62,
-      "noffMergedTier": "D"
+      "disagreement": 2.16,
+      "noffMergedTier": "S"
     },
     {
       "name": "Rosa",
-      "score": 2.2,
-      "tier": "D",
+      "score": 2.5,
+      "tier": "C",
       "sources": {
         "BrawlTime Votes": "D",
         "SpenLC": "D",
         "KairosTime": "F",
-        "BobbyBS": "F",
-        "HMBLE": "F",
-        "Ash": "F",
+        "BobbyBS": "C",
+        "HMBLE": "B",
         "Driffle": "D",
         "MmonsteR": "C",
-        "Noff.gg": "C",
-        "Noff Ranked": "C"
+        "Noff.gg": "D"
       },
-      "num_sources": 9,
+      "num_sources": 8,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000024.png",
-      "disagreement": 0.79,
-      "noffMergedTier": "C"
+      "disagreement": 0.86,
+      "noffMergedTier": "D"
     },
     {
       "name": "Buzz",
-      "score": 3.91,
-      "tier": "B",
+      "score": 2.88,
+      "tier": "C",
       "sources": {
         "SpenLC": "C",
         "BrawlTime Votes": "B",
         "KairosTime": "C",
         "BobbyBS": "C",
         "HMBLE": "D",
-        "Ash": "D",
         "Driffle": "D",
         "MmonsteR": "C",
-        "Noff.gg": "S",
-        "Noff Ranked": "S"
+        "Noff.gg": "C"
       },
-      "num_sources": 9,
+      "num_sources": 8,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000049.png",
-      "disagreement": 1.2,
-      "noffMergedTier": "S"
+      "disagreement": 0.6,
+      "noffMergedTier": "C"
     },
     {
       "name": "Bonnie",
-      "score": 2.07,
+      "score": 2.23,
+      "tier": "D",
+      "sources": {
+        "SpenLC": "D",
+        "BrawlTime Votes": "D",
+        "KairosTime": "D",
+        "BobbyBS": "F",
+        "HMBLE": "D",
+        "Driffle": "C",
+        "MmonsteR": "C",
+        "Noff.gg": "C"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000058.png",
+      "disagreement": 0.66,
+      "noffMergedTier": "C"
+    },
+    {
+      "name": "Pearl",
+      "score": 3.03,
+      "tier": "C",
+      "sources": {
+        "BrawlTime Votes": "C",
+        "SpenLC": "D",
+        "KairosTime": "D",
+        "BobbyBS": "B",
+        "HMBLE": "B",
+        "Driffle": "F",
+        "MmonsteR": "C",
+        "Noff.gg": "C"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000072.png",
+      "disagreement": 0.97,
+      "noffMergedTier": "C"
+    },
+    {
+      "name": "Tick",
+      "score": 1.98,
+      "tier": "D",
+      "sources": {
+        "SpenLC": "C",
+        "BrawlTime Votes": "D",
+        "KairosTime": "C",
+        "BobbyBS": "D",
+        "Driffle": "B",
+        "MmonsteR": "D",
+        "Noff.gg": "F"
+      },
+      "num_sources": 7,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000022.png",
+      "disagreement": 0.9,
+      "noffMergedTier": "F"
+    },
+    {
+      "name": "Sprout",
+      "score": 1.84,
+      "tier": "D",
+      "sources": {
+        "SpenLC": "D",
+        "BrawlTime Votes": "D",
+        "KairosTime": "D",
+        "HMBLE": "C",
+        "Driffle": "F",
+        "MmonsteR": "D",
+        "Noff.gg": "F",
+        "BobbyBS": "D"
+      },
+      "num_sources": 8,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000037.png",
+      "disagreement": 0.6,
+      "noffMergedTier": "F"
+    },
+    {
+      "name": "Grom",
+      "score": 1.63,
       "tier": "D",
       "sources": {
         "SpenLC": "F",
         "BrawlTime Votes": "D",
         "KairosTime": "D",
         "BobbyBS": "F",
-        "HMBLE": "D",
-        "Ash": "F",
-        "Driffle": "C",
-        "MmonsteR": "C",
-        "Noff.gg": "C",
-        "Noff Ranked": "C"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000058.png",
-      "disagreement": 0.82,
-      "noffMergedTier": "C"
-    },
-    {
-      "name": "Pearl",
-      "score": 2.65,
-      "tier": "C",
-      "sources": {
-        "BrawlTime Votes": "D",
-        "SpenLC": "C",
-        "KairosTime": "D",
-        "BobbyBS": "D",
-        "HMBLE": "B",
-        "Ash": "D",
-        "Driffle": "F",
-        "MmonsteR": "C",
-        "Noff.gg": "C",
-        "Noff Ranked": "C"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000072.png",
-      "disagreement": 0.83,
-      "noffMergedTier": "C"
-    },
-    {
-      "name": "Tick",
-      "score": 2.82,
-      "tier": "C",
-      "sources": {
-        "SpenLC": "C",
-        "BrawlTime Votes": "S",
-        "KairosTime": "C",
-        "BobbyBS": "C",
-        "Ash": "F",
-        "Driffle": "B",
-        "MmonsteR": "D",
-        "Noff.gg": "C",
-        "Noff Ranked": "C"
-      },
-      "num_sources": 8,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000022.png",
-      "disagreement": 1.36,
-      "noffMergedTier": "C"
-    },
-    {
-      "name": "Sprout",
-      "score": 1.86,
-      "tier": "D",
-      "sources": {
-        "SpenLC": "C",
-        "BrawlTime Votes": "D",
-        "KairosTime": "D",
         "HMBLE": "C",
-        "Ash": "D",
-        "Driffle": "F",
-        "MmonsteR": "D",
-        "Noff.gg": "F",
-        "Noff Ranked": "F"
+        "Driffle": "A",
+        "MmonsteR": "C",
+        "Noff.gg": "F"
       },
       "num_sources": 8,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000037.png",
-      "disagreement": 0.71,
+      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000048.png",
+      "disagreement": 1.3,
       "noffMergedTier": "F"
     },
     {
-      "name": "Grom",
-      "score": 2,
-      "tier": "D",
-      "sources": {
-        "SpenLC": "F",
-        "BrawlTime Votes": "A",
-        "KairosTime": "D",
-        "BobbyBS": "D",
-        "HMBLE": "C",
-        "Ash": "F",
-        "Driffle": "A",
-        "MmonsteR": "C",
-        "Noff.gg": "D",
-        "Noff Ranked": "D"
-      },
-      "num_sources": 9,
-      "icon": "https://cdn.brawlify.com/brawlers/borderless/16000048.png",
-      "disagreement": 1.41,
-      "noffMergedTier": "D"
-    },
-    {
       "name": "Eve",
-      "score": 2.38,
+      "score": 2.2,
       "tier": "D",
       "sources": {
         "SpenLC": "C",
         "BrawlTime Votes": "D",
         "KairosTime": "D",
         "BobbyBS": "C",
-        "Ash": "D",
         "Driffle": "B",
         "MmonsteR": "C",
-        "Noff.gg": "D",
-        "Noff Ranked": "D"
+        "Noff.gg": "F"
       },
-      "num_sources": 8,
+      "num_sources": 7,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000056.png",
-      "disagreement": 0.7,
-      "noffMergedTier": "D"
+      "disagreement": 0.9,
+      "noffMergedTier": "F"
     },
     {
       "name": "El Primo",
-      "score": 2.76,
+      "score": 2.5,
       "tier": "C",
       "sources": {
         "SpenLC": "F",
@@ -2023,61 +1885,56 @@
         "KairosTime": "F",
         "BobbyBS": "F",
         "HMBLE": "A",
-        "Ash": "F",
         "Driffle": "D",
         "MmonsteR": "C",
-        "Noff.gg": "A",
-        "Noff Ranked": "A"
+        "Noff.gg": "C"
       },
-      "num_sources": 9,
+      "num_sources": 8,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000010.png",
-      "disagreement": 1.57,
-      "noffMergedTier": "A"
+      "disagreement": 1.32,
+      "noffMergedTier": "C"
     },
     {
       "name": "Pam",
-      "score": 2.37,
-      "tier": "D",
+      "score": 2.86,
+      "tier": "C",
       "sources": {
         "BrawlTime Votes": "D",
-        "SpenLC": "C",
+        "SpenLC": "D",
         "KairosTime": "C",
         "HMBLE": "B",
-        "Ash": "D",
         "Driffle": "F",
         "MmonsteR": "C",
-        "Noff.gg": "D",
-        "Noff Ranked": "D"
+        "Noff.gg": "C",
+        "BobbyBS": "C"
       },
       "num_sources": 8,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000016.png",
-      "disagreement": 0.87,
-      "noffMergedTier": "D"
+      "disagreement": 0.86,
+      "noffMergedTier": "C"
     },
     {
       "name": "Sam",
-      "score": 1.92,
-      "tier": "D",
+      "score": 1.49,
+      "tier": "F",
       "sources": {
         "SpenLC": "F",
         "BrawlTime Votes": "D",
         "KairosTime": "F",
         "BobbyBS": "F",
         "HMBLE": "C",
-        "Ash": "F",
         "Driffle": "C",
         "MmonsteR": "D",
-        "Noff.gg": "C",
-        "Noff Ranked": "C"
+        "Noff.gg": "F"
       },
-      "num_sources": 9,
+      "num_sources": 8,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000060.png",
-      "disagreement": 0.87,
-      "noffMergedTier": "C"
+      "disagreement": 0.83,
+      "noffMergedTier": "F"
     },
     {
       "name": "Mr. P",
-      "score": 1.59,
+      "score": 1.8,
       "tier": "D",
       "sources": {
         "SpenLC": "F",
@@ -2085,170 +1942,163 @@
         "KairosTime": "F",
         "BobbyBS": "F",
         "HMBLE": "A",
-        "Ash": "F",
         "Driffle": "C",
         "MmonsteR": "D",
-        "Noff.gg": "D",
-        "Noff Ranked": "D"
+        "Noff.gg": "F"
       },
-      "num_sources": 9,
+      "num_sources": 8,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000031.png",
-      "disagreement": 1.25,
-      "noffMergedTier": "D"
+      "disagreement": 1.32,
+      "noffMergedTier": "F"
     },
     {
       "name": "Clancy",
-      "score": 3.64,
+      "score": 4.14,
       "tier": "B",
       "sources": {
-        "SpenLC": "S",
-        "BrawlTime Votes": "D",
+        "SpenLC": "A",
+        "BrawlTime Votes": "B",
         "KairosTime": "F",
         "HMBLE": "A",
         "Ash": "S",
         "Driffle": "C",
         "MmonsteR": "F",
         "Noff.gg": "C",
-        "Noff Ranked": "D"
+        "BobbyBS": "A"
       },
-      "num_sources": 8,
+      "num_sources": 9,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000083.png",
-      "disagreement": 1.95,
+      "disagreement": 1.7,
       "noffMergedTier": "C"
     },
     {
       "name": "Edgar",
-      "score": 4.75,
+      "score": 4.88,
       "tier": "A",
       "sources": {
-        "SpenLC": "A",
-        "BrawlTime Votes": "C",
+        "SpenLC": "S",
+        "BrawlTime Votes": "B",
         "KairosTime": "F",
-        "BobbyBS": "D",
+        "BobbyBS": "S",
         "HMBLE": "D",
         "Ash": "S",
         "Driffle": "C",
         "MmonsteR": "D",
-        "Noff.gg": "S",
-        "Noff Ranked": "S"
+        "Noff.gg": "S"
       },
       "num_sources": 9,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000043.png",
-      "disagreement": 1.76,
+      "disagreement": 1.94,
       "noffMergedTier": "S"
     },
     {
       "name": "Gigi",
-      "score": 2.21,
-      "tier": "D",
+      "score": 2.94,
+      "tier": "C",
       "sources": {
         "SpenLC": "F",
         "BrawlTime Votes": "D",
         "KairosTime": "D",
-        "BobbyBS": "D",
+        "BobbyBS": "C",
         "HMBLE": "S",
-        "Ash": "D",
         "Driffle": "F",
         "MmonsteR": "C",
         "Noff.gg": "C"
       },
-      "num_sources": 9,
+      "num_sources": 8,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000100.png",
-      "disagreement": 1.42,
+      "disagreement": 1.49,
       "noffMergedTier": "C"
     },
     {
       "name": "Jessie",
-      "score": 1.54,
+      "score": 1.74,
       "tier": "D",
       "sources": {
         "SpenLC": "F",
         "BrawlTime Votes": "D",
         "KairosTime": "F",
         "BobbyBS": "D",
-        "HMBLE": "A",
-        "Ash": "F",
+        "HMBLE": "D",
         "Driffle": "F",
         "MmonsteR": "D",
-        "Noff.gg": "D",
-        "Noff Ranked": "D"
+        "Noff.gg": "D"
       },
-      "num_sources": 9,
+      "num_sources": 8,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000007.png",
-      "disagreement": 1.2,
+      "disagreement": 0.48,
       "noffMergedTier": "D"
     },
     {
       "name": "Jacky",
-      "score": 1.51,
+      "score": 1.6,
       "tier": "D",
       "sources": {
         "SpenLC": "F",
         "BrawlTime Votes": "D",
         "KairosTime": "F",
         "BobbyBS": "F",
-        "HMBLE": "D",
-        "Ash": "F",
+        "HMBLE": "B",
         "Driffle": "F",
         "MmonsteR": "D",
-        "Noff.gg": "D",
-        "Noff Ranked": "D"
+        "Noff.gg": "F"
       },
-      "num_sources": 9,
+      "num_sources": 8,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000034.png",
-      "disagreement": 0.5,
-      "noffMergedTier": "D"
+      "disagreement": 0.99,
+      "noffMergedTier": "F"
     },
     {
       "name": "Chuck",
-      "score": 2.14,
-      "tier": "D",
+      "score": 2.73,
+      "tier": "C",
       "sources": {
         "SpenLC": "D",
         "BrawlTime Votes": "D",
         "KairosTime": "F",
-        "BobbyBS": "D",
+        "BobbyBS": "C",
         "HMBLE": "B",
-        "Ash": "F",
         "Driffle": "D",
         "MmonsteR": "D",
-        "Noff.gg": "B",
-        "Noff Ranked": "D"
+        "Noff.gg": "C"
       },
-      "num_sources": 9,
+      "num_sources": 8,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000073.png",
-      "disagreement": 0.87,
+      "disagreement": 0.86,
       "noffMergedTier": "C"
     },
     {
       "name": "Najia",
-      "score": 5.29,
+      "score": 5.26,
       "tier": "A",
       "sources": {
-        "BrawlTime Votes": "C",
+        "BrawlTime Votes": "A",
         "SpenLC": "S",
         "HMBLE": "S",
-        "Ash": "S",
         "MmonsteR": "A",
-        "Noff.gg": "A"
+        "Noff.gg": "B",
+        "KairosTime": "S",
+        "BobbyBS": "S"
       },
-      "num_sources": 6,
+      "num_sources": 7,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000103.png",
-      "disagreement": 1.07,
-      "noffMergedTier": "A"
+      "disagreement": 0.73,
+      "noffMergedTier": "B"
     },
     {
       "name": "Damian",
-      "score": 6,
+      "score": 5.72,
       "tier": "S",
       "sources": {
         "Ash": "S",
         "Noff.gg": "S",
-        "SpenLC": "S"
+        "SpenLC": "S",
+        "BobbyBS": "S",
+        "BrawlTime Votes": "D"
       },
-      "num_sources": 3,
+      "num_sources": 5,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000104.png",
-      "disagreement": 0,
+      "disagreement": 1.6,
       "noffMergedTier": "S"
     },
     {
@@ -2256,26 +2106,24 @@
       "score": 3,
       "tier": "C",
       "sources": {
-        "BrawlTime Votes": "C",
-        "Noff.gg": "C"
+        "BrawlTime Votes": "C"
       },
-      "num_sources": 2,
+      "num_sources": 1,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000105.png",
       "disagreement": 0,
-      "noffMergedTier": "C"
+      "noffMergedTier": null
     },
     {
       "name": "Bolt",
       "score": 3,
       "tier": "C",
       "sources": {
-        "BrawlTime Votes": "C",
-        "Noff.gg": "C"
+        "BrawlTime Votes": "C"
       },
-      "num_sources": 2,
+      "num_sources": 1,
       "icon": "https://cdn.brawlify.com/brawlers/borderless/16000106.png",
       "disagreement": 0,
-      "noffMergedTier": "C"
+      "noffMergedTier": null
     }
   ]
 }

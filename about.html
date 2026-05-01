@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="BRlogo.svg" sizes="any">
+<title>About BrawlRank | Brawl Stars Tier List</title>
+<meta name="description" content="BrawlRank is an aggregated Brawl Stars tier list that blends 9 independent sources into one objective, data-driven meta ranking.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://brawlrank.com/about.html">
+<meta name="author" content="BrawlRank">
+<meta name="theme-color" content="#00e5ff">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://brawlrank.com/about.html">
+<meta property="og:title" content="About BrawlRank | Brawl Stars Tier List">
+<meta property="og:description" content="BrawlRank is an aggregated Brawl Stars tier list that blends 9 independent sources into one objective, data-driven meta ranking.">
+<meta property="og:image" content="https://brawlrank.com/social/og-home.svg">
+<meta property="og:image:alt" content="BrawlRank Brawl Stars tier list — aggregated meta rankings from 9 sources">
+<meta property="og:site_name" content="BrawlRank">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About BrawlRank | Brawl Stars Tier List">
+<meta name="twitter:description" content="BrawlRank is an aggregated Brawl Stars tier list that blends 9 independent sources into one objective, data-driven meta ranking.">
+<meta name="twitter:image" content="https://brawlrank.com/social/og-home.svg">
+<link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin>
+<link rel="dns-prefetch" href="https://fonts.cdnfonts.com">
+<link href="https://fonts.cdnfonts.com/css/clash-display" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+
+  /* ─── Noise grain overlay ─── */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9998;
+    opacity: 0.028;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 180px 180px;
+  }
+
+  /* ─── Entry animations ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .about-hero-inner > * {
+    animation: fadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .about-hero-inner > .eyebrow       { animation-delay: 0.05s; }
+  .about-hero-inner > .page-title    { animation-delay: 0.12s; }
+  .about-hero-inner > .page-lead     { animation-delay: 0.19s; }
+  .about-hero-inner > .about-hero-cta { animation-delay: 0.26s; }
+
+  /* ─── Hero: Asymmetric left-heavy ─── */
+  .page-hero {
+    padding: 80px 0 72px;
+  }
+
+  .page-hero::before {
+    width: 800px;
+    height: 500px;
+    top: -45%;
+    right: -15%;
+    left: auto;
+    background: radial-gradient(ellipse 800px 500px at 100% 0%, rgba(0, 229, 255, 0.08) 0%, rgba(0, 229, 255, 0.02) 35%, transparent 65%);
+  }
+
+  .about-hero-inner {
+    max-width: 580px;
+  }
+
+  .about-hero-inner .page-title {
+    font-size: 54px;
+    letter-spacing: -1.8px;
+    line-height: 1.02;
+    margin-bottom: 22px;
+    font-weight: 700;
+  }
+
+  .about-hero-inner .page-lead {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+    max-width: 500px;
+    text-wrap: pretty;
+    font-weight: 400;
+  }
+
+  .about-hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 28px;
+    background: var(--accent);
+    color: #0a0a0f;
+    font-family: 'Clash Display', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s, opacity 0.15s;
+  }
+  .about-hero-cta:hover {
+    opacity: 0.92;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 36px rgba(0, 229, 255, 0.25);
+  }
+  .about-hero-cta:active {
+    transform: translateY(-1px) scale(0.97);
+  }
+  .about-hero-cta svg {
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .about-hero-cta:hover svg {
+    transform: translateX(1px);
+  }
+
+
+  /* ─── Sources section: Clean borders, no card box ─── */
+  .about-sources {
+    padding: 0 0 28px;
+    animation: fadeUp 0.5s 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .about-sources .content-card {
+    border-left: 3px solid rgba(0, 229, 255, 0.35);
+    background: transparent;
+    border: none;
+    border-left: 3px solid rgba(0, 229, 255, 0.35);
+    padding: 0;
+    padding-left: 28px;
+  }
+
+  .sources-sub {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 28px;
+    line-height: 1.65;
+    max-width: 600px;
+  }
+
+  /* Table row hover with spring curve */
+  .page-table tbody tr {
+    transition: background 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .page-table tbody tr:hover {
+    background: rgba(0, 229, 255, 0.04);
+  }
+  .page-table tbody tr:hover td:first-child {
+    border-left: 2px solid rgba(0, 229, 255, 0.4);
+    padding-left: 10px;
+    transition: border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1), padding-left 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .weight-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: 'Clash Display', sans-serif;
+    letter-spacing: 0.02em;
+    transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), background 0.15s;
+  }
+  .page-table tbody tr:hover .weight-badge {
+    transform: translateY(-1px);
+  }
+  .weight-high {
+    background: rgba(52, 199, 89, 0.15);
+    color: #34c759;
+    border: 1px solid rgba(52,199,89,0.3);
+  }
+  .weight-mid {
+    background: rgba(0, 229, 255, 0.1);
+    color: var(--accent);
+    border: 1px solid rgba(0,229,255,0.25);
+  }
+  .weight-low {
+    background: rgba(255,255,255,0.05);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+  }
+
+  .sources-footnote {
+    margin-top: 24px;
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    max-width: 700px;
+  }
+
+  /* ─── Bottom asymmetric grid (70/30 instead of 50/50) ─── */
+  .about-bottom {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr;
+    gap: 28px;
+    padding-bottom: 96px;
+    animation: fadeUp 0.5s 0.38s cubic-bezier(0.22, 1, 0.36, 1) both;
+    align-items: start;
+  }
+
+  @media (max-width: 768px) {
+    .about-bottom { grid-template-columns: 1fr; padding-bottom: 64px; }
+  }
+
+  @media (max-width: 640px) {
+    .about-hero-inner .page-title { font-size: 38px; letter-spacing: -1px; }
+    .about-hero-inner .page-lead { font-size: 15px; }
+    .page-hero { padding: 48px 0 44px; }
+  }
+
+  .about-bottom .content-card {
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .about-bottom .content-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(0, 229, 255, 0.25);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+  }
+
+  /* Second card (contact) has less visual weight in asymmetric layout */
+  .about-bottom .content-card:last-child {
+    opacity: 0.95;
+  }
+
+  .about-bottom .content-card:last-child:hover {
+    opacity: 1;
+  }
+
+  .about-bottom .content-card h2 {
+    font-size: 20px;
+    margin-bottom: 14px;
+  }
+
+  .about-bottom .content-card p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+
+  .about-bottom .content-card p:last-of-type {
+    margin-bottom: 16px;
+  }
+
+  .about-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 18px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+  }
+  .about-card-link:hover {
+    background: rgba(0, 229, 255, 0.1);
+    border-color: rgba(0, 229, 255, 0.4);
+    transform: translateX(3px) translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0, 229, 255, 0.12);
+  }
+  .about-card-link:active {
+    transform: translateX(1px) translateY(0) scale(0.97);
+  }
+  .about-card-link svg {
+    flex-shrink: 0;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .about-card-link:hover svg {
+    transform: translateX(2px);
+  }
+
+  /* Active nav link */
+  .nav-links a[aria-current="page"] {
+    color: var(--text-primary);
+  }
+
+  /* Source table button styling */
+  .source-link-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 14px;
+    font-family: inherit;
+    font-weight: 700;
+    color: var(--accent);
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s;
+  }
+  .source-link-btn:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .source-link-btn:active {
+    opacity: 0.7;
+    transform: scale(0.99);
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Primary">
+  <div class="container">
+    <a href="/" class="nav-home">
+      <img src="BRlogo.svg" alt="BrawlRank logo" draggable="false">
+      <span>BrawlRank</span>
+    </a>
+    <div class="nav-links">
+      <a href="/">Tier List</a>
+      <a href="about.html" aria-current="page">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="about-hero-inner">
+        <h1 class="page-title">One tier list.<br>Nine sources.</h1>
+        <p class="page-lead">Every week, pro players and creators publish conflicting tier lists — same brawler, two tiers apart, both partly right. BrawlRank pulls from 9 independent sources and combines them into one score, weighted by data quality and how recent each rating is.</p>
+        <a href="/" class="about-hero-cta">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5"/></svg>
+          View the Tier List
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Source table -->
+  <section class="about-sources">
+    <div class="container">
+      <div class="content-card">
+        <p class="sources-sub">Base weights reflect data quality — win-rate sources count more, editorial opinions count less. All weights shrink as sources get older.</p>
+        <div class="page-table-wrap">
+          <table class="page-table">
+            <thead>
+              <tr>
+                <th>Source</th>
+                <th>Type</th>
+                <th>Base weight</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><button class="source-link-btn" data-source-name="Noff.gg" data-source-date="April 28, 2026" data-source-url="https://www.noff.gg/brawl-stars/tier-list" data-source-type="Data (Top 200 + Ranked)">Noff.gg</button></td>
+                <td style="color:var(--text-secondary)">Data — Top 200 + Ranked</td>
+                <td><span class="weight-badge weight-high">1.5×</span></td>
+              </tr>
+              <tr>
+                <td><button class="source-link-btn" data-source-name="MmonsteR" data-source-date="April 2026" data-source-url="https://mmonster.co/blog/brawl-stars-meta" data-source-type="Data (Top 200)">MmonsteR</button></td>
+                <td style="color:var(--text-secondary)">Data — Top 200 win rates</td>
+                <td><span class="weight-badge weight-high">1.3×</span></td>
+              </tr>
+              <tr>
+                <td><button class="source-link-btn" data-source-name="SpenLC" data-source-date="April 22, 2026" data-source-url="https://www.youtube.com/watch?v=8I3C-I780r0" data-source-type="Pro Player">SpenLC</button></td>
+                <td style="color:var(--text-secondary)">Pro player</td>
+                <td><span class="weight-badge weight-mid">1.0×</span></td>
+              </tr>
+              <tr>
+                <td><button class="source-link-btn" data-source-name="KairosTime" data-source-date="March 31, 2026" data-source-url="https://www.youtube.com/watch?v=3kvvBO84jx4" data-source-type="Pro Tier List">KairosTime</button></td>
+                <td style="color:var(--text-secondary)">Pro tier list</td>
+                <td><span class="weight-badge weight-mid">1.0×</span></td>
+              </tr>
+              <tr>
+                <td><button class="source-link-btn" data-source-name="Ash" data-source-date="April 26, 2026" data-source-url="https://www.youtube.com/watch?v=y4baCM7rWIs" data-source-type="Creator">Ash</button></td>
+                <td style="color:var(--text-secondary)">Creator</td>
+                <td><span class="weight-badge weight-mid">0.7×</span></td>
+              </tr>
+              <tr>
+                <td><button class="source-link-btn" data-source-name="BobbyBS" data-source-date="March 3, 2026" data-source-url="https://www.youtube.com/watch?v=qpRBEf4Vs6Q" data-source-type="Creator + 10 Pros">BobbyBS</button></td>
+                <td style="color:var(--text-secondary)">Creator + 10 pros</td>
+                <td><span class="weight-badge weight-mid">0.7×</span></td>
+              </tr>
+              <tr>
+                <td><button class="source-link-btn" data-source-name="HMBLE" data-source-date="March 12, 2026" data-source-url="https://www.youtube.com/watch?v=dmqCRfwz3Zk" data-source-type="Pro Team">HMBLE</button></td>
+                <td style="color:var(--text-secondary)">Pro team</td>
+                <td><span class="weight-badge weight-mid">0.7×</span></td>
+              </tr>
+              <tr>
+                <td><button class="source-link-btn" data-source-name="BrawlTime Votes" data-source-date="April 28, 2026" data-source-url="https://brawltime.ninja/tier-list/brawler" data-source-type="Community (231K Votes)">BrawlTime Votes</button></td>
+                <td style="color:var(--text-secondary)">Community (231K+ votes)</td>
+                <td><span class="weight-badge weight-low">0.3×</span></td>
+              </tr>
+              <tr>
+                <td><button class="source-link-btn" data-source-name="Driffle" data-source-date="April 2026" data-source-url="https://driffle.com/blog/brawl-stars-tier-list/" data-source-type="Editorial">Driffle</button></td>
+                <td style="color:var(--text-secondary)">Editorial</td>
+                <td><span class="weight-badge weight-low">0.4×</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="sources-footnote">Tiers map to numbers (S = 6, A = 5, B = 4, C = 3, D = 2, F = 1). BrawlRank averages them, weighted by source quality and age. Past 15 days old, each source's weight halves every 7 days.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom row -->
+  <div class="about-bottom container">
+
+    <div class="content-card">
+      <h2>Update schedule</h2>
+      <p>BrawlRank updates after major patches and ranked season resets, when the sources it tracks publish new data. Check the footer for the version and date.</p>
+      <p>Every update logs which brawlers moved tiers since the previous version.</p>
+      <a href="changelog.html" class="about-card-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        View the Changelog
+      </a>
+    </div>
+
+    <div class="content-card">
+      <h2>Built by Tech-savvies</h2>
+      <p>BrawlRank is an independent fan site built and maintained by <a href="https://tech-savvies.com/" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:none;">Tech-savvies</a>. Not affiliated with or endorsed by Supercell.</p>
+      <p>Spotted a wrong rating? Know a source worth adding? Use the contact page.</p>
+      <a href="contact.html" class="about-card-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+        Contact BrawlRank
+      </a>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- GENERATED_FOOTER_START -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-links">
+      <a href="/">Tier List</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="https://tech-savvies.com/" target="_blank" rel="noopener noreferrer">Built by Tech-savvies</a>
+    </div>
+    <button class="footer-version" id="siteVersion" type="button" aria-haspopup="dialog">Version --</button>
+    <p class="footer-disclaimer">BrawlRank is an independent fan site and is not affiliated with, endorsed by, or connected to Supercell. Brawl Stars is a trademark of Supercell.</p>
+    <p class="footer-copyright">© 2026 BrawlRank. All rights reserved.</p>
+  </div>
+</footer>
+<!-- GENERATED_FOOTER_END -->
+
+<script src="version-modal.js"></script>
+<script src="source-detail.js"></script>
+
+</body>
+</html>

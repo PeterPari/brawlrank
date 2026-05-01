@@ -1,15 +1,273 @@
 {
-  "generated": "2026-04-29T22:53:47.758Z",
-  "current_version": "3.0.1",
+  "generated": "2026-05-01T01:30:47.464Z",
+  "current_version": "3.1",
   "description": "Week-over-week tier change history. Updated automatically by the build script each data refresh. Consumable at https://brawlrank.com/changelog.json",
   "entries": [
+    {
+      "version": "3.1",
+      "date": "2026-05-01",
+      "label": "April 30, 2026",
+      "brawler_count": 104,
+      "source_count": 9,
+      "summary": "Data refresh for April 30, 2026. 41 tier changes.",
+      "tier_changes": [
+        {
+          "brawler": "Crow",
+          "previous_tier": "A",
+          "current_tier": "S",
+          "note": ""
+        },
+        {
+          "brawler": "Leon",
+          "previous_tier": "A",
+          "current_tier": "S",
+          "note": ""
+        },
+        {
+          "brawler": "Pierce",
+          "previous_tier": "A",
+          "current_tier": "S",
+          "note": ""
+        },
+        {
+          "brawler": "Emz",
+          "previous_tier": "B",
+          "current_tier": "A",
+          "note": ""
+        },
+        {
+          "brawler": "Otis",
+          "previous_tier": "B",
+          "current_tier": "A",
+          "note": ""
+        },
+        {
+          "brawler": "Griff",
+          "previous_tier": "B",
+          "current_tier": "A",
+          "note": ""
+        },
+        {
+          "brawler": "Colette",
+          "previous_tier": "C",
+          "current_tier": "A",
+          "note": ""
+        },
+        {
+          "brawler": "Shade",
+          "previous_tier": "B",
+          "current_tier": "A",
+          "note": ""
+        },
+        {
+          "brawler": "Lumi",
+          "previous_tier": "B",
+          "current_tier": "A",
+          "note": ""
+        },
+        {
+          "brawler": "Byron",
+          "previous_tier": "B",
+          "current_tier": "A",
+          "note": ""
+        },
+        {
+          "brawler": "Bibi",
+          "previous_tier": "A",
+          "current_tier": "B",
+          "note": ""
+        },
+        {
+          "brawler": "Glowbert",
+          "previous_tier": "C",
+          "current_tier": "B",
+          "note": ""
+        },
+        {
+          "brawler": "Moe",
+          "previous_tier": "C",
+          "current_tier": "B",
+          "note": ""
+        },
+        {
+          "brawler": "Lily",
+          "previous_tier": "A",
+          "current_tier": "B",
+          "note": ""
+        },
+        {
+          "brawler": "Jae-yong",
+          "previous_tier": "C",
+          "current_tier": "B",
+          "note": ""
+        },
+        {
+          "brawler": "Gene",
+          "previous_tier": "C",
+          "current_tier": "B",
+          "note": ""
+        },
+        {
+          "brawler": "Charlie",
+          "previous_tier": "C",
+          "current_tier": "B",
+          "note": ""
+        },
+        {
+          "brawler": "Carl",
+          "previous_tier": "C",
+          "current_tier": "B",
+          "note": ""
+        },
+        {
+          "brawler": "Finx",
+          "previous_tier": "C",
+          "current_tier": "B",
+          "note": ""
+        },
+        {
+          "brawler": "Melodie",
+          "previous_tier": "C",
+          "current_tier": "B",
+          "note": ""
+        },
+        {
+          "brawler": "Lou",
+          "previous_tier": "C",
+          "current_tier": "B",
+          "note": ""
+        },
+        {
+          "brawler": "Amber",
+          "previous_tier": "B",
+          "current_tier": "C",
+          "note": ""
+        },
+        {
+          "brawler": "Gray",
+          "previous_tier": "B",
+          "current_tier": "C",
+          "note": ""
+        },
+        {
+          "brawler": "Kenji",
+          "previous_tier": "B",
+          "current_tier": "C",
+          "note": ""
+        },
+        {
+          "brawler": "Ziggy",
+          "previous_tier": "B",
+          "current_tier": "C",
+          "note": ""
+        },
+        {
+          "brawler": "R-T",
+          "previous_tier": "B",
+          "current_tier": "C",
+          "note": ""
+        },
+        {
+          "brawler": "Maisie",
+          "previous_tier": "D",
+          "current_tier": "C",
+          "note": ""
+        },
+        {
+          "brawler": "Alli",
+          "previous_tier": "A",
+          "current_tier": "C",
+          "note": ""
+        },
+        {
+          "brawler": "Gigi",
+          "previous_tier": "D",
+          "current_tier": "C",
+          "note": ""
+        },
+        {
+          "brawler": "Piper",
+          "previous_tier": "B",
+          "current_tier": "C",
+          "note": ""
+        },
+        {
+          "brawler": "Buzz",
+          "previous_tier": "B",
+          "current_tier": "C",
+          "note": ""
+        },
+        {
+          "brawler": "Pam",
+          "previous_tier": "D",
+          "current_tier": "C",
+          "note": ""
+        },
+        {
+          "brawler": "Ash",
+          "previous_tier": "D",
+          "current_tier": "C",
+          "note": ""
+        },
+        {
+          "brawler": "Berry",
+          "previous_tier": "D",
+          "current_tier": "C",
+          "note": ""
+        },
+        {
+          "brawler": "Chuck",
+          "previous_tier": "D",
+          "current_tier": "C",
+          "note": ""
+        },
+        {
+          "brawler": "Rosa",
+          "previous_tier": "D",
+          "current_tier": "C",
+          "note": ""
+        },
+        {
+          "brawler": "Juju",
+          "previous_tier": "C",
+          "current_tier": "D",
+          "note": ""
+        },
+        {
+          "brawler": "Darryl",
+          "previous_tier": "C",
+          "current_tier": "D",
+          "note": ""
+        },
+        {
+          "brawler": "Doug",
+          "previous_tier": "C",
+          "current_tier": "D",
+          "note": ""
+        },
+        {
+          "brawler": "Tick",
+          "previous_tier": "C",
+          "current_tier": "D",
+          "note": ""
+        },
+        {
+          "brawler": "Sam",
+          "previous_tier": "D",
+          "current_tier": "F",
+          "note": ""
+        }
+      ],
+      "new_brawlers": [],
+      "removed_brawlers": []
+    },
     {
       "version": "3.0.1",
       "date": "2026-04-29",
       "label": "April 29, 2026",
       "brawler_count": 104,
       "source_count": 9,
-      "summary": "Data refresh for April 29, 2026.",
+      "summary": "Decay info tooltips added to every decay indicator across all pages. Decay half-life extended from 12 hours to 7 days for more stable, less volatile rankings. Fixed changelog display. Removed the blog page and all references to it. Added LLMs.txt and a plain-text homepage mirror for AI indexing. Updated sitemap and added a README with the early access link.",
       "tier_changes": [],
       "new_brawlers": [],
       "removed_brawlers": []
@@ -20,7 +278,7 @@
       "label": "April 28, 2026",
       "brawler_count": 104,
       "source_count": 9,
-      "summary": "Major overhaul. Every brawler now has a dedicated page with full source breakdowns, tier history context, and SEO metadata. Added source-detail modal with methodology and weight explanations. Added recency decay tooltip. Full redesign of layout, typography, and card system. Najia added to roster.",
+      "summary": "Major release. Every brawler now has a dedicated page with full source breakdowns and tier context. Source decay indicators show how fresh each ranking is. Redesigned decayed source cards on the homepage to match the site's visual style. Other-tier brawlers are now displayed as an icon grid instead of a text list. Added a low-source warning on pages with fewer than 3 rankings. Unified the footer across the site. Cleaned up brawler page navigation.",
       "tier_changes": [],
       "new_brawlers": [
         "Najia"

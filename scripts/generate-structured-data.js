@@ -657,7 +657,6 @@ function buildHomepageFooter(staticPages) {
     `      <a href="/">Tier List</a>`,
     ...staticLinks,
     '      <a href="https://tech-savvies.com/" target="_blank" rel="noopener noreferrer">Built by Tech-savvies</a>',
-    '      <a href="https://brawlify.com" target="_blank" rel="noopener noreferrer">Data: Brawlify</a>',
     '    </div>',
     '    <button class="footer-version" id="siteVersion" type="button" aria-haspopup="dialog">Version --</button>',
     '    <p class="footer-disclaimer">BrawlRank is an independent fan site and is not affiliated with, endorsed by, or connected to Supercell. Brawl Stars is a trademark of Supercell.</p>',
@@ -711,7 +710,6 @@ function buildFooter(relativePrefix, staticPages) {
     `      <a href="${relativePrefix}">Tier List</a>`,
     ...staticLinks,
     '      <a href="https://tech-savvies.com/" target="_blank" rel="noopener noreferrer">Built by Tech-savvies</a>',
-    '      <a href="https://brawlify.com" target="_blank" rel="noopener noreferrer">Data: Brawlify</a>',
     '    </div>',
     '    <button class="footer-version" id="siteVersion" type="button" aria-haspopup="dialog">Version --</button>',
     '    <p class="footer-disclaimer">BrawlRank is an independent fan site and is not affiliated with, endorsed by, or connected to Supercell. Brawl Stars is a trademark of Supercell.</p>',
@@ -723,7 +721,7 @@ function buildFooter(relativePrefix, staticPages) {
   ].join('\n');
 }
 
-function buildHead({ title, description, canonical, ogTitle, ogDescription, ogImage, relativePrefix, articleModifiedTime, jsonLdMarkup = '' }) {
+function buildHead({ title, description, canonical, ogTitle, ogDescription, ogImage, ogImageAlt = '', relativePrefix, articleModifiedTime, jsonLdMarkup = '' }) {
   return [
     '<head>',
     '<meta charset="UTF-8">',
@@ -741,7 +739,9 @@ function buildHead({ title, description, canonical, ogTitle, ogDescription, ogIm
     `<meta property="og:title" content="${escapeHtml(ogTitle)}">`,
     `<meta property="og:description" content="${escapeHtml(ogDescription)}">`,
     `<meta property="og:image" content="${escapeHtml(ogImage)}">`,
+    ogImageAlt ? `<meta property="og:image:alt" content="${escapeHtml(ogImageAlt)}">` : '',
     '<meta property="og:site_name" content="BrawlRank">',
+    '<meta property="og:locale" content="en_US">',
     '<meta name="twitter:card" content="summary_large_image">',
     `<meta name="twitter:title" content="${escapeHtml(ogTitle)}">`,
     `<meta name="twitter:description" content="${escapeHtml(ogDescription)}">`,
@@ -807,6 +807,7 @@ function buildBrawlersIndexPage(data, rankedBrawlers, groupedBrawlers, updatedDa
       ogTitle: title,
       ogDescription: description,
       ogImage: getSocialUrl('social/og-home.svg'),
+      ogImageAlt: 'BrawlRank Brawl Stars tier list — aggregated meta rankings from 9 sources',
       relativePrefix: '../',
       articleModifiedTime: toIsoDateTime(updatedDate),
       jsonLdMarkup
@@ -962,6 +963,7 @@ function buildBrawlerPage(data, rankedBrawlers, groupedBrawlers, brawler, update
       ogTitle: `${brawler.name} is ${brawler.tier} Tier | BrawlRank`,
       ogDescription: `${brawler.name} scored ${brawler.score.toFixed(2)} out of 6.00 across ${data.total_sources} weighted Brawl Stars meta sources.`,
       ogImage: brawler.ogImage,
+      ogImageAlt: `${brawler.name} — ${brawler.tier} Tier in Brawl Stars | BrawlRank score ${brawler.score.toFixed(2)}/6.00`,
       relativePrefix: '../../',
       articleModifiedTime: toIsoDateTime(updatedDate),
       jsonLdMarkup: articleJsonLd
@@ -1053,6 +1055,7 @@ function buildSitemapXml(updatedDate, rankedBrawlers, staticPages) {
   const lastmod = toIsoDate(updatedDate);
   const urls = [
     { loc: SITE_URL, priority: '1.0', changefreq: 'weekly' },
+    { loc: `${SITE_URL}changelog.html`, priority: '0.5', changefreq: 'monthly' },
     ...staticPages.map((page) => ({ loc: page.href, priority: '0.5', changefreq: 'monthly' })),
     ...rankedBrawlers.map((brawler) => ({ loc: brawler.url, priority: '0.7', changefreq: 'weekly' }))
   ];
@@ -1104,11 +1107,11 @@ function writeBrawlerPages(data, rankedBrawlers, groupedBrawlers, updatedDate, s
   });
 }
 
-function writeSocialAssets(rankedBrawlers, data) {
+function writeSocialAssets(data, displayDate) {
   ensureDir(socialDir);
 
   fs.writeFileSync(path.join(socialDir, 'og-home.svg'), buildHomeOgSvg({
-    lastUpdated: data.last_updated,
+    lastUpdated: displayDate,
     sourceCount: data.total_sources
   }));
 }
@@ -1182,17 +1185,26 @@ function updateChangelog(currentData, currentRankedBrawlers) {
 
 function main() {
   const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+  const versionDatePath = path.join(rootDir, 'version-date');
+  if (fs.existsSync(versionDatePath)) {
+    data.last_updated = fs.readFileSync(versionDatePath, 'utf8').trim();
+  }
   const updatedDate = parseLastUpdated(data.last_updated);
   const staticPages = getExistingStaticPages();
   const rankedBrawlers = computeRankedBrawlers(data);
   const groupedBrawlers = groupBrawlersByTier(rankedBrawlers);
   const faqEntries = buildFaqEntries(data, rankedBrawlers);
 
+  const versionDateFile = path.join(rootDir, 'version-date');
+  const displayDate = fs.existsSync(versionDateFile)
+    ? fs.readFileSync(versionDateFile, 'utf8').trim()
+    : data.last_updated;
+
   const indexHtml = fs.readFileSync(indexPath, 'utf8');
   const updatedHomepage = updateHomepage(indexHtml, data, rankedBrawlers, groupedBrawlers, faqEntries, updatedDate, staticPages);
 
   fs.writeFileSync(indexPath, updatedHomepage);
-  writeSocialAssets(rankedBrawlers, data);
+  writeSocialAssets(data, displayDate);
   writeBrawlerPages(data, rankedBrawlers, groupedBrawlers, updatedDate, staticPages);
   fs.writeFileSync(sitemapPath, buildSitemapXml(updatedDate, rankedBrawlers, staticPages));
 

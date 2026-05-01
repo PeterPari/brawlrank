@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="BRlogo.svg" sizes="any">
+<title>Privacy Policy | BrawlRank</title>
+<meta name="description" content="BrawlRank privacy policy — how we use analytics, advertising, and what data is collected.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://brawlrank.com/privacy.html">
+<meta name="author" content="BrawlRank">
+<meta name="theme-color" content="#00e5ff">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://brawlrank.com/privacy.html">
+<meta property="og:title" content="Privacy Policy | BrawlRank">
+<meta property="og:description" content="BrawlRank privacy policy — how we use analytics, advertising, and what data is collected.">
+<meta property="og:image" content="https://brawlrank.com/social/og-home.svg">
+<meta property="og:image:alt" content="BrawlRank Brawl Stars tier list — aggregated meta rankings from 9 sources">
+<meta property="og:site_name" content="BrawlRank">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Privacy Policy | BrawlRank">
+<meta name="twitter:description" content="BrawlRank privacy policy — how we use analytics, advertising, and what data is collected.">
+<meta name="twitter:image" content="https://brawlrank.com/social/og-home.svg">
+<link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin>
+<link rel="dns-prefetch" href="https://fonts.cdnfonts.com">
+<link href="https://fonts.cdnfonts.com/css/clash-display" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* Header */
+  .privacy-header {
+    padding: 48px 0 40px;
+    border-bottom: 1px solid var(--border);
+  }
+  .privacy-header .page-title { margin-bottom: 12px; }
+  .privacy-header .page-lead { margin-bottom: 24px; }
+
+  /* At-a-glance pills */
+  .status-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 14px 6px 10px;
+    background: rgba(52, 199, 89, 0.08);
+    border: 1px solid rgba(52, 199, 89, 0.22);
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #34c759;
+    line-height: 1;
+  }
+  .status-pill svg { flex-shrink: 0; }
+
+  /* Two-column layout */
+  .privacy-body {
+    padding: 48px 0 80px;
+  }
+  .privacy-layout {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  @media (max-width: 820px) {
+    .privacy-layout { grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  /* TOC */
+  .privacy-toc {
+    position: sticky;
+    top: 76px;
+  }
+  .toc-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+  }
+  .toc-heading {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    padding: 0 8px;
+    margin-bottom: 8px;
+  }
+  .toc-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+  @media (max-width: 820px) {
+    .toc-list { flex-direction: row; flex-wrap: wrap; }
+  }
+  .toc-link {
+    display: block;
+    padding: 6px 8px;
+    border-radius: 6px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+    white-space: nowrap;
+  }
+  .toc-link:hover {
+    background: var(--bg-elevated);
+    color: var(--text-primary);
+  }
+
+  /* Policy sections */
+  .privacy-sections {
+    display: flex;
+    flex-direction: column;
+  }
+  .policy-section {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border);
+    scroll-margin-top: 88px;
+  }
+  .policy-section:first-child { padding-top: 0; }
+  .policy-section:last-child { border-bottom: none; padding-bottom: 0; }
+  .policy-num {
+    font-family: 'Clash Display', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .policy-section h2 {
+    font-family: 'Clash Display', sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 14px;
+  }
+  .policy-section p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.72;
+    margin-bottom: 10px;
+  }
+  .policy-section p:last-child { margin-bottom: 0; }
+  .policy-section a { color: var(--accent); text-decoration: none; }
+  .policy-section a:hover { text-decoration: underline; }
+  .policy-section ul {
+    margin: 8px 0 10px 18px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.72;
+  }
+  .policy-section li { margin-bottom: 5px; }
+  .policy-section li:last-child { margin-bottom: 0; }
+</style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Primary">
+  <div class="container">
+    <a href="/" class="nav-home">
+      <img src="BRlogo.svg" alt="BrawlRank logo" draggable="false">
+      <span>BrawlRank</span>
+    </a>
+    <div class="nav-links">
+      <a href="/">Tier List</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html" aria-current="page">Privacy Policy</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+  <!-- Header -->
+  <header class="privacy-header">
+    <div class="container">
+      <span class="eyebrow">Last updated April 30, 2026</span>
+      <h1 class="page-title">Privacy Policy</h1>
+      <p class="page-lead">What BrawlRank collects, how it's used, and how to control it.</p>
+      <div class="status-row" role="list">
+        <span class="status-pill" role="listitem">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+          No personal data collected
+        </span>
+        <span class="status-pill" role="listitem">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+          Analytics requires your consent
+        </span>
+        <span class="status-pill" role="listitem">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+          Opt out of personalized ads anytime
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Body: TOC + sections -->
+  <section class="privacy-body">
+    <div class="container">
+      <div class="privacy-layout">
+
+        <!-- Sticky TOC -->
+        <nav class="privacy-toc" aria-label="Policy sections">
+          <div class="toc-card">
+            <p class="toc-heading">Contents</p>
+            <ol class="toc-list">
+              <li><a href="#advertising" class="toc-link">Advertising</a></li>
+              <li><a href="#analytics" class="toc-link">Analytics</a></li>
+              <li><a href="#cookies" class="toc-link">Cookies</a></li>
+              <li><a href="#data" class="toc-link">Data collected</a></li>
+              <li><a href="#eu" class="toc-link">EU consent</a></li>
+              <li><a href="#children" class="toc-link">Children's privacy</a></li>
+              <li><a href="#third-party" class="toc-link">Third-party links</a></li>
+              <li><a href="#changes" class="toc-link">Policy changes</a></li>
+              <li><a href="#contact" class="toc-link">Contact</a></li>
+            </ol>
+          </div>
+        </nav>
+
+        <!-- Sections -->
+        <div class="privacy-sections">
+
+          <div class="policy-section" id="advertising">
+            <p class="policy-num">01 — Advertising</p>
+            <h2>Google AdSense</h2>
+            <p>BrawlRank uses Google AdSense to display ads. Google and its advertising partners use cookies to serve ads based on your prior visits to this site and other websites.</p>
+            <p>To learn more about how Google uses data when you use BrawlRank, visit <a href="https://www.google.com/policies/privacy/partners/" target="_blank" rel="noopener noreferrer">google.com/policies/privacy/partners</a>.</p>
+            <p>You can opt out of personalized advertising via <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Google Ads Settings</a>, the <a href="https://optout.aboutads.info/" target="_blank" rel="noopener noreferrer">Digital Advertising Alliance</a>, or the <a href="https://www.youronlinechoices.eu/" target="_blank" rel="noopener noreferrer">EDAA opt-out tool</a> (EU).</p>
+          </div>
+
+          <div class="policy-section" id="analytics">
+            <p class="policy-num">02 — Analytics</p>
+            <h2>Microsoft Clarity</h2>
+            <p>BrawlRank uses Microsoft Clarity for session analytics — heatmaps, session recordings, and aggregated usage data — to understand how visitors use the site.</p>
+            <p>Clarity loads only after you accept the analytics consent banner. No data is collected before consent. Dismiss the banner and no analytics cookies are set.</p>
+            <p>For details on how Microsoft handles this data, see the <a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank" rel="noopener noreferrer">Microsoft Privacy Statement</a>.</p>
+          </div>
+
+          <div class="policy-section" id="cookies">
+            <p class="policy-num">03 — Cookies</p>
+            <h2>Cookies</h2>
+            <p>BrawlRank sets no first-party cookies and stores no personal data on its own servers. Two third-party services may set cookies:</p>
+            <ul>
+              <li><strong>Google AdSense</strong> — advertising cookies set by Google and its partners. Present regardless of the analytics consent banner.</li>
+              <li><strong>Microsoft Clarity</strong> — session analytics cookies, set only after you accept the consent banner.</li>
+            </ul>
+            <p>You can manage or delete cookies in your browser settings. Disabling cookies may affect ad relevance.</p>
+          </div>
+
+          <div class="policy-section" id="data">
+            <p class="policy-num">04 — Data collected</p>
+            <h2>Data we collect</h2>
+            <p>BrawlRank requires no account, collects no personal information, and runs no forms that submit data to BrawlRank servers. All tier list data comes from publicly available third-party rankings and statistics.</p>
+            <p>Any data collection that occurs is performed by Google AdSense and Microsoft Clarity under their own privacy policies.</p>
+          </div>
+
+          <div class="policy-section" id="eu">
+            <p class="policy-num">05 — EU consent</p>
+            <h2>EU user consent</h2>
+            <p>BrawlRank complies with <a href="https://www.google.com/about/company/user-consent-policy.html" target="_blank" rel="noopener noreferrer">Google's EU User Consent Policy</a>. The analytics consent banner lets EU/EEA users opt in or out of Clarity analytics before any cookies are placed. Google AdSense operates under its own consent mechanisms.</p>
+          </div>
+
+          <div class="policy-section" id="children">
+            <p class="policy-num">06 — Children's privacy</p>
+            <h2>COPPA</h2>
+            <p>BrawlRank is not directed at children under 13. We don't knowingly collect personal information from anyone under 13. If you believe a child under 13 has submitted personal information through this site, contact us and we'll remove it.</p>
+          </div>
+
+          <div class="policy-section" id="third-party">
+            <p class="policy-num">07 — Third-party links</p>
+            <h2>External sites</h2>
+            <p>BrawlRank links to YouTube, Noff.gg, MmonsteR, Driffle, BrawlTime.ninja, and other external sites. Each has its own privacy policy. BrawlRank is not responsible for their data practices.</p>
+          </div>
+
+          <div class="policy-section" id="changes">
+            <p class="policy-num">08 — Policy changes</p>
+            <h2>Changes to this policy</h2>
+            <p>This policy may be updated from time to time. The "last updated" date at the top of the page reflects the most recent revision. Continued use of BrawlRank after changes constitutes acceptance.</p>
+          </div>
+
+          <div class="policy-section" id="contact">
+            <p class="policy-num">09 — Contact</p>
+            <h2>Contact</h2>
+            <p>Privacy questions? Use the <a href="contact.html">contact page</a> or reach out through <a href="https://tech-savvies.com/" target="_blank" rel="noopener noreferrer">Tech-savvies.com</a>.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- GENERATED_FOOTER_START -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-links">
+      <a href="/">Tier List</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="https://tech-savvies.com/" target="_blank" rel="noopener noreferrer">Built by Tech-savvies</a>
+    </div>
+    <button class="footer-version" id="siteVersion" type="button" aria-haspopup="dialog">Version --</button>
+    <p class="footer-disclaimer">BrawlRank is an independent fan site and is not affiliated with, endorsed by, or connected to Supercell. Brawl Stars is a trademark of Supercell.</p>
+    <p class="footer-copyright">© 2026 BrawlRank. All rights reserved.</p>
+  </div>
+</footer>
+<!-- GENERATED_FOOTER_END -->
+
+<script src="version-modal.js"></script>
+
+</body>
+</html>
